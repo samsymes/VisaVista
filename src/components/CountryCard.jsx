@@ -1,14 +1,12 @@
-function Body() {
+import flag from "../images/flag.png";
+function CountryCard() {
   return (
     <>
       <div className="card" style={{ width: "18rem" }}>
-        {/* <img src="..." className="card-img-top" alt="..." /> country flag*/}
+        <img src={flag} className="card-img-top" alt="flag of chosen country" />
         <div className="card-body">
           <h5 className="card-title">Chosen Country</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the cards content.
-          </p>
+          <p className="card-text">visa requirements for your chosen country</p>
           <a href="#" className="btn btn-primary">
             Go somewhere
           </a>
@@ -18,4 +16,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default CountryCard;
