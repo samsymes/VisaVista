@@ -1,19 +1,14 @@
-import Dropdown from 'react-bootstrap/Dropdown';
-
 function Menu() {
-return (
-<Dropdown>
-    <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-    </Dropdown.Toggle>
-
-    <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-    </Dropdown.Menu>
-</Dropdown>
-);
+  return (
+    <>
+      <select className="form-select" aria-label="Default select example">
+        <option defaultValue>select nationality/destination</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </>
+  );
 }
 
 export default Menu;
