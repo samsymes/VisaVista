@@ -25,6 +25,11 @@
 .card {
     margin: 1rem auto;
     padding: 2rem;
+
+}
+
+#countryCard.card {
+    width: 18rem;
 }
 
 .logo {
