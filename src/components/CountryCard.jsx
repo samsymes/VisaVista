@@ -1,7 +1,7 @@
 import canada from "../images/canada.png";
 
 function CountryCard(props) {
-  console.log(props.country);
+  console.log(props.country, props.flag);
   return (
     <div className="card" id="countryCard">
       <img src={canada} className="card-img-top" alt="flag of chosen country" />
