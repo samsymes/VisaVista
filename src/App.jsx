@@ -15,7 +15,7 @@ function App() {
         <Menu />
       </div>
       <div className="row">
-        <CountryCard />
+        <CountryCard country="canada" />
         <ChecklistCard />
       </div>
 
