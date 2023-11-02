@@ -9,7 +9,7 @@ DisplayFlag.propTypes = {
 };
 
 function CountryPicker() {
-  const [selectedCountry, setselectedCountry] = useState("canada");
+  const [selectedCountry, setselectedCountry] = useState("");
 
   const handleCountryChange = (event) => {
     setselectedCountry(event.target.value);
@@ -23,6 +23,7 @@ function CountryPicker() {
         className="menu form-select"
         aria-label="Default select example"
       >
+        <option defaultValue="default">Select a country</option>
         <option value="canada">Canada</option>
         <option value="usa">United States</option>
         <option value="mexico">Mexico</option>
