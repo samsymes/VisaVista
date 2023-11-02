@@ -54,3 +54,4 @@ function DisplayFlag(props) {
 }
 
 export default CountryPicker;
+export { DisplayFlag };
