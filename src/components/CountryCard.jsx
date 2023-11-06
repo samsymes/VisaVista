@@ -1,10 +1,12 @@
-import DisplayFlag from "./CountryPicker";
+// import DisplayFlag from "./DisplayFlag";
+
 function CountryCard() {
   return (
     <div className="card" id="countryCard">
       <div className="card-body">
-        <DisplayFlag />
+        {/* <DisplayFlag selectedCountry={selectedCountry} /> */}
         <h5 className="card-title">Chosen Country</h5>
+        <p>**selected flag here**</p>
         <p className="card-text">visa requirements for your chosen country</p>
         <a href="#" className="btn btn-primary">
           Go somewhere

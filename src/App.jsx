@@ -1,10 +1,11 @@
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import CountryCard from "./components/CountryCard";
-
 import ChecklistCard from "./components/checklistCard";
-import "./App.css";
 import AddDocument from "./components/AddDocument";
+import SelectMenu from "./components/SelectMenu";
+
+import "./App.css";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div>
         <Navbar />
         <Header />
+        <SelectMenu />
       </div>
       <div className="row">
         <CountryCard />
