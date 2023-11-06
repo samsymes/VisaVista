@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import CountryCard from "./components/CountryCard";
-import CountryPicker from "./components/CountryPicker";
+
 import ChecklistCard from "./components/checklistCard";
 import "./App.css";
 import AddDocument from "./components/AddDocument";
@@ -12,7 +12,6 @@ function App() {
       <div>
         <Navbar />
         <Header />
-        <CountryPicker />
       </div>
       <div className="row">
         <CountryCard />

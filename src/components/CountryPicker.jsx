@@ -46,9 +46,9 @@ function DisplayFlag(props) {
   return (
     <img
       src={flags[selectedCountry]}
-      className="card-img-top"
+      className="countryFlag"
+      id="flag"
       alt={selectedCountry}
-      style={{ width: "100px" }}
     />
   );
 }

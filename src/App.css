@@ -11,6 +11,10 @@
 
 }
 
+#flag {
+    width: 100px;
+}
+
 .form-select {
     max-width: fit-content;
     margin: 5px auto;
@@ -26,6 +30,11 @@
     margin: 1rem auto;
     padding: 2rem;
 
+
+}
+
+#checkListCard.card {
+    width: 18rem;
 }
 
 #countryCard.card {
