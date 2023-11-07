@@ -1,4 +1,4 @@
-import Button from "./Button";
+// import Button from "./Button";
 function ChecklistCard() {
   return (
     <>
@@ -66,7 +66,7 @@ function ChecklistCard() {
                 aria-label="Text input with checkbox"
               />
             </div>
-            <Button text="Add To Checklist" />
+            {/* <Button text="Add To Checklist" /> */}
           </div>
         </div>
       </div>

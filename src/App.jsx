@@ -9,17 +9,17 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const handleCountryChange = (event) => {
-    setSelectedCountry(event.target.value);
-  };
+  const [selectedCountry, setSelectedCountry] = useState("canada");
 
   return (
     <>
       <div>
         <Navbar />
         <Header />
-        <Select value={selectedCountry} onChange={handleCountryChange} />
+        <Select
+          value={selectedCountry}
+          onChange={(event) => setSelectedCountry(event.target.value)}
+        />
       </div>
       <div className="row">
         <CountryCard country={selectedCountry} />

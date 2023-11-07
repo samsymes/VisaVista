@@ -2,7 +2,7 @@ import { propTypes } from "prop-types";
 
 function Select(props) {
   return (
-    <select value={props.value} onChange={props.onChange}>
+    <select value={props.value} onChange={props.onChange()}>
       {props.options.map((option) => {
         return (
           <option key={option} value={option}>
