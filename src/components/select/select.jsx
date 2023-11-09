@@ -1,11 +1,11 @@
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 
 function Select(props) {
   return (
     <select value={props.value} onChange={props.onChange}>
-      {props.options.map((country, index) => (
-        <option key={country.value} value={index}>
-          {country.label}
+      {props.options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.label}
         </option>
       ))}
     </select>
@@ -13,14 +13,14 @@ function Select(props) {
 }
 
 Select.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.string,
   onChange: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string,
       value: PropTypes.string,
+      label: PropTypes.string,
     })
-  ),
+  ).isRequired,
 };
 
 export default Select;

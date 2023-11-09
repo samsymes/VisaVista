@@ -5,14 +5,15 @@ import ChecklistCard from "./components/checklistCard";
 import AddDocument from "./components/AddDocument";
 import Select from "./components/select/select";
 import { useState, useEffect } from "react";
-import canada from "./images/canada.png";
-import usa from "./images/usa.png";
-import mexico from "./images/mexico.png";
 
 import "./App.css";
 
 function App() {
-  const [selectedCountry, setSelectedCountry] = useState(0);
+  // countries from fetch
+  const [countryList, setCountryList] = useState([]);
+
+  // country selected from dropdown
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
@@ -21,17 +22,17 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://flagcdn.com/en/codes.json");
-      const countryList = response.json();
+      const countryData = await response.json();
+      // convert countryData object into an array of objects
+      const countryList = Object.entries(countryData).map(([value, label]) => ({
+        value,
+        label,
+      }));
+      setCountryList(countryList);
       console.log(countryList);
     }
     fetchData();
-  });
-
-  const countries = [
-    { label: "Canada", value: "canada", image: canada },
-    { label: "USA", value: "usa", image: usa },
-    { label: "Mexico", value: "mexico", image: mexico },
-  ];
+  }, []);
 
   return (
     <>
@@ -41,13 +42,13 @@ function App() {
         <Select
           value={selectedCountry}
           onChange={handleCountryChange}
-          options={countries}
+          options={countryList}
         />
       </div>
       <div className="row">
         <CountryCard
-          label={countries[selectedCountry].label}
-          image={countries[selectedCountry].image}
+          label={selectedCountry}
+          image={`https://flagcdn.com/w160/${selectedCountry}.png`}
         />
 
         <ChecklistCard />
