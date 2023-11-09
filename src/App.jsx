@@ -4,7 +4,7 @@ import CountryCard from "./components/CountryCard";
 import ChecklistCard from "./components/checklistCard";
 import AddDocument from "./components/AddDocument";
 import Select from "./components/select/select";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import canada from "./images/canada.png";
 import usa from "./images/usa.png";
 import mexico from "./images/mexico.png";
@@ -17,6 +17,15 @@ function App() {
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("https://flagcdn.com/en/codes.json");
+      const countryList = response.json();
+      console.log(countryList);
+    }
+    fetchData();
+  });
 
   const countries = [
     { label: "Canada", value: "canada", image: canada },
@@ -34,14 +43,13 @@ function App() {
           onChange={handleCountryChange}
           options={countries}
         />
-        <img
-          src={countries[selectedCountry].image}
-          alt={countries[selectedCountry].label}
-        />
-        ;
       </div>
       <div className="row">
-        <CountryCard country={countries[selectedCountry]} />
+        <CountryCard
+          label={countries[selectedCountry].label}
+          image={countries[selectedCountry].image}
+        />
+
         <ChecklistCard />
       </div>
       <AddDocument />

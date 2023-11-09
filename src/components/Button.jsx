@@ -1,10 +1,10 @@
-import { propTypes } from "prop-types";
+import { PropTypes } from "prop-types";
 
 function Button(props) {
   return <button className="btn btn-primary">{props.text}</button>;
 }
 
 Button.propTypes = {
-  text: propTypes.string,
+  text: PropTypes.string,
 };
 export default Button;
