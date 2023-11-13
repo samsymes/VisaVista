@@ -66,11 +66,11 @@ function ChecklistCard() {
                 aria-label="Text input with checkbox"
               />
             </div>
-            <Button variant="contained" size="medium">
-              Do Something Else
-            </Button>
           </div>
         </div>
+        <Button variant="contained" size="medium">
+          Do Something Else
+        </Button>
       </div>
     </>
   );
