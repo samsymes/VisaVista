@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "@mui/material/Button";
 import PropsType from "prop-types";
 
 function CountryCard(props) {
@@ -9,7 +9,9 @@ function CountryCard(props) {
         <img src={props.image} alt={props.label} />
         <p className="card-text">visa requirements for your chosen country</p>
       </div>
-      <Button text="Do Something" />
+      <Button variant="contained" size="medium">
+        Do something
+      </Button>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "@mui/material/Button";
 function ChecklistCard() {
   return (
     <>
@@ -66,7 +66,9 @@ function ChecklistCard() {
                 aria-label="Text input with checkbox"
               />
             </div>
-            <Button text="Add To Checklist" />
+            <Button variant="contained" size="medium">
+              Do Something Else
+            </Button>
           </div>
         </div>
       </div>
