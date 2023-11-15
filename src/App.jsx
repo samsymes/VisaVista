@@ -4,11 +4,7 @@ import CountryCard from "./components/CountryCard";
 import ChecklistCard from "./components/checklistCard";
 import AddDocument from "./components/AddDocument";
 import { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import CustomSelect from "./components/select/select";
 
 import "./App.css";
 
@@ -43,25 +39,11 @@ function App() {
       <div>
         <Navbar />
         <Header />
-        <Box>
-          <FormControl sx={{ m: 1, minWidth: 150 }}>
-            <InputLabel id="demo-simple-select-label">Countries</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={selectedCountry}
-              onChange={handleCountryChange}
-              options={countryList}
-            >
-              <MenuItem value={countryList}>Select Country</MenuItem>
-              {countryList.map((country) => (
-                <MenuItem key={country.value} value={country.value}>
-                  {country.label}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Box>
+        <CustomSelect
+          countryList={countryList}
+          selectedCountry={selectedCountry}
+          handleCountryChange={handleCountryChange}
+        />
       </div>
       <div className="row">
         <CountryCard
