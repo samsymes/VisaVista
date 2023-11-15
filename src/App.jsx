@@ -1,10 +1,8 @@
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
-import CountryCard from "./components/CountryCard";
-import ChecklistCard from "./components/checklistCard";
-import AddDocument from "./components/AddDocument";
+import Card from "./components/Cards/Card";
 import { useState, useEffect } from "react";
-import CustomSelect from "./components/select/select";
+import CustomSelect from "./components/selects/select";
 
 import "./App.css";
 
@@ -13,10 +11,16 @@ function App() {
   const [countryList, setCountryList] = useState([]);
 
   // country selected from dropdown
-  const [selectedCountry, setSelectedCountry] = useState("");
-  console.log(selectedCountry);
-  const handleCountryChange = (event) => {
-    setSelectedCountry(event.target.value);
+  const [originCountry, setOriginCountry] = useState("");
+  console.log("Origin Country", originCountry);
+  const handleOriginChange = (event) => {
+    setOriginCountry(event.target.value);
+  };
+
+  const [destinationCountry, setDestinationCountry] = useState("");
+  console.log("Destination Country", destinationCountry);
+  const handleDestinationChange = (event) => {
+    setDestinationCountry(event.target.value);
   };
 
   useEffect(() => {
@@ -29,7 +33,7 @@ function App() {
         label,
       }));
       setCountryList(countryList);
-      console.log(countryList);
+      console.log("All Countries", countryList);
     }
     fetchData();
   }, []);
@@ -39,23 +43,37 @@ function App() {
       <div>
         <Navbar />
         <Header />
-        <CustomSelect
-          countryList={countryList}
-          selectedCountry={selectedCountry}
-          handleCountryChange={handleCountryChange}
-        />
       </div>
       <div className="row">
-        <CountryCard
-          country={countryList.find(
-            (country) => country.value === selectedCountry
-          )}
-          image={selectedCountry}
-        />
-
-        <ChecklistCard />
+        <div className="col">
+          <CustomSelect
+            countryList={countryList}
+            selectedCountry={originCountry}
+            handleCountryChange={handleOriginChange}
+            message="Origin Country"
+          />
+          <Card
+            country={countryList.find(
+              (country) => country.value === originCountry
+            )}
+            image={originCountry}
+          />
+        </div>
+        <div className="col">
+          <CustomSelect
+            countryList={countryList}
+            selectedCountry={destinationCountry}
+            handleCountryChange={handleDestinationChange}
+            message="Destination Country"
+          />
+          <Card
+            country={countryList.find(
+              (country) => country.value === destinationCountry
+            )}
+            image={destinationCountry}
+          />
+        </div>
       </div>
-      <AddDocument />
     </>
   );
 }

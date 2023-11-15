@@ -9,7 +9,7 @@ function CountrySelect(props) {
   return (
     <Box>
       <FormControl sx={{ m: 1, minWidth: 150 }}>
-        <InputLabel id="demo-simple-select-label">Countries</InputLabel>
+        <InputLabel id="demo-simple-select-label">{props.message}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -30,6 +30,7 @@ function CountrySelect(props) {
 }
 
 CountrySelect.propTypes = {
+  message: PropTypes.string,
   countryList: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
