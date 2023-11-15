@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 
 function Flag(props) {
-  return <img src={`https://flagcdn.com/w160/${props.image}.png`} alt="flag" />;
-}
+  const flagURL = `https://flagcdn.com/w160/${props.image}.png`;
 
+  if (flagURL) {
+    return <img src={flagURL} alt={props.image} />;
+  }
+  return null;
+}
 Flag.propTypes = {
   image: PropTypes.string,
 };
