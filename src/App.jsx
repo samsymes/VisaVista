@@ -65,7 +65,9 @@ function App() {
       </div>
       <div className="row">
         <CountryCard
-          label={selectedCountry}
+          country={countryList.find(
+            (country) => country.value === selectedCountry
+          )}
           image={`https://flagcdn.com/w160/${selectedCountry}.png`}
         />
 
