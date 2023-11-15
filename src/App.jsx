@@ -50,7 +50,7 @@ function App() {
           country={countryList.find(
             (country) => country.value === selectedCountry
           )}
-          image={`https://flagcdn.com/w160/${selectedCountry}.png`}
+          image={selectedCountry}
         />
 
         <ChecklistCard />
