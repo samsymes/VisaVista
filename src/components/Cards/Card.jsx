@@ -19,8 +19,7 @@ FromCountryCard.propTypes = {
     label: PropsType.string,
     image: PropsType.string,
   }),
-  label: PropsType.string,
-  image: PropsType.func,
+  image: PropsType.string,
 };
 
 export default FromCountryCard;

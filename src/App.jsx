@@ -2,24 +2,25 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Card from "./components/Cards/Card";
 import { useState, useEffect } from "react";
-import CustomSelect from "./components/selects/select";
+import ComboBox from "./components/ComboBox";
 
 import "./App.css";
 
 function App() {
-  // countries from fetch
+  // fetched countries
   const [countryList, setCountryList] = useState([]);
 
-  // country selected from dropdown
+  // origin country selectd from combobox
   const [originCountry, setOriginCountry] = useState("");
   console.log("Origin Country", originCountry);
-  const handleOriginChange = (event) => {
+  const handelOriginChange = (event) => {
     setOriginCountry(event.target.value);
   };
 
+  // destination country selected from combobox
   const [destinationCountry, setDestinationCountry] = useState("");
   console.log("Destination Country", destinationCountry);
-  const handleDestinationChange = (event) => {
+  const handelDestinationChange = (event) => {
     setDestinationCountry(event.target.value);
   };
 
@@ -46,12 +47,13 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <CustomSelect
+          <ComboBox
             countryList={countryList}
             selectedCountry={originCountry}
-            handleCountryChange={handleOriginChange}
+            handelCountryChange={handelOriginChange}
             message="Origin Country"
-          />
+            isOptionEqualToValue={(option, value) => option.value === value}
+          ></ComboBox>
           <Card
             country={countryList.find(
               (country) => country.value === originCountry
@@ -60,12 +62,12 @@ function App() {
           />
         </div>
         <div className="col">
-          <CustomSelect
+          <ComboBox
             countryList={countryList}
             selectedCountry={destinationCountry}
-            handleCountryChange={handleDestinationChange}
+            handelCountryChange={handelDestinationChange}
             message="Destination Country"
-          />
+          ></ComboBox>
           <Card
             country={countryList.find(
               (country) => country.value === destinationCountry

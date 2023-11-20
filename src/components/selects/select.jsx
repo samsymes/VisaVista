@@ -5,11 +5,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 
-function CountrySelect(props) {
+function CustomSelect(props) {
   return (
     <Box>
       <FormControl sx={{ m: 1, minWidth: 150 }}>
-        <InputLabel id="select-label">{props.message}</InputLabel>
+        <InputLabel id="select-input-label">{props.message}</InputLabel>
         <Select
           labelId="select-label"
           id="select"
@@ -29,7 +29,7 @@ function CountrySelect(props) {
   );
 }
 
-CountrySelect.propTypes = {
+CustomSelect.propTypes = {
   message: PropTypes.string,
   countryList: PropTypes.arrayOf(
     PropTypes.shape({
@@ -41,4 +41,4 @@ CountrySelect.propTypes = {
   handleCountryChange: PropTypes.func,
 };
 
-export default CountrySelect;
+export default CustomSelect;
