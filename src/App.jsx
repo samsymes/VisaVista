@@ -13,14 +13,14 @@ function App() {
   // origin country selectd from combobox
   const [originCountry, setOriginCountry] = useState("");
   console.log("Origin Country", originCountry);
-  const handelOriginChange = (event) => {
+  const handleOriginChange = (event) => {
     setOriginCountry(event.target.value);
   };
 
   // destination country selected from combobox
   const [destinationCountry, setDestinationCountry] = useState("");
   console.log("Destination Country", destinationCountry);
-  const handelDestinationChange = (event) => {
+  const handleDestinationChange = (event) => {
     setDestinationCountry(event.target.value);
   };
 
@@ -50,7 +50,7 @@ function App() {
           <ComboBox
             countryList={countryList}
             selectedCountry={originCountry}
-            handelCountryChange={handelOriginChange}
+            handleCountryChange={handleOriginChange}
             message="Origin Country"
             isOptionEqualToValue={(option, value) => option.value === value}
           ></ComboBox>
@@ -65,7 +65,7 @@ function App() {
           <ComboBox
             countryList={countryList}
             selectedCountry={destinationCountry}
-            handelCountryChange={handelDestinationChange}
+            handleCountryChange={handleDestinationChange}
             message="Destination Country"
           ></ComboBox>
           <Card

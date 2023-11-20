@@ -11,7 +11,7 @@ function CountrySelect(props) {
         sx={{ width: 300 }}
         options={props.countryList}
         autoHighlight
-        onChange={props.handelCountryChange}
+        onChange={props.handleCountryChange}
         value={props.selectedCountry?.value}
         getOptionLabel={(option) => `${option.label} (${option.value})`}
         renderInput={(params) => (
@@ -31,7 +31,7 @@ CountrySelect.propTypes = {
     })
   ),
   selectedCountry: PropTypes.string,
-  handelCountryChange: PropTypes.func,
+  handleCountryChange: PropTypes.func,
 };
 
 export default CountrySelect;
