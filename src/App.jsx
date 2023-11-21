@@ -52,9 +52,18 @@ function App() {
             options={countryList}
             selectedOption={originCountry}
             handleChange={handleOriginChange}
-            message="Origin Country"
-          ></ComboBox>
+            tag="Origin Country"
+          />
           <Card
+            title={
+              originCountry
+                ? `${
+                    countryList.find(
+                      (country) => country.value === originCountry
+                    ).label
+                  }`
+                : null
+            }
             option={countryList.find(
               (country) => country.value === originCountry
             )}
@@ -67,9 +76,18 @@ function App() {
             options={countryList}
             selectedOption={destinationCountry}
             handleChange={handleDestinationChange}
-            message="Destination Country"
-          ></ComboBox>
+            tag="Destination Country"
+          />
           <Card
+            title={
+              destinationCountry
+                ? `${
+                    countryList.find(
+                      (country) => country.value === destinationCountry
+                    ).label
+                  }`
+                : null
+            }
             option={countryList.find(
               (country) => country.value === destinationCountry
             )}

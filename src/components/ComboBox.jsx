@@ -17,9 +17,7 @@ function ComboBox(props) {
             {option.label}
           </li>
         )}
-        renderInput={(params) => (
-          <TextField {...params} label="Choose a country" />
-        )}
+        renderInput={(params) => <TextField {...params} label={props.tag} />}
       />
     </FormControl>
   );
@@ -33,6 +31,7 @@ ComboBox.propTypes = {
       label: PropTypes.string,
     })
   ),
+  tag: PropTypes.string,
   selectedOption: PropTypes.string,
   handleChange: PropTypes.func,
 };
