@@ -16,6 +16,10 @@
 
 }
 
+.MuiInputBase-root {
+    max-width: 75%;
+}
+
 .input-group {
     max-width: fit-content;
     margin: 5px auto;

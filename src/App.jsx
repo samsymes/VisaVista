@@ -48,51 +48,55 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <ComboBox
-            options={countryList}
-            selectedOption={originCountry}
-            handleChange={handleOriginChange}
-            tag="Origin Country"
-          />
           <Card
-            title={
-              originCountry
-                ? `${
-                    countryList.find(
-                      (country) => country.value === originCountry
-                    ).label
-                  }`
-                : null
-            }
             option={countryList.find(
               (country) => country.value === originCountry
             )}
           >
-            <Flag code={originCountry} />
+            <ComboBox
+              options={countryList}
+              selectedOption={originCountry}
+              handleChange={handleOriginChange}
+              tag="Origin Country"
+            />
+            <Flag
+              title={
+                originCountry
+                  ? `${
+                      countryList.find(
+                        (country) => country.value === originCountry
+                      ).label
+                    }`
+                  : null
+              }
+              code={originCountry}
+            />
           </Card>
         </div>
         <div className="col">
-          <ComboBox
-            options={countryList}
-            selectedOption={destinationCountry}
-            handleChange={handleDestinationChange}
-            tag="Destination Country"
-          />
           <Card
-            title={
-              destinationCountry
-                ? `${
-                    countryList.find(
-                      (country) => country.value === destinationCountry
-                    ).label
-                  }`
-                : null
-            }
             option={countryList.find(
               (country) => country.value === destinationCountry
             )}
           >
-            <Flag code={destinationCountry} />
+            <ComboBox
+              options={countryList}
+              selectedOption={destinationCountry}
+              handleChange={handleDestinationChange}
+              tag="Destination Country"
+            />
+            <Flag
+              title={
+                destinationCountry
+                  ? `${
+                      countryList.find(
+                        (country) => country.value === destinationCountry
+                      ).label
+                    }`
+                  : null
+              }
+              code={destinationCountry}
+            />
           </Card>
         </div>
       </div>
