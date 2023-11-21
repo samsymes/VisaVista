@@ -16,8 +16,11 @@
 
 }
 
-.MuiInputBase-root {
-    max-width: 75%;
+.MuiAutocomplete-root,
+MuiAutocomplete-hasClearIcon,
+MuiAutocomplete-hasPopupIcon,
+css-1wuilmg-MuiAutocomplete-root {
+    max-width: 15rem;
 }
 
 .input-group {
@@ -28,8 +31,14 @@
 .card {
     margin: 1rem auto;
     padding: 2rem;
-    width: 18rem;
+    width: 60%;
+}
 
+#flag {
+    max-width: fit-content;
+    width: auto;
+    height: 240px;
+    margin: auto;
 }
 
 .logo {

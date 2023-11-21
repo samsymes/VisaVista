@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 
 function Flag(props) {
   if (props.code) {
-    const flagURL = `https://flagcdn.com/w160/${props.code}.png`;
+    const flagURL = `https://flagcdn.com/h240/${props.code}.jpg`;
 
     return (
       <>
         <h5 className="card-title">{props.title}</h5>
-        <img src={flagURL} alt={props.code} />
+        <img id="flag" src={flagURL} alt={props.code} />
       </>
     );
   }
