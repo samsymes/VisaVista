@@ -3,8 +3,9 @@ import Header from "./components/Header";
 import Card from "./components/Cards/Card";
 import { useState, useEffect } from "react";
 import ComboBox from "./components/ComboBox";
-
+import Flag from "./components/Flag";
 import "./App.css";
+import PrimaryButton from "./components/buttons/PrimaryButton";
 
 function App() {
   // fetched countries
@@ -48,31 +49,38 @@ function App() {
       <div className="row">
         <div className="col">
           <ComboBox
-            countryList={countryList}
-            selectedCountry={originCountry}
-            handleCountryChange={handleOriginChange}
+            options={countryList}
+            selectedOption={originCountry}
+            handleChange={handleOriginChange}
             message="Origin Country"
           ></ComboBox>
           <Card
-            country={countryList.find(
+            option={countryList.find(
               (country) => country.value === originCountry
             )}
-            image={originCountry}
-          />
+          >
+            <Flag code={originCountry} />
+          </Card>
         </div>
         <div className="col">
           <ComboBox
-            countryList={countryList}
-            selectedCountry={destinationCountry}
-            handleCountryChange={handleDestinationChange}
+            options={countryList}
+            selectedOption={destinationCountry}
+            handleChange={handleDestinationChange}
             message="Destination Country"
           ></ComboBox>
           <Card
-            country={countryList.find(
+            option={countryList.find(
               (country) => country.value === destinationCountry
             )}
-            image={destinationCountry}
-          />
+          >
+            <Flag code={destinationCountry} />
+          </Card>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <PrimaryButton text="Search" />
         </div>
       </div>
     </>

@@ -3,17 +3,20 @@ import Autocomplete from "@mui/material/Autocomplete";
 import PropTypes from "prop-types";
 import { FormControl } from "@mui/material";
 
-function CountrySelect(props) {
+function ComboBox(props) {
   return (
     <FormControl sx={{ m: 1, minWidth: 150 }}>
       <Autocomplete
         id="country-select-demo"
         sx={{ width: 300 }}
-        options={props.countryList}
+        options={props.options}
         autoHighlight
-        onChange={(event, value) => props.handleCountryChange(value)}
-        value={props.selectedCountry?.value}
-        getOptionLabel={(option) => `${option.label}`}
+        onChange={(event, value) => props.handleChange(value)} //could be cleaner?
+        renderOption={(props, option) => (
+          <li {...props} key={`${option.label} (${option.value})`}>
+            {option.label}
+          </li>
+        )}
         renderInput={(params) => (
           <TextField {...params} label="Choose a country" />
         )}
@@ -22,16 +25,16 @@ function CountrySelect(props) {
   );
 }
 
-CountrySelect.propTypes = {
+ComboBox.propTypes = {
   message: PropTypes.string,
-  countryList: PropTypes.arrayOf(
+  options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
       label: PropTypes.string,
     })
   ),
-  selectedCountry: PropTypes.string,
-  handleCountryChange: PropTypes.func,
+  selectedOption: PropTypes.string,
+  handleChange: PropTypes.func,
 };
 
-export default CountrySelect;
+export default ComboBox;

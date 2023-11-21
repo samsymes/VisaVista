@@ -1,25 +1,24 @@
 import PropsType from "prop-types";
-import Flag from "../Flag";
-import PrimaryButton from "../buttons/button";
-function FromCountryCard(props) {
+
+function Card(props) {
   return (
-    <div className="card" id="countryCard">
+    <div className="card" id="Card">
       <div className="card-body">
-        <h5 className="card-title">{props.country?.label}</h5>
-        <Flag image={props.image} />
+        <h5 className="card-title">{props.option?.label}</h5>
+        {props.children}
       </div>
-      <PrimaryButton text="Do something" />
     </div>
   );
 }
 
-FromCountryCard.propTypes = {
-  country: PropsType.shape({
+Card.propTypes = {
+  option: PropsType.shape({
     value: PropsType.string,
     label: PropsType.string,
     image: PropsType.string,
   }),
   image: PropsType.string,
+  children: PropsType.element,
 };
 
-export default FromCountryCard;
+export default Card;

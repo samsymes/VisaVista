@@ -8,11 +8,6 @@
     padding: 1rem;
     margin-bottom: 2rem;
     box-shadow: 0 0 1em #00000033;
-
-}
-
-#flag {
-    width: 100px;
 }
 
 .form-select {
@@ -29,16 +24,8 @@
 .card {
     margin: 1rem auto;
     padding: 2rem;
-
-
-}
-
-#checkListCard.card {
     width: 18rem;
-}
 
-#countryCard.card {
-    width: 18rem;
 }
 
 .logo {

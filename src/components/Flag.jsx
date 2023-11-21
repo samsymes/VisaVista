@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
 
 function Flag(props) {
-  const flagURL = `https://flagcdn.com/w160/${props.image}.png`;
+  if (props.code) {
+    const flagURL = `https://flagcdn.com/w160/${props.code}.png`;
 
-  if (flagURL) {
-    return <img src={flagURL} alt={props.image} />;
+    return <img src={flagURL} alt={props.code} />;
   }
+
   return null;
 }
+
 Flag.propTypes = {
-  image: PropTypes.string,
+  code: PropTypes.string,
 };
 
 export default Flag;
