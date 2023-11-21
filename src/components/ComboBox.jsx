@@ -11,9 +11,9 @@ function CountrySelect(props) {
         sx={{ width: 300 }}
         options={props.countryList}
         autoHighlight
-        onChange={props.handleCountryChange}
+        onChange={(event, value) => props.handleCountryChange(value)}
         value={props.selectedCountry?.value}
-        getOptionLabel={(option) => `${option.label} (${option.value})`}
+        getOptionLabel={(option) => `${option.label}`}
         renderInput={(params) => (
           <TextField {...params} label="Choose a country" />
         )}
