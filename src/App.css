@@ -16,29 +16,24 @@
 
 }
 
-.MuiAutocomplete-root,
-MuiAutocomplete-hasClearIcon,
-MuiAutocomplete-hasPopupIcon,
-css-1wuilmg-MuiAutocomplete-root {
-    max-width: 15rem;
-}
+*.MuiAutocomplete-root {
+    max-width: 14rem;
+    margin: auto;
 
-.input-group {
-    max-width: fit-content;
-    margin: 5px auto;
 }
 
 .card {
+
     margin: 1rem auto;
-    padding: 2rem;
-    width: 60%;
+    padding: 1rem;
+    width: 55%;
 }
 
 #flag {
-    max-width: fit-content;
-    width: auto;
-    height: 240px;
+
+    height: auto;
     margin: auto;
+
 }
 
 .logo {
