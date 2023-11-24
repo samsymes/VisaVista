@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 function Flag(props) {
   if (props.code) {
     const flagURL = `https://flagcdn.com/h120/${props.code}.jpg`;

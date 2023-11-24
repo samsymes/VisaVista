@@ -3,9 +3,9 @@ import Header from "./components/Header";
 import Card from "./components/Cards/Card";
 import { useState, useEffect } from "react";
 import ComboBox from "./components/ComboBox";
-import Flag from "./components/Flag";
 import "./App.css";
 import PrimaryButton from "./components/buttons/PrimaryButton";
+import { Outlet } from "react-router-dom";
 
 function App() {
   // fetched countries
@@ -59,7 +59,7 @@ function App() {
               handleChange={handleOriginChange}
               tag="Origin Country"
             />
-            <Flag
+            <Outlet
               title={
                 originCountry
                   ? `${
@@ -85,7 +85,7 @@ function App() {
               handleChange={handleDestinationChange}
               tag="Destination Country"
             />
-            <Flag
+            <Outlet
               title={
                 destinationCountry
                   ? `${
