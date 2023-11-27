@@ -14,7 +14,7 @@ Card.propTypes = {
     label: PropsType.string,
   }),
 
-  children: PropsType.element,
+  children: PropsType.arrayOf(PropsType.node).isRequired,
 };
 
 export default Card;

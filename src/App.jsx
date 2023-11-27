@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import ComboBox from "./components/ComboBox";
 import "./App.css";
 import PrimaryButton from "./components/buttons/PrimaryButton";
-import { Outlet } from "react-router-dom";
+
+import Flag from "./components/Flag";
 
 function App() {
   // fetched countries
@@ -59,7 +60,7 @@ function App() {
               handleChange={handleOriginChange}
               tag="Origin Country"
             />
-            <Outlet
+            <Flag
               title={
                 originCountry
                   ? `${
@@ -85,7 +86,7 @@ function App() {
               handleChange={handleDestinationChange}
               tag="Destination Country"
             />
-            <Outlet
+            <Flag
               title={
                 destinationCountry
                   ? `${
@@ -102,7 +103,11 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <PrimaryButton text="Search" />
+          <PrimaryButton
+            text="Search"
+            originCode={originCountry}
+            destinationCode={destinationCountry}
+          />
         </div>
       </div>
     </>

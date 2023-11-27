@@ -1,26 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import Flag from "./components/Flag.jsx";
+import PrimaryButton from "./components/buttons/PrimaryButton.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "flag/:code",
-        element: <Flag />,
-      },
-    ],
-  },
-]);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = document.getElementById("root");
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route
+          path="/destination/:origin/:destination"
+          element={<PrimaryButton />}
+        />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
