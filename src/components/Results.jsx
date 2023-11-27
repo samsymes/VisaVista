@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import PropTypes from "prop-types";
+
 function Results(props) {
   return (
     <>
@@ -9,6 +10,7 @@ function Results(props) {
         <h2>Results Page</h2>
         <p>Origin Code: {props.originCountry}</p>
         <p>Destination Code: {props.destinationCountry}</p>
+        {/* not sure how to pass countries from App */}
       </div>
     </>
   );
