@@ -26,6 +26,11 @@ function App() {
     setDestinationCountry(newCountry.value);
   };
 
+  const handleButtonClick = () => {
+    const destinationRoute = `/destination/${originCountry}/${destinationCountry}`;
+    console.log("Destination Route", destinationRoute);
+  };
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://flagcdn.com/en/codes.json");
@@ -107,6 +112,8 @@ function App() {
             text="Search"
             originCode={originCountry}
             destinationCode={destinationCountry}
+            handleClick={handleButtonClick}
+            link={`/results/${originCountry}/${destinationCountry}`}
           />
         </div>
       </div>

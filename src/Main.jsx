@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import PrimaryButton from "./components/buttons/PrimaryButton.jsx";
+import Results from "./components/Results.jsx";
 
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
@@ -12,10 +12,7 @@ ReactDOM.createRoot(root).render(
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route
-          path="/destination/:origin/:destination"
-          element={<PrimaryButton />}
-        />
+        <Route path="/results/:origin/:destination" element={<Results />} />
       </Routes>
     </Router>
   </React.StrictMode>
