@@ -4,7 +4,7 @@ import Card from "./components/Cards/Card";
 import { useState, useEffect } from "react";
 import ComboBox from "./components/ComboBox";
 import "./App.css";
-import PrimaryButton from "./components/buttons/PrimaryButton";
+import Button from "./components/buttons/Button";
 
 import Flag from "./components/Flag";
 
@@ -108,7 +108,7 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <PrimaryButton
+          <Button
             text="Search"
             originCode={originCountry}
             destinationCode={destinationCountry}
