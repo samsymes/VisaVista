@@ -6,15 +6,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Results from "./components/Results.jsx";
 import FlagRoute from "./components/FlagRoute";
+import ErrorPage from "./error-page.jsx";
 
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route index element={<App />} />
         <Route path="/results/:origin/:destination" element={<Results />} />
         <Route path="/flagRoute/:countryCode" element={<FlagRoute />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   </React.StrictMode>

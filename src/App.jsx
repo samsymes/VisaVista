@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import ComboBox from "./components/ComboBox";
 import "./App.css";
 import Button from "./components/buttons/Button";
-
 import Flag from "./components/Flag";
 
 function App() {
@@ -25,6 +24,16 @@ function App() {
   const handleDestinationChange = (newCountry) => {
     setDestinationCountry(newCountry.value);
   };
+
+  // enable button when origin and destination countries are selected, disable click event otherwise
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  useEffect(() => {
+    if (originCountry && destinationCountry) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [originCountry, destinationCountry]);
 
   const handleButtonClick = () => {
     const destinationRoute = `/destination/${originCountry}/${destinationCountry}`;
@@ -109,6 +118,7 @@ function App() {
       <div className="row">
         <div className="col">
           <Button
+            disabled={buttonDisabled}
             text="Search"
             originCode={originCountry}
             destinationCode={destinationCountry}
