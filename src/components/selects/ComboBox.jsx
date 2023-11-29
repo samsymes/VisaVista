@@ -9,7 +9,7 @@ function ComboBox(props) {
       sx={{ width: 300 }}
       options={props.options}
       autoHighlight
-      onChange={(event, value) => props.handleChange(value)} //could be cleaner?
+      onChange={(event, value) => props.handleChange(value)}
       renderOption={(props, option) => (
         <li {...props} key={`${option.label} (${option.value})`}>
           {option.label}

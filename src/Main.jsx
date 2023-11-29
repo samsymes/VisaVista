@@ -14,8 +14,8 @@ ReactDOM.createRoot(root).render(
     <Router>
       <Routes>
         <Route index element={<App />} />
-        <Route path="/results/:origin/:destination" element={<Results />} />
-        <Route path="/flagRoute/:countryCode" element={<FlagRoute />} />
+        <Route path="/results" element={<Results />} />
+        <Route search="/flagRoute/:countryCode" element={<FlagRoute />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>

@@ -1,13 +1,14 @@
 import MuiButton from "@mui/material/Button";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
-//if button is disabled, it will not be clickable
+
 function Button(props) {
   const handleClick = () => {
     if (props.onClick) {
       props.onClick();
     }
   };
+
   const button = (
     <MuiButton
       disabled={props.disabled}

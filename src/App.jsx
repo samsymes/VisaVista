@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Card from "./components/Cards/Card";
 import { useState, useEffect } from "react";
-import ComboBox from "./components/ComboBox";
+import ComboBox from "./components/selects/ComboBox";
 import "./App.css";
 import Button from "./components/buttons/Button";
 import Flag from "./components/Flag";
@@ -24,6 +24,15 @@ function App() {
   const handleDestinationChange = (newCountry) => {
     setDestinationCountry(newCountry.value);
   };
+
+  const params = new URLSearchParams({
+    From: originCountry,
+    To: destinationCountry,
+  });
+
+  const queryString = params.toString();
+
+  console.log("Query String", queryString);
 
   // enable button when origin and destination countries are selected, disable click event otherwise
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -123,7 +132,7 @@ function App() {
             originCode={originCountry}
             destinationCode={destinationCountry}
             handleClick={handleButtonClick}
-            link={`/results/${originCountry}/${destinationCountry}`}
+            link={`/results/?${queryString}`}
           />
         </div>
       </div>
