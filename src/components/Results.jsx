@@ -1,23 +1,14 @@
 import Navbar from "./Navbar";
-import PropTypes from "prop-types";
-
-function Results(props) {
+import { useParams } from "react-router-dom";
+import Text from "./resultsText";
+function Results() {
+  const { countryCode } = useParams();
   return (
     <>
       <Navbar />
-
-      <div>
-        <h2>Results Page</h2>
-        <p>Origin Code: {props.originCountry}</p>
-        <p>Destination Code: {props.destinationCountry}</p>
-      </div>
+      <Text text={countryCode} />
     </>
   );
 }
-
-Results.propTypes = {
-  originCountry: PropTypes.string,
-  destinationCountry: PropTypes.string,
-};
 
 export default Results;
