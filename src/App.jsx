@@ -25,15 +25,6 @@ function App() {
     setDestinationCountry(newCountry.value);
   };
 
-  const params = new URLSearchParams({
-    From: originCountry,
-    To: destinationCountry,
-  });
-
-  const queryString = params.toString();
-
-  console.log("Query String", queryString);
-
   // enable button when origin and destination countries are selected, disable click event otherwise
   const [buttonDisabled, setButtonDisabled] = useState(true);
   useEffect(() => {
@@ -43,11 +34,6 @@ function App() {
       setButtonDisabled(true);
     }
   }, [originCountry, destinationCountry]);
-
-  const handleButtonClick = () => {
-    const destinationRoute = `/destination/${originCountry}/${destinationCountry}`;
-    console.log("Destination Route", destinationRoute);
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -131,8 +117,7 @@ function App() {
             text="Search"
             originCode={originCountry}
             destinationCode={destinationCountry}
-            handleClick={handleButtonClick}
-            link={`/results/?${queryString}`}
+            link={`/results/?From=${originCountry}&To=${destinationCountry}`}
           />
         </div>
       </div>

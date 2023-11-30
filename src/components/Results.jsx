@@ -1,12 +1,21 @@
 import Navbar from "./Navbar";
-import { useParams } from "react-router-dom";
-import Text from "./resultsText";
+import { useSearchParams } from "react-router-dom";
+
 function Results() {
-  const { countryCode } = useParams();
+  const [searchParams] = useSearchParams();
+  const From = searchParams.get("From");
+  const To = searchParams.get("To");
+
+  console.log("search Params", From, To);
+
   return (
     <>
       <Navbar />
-      <Text text={countryCode} />
+      <div>
+        <h2>Results Page </h2>
+        <p> Origin Code: {From} </p>
+        <p> Destination Code: {To} </p>
+      </div>
     </>
   );
 }
