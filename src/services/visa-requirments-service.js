@@ -16,31 +16,31 @@ class Country {
   }
 }
 
-const canada = new Country(
+const ca = new Country(
   "Canada",
   "Varies by destination",
   "COVID-19 vaccine recommended",
   "Travel insurance"
 );
-const usa = new Country(
+const us = new Country(
   "USA",
   "Varies by nationality",
   "COVID-19 vaccine required",
   "ESTA for some"
 );
-const germany = new Country(
+const de = new Country(
   "Germany",
   "No visa for short stays",
   "COVID-19 vaccine recommended",
   "Proof of funds"
 );
-const france = new Country(
+const fr = new Country(
   "France",
   "Schengen visa for some",
   "COVID-19 vaccine recommended",
   "Proof of accommodation"
 );
 
-canada.getRequirementsForDestination(usa);
-canada.getRequirementsForDestination(germany);
-canada.getRequirementsForDestination(france);
+ca.getRequirementsForDestination(us);
+ca.getRequirementsForDestination(de);
+ca.getRequirementsForDestination(fr);
