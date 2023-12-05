@@ -1,0 +1,332 @@
+{
+  "ca": [
+    {
+      "destination": "us",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "de",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "fr",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "uk",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    }
+  ],
+  "de": [
+    {
+      "destination": "us",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "ca",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "fr",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "uk",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    }
+  ],
+  "fr": [
+    {
+      "destination": "us",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "ca",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "de",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "uk",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    }
+  ],
+  "uk": [
+    {
+      "destination": "us",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "ca",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "de",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "fr",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    }
+  ],
+  "us": [
+    {
+      "destination": "ca",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "de",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "fr",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    },
+    {
+      "destination": "uk",
+      "requirements": {
+        "immunizations": [
+          {
+            "yellow-fever": false,
+            "mumps": false,
+            "rubella": false
+          }
+        ],
+        "passport": true,
+        "proof_of_funds": true,
+        "proof_of_accomodation": true,
+        "proof_of_return_ticket": true
+      }
+    }
+  ]
+}

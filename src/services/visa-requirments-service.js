@@ -1,46 +1,39 @@
-class Country {
-  constructor(name, visaRequirements, vaccineRequirements, otherDocumentation) {
-    this.name = name;
-    this.visaRequirements = visaRequirements;
-    this.vaccineRequirements = vaccineRequirements;
-    this.otherDocumentation = otherDocumentation;
-  }
+import Country from "../entities/countries";
 
-  getRequirementsForDestination(destination) {
-    console.log(
-      `Travel Requirements from ${this.name} to ${destination.name}:`
+class VisaRequirementsService {
+  getOriginCountries() {
+    if (!this.theData) {
+      this.theData = Country;
+    }
+    return new Country(
+      this.theData.name,
+      this.theData.visaRequirements,
+      this.theData.vaccineRequirements,
+      this.theData.otherDocumentation
     );
-    console.log(`Visa Requirements: ${destination.visaRequirements}`);
-    console.log(`Vaccine Requirements: ${destination.vaccineRequirements}`);
-    console.log(`Other Documentation: ${destination.otherDocumentation}`);
+  }
+  getDestinationCountries(originCountries) {
+    if (!this.theData) {
+      this.theData = Country;
+    }
+    return new Country(
+      this.theData.name,
+      this.theData.visaRequirements,
+      this.theData.vaccineRequirements,
+      this.theData.otherDocumentation
+    );
+  }
+  getRequirements(originCountries, destination) {
+    if (!this.theData) {
+      this.theData = Country;
+    }
+    return new Country(
+      this.theData.name,
+      this.theData.visaRequirements,
+      this.theData.vaccineRequirements,
+      this.theData.otherDocumentation
+    );
   }
 }
 
-const ca = new Country(
-  "Canada",
-  "Varies by destination",
-  "COVID-19 vaccine recommended",
-  "Travel insurance"
-);
-const us = new Country(
-  "USA",
-  "Varies by nationality",
-  "COVID-19 vaccine required",
-  "ESTA for some"
-);
-const de = new Country(
-  "Germany",
-  "No visa for short stays",
-  "COVID-19 vaccine recommended",
-  "Proof of funds"
-);
-const fr = new Country(
-  "France",
-  "Schengen visa for some",
-  "COVID-19 vaccine recommended",
-  "Proof of accommodation"
-);
-
-ca.getRequirementsForDestination(us);
-ca.getRequirementsForDestination(de);
-ca.getRequirementsForDestination(fr);
+export default VisaRequirementsService();
