@@ -1,38 +1,40 @@
 import Country from "../entities/countries";
+import { data } from "./data.json";
 
 class VisaRequirementsService {
-  getOriginCountries() {
-    if (!this.theData) {
-      this.theData = Country;
-    }
-    return new Country(
-      this.theData.name,
-      this.theData.visaRequirements,
-      this.theData.vaccineRequirements,
-      this.theData.otherDocumentation
-    );
+  async getOriginCountries() {
+    const originCountry = {
+      get originCountry() {
+        return originCountry;
+      },
+    };
   }
-  getDestinationCountries(originCountries) {
-    if (!this.theData) {
-      this.theData = Country;
+  async getDestinationCountries(originCountry) {
+    if (!this.data) {
+      //get data
+      const destinationCountries = {
+        get destinationCountry() {
+          return destinationCountry;
+        },
+      };
     }
-    return new Country(
-      this.theData.name,
-      this.theData.visaRequirements,
-      this.theData.vaccineRequirements,
-      this.theData.otherDocumentation
-    );
   }
-  getRequirements(originCountries, destination) {
-    if (!this.theData) {
-      this.theData = Country;
+  async getRequirements(originCountry, destinationCountry) {
+    if (!this.data) {
+      this.data = data.map((item) => {
+        return new Country(
+          item.originCountry,
+          item.destinationCountry,
+          item.visaRequirements,
+          item.vaccineRequirements,
+          item.otherDocumentation
+        );
+      });
     }
-    return new Country(
-      this.theData.name,
-      this.theData.visaRequirements,
-      this.theData.vaccineRequirements,
-      this.theData.otherDocumentation
-    );
+    const country = this.data.find((item) => {
+      return item.originCountry === originCountry;
+    });
+    return country.getRequirementsForDestination(destinationCountry);
   }
 }
 
