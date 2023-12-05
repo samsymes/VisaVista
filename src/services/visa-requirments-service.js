@@ -1,18 +1,16 @@
 import Country from "../entities/countries";
 import { data } from "./data.json";
-
-class VisaRequirementsService {
-  async getOriginCountries() {
+//this is a major WIP
     const originCountry = {
       get originCountry() {
-        return originCountry;
+        return `${this.name} ${this.visaRequirements} ${this.vaccineRequirements} ${this.otherDocumentation}`;
       },
     };
   }
   async getDestinationCountries(originCountry) {
     if (!this.data) {
       //get data
-      const destinationCountries = {
+      const destinationCountry = {
         get destinationCountry() {
           return destinationCountry;
         },
