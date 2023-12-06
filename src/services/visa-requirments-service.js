@@ -1,5 +1,5 @@
 import Country from "../entities/countries";
-import data from "./data.json";
+import data from "../entities/data.json";
 
 class VisaRequirementsService {
   constructor() {
@@ -11,9 +11,9 @@ class VisaRequirementsService {
     return originCountries;
   }
 
-  getDestinationCountries(originCountry) {
+  getDestinationCountries(origin) {
     const destinationCountries = this.countries
-      .filter((country) => country.origin === originCountry)
+      .filter((country) => country.origin === origin)
       .map((country) => country.destination);
 
     return destinationCountries;

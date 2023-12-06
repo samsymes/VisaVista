@@ -6,6 +6,7 @@ import ComboBox from "./components/selects/ComboBox";
 import "./App.css";
 import Button from "./components/buttons/Button";
 import Flag from "./components/Flag";
+import VisaRequirementsService from "./services/visa-requirments-service";
 
 function App() {
   // fetched countries
@@ -50,6 +51,17 @@ function App() {
     fetchData();
   }, []);
 
+  const originCountryCodes = VisaRequirementsService.getOriginCountries();
+  const destinationCountryCodes =
+    VisaRequirementsService.getDestinationCountries();
+
+  const originCountries = countryList.filter((country) =>
+    originCountryCodes.includes(country.value)
+  );
+  const destinationCountries = countryList.filter((country) =>
+    destinationCountryCodes.includes(country.value)
+  );
+
   return (
     <>
       <div>
@@ -59,12 +71,12 @@ function App() {
       <div className="row">
         <div className="col">
           <Card
-            option={countryList.find(
+            option={originCountries.find(
               (country) => country.value === originCountry
             )}
           >
             <ComboBox
-              options={countryList}
+              options={originCountries}
               selectedOption={originCountry}
               handleChange={handleOriginChange}
               tag="Origin Country"
@@ -73,7 +85,7 @@ function App() {
               title={
                 originCountry
                   ? `${
-                      countryList.find(
+                      originCountries.find(
                         (country) => country.value === originCountry
                       ).label
                     }`
@@ -85,12 +97,12 @@ function App() {
         </div>
         <div className="col">
           <Card
-            option={countryList.find(
+            option={destinationCountries.find(
               (country) => country.value === destinationCountry
             )}
           >
             <ComboBox
-              options={countryList}
+              options={destinationCountries}
               selectedOption={destinationCountry}
               handleChange={handleDestinationChange}
               tag="Destination Country"
@@ -99,7 +111,7 @@ function App() {
               title={
                 destinationCountry
                   ? `${
-                      countryList.find(
+                      destinationCountries.find(
                         (country) => country.value === destinationCountry
                       ).label
                     }`
