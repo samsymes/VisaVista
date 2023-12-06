@@ -34,3 +34,5 @@ const fr = new Country(
 ca.getRequirementsForDestination(us);
 ca.getRequirementsForDestination(de);
 ca.getRequirementsForDestination(fr);
+
+export default Country;

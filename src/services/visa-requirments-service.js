@@ -1,38 +1,41 @@
-import Country from "../entities/countries";
-import { data } from "./data.json";
 //this is a major WIP
-    const originCountry = {
-      get originCountry() {
-        return `${this.name} ${this.visaRequirements} ${this.vaccineRequirements} ${this.otherDocumentation}`;
-      },
-    };
-  }
-  async getDestinationCountries(originCountry) {
-    if (!this.data) {
-      //get data
-      const destinationCountry = {
-        get destinationCountry() {
-          return destinationCountry;
-        },
-      };
-    }
-  }
-  async getRequirements(originCountry, destinationCountry) {
-    if (!this.data) {
-      this.data = data.map((item) => {
-        return new Country(
-          item.originCountry,
-          item.destinationCountry,
-          item.visaRequirements,
-          item.vaccineRequirements,
-          item.otherDocumentation
-        );
-      });
-    }
-    const country = this.data.find((item) => {
-      return item.originCountry === originCountry;
+import Country from "../entities/countries";
+import data from "./data.json";
+
+class VisaRequirementsService {
+  async getOriginCountries() {
+    //get origin countries from data
+    const originCountry = this.countries.map((country) => {
+      return country.origin;
     });
-    return country.getRequirementsForDestination(destinationCountry);
+
+    return originCountry;
+  }
+
+  async getDestinationCountries(originCountry) {
+    //get use origin country to get destination countries from data
+    const destinationCountry = this.destination;
+    if (originCountry) {
+      //get destination countries from data
+      return destinationCountry;
+    }
+  }
+
+  async getRequirementsForDestination(origin, destination) {
+    if (!this.originCountry === origin) {
+      //get rquirments from data
+      return this.visaRequirements;
+    }
+    return new Country(
+      destination.name,
+      destination.visaRequirements,
+      destination.vaccineRequirements,
+      destination.otherDocumentation
+    );
+  }
+
+  anotherMethod() {
+    //do stuff
   }
 }
 
