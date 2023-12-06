@@ -1,42 +1,32 @@
-//this is a major WIP
 import Country from "../entities/countries";
 import data from "./data.json";
 
 class VisaRequirementsService {
-  async getOriginCountries() {
-    //get origin countries from data
-    const originCountry = this.countries.map((country) => {
-      return country.origin;
-    });
-
-    return originCountry;
+  constructor() {
+    this.countries = data.countries;
   }
 
-  async getDestinationCountries(originCountry) {
-    //get use origin country to get destination countries from data
-    const destinationCountry = this.destination;
-    if (originCountry) {
-      //get destination countries from data
-      return destinationCountry;
-    }
+  getOriginCountries() {
+    const originCountries = this.countries.map((country) => country.origin);
+    return originCountries;
   }
 
-  async getRequirementsForDestination(origin, destination) {
-    if (!this.originCountry === origin) {
-      //get rquirments from data
-      return this.visaRequirements;
-    }
-    return new Country(
-      destination.name,
-      destination.visaRequirements,
-      destination.vaccineRequirements,
-      destination.otherDocumentation
+  getDestinationCountries(originCountry) {
+    const destinationCountries = this.countries
+      .filter((country) => country.origin === originCountry)
+      .map((country) => country.destination);
+
+    return destinationCountries;
+  }
+
+  getRequirementsForDestination(origin, destination) {
+    const selectedCountry = this.countries.find(
+      (country) =>
+        country.origin === origin && country.destination === destination
     );
-  }
 
-  anotherMethod() {
-    //do stuff
+    return selectedCountry ? Country.visaRequirments : null;
   }
 }
 
-export default VisaRequirementsService();
+export default VisaRequirementsService;
