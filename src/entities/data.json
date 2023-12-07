@@ -330,3 +330,179 @@
     }
   ]
 }
+-----------------------------------------------------------------------------------------------------------
+{
+  "AI GENERATED countries": [
+    {
+      "name": "Bhutan",
+      "isoAlpha2Code": "BT",
+      "requirements": {
+        "visa": {
+          "policy": "High-value, low-impact tourism with a daily fee."
+        },
+        "health": {
+          "policy": "Check with Bhutanese authorities for any vaccine or health requirements.",
+          "vaccination": false,
+          "note": "No specific vaccination policy mentioned as of now."
+        }
+      }
+    },
+    {
+      "name": "Saudi Arabia",
+      "isoAlpha2Code": "SA",
+      "requirements": {
+        "visa": {
+          "policy": "Recently opened to tourism with a new visa system."
+        },
+        "health": {
+          "policy": "Verify vaccine or health requirements with Saudi Arabian authorities.",
+          "vaccination": true,
+          "note": "Vaccination may be required; refer to Saudi health authorities for details."
+        }
+      }
+    },
+    {
+      "name": "North Korea",
+      "isoAlpha2Code": "KP",
+      "requirements": {
+        "visa": {
+          "policy": "Controlled tourism; visitors must join organized tours."
+        },
+        "health": {
+          "policy": "Check with North Korean authorities for any vaccine or health requirements.",
+          "vaccination": true,
+          "note": "Specific vaccination policies may apply; verify with authorities."
+        }
+      }
+    },
+    {
+      "name": "Turkmenistan",
+      "isoAlpha2Code": "TM",
+      "requirements": {
+        "visa": {
+          "policy": "Specific requirements for obtaining a tourist visa; often requires organized tours."
+        },
+        "health": {
+          "policy": "Verify vaccine or health requirements with Turkmenistani authorities.",
+          "vaccination": false,
+          "note": "No specific vaccination policy mentioned as of now."
+        }
+      }
+    },
+    {
+      "name": "Myanmar",
+      "isoAlpha2Code": "MM",
+      "requirements": {
+        "visa": {
+          "policy": "Unique visa requirements; some regions may have restricted access."
+        },
+        "health": {
+          "policy": "Check with Myanmar authorities for any vaccine or health requirements.",
+          "vaccination": true,
+          "note": "Specific vaccination policies may be in place; consult health authorities."
+        }
+      }
+    },
+    {
+      "name": "Cuba",
+      "isoAlpha2Code": "CU",
+      "requirements": {
+        "visa": {
+          "policy": "Specific visa regulations, especially for U.S. citizens; different types of visas."
+        },
+        "health": {
+          "policy": "Verify vaccine or health requirements with Cuban authorities.",
+          "vaccination": true,
+          "note": "Check with Cuban health authorities for the latest vaccination policies."
+        }
+      }
+    },
+    {
+      "name": "Iran",
+      "isoAlpha2Code": "IR",
+      "requirements": {
+        "visa": {
+          "policy": "Involves obtaining an authorization code before applying for the visa."
+        },
+        "health": {
+          "policy": "Check with Iranian authorities for any vaccine or health requirements.",
+          "vaccination": false,
+          "note": "No specific vaccination policy mentioned as of now."
+        }
+      }
+    },
+    {
+      "name": "Eritrea",
+      "isoAlpha2Code": "ER",
+      "requirements": {
+        "visa": {
+          "policy": "Specific entry requirements; travelers often need to obtain a visa in advance."
+        },
+        "health": {
+          "policy": "Verify vaccine or health requirements with Eritrean authorities.",
+          "vaccination": true,
+          "note": "Refer to local health authorities for vaccination policies."
+        }
+      }
+    },
+    {
+      "name": "Nauru",
+      "isoAlpha2Code": "NR",
+      "requirements": {
+        "visa": {
+          "policy": "Visa requirements may vary; check with Nauruan authorities for the latest information."
+        },
+        "health": {
+          "policy": "Verify vaccine or health requirements with Nauruan authorities.",
+          "vaccination": false,
+          "note": "No specific vaccination policy mentioned as of now."
+        }
+      }
+    },
+    {
+      "name": "Mongolia",
+      "isoAlpha2Code": "MN",
+      "requirements": {
+        "visa": {
+          "policy": "Offers various visa types, including tourist, business, and transit visas."
+        },
+        "health": {
+          "policy": "Check with Mongolian authorities for any vaccine or health requirements.",
+          "vaccination": true,
+          "note": "Refer to local health authorities for the latest vaccination policies."
+        }
+      }
+    }
+  ]
+}
+---------------------------------------------------------------------------------------------------
+{
+  "countries": [
+    {
+      "name": "Canada",
+      "isoAlpha2Code": "CA",
+      "resident_of": "Country_of_Citizenship",
+      "visa_entry_requirement": {
+        "duration": "Duration_of_Tourist_Visa",
+        "permission": "Visa_Requirements",
+        "notes": "Additional_Notes_Related_to_Visa_Permission"
+      },
+      "passport_requirement": {
+        "required": {
+          "value": true,
+          "expiry": "Passport_Expiration_Due_Date",
+          "blank_pages": "Passport_Blank_Pages_Requirement"
+        }
+      },
+      "funds_requirement": "Funds_Requirements",
+      "return_ticket": "Evidence_of_Return_Flight_Ticket_Requirements",
+      "yellowfever_vaccination_requirement": "Yellow_Fever_Vaccination_Requirement",
+      "corona_vaccination_requirement": "Corona_Vaccination_Requirement",
+      "polio_vaccination_requirement": "Polio_Vaccination_Requirement",
+      "measles_vaccination_requirement": "Measles_Vaccination_Requirement",
+      "active_flights_status": "Active_Flights_Status",
+      "active_borders_status": "Active_Borders_Status",
+      "active_quarantine_status": "Active_Quarantine_Status",
+      "sources": ["Source_1", "Source_2"]
+    },
+    {
