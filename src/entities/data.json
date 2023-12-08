@@ -1,508 +1,361 @@
 {
-  "ca": [
-    {
-      "destination": "us",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
+  "origin-countries": {
+    "es": {
+      "destinations": [
+        {
+          "destination_code": "ca",
+          "destination_name": "Canada",
+          "Henley_Passport_Index_Rank": "1",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "eTA",
+              "allowed_stay": "6 months",
+              "notes": "eTA required if arriving by air.",
+              "working_holiday_visa": "For a 12 month period, Spanish citizens between 18-35 at time of application can apply for a resident permit on the basis of a working holiday. Must have a minimum of CAD$2,500 in your bank account. Medical insurance required."
+            }
           }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
+        },
+        {
+          "destination_code": "mx",
+          "destination_name": "Mexico",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "not required",
+              "allowed_stay": "180 days",
+              "notes": "None.",
+              "work_visa": "Up to 3 years. Must be working remotely for a company outside of Mexico. Earn a minimum of EUR$1742.54 a month or a bank statement proving funds of EUR$29042.47. Health insurance with Mexico coverage validity"
+            }
+          }
+        },
+        {
+          "destination_code": "af",
+          "destination_name": "Afghanistan",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "not required",
+              "allowed_stay": "90 days",
+              "notes": "Passport must be valid for at least 6 months from date of entry."
+            }
+          }
+        },
+        {
+          "destination_code": "tr",
+          "destination_name": "Turkey",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "not required",
+              "allowed_stay": "90 days within any 180 day period",
+              "notes": "Passport or ID card must be valid for 90 days. Spanish citizens Turkish authorities allow to enter even with passport expired within last 5 years."
+            }
+          }
+        },
+        {
+          "destination_code": "ke",
+          "destination_name": "Kenya",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "eVisa",
+              "allowed_stay": "3 months",
+              "notes": "Passport must be valid for at least 6 months from date of entry."
+            }
+          }
+        }
+      ]
     },
-    {
-      "destination": "de",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
+    "ca": {
+      "destinations": [
+        {
+          "destination_code": "es",
+          "destination_name": "Spain",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "not required",
+              "allowed_stay": "90 days",
+              "notes": "90 days within any 180 day period in the Schengen Area with ETAIS"
+            }
           }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
+        },
+        {
+          "destination_code": "mx",
+          "destination_name": "Mexico",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "not required",
+              "allowed_stay": "180 days",
+              "notes": "Actual permitted duration of stay is decided on arrival by border agents, and is often showter than 180 days. "
+            }
+          }
+        },
+        {
+          "destination_code": "af",
+          "destination_name": "Afghanistan",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate."
+            }
+          }
+        },
+        {
+          "destination_code": "tr",
+          "destination_name": "Turkey",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "eVisa",
+              "allowed_stay": "3 months",
+              "notes": "Cruise ship passengers cruising in and out of a Turkish port within a single day do not require a tourist visa. Turkey passports to be valid for at least 5 months (150 days) upon entry."
+            }
+          }
+        },
+        {
+          "destination_code": "ke",
+          "destination_name": "Kenya",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "eVisa",
+              "allowed_stay": "3 months",
+              "notes": "None."
+            }
+          }
+        }
+      ]
     },
-    {
-      "destination": "fr",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
+    "mx": {
+      "destinations": [
+        {
+          "destination_code": "es",
+          "destination_name": "Spain",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "not required",
+              "allowed_stay": "90 days",
+              "notes": "90 days within any 180 day period in the Schengen Area."
+            }
           }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
+        },
+        {
+          "destination_code": "ca",
+          "destination_name": "Canada",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "not required",
+              "allowed_stay": "6 months",
+              "notes": "eTA required if arriving by air. Fee of 7 CAD."
+            }
+          }
+        },
+        {
+          "destination_code": "af",
+          "destination_name": "Afghanistan",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "N/A"
+            }
+          }
+        },
+        {
+          "destination_code": "tr",
+          "destination_name": "Turkey",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "eVisa",
+              "allowed_stay": "30 days",
+              "notes": "Issued free of charge."
+            }
+          }
+        },
+        {
+          "destination_code": "ke",
+          "destination_name": "Kenya",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "eVisa",
+              "allowed_stay": "3 months",
+              "notes": "Fee US $51"
+            }
+          }
+        }
+      ]
     },
-    {
-      "destination": "uk",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
+    "ke": {
+      "destinations": [
+        {
+          "destination_code": "es",
+          "destination_name": "Spain",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "none"
+            }
           }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
+        },
+        {
+          "destination_code": "mx",
+          "destination_name": "Mexico",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "none"
+            }
+          }
+        },
+        {
+          "destination_code": "af",
+          "destination_name": "Afghanistan",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "None."
+            }
+          }
+        },
+        {
+          "destination_code": "tr",
+          "destination_name": "Turkey",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "None."
+            }
+          }
+        },
+        {
+          "destination_code": "ca",
+          "destination_name": "Canada",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "None."
+            }
+          }
+        }
+      ]
+    },
+    "tr": {
+      "destinations": [
+        {
+          "destination_code": "es",
+          "destination_name": "Spain",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "Holders of Turkish ordinary passports who hold a valid visa for a Member State of the European Economic Area, Canada, Japan, Switzerland or the United States or; hold a valid residence permit issued by a Member State of the European Economic Area and Switzerland or; hold a residence permit issued by Andorra, Canada, Japan, Republic of San Marino, or the United States, that guarantees unrestricted right of return or; are a family member of a citizen of the EEA member or Switzerland or; are a flight crew may be exempt from the airport transit visa requirement."
+            }
+          }
+        },
+        {
+          "destination_code": "mx",
+          "destination_name": "Mexico",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Electronic authorization system",
+              "allowed_stay": "180 days",
+              "notes": "180 days visa free if holding a valid visa for Canada, Japan, USA, United Kingdom or a Schengen Member State"
+            }
+          }
+        },
+        {
+          "destination_code": "af",
+          "destination_name": "Afghanistan",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "None."
+            }
+          }
+        },
+        {
+          "destination_code": "ca",
+          "destination_name": "Canada",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "None."
+            }
+          }
+        },
+        {
+          "destination_code": "ke",
+          "destination_name": "Kenya",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "eVisa",
+              "allowed_stay": "3 months",
+              "notes": "None."
+            }
+          }
+        }
+      ]
+    },
+    "af": {
+      "destinations": [
+        {
+          "destination_code": "es",
+          "destination_name": "Spain",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "none"
+            }
+          }
+        },
+        {
+          "destination_code": "mx",
+          "destination_name": "Mexico",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa Required.",
+              "allowed_stay": "N/A",
+              "notes": "None."
+            }
+          }
+        },
+        {
+          "destination_code": "ca",
+          "destination_name": "Canada",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "Afghans who worked for the Canadian Government (military or development projects) may be eligible for Asylum under special programs for supporting Afghan nationals."
+            }
+          }
+        },
+        {
+          "destination_code": "tr",
+          "destination_name": "Turkey",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "N/A",
+              "notes": "None."
+            }
+          }
+        },
+        {
+          "destination_code": "ke",
+          "destination_name": "Kenya",
+          "requirements": {
+            "visa": {
+              "visa_requirements": "Visa required",
+              "allowed_stay": "None.",
+              "notes": "Applications are referred to the director general of Immigration Services in Nairobi for approval."
+            }
+          }
+        }
+      ]
     }
-  ],
-  "de": [
-    {
-      "destination": "us",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "ca",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "fr",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "uk",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    }
-  ],
-  "fr": [
-    {
-      "destination": "us",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "ca",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "de",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "uk",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    }
-  ],
-  "uk": [
-    {
-      "destination": "us",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "ca",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "de",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "fr",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    }
-  ],
-  "us": [
-    {
-      "destination": "ca",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "de",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "fr",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    },
-    {
-      "destination": "uk",
-      "requirements": {
-        "immunizations": [
-          {
-            "yellow-fever": false,
-            "mumps": false,
-            "rubella": false
-          }
-        ],
-        "passport": true,
-        "proof_of_funds": true,
-        "proof_of_accomodation": true,
-        "proof_of_return_ticket": true
-      }
-    }
-  ]
+  }
 }
------------------------------------------------------------------------------------------------------------
-{
-  "AI GENERATED countries": [
-    {
-      "name": "Bhutan",
-      "isoAlpha2Code": "BT",
-      "requirements": {
-        "visa": {
-          "policy": "High-value, low-impact tourism with a daily fee."
-        },
-        "health": {
-          "policy": "Check with Bhutanese authorities for any vaccine or health requirements.",
-          "vaccination": false,
-          "note": "No specific vaccination policy mentioned as of now."
-        }
-      }
-    },
-    {
-      "name": "Saudi Arabia",
-      "isoAlpha2Code": "SA",
-      "requirements": {
-        "visa": {
-          "policy": "Recently opened to tourism with a new visa system."
-        },
-        "health": {
-          "policy": "Verify vaccine or health requirements with Saudi Arabian authorities.",
-          "vaccination": true,
-          "note": "Vaccination may be required; refer to Saudi health authorities for details."
-        }
-      }
-    },
-    {
-      "name": "North Korea",
-      "isoAlpha2Code": "KP",
-      "requirements": {
-        "visa": {
-          "policy": "Controlled tourism; visitors must join organized tours."
-        },
-        "health": {
-          "policy": "Check with North Korean authorities for any vaccine or health requirements.",
-          "vaccination": true,
-          "note": "Specific vaccination policies may apply; verify with authorities."
-        }
-      }
-    },
-    {
-      "name": "Turkmenistan",
-      "isoAlpha2Code": "TM",
-      "requirements": {
-        "visa": {
-          "policy": "Specific requirements for obtaining a tourist visa; often requires organized tours."
-        },
-        "health": {
-          "policy": "Verify vaccine or health requirements with Turkmenistani authorities.",
-          "vaccination": false,
-          "note": "No specific vaccination policy mentioned as of now."
-        }
-      }
-    },
-    {
-      "name": "Myanmar",
-      "isoAlpha2Code": "MM",
-      "requirements": {
-        "visa": {
-          "policy": "Unique visa requirements; some regions may have restricted access."
-        },
-        "health": {
-          "policy": "Check with Myanmar authorities for any vaccine or health requirements.",
-          "vaccination": true,
-          "note": "Specific vaccination policies may be in place; consult health authorities."
-        }
-      }
-    },
-    {
-      "name": "Cuba",
-      "isoAlpha2Code": "CU",
-      "requirements": {
-        "visa": {
-          "policy": "Specific visa regulations, especially for U.S. citizens; different types of visas."
-        },
-        "health": {
-          "policy": "Verify vaccine or health requirements with Cuban authorities.",
-          "vaccination": true,
-          "note": "Check with Cuban health authorities for the latest vaccination policies."
-        }
-      }
-    },
-    {
-      "name": "Iran",
-      "isoAlpha2Code": "IR",
-      "requirements": {
-        "visa": {
-          "policy": "Involves obtaining an authorization code before applying for the visa."
-        },
-        "health": {
-          "policy": "Check with Iranian authorities for any vaccine or health requirements.",
-          "vaccination": false,
-          "note": "No specific vaccination policy mentioned as of now."
-        }
-      }
-    },
-    {
-      "name": "Eritrea",
-      "isoAlpha2Code": "ER",
-      "requirements": {
-        "visa": {
-          "policy": "Specific entry requirements; travelers often need to obtain a visa in advance."
-        },
-        "health": {
-          "policy": "Verify vaccine or health requirements with Eritrean authorities.",
-          "vaccination": true,
-          "note": "Refer to local health authorities for vaccination policies."
-        }
-      }
-    },
-    {
-      "name": "Nauru",
-      "isoAlpha2Code": "NR",
-      "requirements": {
-        "visa": {
-          "policy": "Visa requirements may vary; check with Nauruan authorities for the latest information."
-        },
-        "health": {
-          "policy": "Verify vaccine or health requirements with Nauruan authorities.",
-          "vaccination": false,
-          "note": "No specific vaccination policy mentioned as of now."
-        }
-      }
-    },
-    {
-      "name": "Mongolia",
-      "isoAlpha2Code": "MN",
-      "requirements": {
-        "visa": {
-          "policy": "Offers various visa types, including tourist, business, and transit visas."
-        },
-        "health": {
-          "policy": "Check with Mongolian authorities for any vaccine or health requirements.",
-          "vaccination": true,
-          "note": "Refer to local health authorities for the latest vaccination policies."
-        }
-      }
-    }
-  ]
-}
----------------------------------------------------------------------------------------------------
-{
-  "countries": [
-    {
-      "name": "Canada",
-      "isoAlpha2Code": "CA",
-      "resident_of": "Country_of_Citizenship",
-      "visa_entry_requirement": {
-        "duration": "Duration_of_Tourist_Visa",
-        "permission": "Visa_Requirements",
-        "notes": "Additional_Notes_Related_to_Visa_Permission"
-      },
-      "passport_requirement": {
-        "required": {
-          "value": true,
-          "expiry": "Passport_Expiration_Due_Date",
-          "blank_pages": "Passport_Blank_Pages_Requirement"
-        }
-      },
-      "funds_requirement": "Funds_Requirements",
-      "return_ticket": "Evidence_of_Return_Flight_Ticket_Requirements",
-      "yellowfever_vaccination_requirement": "Yellow_Fever_Vaccination_Requirement",
-      "corona_vaccination_requirement": "Corona_Vaccination_Requirement",
-      "polio_vaccination_requirement": "Polio_Vaccination_Requirement",
-      "measles_vaccination_requirement": "Measles_Vaccination_Requirement",
-      "active_flights_status": "Active_Flights_Status",
-      "active_borders_status": "Active_Borders_Status",
-      "active_quarantine_status": "Active_Quarantine_Status",
-      "sources": ["Source_1", "Source_2"]
-    },
-    {

@@ -2,10 +2,12 @@
 
 // passort power index data
 // https://www.kaggle.com/datasets/kometr/passport-power-visa-free-access-in-2023
-// https://www.kaggle.com/datasets/ramjasmaurya/henley-passport-index20062022
 
 // CDC travelers health informatin page NOT API
 //https://wwwnc.cdc.gov/travel/destinations/traveler/none/bhutan?s_cid=ncezid-dgmq-travel-single-001
+
+// Amadeus API - Tours and Activities, Hotels, Cars, Flights, etc.
+//https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
