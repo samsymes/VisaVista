@@ -1,11 +1,11 @@
 {
   "origin-countries": {
     "es": {
+      "Henley_Passport_Index_Rank": "1",
       "destinations": [
         {
           "destination_code": "ca",
           "destination_name": "Canada",
-          "Henley_Passport_Index_Rank": "1",
           "requirements": {
             "visa": {
               "visa_requirements": "eTA",
@@ -93,7 +93,7 @@
             "visa": {
               "visa_requirements": "Visa required",
               "allowed_stay": "N/A",
-              "notes": "The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate."
+              "notes": "Passport must be valid for at least 6 months from date of entry. The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate."
             }
           }
         },
@@ -104,7 +104,7 @@
             "visa": {
               "visa_requirements": "eVisa",
               "allowed_stay": "3 months",
-              "notes": "Cruise ship passengers cruising in and out of a Turkish port within a single day do not require a tourist visa. Turkey passports to be valid for at least 5 months (150 days) upon entry."
+              "notes": "Passport must be valid for at least 6 months from date of entry. Cruise ship passengers cruising in and out of a Turkish port within a single day do not require a tourist visa. Turkey passports to be valid for at least 5 months (150 days) upon entry."
             }
           }
         },
@@ -115,7 +115,7 @@
             "visa": {
               "visa_requirements": "eVisa",
               "allowed_stay": "3 months",
-              "notes": "None."
+              "notes": "Passport must be valid for at least 6 months from date of entry. Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
             }
           }
         }
@@ -141,7 +141,7 @@
             "visa": {
               "visa_requirements": "not required",
               "allowed_stay": "6 months",
-              "notes": "eTA required if arriving by air. Fee of 7 CAD."
+              "notes": "eTA required if arriving by air. Fee of 7 CAD. Canada routinely  denies entry to non-citizens who have a criminal record."
             }
           }
         },
@@ -163,7 +163,7 @@
             "visa": {
               "visa_requirements": "eVisa",
               "allowed_stay": "30 days",
-              "notes": "Issued free of charge."
+              "notes": "Issued free of charge. Passport must be valid for 6 months beyond arrival date."
             }
           }
         },
@@ -174,7 +174,7 @@
             "visa": {
               "visa_requirements": "eVisa",
               "allowed_stay": "3 months",
-              "notes": "Fee US $51"
+              "notes": "Fee US $51. require all incoming passengers older than nine months to one year[383] to have a current International Certificate of Vaccination or Prophylaxis"
             }
           }
         }
@@ -281,7 +281,7 @@
             "visa": {
               "visa_requirements": "Visa required",
               "allowed_stay": "N/A",
-              "notes": "None."
+              "notes": "Routinely  denies entry to non-citizens who have a criminal record."
             }
           }
         },
@@ -292,7 +292,7 @@
             "visa": {
               "visa_requirements": "eVisa",
               "allowed_stay": "3 months",
-              "notes": "None."
+              "notes": "Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
             }
           }
         }
@@ -329,7 +329,7 @@
             "visa": {
               "visa_requirements": "Visa required",
               "allowed_stay": "N/A",
-              "notes": "Afghans who worked for the Canadian Government (military or development projects) may be eligible for Asylum under special programs for supporting Afghan nationals."
+              "notes": "Afghans who worked for the Canadian Government (military or development projects) may be eligible for Asylum under special programs for supporting Afghan nationals. Routinely  denies entry to non-citizens who have a criminal record."
             }
           }
         },
@@ -340,7 +340,7 @@
             "visa": {
               "visa_requirements": "Visa required",
               "allowed_stay": "N/A",
-              "notes": "None."
+              "notes": "Passport must be valid for at least 6 months from date of entry."
             }
           }
         },
@@ -351,7 +351,7 @@
             "visa": {
               "visa_requirements": "Visa required",
               "allowed_stay": "None.",
-              "notes": "Applications are referred to the director general of Immigration Services in Nairobi for approval."
+              "notes": "Applications are referred to the director general of Immigration Services in Nairobi for approval.  Require all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis. Passport must be valid for at least 6 months from date of entry."
             }
           }
         }
