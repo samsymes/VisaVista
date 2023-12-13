@@ -25,6 +25,16 @@ function App() {
 
   const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
 
+  const visaService = new VisaRequirementsService();
+  const originCountryCodes = visaService.getOriginCountries();
+  console.log("Origin Country Codes", originCountryCodes);
+
+  const originCountryList = countryList.filter((country) =>
+    originCountryCodes.includes(country.code)
+  );
+  console.log("Origin Country List", originCountryList);
+  const destinationCountryCodes = visaService.getDestinationCountries();
+
   // origin country selectd from combobox
   const [originCountry, setOriginCountry] = useState("");
   console.log("Origin Country", originCountry);
@@ -65,18 +75,13 @@ function App() {
     fetchData();
   }, []);
 
-  const visaService = new VisaRequirementsService();
-  const originCountryCodes = visaService.getOriginCountries();
-  const destinationCountryCodes = visaService.getDestinationCountries();
-
-  const originCountries = countryList.filter((country) =>
+  const originFlag = countryList.filter((country) =>
     originCountryCodes.includes(country.value)
   );
-  console.log("Origin Countries", originCountries);
-  const destinationCountries = countryList.filter((country) =>
+
+  const destinationFlag = countryList.filter((country) =>
     destinationCountryCodes.includes(country.value)
   );
-  console.log("Destination Countries", destinationCountries);
 
   return (
     <>
@@ -87,12 +92,13 @@ function App() {
       <div className="row">
         <div className="col">
           <Card
-            option={originCountries.find(
+            // flag img
+            option={originFlag.find(
               (country) => country.value === originCountry
             )}
           >
             <ComboBox
-              options={originCountry}
+              options={originCountryList}
               selectedOption={originCountry}
               handleChange={handleOriginChange}
               tag="Origin Country"
@@ -101,7 +107,7 @@ function App() {
               title={
                 originCountry
                   ? `${
-                      originCountries.find(
+                      originFlag.find(
                         (country) => country.value === originCountry
                       ).label
                     }`
@@ -114,12 +120,12 @@ function App() {
         <div className="col">
           {isOriginCountrySelected && (
             <Card
-              option={destinationCountries.find(
+              option={destinationFlag.find(
                 (country) => country.value === destinationCountry
               )}
             >
               <ComboBox
-                options={destinationCountries}
+                options={destinationCountryCodes}
                 selectedOption={destinationCountry}
                 handleChange={handleDestinationChange}
                 tag="Destination Country"
@@ -128,7 +134,7 @@ function App() {
                 title={
                   destinationCountry
                     ? `${
-                        destinationCountries.find(
+                        destinationFlag.find(
                           (country) => country.value === destinationCountry
                         ).label
                       }`
