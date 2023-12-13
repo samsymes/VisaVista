@@ -9,7 +9,7 @@ class VisaRequirementsService {
     return Object.keys(this.countries).map((countryCode) => {
       return {
         code: countryCode,
-        destinations: this.countries[countryCode].destinations,
+        // destinations: this.countries[countryCode].destinations,
       };
     });
   }

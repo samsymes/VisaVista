@@ -22,7 +22,12 @@ function ComboBox(props) {
 
 ComboBox.propTypes = {
   message: PropTypes.string,
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string,
+    })
+  ),
   tag: PropTypes.string,
   selectedOption: PropTypes.string,
   handleChange: PropTypes.func,

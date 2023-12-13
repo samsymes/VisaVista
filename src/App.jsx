@@ -20,22 +20,20 @@ import Flag from "./components/Flag";
 import VisaRequirementsService from "./services/VisaRequirementsService";
 
 function App() {
-  // fetched countries
   const [countryList, setCountryList] = useState([]);
-
-  const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
-
+  // visaservice {
   const visaService = new VisaRequirementsService();
   const originCountryCodes = visaService.getOriginCountries();
   console.log("Origin Country Codes", originCountryCodes);
 
   const originCountryList = countryList.filter((country) =>
-    originCountryCodes.includes(country.code)
+    originCountryCodes.some((countryCode) => countryCode.code === country.value)
   );
   console.log("Origin Country List", originCountryList);
-  const destinationCountryCodes = visaService.getDestinationCountries();
 
-  // origin country selectd from combobox
+  const destinationCountryList = visaService.getDestinationCountries();
+  // }
+  // selections {
   const [originCountry, setOriginCountry] = useState("");
   console.log("Origin Country", originCountry);
   const handleOriginChange = (newCountry) => {
@@ -43,28 +41,18 @@ function App() {
     setIsOriginCountrySelected(true);
   };
 
-  // destination country selected from combobox
   const [destinationCountry, setDestinationCountry] = useState("");
   console.log("Destination Country", destinationCountry);
   const handleDestinationChange = (newCountry) => {
     setDestinationCountry(newCountry.value);
   };
-
-  // enable button when origin and destination countries are selected, disable click event otherwise
-  const [buttonDisabled, setButtonDisabled] = useState(true);
-  useEffect(() => {
-    if (originCountry && destinationCountry) {
-      setButtonDisabled(false);
-    } else {
-      setButtonDisabled(true);
-    }
-  }, [originCountry, destinationCountry]);
+  // }
+  // flag{
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://flagcdn.com/en/codes.json");
       const countryData = await response.json();
-      // convert countryData object into an array of objects
       const countryList = Object.entries(countryData).map(([value, label]) => ({
         value,
         label,
@@ -80,8 +68,21 @@ function App() {
   );
 
   const destinationFlag = countryList.filter((country) =>
-    destinationCountryCodes.includes(country.value)
+    destinationCountryList.includes(country.value)
   );
+  // }
+
+  // disabled components {
+  const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  useEffect(() => {
+    if (originCountry && destinationCountry) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [originCountry, destinationCountry]);
+  // }
 
   return (
     <>
@@ -106,11 +107,9 @@ function App() {
             <Flag
               title={
                 originCountry
-                  ? `${
-                      originFlag.find(
-                        (country) => country.value === originCountry
-                      ).label
-                    }`
+                  ? originFlag.find(
+                      (country) => country.value === originCountry
+                    )?.label
                   : null
               }
               code={originCountry}
@@ -125,7 +124,7 @@ function App() {
               )}
             >
               <ComboBox
-                options={destinationCountryCodes}
+                options={destinationCountryList}
                 selectedOption={destinationCountry}
                 handleChange={handleDestinationChange}
                 tag="Destination Country"
