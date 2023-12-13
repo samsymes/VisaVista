@@ -14,6 +14,8 @@ class VisaRequirementsService {
     });
   }
 
+  // search origin for destinations
+
   getDestinationCountries(origin) {
     if (!origin) {
       return [];
