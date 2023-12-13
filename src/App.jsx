@@ -17,17 +17,20 @@ import ComboBox from "./components/selects/ComboBox";
 import "./App.css";
 import Button from "./components/buttons/Button";
 import Flag from "./components/Flag";
-import VisaRequirementsService from "./services/visa-requirments-service";
+import VisaRequirementsService from "./services/VisaRequirementsService";
 
 function App() {
   // fetched countries
   const [countryList, setCountryList] = useState([]);
+
+  const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
 
   // origin country selectd from combobox
   const [originCountry, setOriginCountry] = useState("");
   console.log("Origin Country", originCountry);
   const handleOriginChange = (newCountry) => {
     setOriginCountry(newCountry.value);
+    setIsOriginCountrySelected(true);
   };
 
   // destination country selected from combobox
@@ -62,16 +65,18 @@ function App() {
     fetchData();
   }, []);
 
-  const originCountryCodes = VisaRequirementsService.getOriginCountries();
-  const destinationCountryCodes =
-    VisaRequirementsService.getDestinationCountries();
+  const visaService = new VisaRequirementsService();
+  const originCountryCodes = visaService.getOriginCountries();
+  const destinationCountryCodes = visaService.getDestinationCountries();
 
   const originCountries = countryList.filter((country) =>
     originCountryCodes.includes(country.value)
   );
+  console.log("Origin Countries", originCountries);
   const destinationCountries = countryList.filter((country) =>
     destinationCountryCodes.includes(country.value)
   );
+  console.log("Destination Countries", destinationCountries);
 
   return (
     <>
@@ -87,7 +92,7 @@ function App() {
             )}
           >
             <ComboBox
-              options={originCountries}
+              options={originCountry}
               selectedOption={originCountry}
               handleChange={handleOriginChange}
               tag="Origin Country"
@@ -107,30 +112,32 @@ function App() {
           </Card>
         </div>
         <div className="col">
-          <Card
-            option={destinationCountries.find(
-              (country) => country.value === destinationCountry
-            )}
-          >
-            <ComboBox
-              options={destinationCountries}
-              selectedOption={destinationCountry}
-              handleChange={handleDestinationChange}
-              tag="Destination Country"
-            />
-            <Flag
-              title={
-                destinationCountry
-                  ? `${
-                      destinationCountries.find(
-                        (country) => country.value === destinationCountry
-                      ).label
-                    }`
-                  : null
-              }
-              code={destinationCountry}
-            />
-          </Card>
+          {isOriginCountrySelected && (
+            <Card
+              option={destinationCountries.find(
+                (country) => country.value === destinationCountry
+              )}
+            >
+              <ComboBox
+                options={destinationCountries}
+                selectedOption={destinationCountry}
+                handleChange={handleDestinationChange}
+                tag="Destination Country"
+              />
+              <Flag
+                title={
+                  destinationCountry
+                    ? `${
+                        destinationCountries.find(
+                          (country) => country.value === destinationCountry
+                        ).label
+                      }`
+                    : null
+                }
+                code={destinationCountry}
+              />
+            </Card>
+          )}
         </div>
       </div>
       <div className="row">

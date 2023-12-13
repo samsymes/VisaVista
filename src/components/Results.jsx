@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { useSearchParams } from "react-router-dom";
-import VisaRequirementsService from "../services/visa-requirments-service";
+import VisaRequirementsService from "../services/VisaRequirementsService";
 
 function Results() {
   const [searchParams] = useSearchParams();

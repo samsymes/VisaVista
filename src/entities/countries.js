@@ -1,6 +1,6 @@
 class Country {
   constructor(name, visaRequirements, vaccineRequirements, otherDocumentation) {
-    this.name = name;
+    this.country_name = name;
     this.visaRequirements = visaRequirements;
     this.vaccineRequirements = vaccineRequirements;
     this.otherDocumentation = otherDocumentation;
