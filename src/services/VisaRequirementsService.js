@@ -6,15 +6,8 @@ class VisaRequirementsService {
   }
 
   getOriginCountries() {
-    return Object.keys(this.countries).map((countryCode) => {
-      return {
-        code: countryCode,
-        destinations: this.countries[countryCode].destinations,
-      };
-    });
+    return Object.keys(this.countries);
   }
-
-  // search origin for destinations
 
   getDestinationCountries(origin) {
     if (!origin) {
@@ -22,7 +15,7 @@ class VisaRequirementsService {
     }
 
     const destinationCountries = this.countries[origin].destinations.map(
-      (country) => country.destination_code
+      (destination) => destination.destination_code
     );
 
     return destinationCountries;

@@ -21,18 +21,6 @@ import VisaRequirementsService from "./services/VisaRequirementsService";
 
 function App() {
   const [countryList, setCountryList] = useState([]);
-  // visaservice {
-  const visaService = new VisaRequirementsService();
-  const originCountryCodes = visaService.getOriginCountries();
-  console.log("Origin Country Codes", originCountryCodes);
-
-  const originCountryList = countryList.filter((country) =>
-    originCountryCodes.some((countryCode) => countryCode.code === country.value)
-  );
-  console.log("Origin Country List", originCountryList);
-
-  const destinationCountryList = visaService.getDestinationCountries();
-  // }
   // selections {
   const [originCountry, setOriginCountry] = useState("");
   console.log("Origin Country", originCountry);
@@ -47,8 +35,29 @@ function App() {
     setDestinationCountry(newCountry.value);
   };
   // }
-  // flag{
+  // visaservice {
+  const visaService = new VisaRequirementsService();
+  const originCountryCodes = visaService.getOriginCountries();
+  console.log("Origin Country Codes", originCountryCodes);
 
+  const originCountryList = countryList.filter((country) =>
+    originCountryCodes.some((countryCode) => countryCode === country.value)
+  );
+  console.log("Origin Country List", originCountryList);
+
+  const destinationCountryCodes =
+    visaService.getDestinationCountries(originCountry);
+
+  console.log("Destination Country Codes", destinationCountryCodes);
+
+  const destinationCountryList = countryList.filter((country) =>
+    destinationCountryCodes.some((countryCode) => countryCode === country.value)
+  );
+
+  console.log("Destination Country List", destinationCountryList);
+  // }
+
+  // flag{
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://flagcdn.com/en/codes.json");
@@ -132,11 +141,9 @@ function App() {
               <Flag
                 title={
                   destinationCountry
-                    ? `${
-                        destinationFlag.find(
-                          (country) => country.value === destinationCountry
-                        ).label
-                      }`
+                    ? destinationFlag.find(
+                        (country) => country.value === destinationCountry
+                      )?.label
                     : null
                 }
                 code={destinationCountry}
