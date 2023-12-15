@@ -8,7 +8,7 @@ function Results() {
   const From = searchParams.get("From");
   const To = searchParams.get("To");
 
-  const [visaRequirements, setVisaRequirements] = useState([]);
+  const [visaRequirements, setVisaRequirements] = useState("");
 
   useEffect(() => {
     const result = VisaRequirementsService.getVisaRequirements(From, To);
@@ -22,7 +22,10 @@ function Results() {
         <h2>Results Page </h2>
         <p> Origin Code: {From} </p>
         <p> Destination Code: {To} </p>
-        <p> Visa Requirements: {visaRequirements} </p>
+        <p>
+          Visa Requirements:
+          {visaRequirements.requirementsObj?.visa_requirements}
+        </p>
       </div>
     </>
   );
