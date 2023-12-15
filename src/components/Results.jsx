@@ -16,6 +16,7 @@ function Results() {
   }, [From, To]);
 
   const visaReq = visaRequirements.requirementsObj?.allowed_stay;
+
   return (
     <>
       <Navbar />
