@@ -9,11 +9,6 @@ function Card(props) {
 }
 
 Card.propTypes = {
-  option: PropsType.shape({
-    value: PropsType.string,
-    label: PropsType.string,
-  }),
-
   children: PropsType.arrayOf(PropsType.node).isRequired,
 };
 

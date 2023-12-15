@@ -20,71 +20,60 @@ import Flag from "./components/Flag";
 import VisaRequirementsService from "./services/VisaRequirementsService";
 
 function App() {
-  const [countryList, setCountryList] = useState([]);
+  const [apiFlagList, setapiFlagList] = useState([]);
   // selections {
-  const [originCountry, setOriginCountry] = useState("");
-  console.log("Origin Country", originCountry);
+  const [selectedOriginCountry, setselectedOriginCountry] = useState("");
+  console.log("Origin Country", selectedOriginCountry);
   const handleOriginChange = (newCountry) => {
-    setOriginCountry(newCountry.value);
+    setselectedOriginCountry(newCountry.value);
     setIsOriginCountrySelected(true);
   };
 
-  const [destinationCountry, setDestinationCountry] = useState("");
-  console.log("Destination Country", destinationCountry);
+  const [selectedDestinationCountry, setselectedDestinationCountry] =
+    useState("");
+  console.log("Destination Country", selectedDestinationCountry);
   const handleDestinationChange = (newCountry) => {
-    setDestinationCountry(newCountry.value);
+    setselectedDestinationCountry(newCountry.value);
   };
   // }
   // visaservice {
   const visaService = VisaRequirementsService;
   const originCountryCodes = visaService.getOriginCountries();
-  console.log("Origin Country Codes", originCountryCodes);
-
-  const originCountryList = countryList.filter((country) =>
+  const filteredOrigins = apiFlagList.filter((country) =>
     originCountryCodes.includes(country.value)
   );
-  console.log("Origin Country List", originCountryList);
+  const destinationCountryCodes = visaService.getDestinationCountries(
+    selectedOriginCountry
+  );
 
-  const destinationCountryCodes =
-    visaService.getDestinationCountries(originCountry);
-
-  console.log("Destination Country Codes", destinationCountryCodes);
-
-  const destinationCountryList = countryList.filter((country) =>
+  const filteredDestinations = apiFlagList.filter((country) =>
     destinationCountryCodes.includes(country.value)
   );
 
-  console.log("Destination Country List", destinationCountryList);
-  // }
-
-  // flag{
+  //  move to service
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://flagcdn.com/en/codes.json");
       const countryData = await response.json();
-      const countryList = Object.entries(countryData).map(([value, label]) => ({
+      const apiFlagList = Object.entries(countryData).map(([value, label]) => ({
         value,
         label,
       }));
-      setCountryList(countryList);
-      console.log("All Countries", countryList);
+      setapiFlagList(apiFlagList);
+      console.log("All Countries", apiFlagList);
     }
     fetchData();
   }, []);
   // }
-
-  // disabled components {
   const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   useEffect(() => {
-    if (originCountry && destinationCountry) {
+    if (selectedOriginCountry && selectedDestinationCountry) {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
     }
-  }, [originCountry, destinationCountry]);
-  // }
-
+  }, [selectedOriginCountry, selectedDestinationCountry]);
   return (
     <>
       <div>
@@ -93,52 +82,44 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <Card
-            // flag img
-            option={originCountryList.find(
-              (country) => country.value === originCountry
-            )}
-          >
+          <Card>
             <ComboBox
-              options={originCountryList}
-              selectedOption={originCountry}
+              options={filteredOrigins}
+              selectedOption={selectedOriginCountry}
               handleChange={handleOriginChange}
               tag="Origin Country"
             />
             <Flag
-              title={
-                originCountry
-                  ? originCountryList.find(
-                      (country) => country.value === originCountry
+              name={
+                selectedOriginCountry
+                  ? filteredOrigins.find(
+                      (country) => country.value === selectedOriginCountry
                     )?.label
                   : null
               }
-              code={originCountry}
+              code={selectedOriginCountry}
             />
           </Card>
         </div>
         <div className="col">
           {isOriginCountrySelected && (
-            <Card
-              option={destinationCountryList.find(
-                (country) => country.value === destinationCountry
-              )}
-            >
+            <Card>
               <ComboBox
-                options={destinationCountryList}
-                selectedOption={destinationCountry}
+                options={filteredDestinations}
+                selectedOption={selectedDestinationCountry}
                 handleChange={handleDestinationChange}
                 tag="Destination Country"
               />
               <Flag
-                title={
-                  destinationCountry
-                    ? destinationCountryList.find(
-                        (country) => country.value === destinationCountry
+                name={
+                  selectedDestinationCountry
+                    ? filteredDestinations.find(
+                        (country) =>
+                          country.value === selectedDestinationCountry
                       )?.label
                     : null
                 }
-                code={destinationCountry}
+                code={selectedDestinationCountry}
               />
             </Card>
           )}
@@ -149,9 +130,9 @@ function App() {
           <Button
             disabled={buttonDisabled}
             text="Search"
-            originCode={originCountry}
-            destinationCode={destinationCountry}
-            link={`/results/?From=${originCountry}&To=${destinationCountry}`}
+            originCode={selectedOriginCountry}
+            destinationCode={selectedDestinationCountry}
+            link={`/results/?From=${selectedOriginCountry}&To=${selectedDestinationCountry}`}
           />
         </div>
       </div>

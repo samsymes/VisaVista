@@ -5,7 +5,7 @@ function Flag(props) {
 
     return (
       <>
-        <h5 className="card-title">{props.title}</h5>
+        <h5 className="card-title">{props.name}</h5>
         <img id="flag" src={flagURL} alt={props.code} />
       </>
     );
@@ -15,7 +15,7 @@ function Flag(props) {
 }
 
 Flag.propTypes = {
-  title: PropTypes.string,
+  name: PropTypes.string,
   code: PropTypes.string,
 };
 
