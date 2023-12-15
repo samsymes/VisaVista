@@ -82,7 +82,7 @@
             "visa": {
               "visa_requirements": "not required",
               "allowed_stay": "180 days",
-              "notes": "Actual permitted duration of stay is decided on arrival by border agents, and is often showter than 180 days. "
+              "notes": "Actual permitted duration of stay is decided on arrival by border agents, and is often shorter than 180 days. "
             }
           }
         },

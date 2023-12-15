@@ -15,6 +15,7 @@ function Results() {
     setVisaRequirements(result);
   }, [From, To]);
 
+  const visaReq = visaRequirements.requirementsObj?.allowed_stay;
   return (
     <>
       <Navbar />
@@ -24,7 +25,7 @@ function Results() {
         <p> Destination Code: {To} </p>
         <p>
           Visa Requirements:
-          {visaRequirements.requirementsObj?.visa_requirements}
+          {visaReq}
         </p>
       </div>
     </>
