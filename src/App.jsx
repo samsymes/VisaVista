@@ -36,12 +36,12 @@ function App() {
   };
   // }
   // visaservice {
-  const visaService = new VisaRequirementsService();
+  const visaService = VisaRequirementsService;
   const originCountryCodes = visaService.getOriginCountries();
   console.log("Origin Country Codes", originCountryCodes);
 
   const originCountryList = countryList.filter((country) =>
-    originCountryCodes.some((countryCode) => countryCode === country.value)
+    originCountryCodes.includes(country.value)
   );
   console.log("Origin Country List", originCountryList);
 
@@ -51,7 +51,7 @@ function App() {
   console.log("Destination Country Codes", destinationCountryCodes);
 
   const destinationCountryList = countryList.filter((country) =>
-    destinationCountryCodes.some((countryCode) => countryCode === country.value)
+    destinationCountryCodes.includes(country.value)
   );
 
   console.log("Destination Country List", destinationCountryList);
@@ -71,14 +71,6 @@ function App() {
     }
     fetchData();
   }, []);
-
-  const originFlag = countryList.filter((country) =>
-    originCountryCodes.includes(country.value)
-  );
-
-  const destinationFlag = countryList.filter((country) =>
-    destinationCountryList.includes(country.value)
-  );
   // }
 
   // disabled components {
@@ -103,7 +95,7 @@ function App() {
         <div className="col">
           <Card
             // flag img
-            option={originFlag.find(
+            option={originCountryList.find(
               (country) => country.value === originCountry
             )}
           >
@@ -116,7 +108,7 @@ function App() {
             <Flag
               title={
                 originCountry
-                  ? originFlag.find(
+                  ? originCountryList.find(
                       (country) => country.value === originCountry
                     )?.label
                   : null
@@ -128,7 +120,7 @@ function App() {
         <div className="col">
           {isOriginCountrySelected && (
             <Card
-              option={destinationFlag.find(
+              option={destinationCountryList.find(
                 (country) => country.value === destinationCountry
               )}
             >
@@ -141,7 +133,7 @@ function App() {
               <Flag
                 title={
                   destinationCountry
-                    ? destinationFlag.find(
+                    ? destinationCountryList.find(
                         (country) => country.value === destinationCountry
                       )?.label
                     : null

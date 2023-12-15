@@ -10,16 +10,30 @@ class VisaRequirementsService {
   }
 
   getDestinationCountries(origin) {
-    if (!origin) {
+    if (!origin || !this.countries[origin]) {
       return [];
     }
 
     const destinationCountries = this.countries[origin].destinations.map(
       (destination) => destination.destination_code
     );
-
     return destinationCountries;
+  }
+  getVisaRequirements(originCountry, destinationCountry) {
+    const req = this.countries[originCountry].destinations.find(
+      (d) => d.destination_code === destinationCountry
+    ).requirements;
+    return new VisaRequirements(req.visa);
   }
 }
 
-export default VisaRequirementsService;
+export default new VisaRequirementsService();
+
+class VisaRequirements {
+  constructor(requirementsObj) {
+    this.requirementsObj = requirementsObj;
+  }
+  getAllowedStay() {
+    return this.requirementsObj.allowed_stay;
+  }
+}
