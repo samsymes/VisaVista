@@ -20,21 +20,12 @@ class CountryService {
     return destinationCountries;
   }
   getVisaRequirements(originCountry, destinationCountry) {
-    const req = this.countries[originCountry].destinations.find(
+    const requirementsObj = this.countries[originCountry].destinations.find(
       (d) => d.destination_code === destinationCountry
     ).requirements;
-    return new VisaRequirementsService(req.visa);
+    console.log("requirementsObj out", requirementsObj);
+    return requirementsObj;
   }
 }
 
 export default new CountryService();
-
-class VisaRequirementsService {
-  constructor(requirementsObj) {
-    this.requirementsObj = requirementsObj;
-    console.log("requirementsObj", this.requirementsObj);
-  }
-  getAllowedStay() {
-    return this.requirementsObj.allowed_stay;
-  }
-}
