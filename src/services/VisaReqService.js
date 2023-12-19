@@ -1,6 +1,6 @@
 import data from "../entities/data.json";
 import VisaRequirementsClass from "../entities/VisaRequirementsClass";
-class CountryService {
+class VisaReqService {
   constructor() {
     this.countries = data.origin;
   }
@@ -27,4 +27,4 @@ class CountryService {
   }
 }
 
-export default new CountryService();
+export default new VisaReqService();

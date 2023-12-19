@@ -11,6 +11,7 @@ function Results() {
   const visaReq = VisaReqService.getVisaRequirements(From, To);
   const allowedStay = visaReq.getAllowedStay(From, To);
   const [visaRequirements, setVisaRequirements] = useState([]);
+
   useEffect(() => {
     VisaReqService.getVisaRequirements(From, To);
     setVisaRequirements(allowedStay);
