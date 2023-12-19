@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Navbar from "./Navbar";
 import { useSearchParams } from "react-router-dom";
-import VisaRequirementsService from "../services/VisaRequirementsService";
+import CountryService from "../services/CountryService";
 
 function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
   const To = searchParams.get("To");
 
-  const [visaRequirements, setVisaRequirements] = useState("");
-
   useEffect(() => {
-    const result = VisaRequirementsService.getVisaRequirements(From, To);
-    setVisaRequirements(result);
+    CountryService.getVisaRequirements(From, To);
   }, [From, To]);
 
-  const visaReq = visaRequirements.requirementsObj?.allowed_stay;
-
+  const visaReq = CountryService.getVisaRequirements(From, To);
+  const allowedStay = visaReq.getAllowedStay();
   return (
     <>
       <Navbar />
@@ -26,7 +23,7 @@ function Results() {
         <p> Destination Code: {To} </p>
         <p>
           Visa Requirements:
-          {visaReq}
+          {allowedStay}
         </p>
       </div>
     </>
