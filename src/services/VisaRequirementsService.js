@@ -1,7 +1,8 @@
 import CountryService from "./CountryService";
+
 class VisaRequirementsService {
   constructor() {
-    this.requirementsObj = CountryService.requirementsObj;
+    this.requirementsObj = CountryService.getVisaRequirements.requirementsObj;
 
     console.log("requirementsObj in", this.requirementsObj);
   }
