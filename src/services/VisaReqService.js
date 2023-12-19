@@ -1,5 +1,5 @@
 import data from "../entities/data.json";
-
+import VisaRequirementsClass from "../entities/VisaRequirementsClass";
 class CountryService {
   constructor() {
     this.countries = data.origin;
@@ -20,11 +20,10 @@ class CountryService {
     return destinationCountries;
   }
   getVisaRequirements(originCountry, destinationCountry) {
-    const requirementsObj = this.countries[originCountry].destinations.find(
+    const req = this.countries[originCountry].destinations.find(
       (d) => d.destination_code === destinationCountry
     ).requirements;
-    console.log("requirementsObj out", requirementsObj);
-    return requirementsObj;
+    return new VisaRequirementsClass(req.visa);
   }
 }
 

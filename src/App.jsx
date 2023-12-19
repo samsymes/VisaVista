@@ -17,7 +17,7 @@ import ComboBox from "./components/selects/ComboBox";
 import "./App.css";
 import Button from "./components/buttons/Button";
 import Flag from "./components/Flag";
-import CountryService from "./services/CountryService";
+import VisaReqService from "./services/VisaReqService";
 
 function App() {
   const [apiFlagList, setapiFlagList] = useState([]);
@@ -37,7 +37,7 @@ function App() {
   };
   // }
   // visaservice {
-  const visaService = CountryService;
+  const visaService = VisaReqService;
   const originCountryCodes = visaService.getOriginCountries();
   const filteredOrigins = apiFlagList.filter((country) =>
     originCountryCodes.includes(country.value)
