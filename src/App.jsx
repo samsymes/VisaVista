@@ -42,6 +42,7 @@ function App() {
   const filteredOrigins = apiFlagList.filter((country) =>
     originCountryCodes.includes(country.value)
   );
+  filteredOrigins.sort((a, b) => a.label.localeCompare(b.label));
   const destinationCountryCodes = visaService.getDestinationCountries(
     selectedOriginCountry
   );
@@ -49,6 +50,7 @@ function App() {
   const filteredDestinations = apiFlagList.filter((country) =>
     destinationCountryCodes.includes(country.value)
   );
+  filteredDestinations.sort((a, b) => a.label.localeCompare(b.label));
 
   //  move to service
   useEffect(() => {
