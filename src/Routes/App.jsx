@@ -9,16 +9,16 @@
 // Amadeus API - Tours and Activities, Hotels, Cars, Flights, etc.
 //https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
 
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Card from "./components/Cards/Card";
+import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import Card from "../components/Cards/Card";
 import { useState, useEffect } from "react";
-import ComboBox from "./components/selects/ComboBox";
+import ComboBox from "../components/selects/ComboBox";
 import "./App.css";
-import Button from "./components/buttons/Button";
-import Flag from "./components/Flag";
-import VisaReqService from "./services/VisaReqService";
-import CountryService from "./services/CountryService";
+import Button from "../components/buttons/Button";
+import Flag from "../components/Flag";
+import VisaReqService from "../services/VisaReqService";
+import CountryService from "../services/CountryService";
 
 function App() {
   const [apiFlagList, setapiFlagList] = useState([]);
