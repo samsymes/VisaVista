@@ -1,0 +1,18 @@
+#VisaInfo {
+    width: 100%;
+    float: left;
+    padding: 5px;
+}
+
+#CountryInfo {
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#Map {
+    width: 75%;
+    float: right;
+    margin-right: 10px;
+}

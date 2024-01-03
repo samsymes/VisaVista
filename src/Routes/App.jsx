@@ -92,7 +92,7 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <Card>
+          <Card id="card">
             <ComboBox
               options={filteredOrigins}
               selectedOption={selectedOriginCountry}
@@ -114,7 +114,7 @@ function App() {
         </div>
         <div className="col">
           {isOriginCountrySelected && (
-            <Card>
+            <Card id="card">
               <ComboBox
                 options={filteredDestinations}
                 selectedOption={selectedDestinationCountry}
