@@ -17,6 +17,7 @@ function Flag(props) {
 Flag.propTypes = {
   name: PropTypes.string,
   code: PropTypes.string,
+  onCountryChange: PropTypes.func,
 };
 
 export default Flag;

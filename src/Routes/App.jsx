@@ -9,16 +9,16 @@
 // Amadeus API - Tours and Activities, Hotels, Cars, Flights, etc.
 //https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
 
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Card from "./components/Cards/Card";
+import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import Card from "../components/Cards/Card";
 import { useState, useEffect } from "react";
-import ComboBox from "./components/selects/ComboBox";
+import ComboBox from "../components/selects/ComboBox";
 import "./App.css";
-import Button from "./components/buttons/Button";
-import Flag from "./components/Flag";
-import VisaReqService from "./services/VisaReqService";
-import CountryService from "./services/CountryService";
+import Button from "../components/buttons/Button";
+import Flag from "../components/Flag";
+import VisaReqService from "../services/VisaReqService";
+import CountryService from "../services/CountryService";
 
 function App() {
   const [apiFlagList, setapiFlagList] = useState([]);
@@ -32,10 +32,15 @@ function App() {
     fetchCountries();
   }, []);
 
-  const [selectedOriginCountry, setselectedOriginCountry] = useState(" ");
+  const [selectedOriginCountry, setselectedOriginCountry] = useState("");
 
   const handleOriginChange = (newCountry) => {
-    setselectedOriginCountry(newCountry.value);
+    if (newCountry) {
+      setIsOriginCountrySelected(false);
+      setselectedOriginCountry(newCountry.value);
+    } else {
+      setselectedOriginCountry(null);
+    }
     setIsOriginCountrySelected(true);
   };
 
@@ -43,7 +48,12 @@ function App() {
     useState("");
 
   const handleDestinationChange = (newCountry) => {
-    setselectedDestinationCountry(newCountry.value);
+    if (newCountry) {
+      setselectedDestinationCountry(newCountry.value);
+    } else {
+      setselectedDestinationCountry(null);
+      setIsOriginCountrySelected(false);
+    }
   };
 
   const visaService = VisaReqService;
@@ -62,6 +72,7 @@ function App() {
 
   const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
+
   useEffect(() => {
     if (selectedOriginCountry && selectedDestinationCountry) {
       setButtonDisabled(false);
@@ -69,6 +80,7 @@ function App() {
       setButtonDisabled(true);
     }
   }, [selectedOriginCountry, selectedDestinationCountry]);
+
   return (
     <>
       <div>
@@ -93,6 +105,7 @@ function App() {
                   : null
               }
               code={selectedOriginCountry}
+              onCountryChange={handleOriginChange}
             />
           </Card>
         </div>
@@ -115,6 +128,7 @@ function App() {
                     : null
                 }
                 code={selectedDestinationCountry}
+                onCountryChange={handleDestinationChange}
               />
             </Card>
           )}
