@@ -36,13 +36,14 @@ function App() {
 
   const handleOriginChange = (newCountry) => {
     if (newCountry) {
+      setselectedDestinationCountry(null);
       setselectedOriginCountry(newCountry.value);
       setIsOriginCountrySelected(true);
       console.log("setisorigincountryselected to true");
     } else {
-      setselectedOriginCountry(null);
-      setselectedDestinationCountry(null);
       setIsOriginCountrySelected(false);
+      setselectedOriginCountry(null);
+
       console.log("setisorigincountryselected to false");
     }
   };
