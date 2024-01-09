@@ -23,6 +23,15 @@ import CountryService from "../services/CountryService";
 function App() {
   const [apiFlagList, setapiFlagList] = useState([]);
 
+  const visaService = VisaReqService;
+
+  const originCountryCodes = visaService.getOriginCountries();
+
+  const filteredOrigins = apiFlagList.filter((country) =>
+    originCountryCodes.includes(country.value)
+  );
+  filteredOrigins.sort((a, b) => a.label.localeCompare(b.label));
+
   useEffect(() => {
     const fetchCountries = async () => {
       const countries = await CountryService();
@@ -32,8 +41,20 @@ function App() {
     fetchCountries();
   }, []);
 
-  const [selectedOriginCountry, setselectedOriginCountry] = useState("");
+  const [selectedOriginCountry, setselectedOriginCountry] = useState(
+    filteredOrigins[0]
+  );
+  const destinationCountryCodes = visaService.getDestinationCountries(
+    selectedOriginCountry
+  );
+  const filteredDestinations = apiFlagList.filter((country) =>
+    destinationCountryCodes.includes(country.value)
+  );
+  filteredDestinations.sort((a, b) => a.label.localeCompare(b.label));
 
+  const [selectedDestinationCountry, setselectedDestinationCountry] = useState(
+    filteredDestinations[0]
+  );
   const handleOriginChange = (newCountry) => {
     if (newCountry) {
       setselectedDestinationCountry(null);
@@ -48,9 +69,6 @@ function App() {
     }
   };
 
-  const [selectedDestinationCountry, setselectedDestinationCountry] =
-    useState("");
-
   const handleDestinationChange = (newCountry) => {
     if (newCountry) {
       setselectedDestinationCountry(newCountry.value);
@@ -59,20 +77,6 @@ function App() {
       return null;
     }
   };
-
-  const visaService = VisaReqService;
-  const originCountryCodes = visaService.getOriginCountries();
-  const filteredOrigins = apiFlagList.filter((country) =>
-    originCountryCodes.includes(country.value)
-  );
-  filteredOrigins.sort((a, b) => a.label.localeCompare(b.label));
-  const destinationCountryCodes = visaService.getDestinationCountries(
-    selectedOriginCountry
-  );
-  const filteredDestinations = apiFlagList.filter((country) =>
-    destinationCountryCodes.includes(country.value)
-  );
-  filteredDestinations.sort((a, b) => a.label.localeCompare(b.label));
 
   const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -96,8 +100,8 @@ function App() {
           <Card id="card">
             <ComboBox
               options={filteredOrigins}
-              selectedOption={selectedOriginCountry}
-              handleChange={handleOriginChange}
+              value={selectedOriginCountry}
+              onChange={handleOriginChange}
               tag="Origin Country"
             />
             <Flag
@@ -118,8 +122,8 @@ function App() {
             <Card id="card">
               <ComboBox
                 options={filteredDestinations}
-                selectedOption={selectedDestinationCountry}
-                handleChange={handleDestinationChange}
+                value={selectedDestinationCountry}
+                onChange={handleDestinationChange}
                 tag="Destination Country"
               />
               <Flag

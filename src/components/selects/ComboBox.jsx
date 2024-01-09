@@ -9,7 +9,8 @@ function ComboBox(props) {
       sx={{ width: 300 }}
       options={props.options}
       autoHighlight
-      onChange={(event, value) => props.handleChange(value)}
+      value={props.value}
+      onChange={(event, country) => props.onChange(country)}
       renderOption={(props, option) => (
         <li {...props} key={`${option.label} (${option.value})`}>
           {option.label}
@@ -21,7 +22,6 @@ function ComboBox(props) {
 }
 
 ComboBox.propTypes = {
-  message: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
@@ -29,8 +29,8 @@ ComboBox.propTypes = {
     })
   ),
   tag: PropTypes.string,
-  selectedOption: PropTypes.string,
-  handleChange: PropTypes.func,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default ComboBox;
