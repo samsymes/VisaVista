@@ -44,6 +44,7 @@ function App() {
   const [selectedOriginCountry, setselectedOriginCountry] = useState(
     filteredOrigins[0]
   );
+
   const destinationCountryCodes = visaService.getDestinationCountries(
     selectedOriginCountry
   );
@@ -62,8 +63,8 @@ function App() {
       setIsOriginCountrySelected(true);
       console.log("setisorigincountryselected to true");
     } else {
-      setIsOriginCountrySelected(false);
       setselectedOriginCountry(null);
+      setselectedDestinationCountry(null);
 
       console.log("setisorigincountryselected to false");
     }

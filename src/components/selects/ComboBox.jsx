@@ -28,6 +28,7 @@ ComboBox.propTypes = {
       label: PropTypes.string,
     })
   ),
+  inputValue: PropTypes.string,
   tag: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
