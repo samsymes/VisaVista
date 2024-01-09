@@ -123,7 +123,7 @@ function App() {
             <Card id="card">
               <ComboBox
                 options={filteredDestinations}
-                value={selectedDestinationCountry}
+                value={selectedDestinationCountry?.label}
                 onChange={handleDestinationChange}
                 tag="Destination Country"
               />
