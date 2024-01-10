@@ -14,16 +14,32 @@ class VisaReqService {
       return [];
     }
 
-    const destinationCountries = this.countries[origin].destinations.map(
+    const destinationCountries = this.countries[origin]?.destinations?.map(
       (destination) => destination.destination_code
     );
     return destinationCountries;
   }
-  getVisaRequirements(originCountry, destinationCountry) {
-    const req = this.countries[originCountry].destinations.find(
-      (d) => d.destination_code === destinationCountry
-    ).requirements;
-    return new VisaRequirementsClass(req.visa);
+
+  getDestinationCountryName(origin) {
+    const destinationName = this.countries[origin].destinations.map(
+      (destination) => destination.destination_name
+    );
+    return destinationName;
+  }
+
+  getOriginCountryName(origin) {
+    if (origin) {
+      return this.countries[origin]?.origin_name;
+    }
+  }
+
+  getVisaRequirements(origin, destination) {
+    if (origin) {
+      const req = this.countries[origin]?.destinations?.find(
+        (d) => d.destination_code === destination
+      ).requirements;
+      return new VisaRequirementsClass(req.visa);
+    }
   }
 }
 

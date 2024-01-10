@@ -14,14 +14,20 @@ function Results() {
   const From = searchParams.get("From");
   const To = searchParams.get("To");
 
-  const visaReq = VisaReqService.getVisaRequirements(From, To);
-  const allowedStay = visaReq.getAllowedStay(From, To);
-  const [visaRequirements, setVisaRequirements] = useState([]);
+  const originCountryName = VisaReqService?.getOriginCountryName(From, To);
+  const destinationCountryName = VisaReqService?.getDestinationCountryName(
+    From,
+    To
+  );
+  const requirements = VisaReqService?.getVisaRequirements(From, To);
+  const visaRequirements = requirements?.getVisaRequirements(From, To);
+
+  const [displayRequirements, setDisplayRequirements] = useState([]);
 
   useEffect(() => {
     VisaReqService.getVisaRequirements(From, To);
-    setVisaRequirements(allowedStay);
-  }, [From, To, allowedStay]);
+    setDisplayRequirements(visaRequirements);
+  }, [From, To, visaRequirements]);
   return (
     <>
       <Navbar />
@@ -29,11 +35,11 @@ function Results() {
         <div className="col">
           <Card id="VisaInfo">
             <h4>Visa Info</h4>
-            <p> Origin Code: {From} </p>
-            <p> Destination Code: {To} </p>
+            <p> Origin Code: {originCountryName} </p>
+            <p> Destination Code: {destinationCountryName} </p>
             <p>
               Visa Requirements:
-              {visaRequirements}
+              {displayRequirements}
             </p>
           </Card>
           <Card id="CountryInfo">
