@@ -150,7 +150,9 @@ function App() {
             text="Search"
             originCode={selectedOriginCountry}
             destinationCode={selectedDestinationCountry}
-            link={`/results/?From=${selectedOriginCountry}&To=${selectedDestinationCountry}`}
+            onClick={() => {
+              window.location.href = `/results/?From=${selectedOriginCountry}&To=${selectedDestinationCountry}`;
+            }}
           />
         </div>
       </div>
