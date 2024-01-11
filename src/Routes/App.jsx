@@ -44,10 +44,9 @@ function App() {
   const [selectedOriginCountry, setselectedOriginCountry] = useState(
     filteredOrigins[0]
   );
-  const [inputDestinationCountry, setInputDestinationCountry] = useState("");
 
   const destinationCountryCodes = visaService.getDestinationCountries(
-    selectedOriginCountry
+    selectedOriginCountry?.value
   );
   const filteredDestinations = apiFlagList.filter((country) =>
     destinationCountryCodes.includes(country.value)
@@ -60,7 +59,7 @@ function App() {
   const handleOriginChange = (newCountry) => {
     if (newCountry) {
       setselectedDestinationCountry(null);
-      setselectedOriginCountry(newCountry.value);
+      setselectedOriginCountry(newCountry);
       setIsOriginCountrySelected(true);
       console.log("setisorigincountryselected to true");
     } else {
@@ -73,14 +72,12 @@ function App() {
 
   const handleDestinationChange = (newCountry) => {
     if (newCountry) {
-      setselectedDestinationCountry(newCountry.value);
+      setselectedDestinationCountry(newCountry);
+    } else {
+      setselectedDestinationCountry(null);
     }
   };
-  const handleDestinationInputChange = (newCountry) => {
-    if (newCountry) {
-      setInputDestinationCountry(newCountry.value);
-    }
-  };
+
   const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -103,9 +100,7 @@ function App() {
           <Card id="card">
             <ComboBox
               options={filteredOrigins}
-              value={selectedOriginCountry?.label}
-              InputValue={selectedOriginCountry?.label}
-              onInputChange={handleOriginChange}
+              value={selectedOriginCountry}
               onChange={handleOriginChange}
               tag="Origin Country"
             />
@@ -113,11 +108,11 @@ function App() {
               name={
                 selectedOriginCountry
                   ? filteredOrigins.find(
-                      (country) => country.value === selectedOriginCountry
+                      (country) => country.value === selectedOriginCountry.value
                     )?.label
                   : null
               }
-              code={selectedOriginCountry}
+              code={selectedOriginCountry?.value}
               onCountryChange={handleOriginChange}
             />
           </Card>
@@ -127,10 +122,8 @@ function App() {
             <Card id="card">
               <ComboBox
                 options={filteredDestinations}
-                value={selectedDestinationCountry?.label}
-                InputValue={inputDestinationCountry}
+                value={selectedDestinationCountry}
                 onChange={handleDestinationChange}
-                onInputChange={handleDestinationInputChange}
                 tag="Destination Country"
               />
               <Flag
@@ -138,11 +131,11 @@ function App() {
                   selectedDestinationCountry
                     ? filteredDestinations.find(
                         (country) =>
-                          country.value === selectedDestinationCountry
+                          country.value === selectedDestinationCountry.value
                       )?.label
                     : null
                 }
-                code={selectedDestinationCountry}
+                code={selectedDestinationCountry?.value}
                 onCountryChange={handleDestinationChange}
               />
             </Card>
@@ -154,8 +147,8 @@ function App() {
           <Button
             disabled={buttonDisabled}
             text="Search"
-            originCode={selectedOriginCountry}
-            destinationCode={selectedDestinationCountry}
+            originCode={selectedOriginCountry?.value}
+            destinationCode={selectedDestinationCountry?.value}
             onClick={() => {
               window.location.href = `/results/?From=${selectedOriginCountry}&To=${selectedDestinationCountry}`;
             }}

@@ -10,9 +10,7 @@ function ComboBox(props) {
       options={props.options}
       autoHighlight
       value={props.value || null}
-      inputValue={props.inputValue || ""}
       onChange={(event, country) => props.onChange(country)}
-      onInputChange={(event, country) => props.onInputChange(country)}
       renderOption={(props, option) => (
         <li {...props} key={`${option.label} (${option.value})`}>
           {option.label}
@@ -30,10 +28,11 @@ ComboBox.propTypes = {
       label: PropTypes.string,
     })
   ),
-  inputValue: PropTypes.string,
-  onInputChange: PropTypes.func,
   tag: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+  }),
   onChange: PropTypes.func,
 };
 
