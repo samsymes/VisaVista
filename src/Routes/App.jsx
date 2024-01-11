@@ -44,6 +44,7 @@ function App() {
   const [selectedOriginCountry, setselectedOriginCountry] = useState(
     filteredOrigins[0]
   );
+  const [inputDestinationCountry, setInputDestinationCountry] = useState("");
 
   const destinationCountryCodes = visaService.getDestinationCountries(
     selectedOriginCountry
@@ -73,12 +74,13 @@ function App() {
   const handleDestinationChange = (newCountry) => {
     if (newCountry) {
       setselectedDestinationCountry(newCountry.value);
-    } else {
-      setselectedDestinationCountry(null);
-      return null;
     }
   };
-
+  const handleDestinationInputChange = (newCountry) => {
+    if (newCountry) {
+      setInputDestinationCountry(newCountry.value);
+    }
+  };
   const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -101,7 +103,9 @@ function App() {
           <Card id="card">
             <ComboBox
               options={filteredOrigins}
-              value={selectedOriginCountry}
+              value={selectedOriginCountry?.label}
+              InputValue={selectedOriginCountry?.label}
+              onInputChange={handleOriginChange}
               onChange={handleOriginChange}
               tag="Origin Country"
             />
@@ -124,7 +128,9 @@ function App() {
               <ComboBox
                 options={filteredDestinations}
                 value={selectedDestinationCountry?.label}
+                InputValue={inputDestinationCountry}
                 onChange={handleDestinationChange}
+                onInputChange={handleDestinationInputChange}
                 tag="Destination Country"
               />
               <Flag
