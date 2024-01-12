@@ -1,8 +1,30 @@
-# React + Vite
+*This app is currently in development*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+VisaRequirements is a web app that allows users to look up visa requirements for international travel. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Motivation
+
+The motivation behind VisaRequirements was to build a portfolio project using React. 
+
+## API Integrations and Technologies
+### APIs:
+flagpedia: https://flagpedia.net/download/api
+
+### Libraries and Technologies:
+##### Material UI: Incorporation of the Material UI library for react components.
+##### Resuim: a react shell of Cesium map.
+##### BootStrap: Front-end frame work.
+##### Live Data Integration: Data is incorporated through external APIs.
+
+## Contact
+Your feedback is welcome! Feel free to share your thoughts and suggestions as they are greatly appreciated.
+
+GitHub: Visit my GitHub repository
+Email: samantha.symes@outlook.com
+
+##ScreenShots 
+
+![Screenshot 2024-01-12 124421](https://github.com/samsymes/VisaRequirementsApp/assets/119711298/da39b314-bc8e-4fc0-a229-0a45f86eba38)
+![Screenshot 2024-01-12 134029](https://github.com/samsymes/VisaRequirementsApp/assets/119711298/c65e1a94-b320-4354-8ff3-40a396e262a6)
