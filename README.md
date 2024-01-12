@@ -24,7 +24,7 @@ Your feedback is welcome! Feel free to share your thoughts and suggestions as th
 GitHub: Visit my GitHub repository
 Email: samantha.symes@outlook.com
 
-##ScreenShots 
+## Preview 
 
 ![Screenshot 2024-01-12 124421](https://github.com/samsymes/VisaRequirementsApp/assets/119711298/da39b314-bc8e-4fc0-a229-0a45f86eba38)
 ![Screenshot 2024-01-12 134029](https://github.com/samsymes/VisaRequirementsApp/assets/119711298/c65e1a94-b320-4354-8ff3-40a396e262a6)
