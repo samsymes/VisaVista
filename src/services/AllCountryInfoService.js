@@ -1,3 +1,4 @@
+// used to be VisaService.js
 import data from "../entities/data.json";
 import SearchResultsClass from "../entities/SearchResultsClass";
 

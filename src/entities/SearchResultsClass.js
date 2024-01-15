@@ -1,4 +1,4 @@
-class SearchResultsObjectService {
+class SearchResultsObjectClass {
   constructor(resultsObj) {
     this.resultsObj = resultsObj;
   }
@@ -13,4 +13,4 @@ class SearchResultsObjectService {
   }
 }
 
-export default SearchResultsObjectService;
+export default SearchResultsObjectClass;

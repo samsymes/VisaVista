@@ -39,7 +39,7 @@ function Results() {
               <br />
               <b>Visa Requirements: </b>
               {visaRequirements} <br />
-              <b>AllowedStay: </b> {allowedStay} <br />
+              <b>Allowed Stay: </b> {allowedStay} <br />
               <b>Notes: </b> {notes}
             </p>
           </Card>
