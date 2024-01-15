@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import { useSearchParams } from "react-router-dom";
-import VisaReqService from "../services/VisaReqService";
+import AllCountryInfoService from "../services/AllCountryInfoService";
 import { Card } from "@mui/material";
 import "./Results.css";
 import { Viewer, Entity } from "resium";
@@ -13,10 +13,16 @@ function Results() {
   const From = searchParams.get("From");
   const To = searchParams.get("To");
 
-  const originCountryName = VisaReqService?.getOriginCountryName(To);
-  const destinationCountryName = VisaReqService?.getDestinationCountryName(To);
-  const requirements = VisaReqService?.getVisaRequirements(From, To);
-  const visaRequirements = requirements?.getVisaRequirements();
+  const originCountryName =
+    AllCountryInfoService?.getOriginCountryNameFromAllCountryInfoService(To);
+  const destinationCountryName =
+    AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
+      To
+    );
+  const requirements =
+    AllCountryInfoService?.getResultsObjectFromAllCountryInfoService(From, To);
+  const searchResults =
+    requirements?.getVisaRequirementsFromSearchResultsClass();
 
   return (
     <>
@@ -29,7 +35,7 @@ function Results() {
             <p> Destination Code: {destinationCountryName} </p>
             <p>
               Visa Requirements:
-              {visaRequirements}
+              {searchResults}
             </p>
           </Card>
           <Card id="CountryInfo">

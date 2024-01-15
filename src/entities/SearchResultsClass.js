@@ -1,17 +1,16 @@
-class VisaRequirements {
-  constructor(requirementsObj) {
-    this.requirementsObj = requirementsObj;
-    console.log("requirementsObj", this.requirementsObj);
+class SearchResultsObjectService {
+  constructor(resultsObj) {
+    this.resultsObj = resultsObj;
   }
-  getVisaRequirements() {
-    return this.requirementsObj.visa_requirements;
+  getVisaRequirementsFromSearchResultsClass() {
+    return this.resultsObj.visa_requirements;
   }
-  getAllowedStay() {
-    return this.requirementsObj.allowed_stay;
+  getAllowedStayFromSearchResultsClass() {
+    return this.resultsObj.allowed_stay;
   }
-  getNotes() {
-    return this.requirementsObj.notes;
+  getNotesFromSearchResultsClass() {
+    return this.resultsObj.notes;
   }
 }
 
-export default VisaRequirements;
+export default SearchResultsObjectService;

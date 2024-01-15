@@ -1,16 +1,16 @@
 import data from "../entities/data.json";
 import SearchResultsClass from "../entities/SearchResultsClass";
-class VisaReqService {
+
+class AllCountryInfoService {
   constructor() {
     this.countries = data.origin;
-    console.log("this.countries", this.countries);
   }
 
-  getOriginCountries() {
+  getOriginCountriesFromAllCountryInfoService() {
     return Object.keys(this.countries);
   }
 
-  getDestinationCountries(origin) {
+  getDestinationCountriesFromAllCountryInfoService(origin) {
     if (!origin || !this.countries[origin]) {
       return [];
     }
@@ -21,21 +21,20 @@ class VisaReqService {
     return destinationCountries;
   }
 
-  getDestinationCountryName(origin, destination) {
+  getDestinationCountryNameFromAllCountryInfoService(origin, destination) {
     const destinationName = this.countries[origin]?.destinations?.find(
       (d) => d.destinations?.destination_name === destination
     );
-    console.log("destinationName", destinationName);
     return destinationName.destination_name;
   }
 
-  getOriginCountryName(origin) {
+  getOriginCountryNameFromAllCountryInfoService(origin) {
     if (origin) {
       return this.countries[origin]?.origin_name;
     }
   }
 
-  getVisaRequirements(origin, destination) {
+  getResultsObjectFromAllCountryInfoService(origin, destination) {
     if (origin) {
       const req = this.countries[origin]?.destinations?.find(
         (d) => d.destination_code === destination
@@ -45,4 +44,4 @@ class VisaReqService {
   }
 }
 
-export default new VisaReqService();
+export default new AllCountryInfoService();

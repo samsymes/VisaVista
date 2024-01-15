@@ -17,15 +17,16 @@ import ComboBox from "../components/selects/ComboBox";
 import "./App.css";
 import Button from "../components/buttons/Button";
 import Flag from "../components/Flag";
-import VisaReqService from "../services/VisaReqService";
+import AllCountryInfoService from "../services/AllCountryInfoService";
 import CountryFlagService from "../services/CountryFlagService";
 
 function App() {
   const [apiFlagList, setapiFlagList] = useState([]);
 
-  const visaService = VisaReqService;
+  const countryInfo = AllCountryInfoService;
 
-  const originCountryCodes = visaService.getOriginCountries();
+  const originCountryCodes =
+    countryInfo.getOriginCountriesFromAllCountryInfoService();
 
   const filteredOrigins = apiFlagList.filter((country) =>
     originCountryCodes.includes(country.value)
@@ -45,9 +46,10 @@ function App() {
     filteredOrigins[0]
   );
 
-  const destinationCountryCodes = visaService.getDestinationCountries(
-    selectedOriginCountry?.value
-  );
+  const destinationCountryCodes =
+    countryInfo.getDestinationCountriesFromAllCountryInfoService(
+      selectedOriginCountry?.value
+    );
   const filteredDestinations = apiFlagList.filter((country) =>
     destinationCountryCodes.includes(country.value)
   );
