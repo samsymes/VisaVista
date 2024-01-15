@@ -7,58 +7,48 @@
         {
           "destination_code": "ca",
           "destination_name": "Canada",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "eTA",
-              "allowed_stay": "6 months",
-              "notes": "eTA required if arriving by air.",
-              "working_holiday_visa": "For a 12 month period, Spanish citizens between 18-35 at time of application can apply for a resident permit on the basis of a working holiday. Must have a minimum of CAD$2,500 in your bank account. Medical insurance required."
-            }
+          "results": {
+            "visa_requirements": "eTA",
+            "allowed_stay": "6 months",
+            "notes": "eTA required if arriving by air.",
+            "working_holiday_visa": "For a 12 month period, Spanish citizens between 18-35 at time of application can apply for a resident permit on the basis of a working holiday. Must have a minimum of CAD$2,500 in your bank account. Medical insurance required."
           }
         },
         {
           "destination_code": "mx",
           "destination_name": "Mexico",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "not required",
-              "allowed_stay": "180 days",
-              "notes": "None.",
-              "work_visa": "Up to 3 years. Must be working remotely for a company outside of Mexico. Earn a minimum of EUR$1742.54 a month or a bank statement proving funds of EUR$29042.47. Health insurance with Mexico coverage validity"
-            }
+          "results": {
+            "visa_requirements": "not required",
+            "allowed_stay": "180 days",
+            "notes": "None.",
+            "work_visa": "Up to 3 years. Must be working remotely for a company outside of Mexico. Earn a minimum of EUR$1742.54 a month or a bank statement proving funds of EUR$29042.47. Health insurance with Mexico coverage validity"
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "not required",
-              "allowed_stay": "90 days",
-              "notes": "Passport must be valid for at least 6 months from date of entry."
-            }
+          "results": {
+            "visa_requirements": "not required",
+            "allowed_stay": "90 days",
+            "notes": "Passport must be valid for at least 6 months from date of entry."
           }
         },
         {
           "destination_code": "tr",
           "destination_name": "Turkey",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "not required",
-              "allowed_stay": "90 days within any 180 day period",
-              "notes": "Passport or ID card must be valid for 90 days. Spanish citizens Turkish authorities allow to enter even with passport expired within last 5 years."
-            }
+          "results": {
+            "visa_requirements": "not required",
+            "allowed_stay": "90 days within any 180 day period",
+            "notes": "Passport or ID card must be valid for 90 days. Spanish citizens Turkish authorities allow to enter even with passport expired within last 5 years."
           }
         },
         {
           "destination_code": "ke",
           "destination_name": "Kenya",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "eVisa",
-              "allowed_stay": "3 months",
-              "notes": "Passport must be valid for at least 6 months from date of entry."
-            }
+          "results": {
+            "visa_requirements": "eVisa",
+            "allowed_stay": "3 months",
+            "notes": "Passport must be valid for at least 6 months from date of entry."
           }
         }
       ]
@@ -70,7 +60,7 @@
           "destination_code": "es",
           "destination_name": "Spain",
           "requirements": {
-            "visa": {
+            "results": {
               "visa_requirements": "not required",
               "allowed_stay": "90 days",
               "notes": "90 days within any 180 day period in the Schengen Area with ETAIS"
@@ -80,45 +70,37 @@
         {
           "destination_code": "mx",
           "destination_name": "Mexico",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "not required",
-              "allowed_stay": "180 days",
-              "notes": "Actual permitted duration of stay is decided on arrival by border agents, and is often shorter than 180 days. "
-            }
+          "results": {
+            "visa_requirements": "not required",
+            "allowed_stay": "180 days",
+            "notes": "Actual permitted duration of stay is decided on arrival by border agents, and is often shorter than 180 days. "
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "Passport must be valid for at least 6 months from date of entry. The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "Passport must be valid for at least 6 months from date of entry. The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate."
           }
         },
         {
           "destination_code": "tr",
           "destination_name": "Turkey",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "eVisa",
-              "allowed_stay": "3 months",
-              "notes": "Passport must be valid for at least 6 months from date of entry. Cruise ship passengers cruising in and out of a Turkish port within a single day do not require a tourist visa. Turkey passports to be valid for at least 5 months (150 days) upon entry."
-            }
+          "results": {
+            "visa_requirements": "eVisa",
+            "allowed_stay": "3 months",
+            "notes": "Passport must be valid for at least 6 months from date of entry. Cruise ship passengers cruising in and out of a Turkish port within a single day do not require a tourist visa. Turkey passports to be valid for at least 5 months (150 days) upon entry."
           }
         },
         {
           "destination_code": "ke",
           "destination_name": "Kenya",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "eVisa",
-              "allowed_stay": "3 months",
-              "notes": "Passport must be valid for at least 6 months from date of entry. Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
-            }
+          "results": {
+            "visa_requirements": "eVisa",
+            "allowed_stay": "3 months",
+            "notes": "Passport must be valid for at least 6 months from date of entry. Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
           }
         }
       ]
@@ -130,56 +112,46 @@
         {
           "destination_code": "es",
           "destination_name": "Spain",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "not required",
-              "allowed_stay": "90 days",
-              "notes": "90 days within any 180 day period in the Schengen Area."
-            }
+          "results": {
+            "visa_requirements": "not required",
+            "allowed_stay": "90 days",
+            "notes": "90 days within any 180 day period in the Schengen Area."
           }
         },
         {
           "destination_code": "ca",
           "destination_name": "Canada",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "not required",
-              "allowed_stay": "6 months",
-              "notes": "eTA required if arriving by air. Fee of 7 CAD. Canada routinely  denies entry to non-citizens who have a criminal record."
-            }
+          "results": {
+            "visa_requirements": "not required",
+            "allowed_stay": "6 months",
+            "notes": "eTA required if arriving by air. Fee of 7 CAD. Canada routinely  denies entry to non-citizens who have a criminal record."
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "N/A"
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "N/A"
           }
         },
         {
           "destination_code": "tr",
           "destination_name": "Turkey",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "eVisa",
-              "allowed_stay": "30 days",
-              "notes": "Issued free of charge. Passport must be valid for 6 months beyond arrival date."
-            }
+          "results": {
+            "visa_requirements": "eVisa",
+            "allowed_stay": "30 days",
+            "notes": "Issued free of charge. Passport must be valid for 6 months beyond arrival date."
           }
         },
         {
           "destination_code": "ke",
           "destination_name": "Kenya",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "eVisa",
-              "allowed_stay": "3 months",
-              "notes": "Fee US $51. require all incoming passengers older than nine months to one year[383] to have a current International Certificate of Vaccination or Prophylaxis"
-            }
+          "results": {
+            "visa_requirements": "eVisa",
+            "allowed_stay": "3 months",
+            "notes": "Fee US $51. require all incoming passengers older than nine months to one year[383] to have a current International Certificate of Vaccination or Prophylaxis"
           }
         }
       ]
@@ -191,56 +163,46 @@
         {
           "destination_code": "es",
           "destination_name": "Spain",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "none"
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "none"
           }
         },
         {
           "destination_code": "mx",
           "destination_name": "Mexico",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "none"
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "none"
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "None."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "None."
           }
         },
         {
           "destination_code": "tr",
           "destination_name": "Turkey",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "None."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "None."
           }
         },
         {
           "destination_code": "ca",
           "destination_name": "Canada",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "None."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "None."
           }
         }
       ]
@@ -252,56 +214,46 @@
         {
           "destination_code": "es",
           "destination_name": "Spain",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "Holders of Turkish ordinary passports who hold a valid visa for a Member State of the European Economic Area, Canada, Japan, Switzerland or the United States or; hold a valid residence permit issued by a Member State of the European Economic Area and Switzerland or; hold a residence permit issued by Andorra, Canada, Japan, Republic of San Marino, or the United States, that guarantees unrestricted right of return or; are a family member of a citizen of the EEA member or Switzerland or; are a flight crew may be exempt from the airport transit visa requirement."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "Holders of Turkish ordinary passports who hold a valid visa for a Member State of the European Economic Area, Canada, Japan, Switzerland or the United States or; hold a valid residence permit issued by a Member State of the European Economic Area and Switzerland or; hold a residence permit issued by Andorra, Canada, Japan, Republic of San Marino, or the United States, that guarantees unrestricted right of return or; are a family member of a citizen of the EEA member or Switzerland or; are a flight crew may be exempt from the airport transit visa requirement."
           }
         },
         {
           "destination_code": "mx",
           "destination_name": "Mexico",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Electronic authorization system",
-              "allowed_stay": "180 days",
-              "notes": "180 days visa free if holding a valid visa for Canada, Japan, USA, United Kingdom or a Schengen Member State"
-            }
+          "results": {
+            "visa_requirements": "Electronic authorization system",
+            "allowed_stay": "180 days",
+            "notes": "180 days visa free if holding a valid visa for Canada, Japan, USA, United Kingdom or a Schengen Member State"
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "None."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "None."
           }
         },
         {
           "destination_code": "ca",
           "destination_name": "Canada",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "Routinely  denies entry to non-citizens who have a criminal record."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "Routinely  denies entry to non-citizens who have a criminal record."
           }
         },
         {
           "destination_code": "ke",
           "destination_name": "Kenya",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "eVisa",
-              "allowed_stay": "3 months",
-              "notes": "Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
-            }
+          "results": {
+            "visa_requirements": "eVisa",
+            "allowed_stay": "3 months",
+            "notes": "Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
           }
         }
       ]
@@ -313,56 +265,46 @@
         {
           "destination_code": "es",
           "destination_name": "Spain",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "none"
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "none"
           }
         },
         {
           "destination_code": "mx",
           "destination_name": "Mexico",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa Required.",
-              "allowed_stay": "N/A",
-              "notes": "None."
-            }
+          "results": {
+            "visa_requirements": "Visa Required.",
+            "allowed_stay": "N/A",
+            "notes": "None."
           }
         },
         {
           "destination_code": "ca",
           "destination_name": "Canada",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "Afghans who worked for the Canadian Government (military or development projects) may be eligible for Asylum under special programs for supporting Afghan nationals. Routinely  denies entry to non-citizens who have a criminal record."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "Afghans who worked for the Canadian Government (military or development projects) may be eligible for Asylum under special programs for supporting Afghan nationals. Routinely  denies entry to non-citizens who have a criminal record."
           }
         },
         {
           "destination_code": "tr",
           "destination_name": "Turkey",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "N/A",
-              "notes": "Passport must be valid for at least 6 months from date of entry."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "N/A",
+            "notes": "Passport must be valid for at least 6 months from date of entry."
           }
         },
         {
           "destination_code": "ke",
           "destination_name": "Kenya",
-          "requirements": {
-            "visa": {
-              "visa_requirements": "Visa required",
-              "allowed_stay": "None.",
-              "notes": "Applications are referred to the director general of Immigration Services in Nairobi for approval.  Require all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis. Passport must be valid for at least 6 months from date of entry."
-            }
+          "results": {
+            "visa_requirements": "Visa required",
+            "allowed_stay": "None.",
+            "notes": "Applications are referred to the director general of Immigration Services in Nairobi for approval.  Require all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis. Passport must be valid for at least 6 months from date of entry."
           }
         }
       ]

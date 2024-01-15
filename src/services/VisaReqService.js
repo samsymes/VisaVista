@@ -40,8 +40,8 @@ class VisaReqService {
     if (origin) {
       const req = this.countries[origin]?.destinations?.find(
         (d) => d.destination_code === destination
-      ).requirements;
-      return new VisaRequirementsClass(req.visa);
+      );
+      return new VisaRequirementsClass(req.results);
     }
   }
 }
