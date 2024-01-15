@@ -3,6 +3,7 @@ import VisaRequirementsClass from "../entities/VisaRequirementsClass";
 class VisaReqService {
   constructor() {
     this.countries = data.origin;
+    console.log("this.countries", this.countries);
   }
 
   getOriginCountries() {
@@ -20,11 +21,13 @@ class VisaReqService {
     return destinationCountries;
   }
 
-  getDestinationCountryName(origin) {
-    const destinationName = this.countries[origin].destinations.map(
-      (destination) => destination.destination_name
+  // return destination_name
+  getDestinationCountryName(origin, destination) {
+    const destinationName = this.countries[origin]?.destinations?.find(
+      (d) => d.destinations?.destination_name === destination
     );
-    return destinationName;
+    console.log("destinationName", destinationName);
+    return destinationName.destination_name;
   }
 
   getOriginCountryName(origin) {
