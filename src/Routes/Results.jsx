@@ -19,11 +19,12 @@ function Results() {
     AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
       To
     );
-  const requirements =
+  const resultsObject =
     AllCountryInfoService?.getResultsObjectFromAllCountryInfoService(From, To);
-  const searchResults =
-    requirements?.getVisaRequirementsFromSearchResultsClass();
-
+  const visaRequirements =
+    resultsObject?.getVisaRequirementsFromSearchResultsClass();
+  const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
+  const notes = resultsObject?.getNotesFromSearchResultsClass();
   return (
     <>
       <Navbar />
@@ -31,16 +32,20 @@ function Results() {
         <div className="col">
           <Card id="VisaInfo">
             <h4>Visa Info</h4>
-            <p> Origin Code: {originCountryName} </p>
-            <p> Destination Code: {destinationCountryName} </p>
-            <p>
-              Visa Requirements:
-              {searchResults}
+            <p className="cardBody">
+              <b>Origin Country:</b> {originCountryName}
+              <br />
+              <b>Destination Country:</b> {destinationCountryName}
+              <br />
+              <b>Visa Requirements: </b>
+              {visaRequirements} <br />
+              <b>AllowedStay: </b> {allowedStay} <br />
+              <b>Notes: </b> {notes}
             </p>
           </Card>
           <Card id="CountryInfo">
             <h4>Country Info</h4>
-            <p>
+            <p className="cardBody">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
               deleniti hic dolores fuga eveniet, aperiam repudiandae ullam
               quisquam voluptas magni modi consequuntur beatae. Tenetur
