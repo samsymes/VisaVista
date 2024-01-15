@@ -1,5 +1,5 @@
 import data from "../entities/data.json";
-import VisaRequirementsClass from "../entities/VisaRequirementsClass";
+import SearchResultsClass from "../entities/SearchResultsClass";
 class VisaReqService {
   constructor() {
     this.countries = data.origin;
@@ -21,7 +21,6 @@ class VisaReqService {
     return destinationCountries;
   }
 
-  // return destination_name
   getDestinationCountryName(origin, destination) {
     const destinationName = this.countries[origin]?.destinations?.find(
       (d) => d.destinations?.destination_name === destination
@@ -41,7 +40,7 @@ class VisaReqService {
       const req = this.countries[origin]?.destinations?.find(
         (d) => d.destination_code === destination
       );
-      return new VisaRequirementsClass(req.results);
+      return new SearchResultsClass(req.results);
     }
   }
 }

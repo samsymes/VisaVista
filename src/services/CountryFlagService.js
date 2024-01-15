@@ -1,4 +1,4 @@
-async function CountryService() {
+async function CountryFlagService() {
   const response = await fetch("https://flagcdn.com/en/codes.json");
   const countryData = await response.json();
   const apiFlagList = Object.entries(countryData).map(([value, label]) => ({
@@ -9,4 +9,4 @@ async function CountryService() {
   return apiFlagList;
 }
 
-export default CountryService;
+export default CountryFlagService;

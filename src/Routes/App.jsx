@@ -18,7 +18,7 @@ import "./App.css";
 import Button from "../components/buttons/Button";
 import Flag from "../components/Flag";
 import VisaReqService from "../services/VisaReqService";
-import CountryService from "../services/CountryService";
+import CountryFlagService from "../services/CountryFlagService";
 
 function App() {
   const [apiFlagList, setapiFlagList] = useState([]);
@@ -34,7 +34,7 @@ function App() {
 
   useEffect(() => {
     const fetchCountries = async () => {
-      const countries = await CountryService();
+      const countries = await CountryFlagService();
       setapiFlagList(countries);
     };
 
