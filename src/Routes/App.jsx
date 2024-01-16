@@ -21,36 +21,35 @@ import AllCountryInfoService from "../services/AllCountryInfoService";
 import CountryFlagService from "../services/CountryFlagService";
 
 function App() {
-  const [apiFlagList, setapiFlagList] = useState([]);
+  const [countryFlagList, setCountryFlagList] = useState([]);
 
   const countryInfo = AllCountryInfoService;
 
   const originCountryCodes =
     countryInfo.getOriginCountriesFromAllCountryInfoService();
 
-  const filteredOrigins = apiFlagList.filter((country) =>
+  const filteredOrigins = countryFlagList.filter((country) =>
     originCountryCodes.includes(country.value)
   );
   filteredOrigins.sort((a, b) => a.label.localeCompare(b.label));
-
-  useEffect(() => {
-    const fetchCountries = async () => {
-      const countries = await CountryFlagService();
-      setapiFlagList(countries);
-    };
-
-    fetchCountries();
-  }, []);
 
   const [selectedOriginCountry, setselectedOriginCountry] = useState(
     filteredOrigins[0]
   );
 
+  useEffect(() => {
+    CountryFlagService.getCountryListFromCountryFlagService().then(
+      (response) => {
+        setCountryFlagList(response);
+      }
+    );
+  }, []);
+
   const destinationCountryCodes =
     countryInfo.getDestinationCountriesFromAllCountryInfoService(
       selectedOriginCountry?.value
     );
-  const filteredDestinations = apiFlagList.filter((country) =>
+  const filteredDestinations = countryFlagList.filter((country) =>
     destinationCountryCodes.includes(country.value)
   );
   filteredDestinations.sort((a, b) => a.label.localeCompare(b.label));
