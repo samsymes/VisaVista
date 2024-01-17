@@ -5,6 +5,8 @@ import { Card } from "@mui/material";
 import "./Results.css";
 import { Viewer, Entity } from "resium";
 import { Ion } from "cesium";
+import { useEffect } from "react";
+import RestCountryService from "../services/RestCountryService";
 
 function Results() {
   Ion.defaultAccessToken =
@@ -25,6 +27,12 @@ function Results() {
     resultsObject?.getVisaRequirementsFromSearchResultsClass();
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
+
+  useEffect(() => {
+    RestCountryService.getCurrency().then((response) => {
+      console.log(response);
+    });
+  }, []);
   return (
     <>
       <Navbar />
@@ -44,12 +52,14 @@ function Results() {
             </p>
           </Card>
           <Card id="CountryInfo">
-            <h4>Country Info</h4>
+            <h4>Destination Info</h4>
             <p className="cardBody">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              deleniti hic dolores fuga eveniet, aperiam repudiandae ullam
-              quisquam voluptas magni modi consequuntur beatae. Tenetur
-              voluptate eligendi aperiam amet hic repellendus!
+              <b>Currency: *symbol*</b>
+              <b>Languages: </b>
+              <b>Capital: </b>
+              <b>time zones: </b>
+              <b>Calling Code: </b>
+              <b>Population: </b>
             </p>
           </Card>
         </div>
