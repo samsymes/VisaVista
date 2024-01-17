@@ -28,11 +28,9 @@ function Results() {
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
 
-  useEffect(() => {
-    RestCountryService.getCurrency().then((response) => {
-      console.log(response);
-    });
-  }, []);
+  const countryInfo =
+    RestCountryService.getDestinationCountryInfoFromRestCountryService(To);
+  console.log("1", countryInfo); //returns promise
   return (
     <>
       <Navbar />

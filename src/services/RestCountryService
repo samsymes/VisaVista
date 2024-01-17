@@ -2,8 +2,10 @@ class RestCountryService {
   constructor() {
     this.countryList = [];
   }
-  async getCountryListFromRestCountryService() {
-    const response = await fetch("https://restcountries.com/v3.1/alpha/{code}");
+  async getDestinationCountryInfoFromRestCountryService(code) {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/alpha/${code}`
+    );
     const countryData = await response.json();
     const restCountryList = Object.entries(countryData).map(
       ([value, label]) => ({
@@ -11,7 +13,7 @@ class RestCountryService {
         label,
       })
     );
-    console.log(restCountryList);
+    console.log("2", restCountryList); //returns object
     return restCountryList;
   }
   getCountryNameFromRestCountryService() {}
