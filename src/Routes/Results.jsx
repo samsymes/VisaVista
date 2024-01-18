@@ -27,17 +27,22 @@ function Results() {
     resultsObject?.getVisaRequirementsFromSearchResultsClass();
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
-
-  // const [countryInfoObject, setCountryInfoObject] = useState(null);
+  const [countryInfoObject, setCountryInfoObject] = useState({});
 
   useEffect(() => {
-    RestCountryService.getDestinationCountryInfoFromRestCountryService(To).then(
-      (response) => {
-        // setCountryInfoObject(response);
-        console.log("3", response);
-      }
-    );
+    if (To) {
+      const countryInfoObject = async () => {
+        const info =
+          await RestCountryService.getDestinationCountryInfoFromRestCountryService(
+            To
+          );
+        setCountryInfoObject(info);
+      };
+      countryInfoObject();
+    }
   }, [To]);
+
+  const capitalLatLng = JSON.stringify(countryInfoObject.capitalInfo?.latlng);
 
   return (
     <>
@@ -60,12 +65,12 @@ function Results() {
           <Card id="CountryInfo">
             <h4>Destination Info</h4>
             <p className="cardBody">
-              {/* <b>Currency: *symbol*</b> {countryInfoObject} */}
+              <b>Currency: *symbol*</b>
               <b>Languages: </b>
               <b>Capital: </b>
               <b>time zones: </b>
-              <b>Calling Code: </b>
               <b>Population: </b>
+              <b>LatLng</b> {capitalLatLng}
             </p>
           </Card>
         </div>

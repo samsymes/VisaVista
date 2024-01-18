@@ -41,6 +41,7 @@ function App() {
     CountryFlagService.getCountryListFromCountryFlagService().then(
       (response) => {
         setCountryFlagList(response);
+        console.log("countryFlagList", response);
       }
     );
   }, []);

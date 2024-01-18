@@ -7,19 +7,42 @@ class RestCountryService {
       `https://restcountries.com/v3.1/alpha/${code}`
     );
     const countryData = await response.json();
-    const restCountryList = Object(countryData[0]);
-    console.log("2", restCountryList);
+    const restCountryList = countryData[0];
+    console.log("fetchedCountryInfo", restCountryList);
+    this.countryList = restCountryList;
     return restCountryList;
   }
-  getCountryNameFromRestCountryService() {}
-  getCurrencyRestCountryService() {}
-  getlanguagesRestCountryService() {}
-  getCapitalRestCountryService() {}
-  getTimeZoneRestCountryService() {}
-  getCallingCodeRestCountryService() {}
-  getPopulationRestCountryService() {}
-  getSymbolRestCountryService() {}
-  getCapitalLatLngRestCountryService() {}
+  getCountryNameFromRestCountryService() {
+    // this.name.common
+  }
+  getCurrencyRestCountryService() {
+    // this.currencies.name
+  }
+  getlanguagesRestCountryService() {
+    // languages:
+    // cat: "Catalan"
+    // eus: "Basque"
+    // glc: "Galician"
+    // spa: "Spanish"
+  }
+  getCapitalRestCountryService() {
+    // this.capital
+  }
+  getTimeZoneRestCountryService() {
+    // 0:"UTC"
+    // 1:"UTC+01:00"
+  }
+
+  getPopulationRestCountryService() {
+    //  this.population
+  }
+  getSymbolRestCountryService() {
+    // this.currencies.symbol
+  }
+  getCapitalLatLngRestCountryService() {
+    // this.capitalInfo?.latlng
+  }
+  // also has flag, coat of arms, bordering countries, translations
 }
 
 export default new RestCountryService();
