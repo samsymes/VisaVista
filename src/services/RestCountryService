@@ -7,13 +7,8 @@ class RestCountryService {
       `https://restcountries.com/v3.1/alpha/${code}`
     );
     const countryData = await response.json();
-    const restCountryList = Object.entries(countryData).map(
-      ([value, label]) => ({
-        value,
-        label,
-      })
-    );
-    console.log("2", restCountryList); //returns object
+    const restCountryList = Object(countryData[0]);
+    console.log("2", restCountryList);
     return restCountryList;
   }
   getCountryNameFromRestCountryService() {}

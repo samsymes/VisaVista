@@ -5,7 +5,7 @@ import { Card } from "@mui/material";
 import "./Results.css";
 import { Viewer, Entity } from "resium";
 import { Ion } from "cesium";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
 
 function Results() {
@@ -28,9 +28,17 @@ function Results() {
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
 
-  const countryInfo =
-    RestCountryService.getDestinationCountryInfoFromRestCountryService(To);
-  console.log("1", countryInfo); //returns promise
+  // const [countryInfoObject, setCountryInfoObject] = useState(null);
+
+  useEffect(() => {
+    RestCountryService.getDestinationCountryInfoFromRestCountryService(To).then(
+      (response) => {
+        // setCountryInfoObject(response);
+        console.log("3", response);
+      }
+    );
+  }, [To]);
+
   return (
     <>
       <Navbar />
@@ -52,7 +60,7 @@ function Results() {
           <Card id="CountryInfo">
             <h4>Destination Info</h4>
             <p className="cardBody">
-              <b>Currency: *symbol*</b>
+              {/* <b>Currency: *symbol*</b> {countryInfoObject} */}
               <b>Languages: </b>
               <b>Capital: </b>
               <b>time zones: </b>
