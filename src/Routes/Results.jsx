@@ -27,22 +27,22 @@ function Results() {
     resultsObject?.getVisaRequirementsFromSearchResultsClass();
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
-  const [countryInfoObject, setCountryInfoObject] = useState({});
+  const [countryInfo, setCountryInfo] = useState({});
 
   useEffect(() => {
     if (To) {
-      const countryInfoObject = async () => {
+      const countryInfo = async () => {
         const info =
           await RestCountryService.getDestinationCountryInfoFromRestCountryService(
             To
           );
-        setCountryInfoObject(info);
+        setCountryInfo(info);
       };
-      countryInfoObject();
+      countryInfo();
     }
   }, [To]);
 
-  const capitalLatLng = JSON.stringify(countryInfoObject.capitalInfo?.latlng);
+  const capitalLatLng = JSON.stringify(countryInfo.capitalInfo?.latlng);
 
   return (
     <>
