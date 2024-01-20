@@ -65,15 +65,15 @@ function Results() {
   const languages = destinationCountryInfo?.getLanguages() ?? [];
 
   const destinationCapitalLat =
-    destinationCountryInfo?.getDestinationCapitalLat() ?? [];
+    destinationCountryInfo?.getDestinationCapitalLat() ?? null;
   console.log("destinationCapitalLat", destinationCapitalLat);
   const destinationCapitalLng =
-    destinationCountryInfo?.getDestinationCapitalLng() ?? [];
+    destinationCountryInfo?.getDestinationCapitalLng() ?? null;
   console.log("destinationCapitalLng", destinationCapitalLng);
 
-  const originCapitalLat = originCountryInfo?.getOriginCapitalLat() ?? [];
+  const originCapitalLat = originCountryInfo?.getOriginCapitalLat() ?? null;
   console.log("originCapitalLat", originCapitalLat);
-  const originCapitalLng = originCountryInfo?.getOriginCapitalLng() ?? [];
+  const originCapitalLng = originCountryInfo?.getOriginCapitalLng() ?? null;
   console.log("originCapitalLng", originCapitalLng);
 
   return (
@@ -112,18 +112,18 @@ function Results() {
         <Card id="Map">
           <Viewer>
             <Entity>
-              <PolylineGraphics
+              {/* <PolylineGraphics
                 positions={Cartesian3.fromDegreesArrayHeights([
-                  { originCapitalLng },
-                  { originCapitalLat },
+                  { originCapitalLngNumber },
+                  { originCapitalLatNumber },
                   0,
-                  { destinationCapitalLng },
-                  { destinationCapitalLat },
+                  { destinationCapitalLngNumber },
+                  { destinationCapitalLatNumber },
                   0,
                 ])}
                 width={15}
                 material={new PolylineArrowMaterialProperty()}
-              />
+              /> */}
             </Entity>
           </Viewer>
         </Card>
