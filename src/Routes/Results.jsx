@@ -3,10 +3,11 @@ import { useSearchParams } from "react-router-dom";
 import AllCountryInfoService from "../services/AllCountryInfoService";
 import { Card } from "@mui/material";
 import "./Results.css";
-import { Viewer, Entity } from "resium";
-import { Ion } from "cesium";
+import { Viewer, Entity, PolylineGraphics } from "resium";
+import { Cartesian3, Ion, PolylineArrowMaterialProperty } from "cesium";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
+import CountryInfo from "../entities/CountryInfo";
 
 function Results() {
   Ion.defaultAccessToken =
@@ -21,28 +22,59 @@ function Results() {
     AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
       To
     );
+
   const resultsObject =
     AllCountryInfoService?.getResultsObjectFromAllCountryInfoService(From, To);
   const visaRequirements =
     resultsObject?.getVisaRequirementsFromSearchResultsClass();
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
-  const [countryInfo, setCountryInfo] = useState({});
+
+  const [destinationCountryInfo, setDestinationCountryInfo] = useState();
+  const [originCountryInfo, setOriginCountryInfo] = useState();
 
   useEffect(() => {
-    if (To) {
-      const countryInfo = async () => {
-        const info =
-          await RestCountryService.getDestinationCountryInfoFromRestCountryService(
-            To
-          );
-        setCountryInfo(info);
-      };
-      countryInfo();
-    }
+    RestCountryService.getCountryInfoFromRestCountryService(To).then(
+      (response) => {
+        const destinationCountryInfoInstance = new CountryInfo(response);
+        setDestinationCountryInfo(destinationCountryInfoInstance);
+        console.log(
+          "destinationCountryInfoInstance",
+          destinationCountryInfoInstance
+        );
+      }
+    );
   }, [To]);
 
-  const capitalLatLng = JSON.stringify(countryInfo.capitalInfo?.latlng);
+  useEffect(() => {
+    RestCountryService.getCountryInfoFromRestCountryService(From).then(
+      (response) => {
+        const originCountryInfoInstance = new CountryInfo(response);
+        setOriginCountryInfo(originCountryInfoInstance);
+        console.log("originCountryInfoInstance", originCountryInfoInstance);
+      }
+    );
+  }, [From]);
+
+  const currencyCodes = destinationCountryInfo?.getCurrencyCodes() ?? [];
+  const name = destinationCountryInfo?.getCountryName() ?? [];
+  const symbol = destinationCountryInfo?.getCurrencySymbol(currencyCodes) ?? [];
+  const capital = destinationCountryInfo?.getCapital() ?? [];
+  const timeZones = destinationCountryInfo?.getTimezones() ?? [];
+  const population = destinationCountryInfo?.getPopulation() ?? [];
+  const languages = destinationCountryInfo?.getLanguages() ?? [];
+
+  const destinationCapitalLat =
+    destinationCountryInfo?.getDestinationCapitalLat() ?? [];
+  console.log("destinationCapitalLat", destinationCapitalLat);
+  const destinationCapitalLng =
+    destinationCountryInfo?.getDestinationCapitalLng() ?? [];
+  console.log("destinationCapitalLng", destinationCapitalLng);
+
+  const originCapitalLat = originCountryInfo?.getOriginCapitalLat() ?? [];
+  console.log("originCapitalLat", originCapitalLat);
+  const originCapitalLng = originCountryInfo?.getOriginCapitalLng() ?? [];
+  console.log("originCapitalLng", originCapitalLng);
 
   return (
     <>
@@ -65,18 +97,34 @@ function Results() {
           <Card id="CountryInfo">
             <h4>Destination Info</h4>
             <p className="cardBody">
-              <b>Currency: *symbol*</b>
-              <b>Languages: </b>
-              <b>Capital: </b>
-              <b>time zones: </b>
-              <b>Population: </b>
-              <b>LatLng</b> {capitalLatLng}
+              <b>Country:</b> {name} <br />
+              <b>Currency:</b> {currencyCodes} {symbol} <br />
+              <b>Capital: </b> {capital} <br />
+              <b>Time Zones: </b>
+              {timeZones} <br />
+              <b>Population: </b> {population} <br />
+              <b>LatLng</b>
+              <br />
+              <b>Languages: </b> {languages}
             </p>
           </Card>
         </div>
         <Card id="Map">
           <Viewer>
-            <Entity />
+            <Entity>
+              <PolylineGraphics
+                positions={Cartesian3.fromDegreesArrayHeights([
+                  { originCapitalLng },
+                  { originCapitalLat },
+                  0,
+                  { destinationCapitalLng },
+                  { destinationCapitalLat },
+                  0,
+                ])}
+                width={15}
+                material={new PolylineArrowMaterialProperty()}
+              />
+            </Entity>
           </Viewer>
         </Card>
       </div>
