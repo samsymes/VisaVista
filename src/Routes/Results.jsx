@@ -114,11 +114,11 @@ function Results() {
             <Entity>
               {/* <PolylineGraphics
                 positions={Cartesian3.fromDegreesArrayHeights([
-                  { originCapitalLngNumber },
-                  { originCapitalLatNumber },
+                  { originCapitalLng },
+                  { originCapitalLat },
                   0,
-                  { destinationCapitalLngNumber },
-                  { destinationCapitalLatNumber },
+                  { destinationCapitalLng},
+                  { destinationCapitalLat},
                   0,
                 ])}
                 width={15}
