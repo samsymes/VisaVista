@@ -17,9 +17,10 @@ function Results() {
   const To = searchParams.get("To");
 
   const originCountryName =
-    AllCountryInfoService?.getOriginCountryNameFromAllCountryInfoService(To);
+    AllCountryInfoService?.getOriginCountryNameFromAllCountryInfoService(From);
   const destinationCountryName =
     AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
+      From,
       To
     );
 
@@ -30,7 +31,7 @@ function Results() {
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
 
-  const [destinationCountryInfo, setDestinationCountryInfo] = useState();
+  const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
   const [originCountryInfo, setOriginCountryInfo] = useState();
 
   useEffect(() => {
@@ -65,16 +66,24 @@ function Results() {
   const languages = destinationCountryInfo?.getLanguages() ?? [];
 
   const destinationCapitalLat =
-    destinationCountryInfo?.getDestinationCapitalLat() ?? null;
-  console.log("destinationCapitalLat", destinationCapitalLat);
+    destinationCountryInfo?.getDestinationCapitalLat();
+  console.log(
+    "destinationCapitalLat",
+    destinationCapitalLat,
+    typeof destinationCapitalLat
+  );
   const destinationCapitalLng =
-    destinationCountryInfo?.getDestinationCapitalLng() ?? null;
-  console.log("destinationCapitalLng", destinationCapitalLng);
+    destinationCountryInfo?.getDestinationCapitalLng();
+  console.log(
+    "destinationCapitalLng",
+    destinationCapitalLng,
+    typeof destinationCapitalLng
+  );
 
-  const originCapitalLat = originCountryInfo?.getOriginCapitalLat() ?? null;
-  console.log("originCapitalLat", originCapitalLat);
-  const originCapitalLng = originCountryInfo?.getOriginCapitalLng() ?? null;
-  console.log("originCapitalLng", originCapitalLng);
+  const originCapitalLat = originCountryInfo?.getOriginCapitalLat();
+  console.log("originCapitalLat", originCapitalLat, typeof originCapitalLat);
+  const originCapitalLng = originCountryInfo?.getOriginCapitalLng();
+  console.log("originCapitalLng", originCapitalLng, typeof originCapitalLng);
 
   return (
     <>
@@ -103,7 +112,10 @@ function Results() {
               <b>Time Zones: </b>
               {timeZones} <br />
               <b>Population: </b> {population} <br />
-              <b>LatLng</b>
+              <b>Destination LngLat</b> {destinationCapitalLng},{" "}
+              {destinationCapitalLat}
+              <br />
+              <b>Origin LngLat</b> {originCapitalLng}, {originCapitalLat} <br />
               <br />
               <b>Languages: </b> {languages}
             </p>
@@ -112,18 +124,13 @@ function Results() {
         <Card id="Map">
           <Viewer>
             <Entity>
-              {/* <PolylineGraphics
+              <PolylineGraphics
                 positions={Cartesian3.fromDegreesArrayHeights([
-                  { originCapitalLng },
-                  { originCapitalLat },
-                  0,
-                  { destinationCapitalLng},
-                  { destinationCapitalLat},
-                  0,
+                  36.82, -1.28, 0, -75.7, 45.42, 0,
                 ])}
                 width={15}
                 material={new PolylineArrowMaterialProperty()}
-              /> */}
+              />
             </Entity>
           </Viewer>
         </Card>
