@@ -126,7 +126,12 @@ function Results() {
             <Entity>
               <PolylineGraphics
                 positions={Cartesian3.fromDegreesArrayHeights([
-                  36.82, -1.28, 0, -75.7, 45.42, 0,
+                  originCapitalLng,
+                  originCapitalLat,
+                  0,
+                  destinationCapitalLng,
+                  destinationCapitalLat,
+                  0,
                 ])}
                 width={15}
                 material={new PolylineArrowMaterialProperty()}
