@@ -32,7 +32,7 @@ function Results() {
   const notes = resultsObject?.getNotesFromSearchResultsClass();
 
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
-  const [originCountryInfo, setOriginCountryInfo] = useState();
+  const [originCountryInfo, setOriginCountryInfo] = useState(null);
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
@@ -64,35 +64,13 @@ function Results() {
   const timeZones = destinationCountryInfo?.getTimezones() ?? [];
   const population = destinationCountryInfo?.getPopulation() ?? [];
   const languages = destinationCountryInfo?.getLanguages() ?? [];
-
   const destinationCapitalLat =
     destinationCountryInfo?.getDestinationCapitalLat();
-  console.log(
-    "destinationCapitalLat",
-    destinationCapitalLat,
-    typeof destinationCapitalLat
-  );
   const destinationCapitalLng =
     destinationCountryInfo?.getDestinationCapitalLng();
-  console.log(
-    "destinationCapitalLng",
-    destinationCapitalLng,
-    typeof destinationCapitalLng
-  );
-
   const originCapitalLat = originCountryInfo?.getOriginCapitalLat();
-  console.log("originCapitalLat", originCapitalLat, typeof originCapitalLat);
   const originCapitalLng = originCountryInfo?.getOriginCapitalLng();
-  console.log("originCapitalLng", originCapitalLng, typeof originCapitalLng);
-  const coordinates = Cartesian3.fromDegreesArrayHeights([
-    originCapitalLng,
-    originCapitalLat,
-    0,
-    destinationCapitalLng,
-    destinationCapitalLat,
-    0,
-  ]);
-  console.log("coordinates", coordinates);
+
   return (
     <>
       <Navbar />
@@ -129,17 +107,29 @@ function Results() {
             </p>
           </Card>
         </div>
-        <Card id="Map">
-          <Viewer>
-            <Entity>
-              <PolylineGraphics
-                positions={coordinates}
-                width={15}
-                material={new PolylineArrowMaterialProperty()}
-              />
-            </Entity>
-          </Viewer>
-        </Card>
+        {originCapitalLat &&
+          originCapitalLng &&
+          destinationCapitalLat &&
+          destinationCapitalLng && (
+            <Card id="Map">
+              <Viewer>
+                <Entity>
+                  <PolylineGraphics
+                    positions={Cartesian3.fromDegreesArray([
+                      originCapitalLng,
+                      originCapitalLat,
+                      0,
+                      destinationCapitalLng,
+                      destinationCapitalLat,
+                      0,
+                    ])}
+                    width={15}
+                    material={new PolylineArrowMaterialProperty()}
+                  />
+                </Entity>
+              </Viewer>
+            </Card>
+          )}
       </div>
     </>
   );
