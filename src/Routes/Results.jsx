@@ -84,7 +84,15 @@ function Results() {
   console.log("originCapitalLat", originCapitalLat, typeof originCapitalLat);
   const originCapitalLng = originCountryInfo?.getOriginCapitalLng();
   console.log("originCapitalLng", originCapitalLng, typeof originCapitalLng);
-
+  const coordinates = Cartesian3.fromDegreesArrayHeights([
+    originCapitalLng,
+    originCapitalLat,
+    0,
+    destinationCapitalLng,
+    destinationCapitalLat,
+    0,
+  ]);
+  console.log("coordinates", coordinates);
   return (
     <>
       <Navbar />
@@ -125,14 +133,7 @@ function Results() {
           <Viewer>
             <Entity>
               <PolylineGraphics
-                positions={Cartesian3.fromDegreesArrayHeights([
-                  originCapitalLng,
-                  originCapitalLat,
-                  0,
-                  destinationCapitalLng,
-                  destinationCapitalLat,
-                  0,
-                ])}
+                positions={coordinates}
                 width={15}
                 material={new PolylineArrowMaterialProperty()}
               />
