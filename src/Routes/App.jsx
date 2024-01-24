@@ -90,6 +90,31 @@ function App() {
       setButtonDisabled(true);
     }
   }, [selectedOriginCountry, selectedDestinationCountry]);
+  let makeDestinationAppear;
+  if (isOriginCountrySelected) {
+    makeDestinationAppear = (
+      <Card id="card">
+        <ComboBox
+          options={filteredDestinations}
+          value={selectedDestinationCountry}
+          onChange={handleDestinationChange}
+          tag="Destination Country"
+        />
+        <Flag
+          name={
+            selectedDestinationCountry
+              ? filteredDestinations.find(
+                  (country) =>
+                    country.value === selectedDestinationCountry.value
+                )?.label
+              : null
+          }
+          code={selectedDestinationCountry?.value}
+          onCountryChange={handleDestinationChange}
+        />
+      </Card>
+    );
+  }
 
   return (
     <>
@@ -119,30 +144,7 @@ function App() {
             />
           </Card>
         </div>
-        <div className="col">
-          {isOriginCountrySelected && (
-            <Card id="card">
-              <ComboBox
-                options={filteredDestinations}
-                value={selectedDestinationCountry}
-                onChange={handleDestinationChange}
-                tag="Destination Country"
-              />
-              <Flag
-                name={
-                  selectedDestinationCountry
-                    ? filteredDestinations.find(
-                        (country) =>
-                          country.value === selectedDestinationCountry.value
-                      )?.label
-                    : null
-                }
-                code={selectedDestinationCountry?.value}
-                onCountryChange={handleDestinationChange}
-              />
-            </Card>
-          )}
-        </div>
+        <div className="col">{makeDestinationAppear}</div>
       </div>
       <div className="row">
         <div className="col" id="searchButton">

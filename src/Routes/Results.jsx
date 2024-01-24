@@ -77,6 +77,34 @@ function Results() {
   const originCapitalLat = originCountryInfo?.getOriginCapitalLat();
   const originCapitalLng = originCountryInfo?.getOriginCapitalLng();
 
+  let lineEntity;
+  if (
+    originCapitalLat &&
+    originCapitalLng &&
+    destinationCapitalLat &&
+    destinationCapitalLng
+  ) {
+    lineEntity = (
+      <Entity>
+        <PolylineGraphics
+          positions={Cartesian3.fromDegreesArray([
+            originCapitalLng,
+            originCapitalLat,
+            destinationCapitalLng,
+            destinationCapitalLat,
+          ])}
+          width={3}
+          material={
+            new PolylineGlowMaterialProperty({
+              glowPower: 0.1,
+              color: Color.YELLOW,
+            })
+          }
+          arcType={ArcType.RHUMB}
+        />
+      </Entity>
+    );
+  }
   return (
     <>
       <Navbar />
@@ -102,8 +130,9 @@ function Results() {
               <b>Currency:</b> {currencyCodes} {symbol} <br />
               <b>Capital: </b> {capital} <br />
               <b>Time Zones: </b>
-              {timeZones} <br />
-              <b>Population: </b> {population} <br />
+              {timeZones.join(", ")}
+              <br />
+              <b>Population: </b> {population.toLocaleString()} <br />
               <b>Destination LngLat</b> {destinationCapitalLng},{" "}
               {destinationCapitalLat}
               <br />
@@ -112,33 +141,9 @@ function Results() {
             </p>
           </Card>
         </div>
-        {originCapitalLat &&
-          originCapitalLng &&
-          destinationCapitalLat &&
-          destinationCapitalLng && (
-            <Card id="Map">
-              <Viewer>
-                <Entity>
-                  <PolylineGraphics
-                    positions={Cartesian3.fromDegreesArray([
-                      originCapitalLng,
-                      originCapitalLat,
-                      destinationCapitalLng,
-                      destinationCapitalLat,
-                    ])}
-                    width={3}
-                    material={
-                      new PolylineGlowMaterialProperty({
-                        glowPower: 0.1,
-                        color: Color.YELLOW,
-                      })
-                    }
-                    arcType={ArcType.RHUMB}
-                  />
-                </Entity>
-              </Viewer>
-            </Card>
-          )}
+        <Card id="Map">
+          <Viewer>{lineEntity}</Viewer>
+        </Card>
       </div>
     </>
   );

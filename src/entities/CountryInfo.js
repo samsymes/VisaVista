@@ -37,11 +37,10 @@ class CountryInfo {
   }
 
   getPopulation() {
-    // add number formatting?
     if (this.countryInfo.population != null) {
       return this.countryInfo.population;
     }
-    return [];
+    return null;
   }
   getDestinationCapitalLat() {
     if (this.countryInfo?.capitalInfo.latlng != null) {
