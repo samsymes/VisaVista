@@ -145,7 +145,7 @@ function App() {
         </div>
       </div>
       <div className="row">
-        <div className="col">
+        <div className="col" id="searchButton">
           <Button
             disabled={buttonDisabled}
             text="Search"

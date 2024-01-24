@@ -108,7 +108,6 @@ function Results() {
               {destinationCapitalLat}
               <br />
               <b>Origin LngLat</b> {originCapitalLng}, {originCapitalLat} <br />
-              <br />
               <b>Languages: </b> {languages}
             </p>
           </Card>
