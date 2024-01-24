@@ -4,7 +4,7 @@ import AllCountryInfoService from "../services/AllCountryInfoService";
 import { Card } from "@mui/material";
 import "./Results.css";
 import { Viewer, Entity, PolylineGraphics } from "resium";
-import { Cartesian3, Ion, PolylineArrowMaterialProperty } from "cesium";
+import { ArcType, Cartesian3, Ion, Color } from "cesium";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
 import CountryInfo from "../entities/CountryInfo";
@@ -118,13 +118,12 @@ function Results() {
                     positions={Cartesian3.fromDegreesArray([
                       originCapitalLng,
                       originCapitalLat,
-                      0,
                       destinationCapitalLng,
                       destinationCapitalLat,
-                      0,
                     ])}
-                    width={15}
-                    material={new PolylineArrowMaterialProperty()}
+                    width={3}
+                    material={Color.RED}
+                    arcType={ArcType.RHUMB}
                   />
                 </Entity>
               </Viewer>
