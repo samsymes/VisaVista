@@ -10,8 +10,7 @@
           "results": {
             "visa_requirements": "eTA",
             "allowed_stay": "6 months",
-            "notes": "eTA required if arriving by air.",
-            "working_holiday_visa": "For a 12 month period, Spanish citizens between 18-35 at time of application can apply for a resident permit on the basis of a working holiday. Must have a minimum of CAD$2,500 in your bank account. Medical insurance required."
+            "notes": "eTA required if arriving by air.Spanish citizens aged 18–35 can apply for a resident permit on the basis of a working holiday. Must have CAN$2,500 and medical insurance"
           }
         },
         {
@@ -20,15 +19,14 @@
           "results": {
             "visa_requirements": "not required",
             "allowed_stay": "180 days",
-            "notes": "None.",
-            "work_visa": "Up to 3 years. Must be working remotely for a company outside of Mexico. Earn a minimum of EUR$1742.54 a month or a bank statement proving funds of EUR$29042.47. Health insurance with Mexico coverage validity"
+            "notes": "Spanish citizens can apply for a resident permit on the basis of a remote worker in Mexico. For up to 3 years. Must be working remotely for a company outside of Mexico. Earn a minimum of EUR 1,742.54 a month or a bank statement proving funds of EUR 29,042.47. Health insurance with Mexico coverage validity"
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
           "results": {
-            "visa_requirements": "not required",
+            "visa_requirements": "Visa required",
             "allowed_stay": "90 days",
             "notes": "Passport must be valid for at least 6 months from date of entry."
           }
@@ -39,7 +37,7 @@
           "results": {
             "visa_requirements": "not required",
             "allowed_stay": "90 days within any 180 day period",
-            "notes": "Passport or ID card must be valid for 90 days. Spanish citizens Turkish authorities allow to enter even with passport expired within last 5 years."
+            "notes": "Spanish citizens are allowed to enter Turkey with their expired passports (5 years)."
           }
         },
         {
@@ -48,7 +46,7 @@
           "results": {
             "visa_requirements": "eVisa",
             "allowed_stay": "3 months",
-            "notes": "Passport must be valid for at least 6 months from date of entry."
+            "notes": "eTA fee is 34.09 USD. Applications can be submitted up to 90 days prior to travel and must be submitted at least 3 days in advance. Proof of reservation at the hotel where you plan to stay is required (if staying with friends, an invitation letter is also acceptable). Yellow fever vaccination certificate is required if coming from endemic countries."
           }
         }
       ]
@@ -69,7 +67,7 @@
           "destination_code": "mx",
           "destination_name": "Mexico",
           "results": {
-            "visa_requirements": "not required",
+            "visa_requirements": "Not Required",
             "allowed_stay": "180 days",
             "notes": "Actual permitted duration of stay is decided on arrival by border agents, and is often shorter than 180 days. "
           }
@@ -80,16 +78,16 @@
           "results": {
             "visa_requirements": "Visa required",
             "allowed_stay": "N/A",
-            "notes": "Passport must be valid for at least 6 months from date of entry. The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate."
+            "notes": "Passport must be valid for at least 6 months from date of entry. The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate. "
           }
         },
         {
           "destination_code": "tr",
           "destination_name": "Turkey",
           "results": {
-            "visa_requirements": "eVisa",
-            "allowed_stay": "3 months",
-            "notes": "Passport must be valid for at least 6 months from date of entry. Cruise ship passengers cruising in and out of a Turkish port within a single day do not require a tourist visa. Turkey passports to be valid for at least 5 months (150 days) upon entry."
+            "visa_requirements": "Not Required",
+            "allowed_stay": "90  days",
+            "notes": "Passport must be valid for at least 6 months from date of entry. Cruise ship passengers cruising in and out of a Turkish port within a single day do not require a tourist visa."
           }
         },
         {
@@ -98,7 +96,7 @@
           "results": {
             "visa_requirements": "eVisa",
             "allowed_stay": "3 months",
-            "notes": "Passport must be valid for at least 6 months from date of entry. Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
+            "notes": "eTA fee is 34.09 USD. Applications can be submitted up to 90 days prior to travel and must be submitted at least 3 days in advance. Proof of reservation at the hotel where you plan to stay is required (if staying with friends, an invitation letter is also acceptable). Yellow fever vaccination certificate is required if coming from endemic countries. Can also be entered on an East Africa tourist visa issued by Rwanda or Uganda."
           }
         }
       ]
@@ -111,7 +109,7 @@
           "destination_code": "es",
           "destination_name": "Spain",
           "results": {
-            "visa_requirements": "not required",
+            "visa_requirements": "Not Required",
             "allowed_stay": "90 days",
             "notes": "90 days within any 180 day period in the Schengen Area."
           }
@@ -120,16 +118,16 @@
           "destination_code": "ca",
           "destination_name": "Canada",
           "results": {
-            "visa_requirements": "not required",
+            "visa_requirements": "Not Required",
             "allowed_stay": "6 months",
-            "notes": "eTA required if arriving by air. Fee of 7 CAD. Canada routinely  denies entry to non-citizens who have a criminal record."
+            "notes": "Fee of 7 CAD. eTA required if arriving by air.  Canada routinely  denies entry to non-citizens who have a criminal record."
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Not Required",
             "allowed_stay": "N/A",
             "notes": "N/A"
           }
@@ -149,7 +147,7 @@
           "results": {
             "visa_requirements": "eVisa",
             "allowed_stay": "3 months",
-            "notes": "Fee US $51. All incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis"
+            "notes": "eTA fee is 34.09 USD. Applications can be submitted up to 90 days prior to travel and must be submitted at least 3 days in advance. Proof of reservation at the hotel where you plan to stay is required (if staying with friends, an invitation letter is also acceptable). Yellow fever vaccination certificate is required if coming from endemic countries."
           }
         }
       ]
@@ -162,45 +160,45 @@
           "destination_code": "es",
           "destination_name": "Spain",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required.",
             "allowed_stay": "N/A",
-            "notes": "none"
+            "notes": "N/A"
           }
         },
         {
           "destination_code": "mx",
           "destination_name": "Mexico",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "none"
+            "notes": "N/A"
           }
         },
         {
           "destination_code": "af",
           "destination_name": "Afghanistan",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "None."
+            "notes": "N/A"
           }
         },
         {
           "destination_code": "tr",
           "destination_name": "Turkey",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "None."
+            "notes": "N/A"
           }
         },
         {
           "destination_code": "ca",
           "destination_name": "Canada",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "None."
+            "notes": "N/A"
           }
         }
       ]
@@ -213,7 +211,7 @@
           "destination_code": "es",
           "destination_name": "Spain",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
             "notes": "Holders of Turkish ordinary passports who hold a valid visa for a Member State of the European Economic Area, Canada, Japan, Switzerland or the United States or; hold a valid residence permit issued by a Member State of the European Economic Area and Switzerland or; hold a residence permit issued by Andorra, Canada, Japan, Republic of San Marino, or the United States, that guarantees unrestricted right of return or; are a family member of a citizen of the EEA member or Switzerland or; are a flight crew may be exempt from the airport transit visa requirement."
           }
@@ -222,7 +220,7 @@
           "destination_code": "mx",
           "destination_name": "Mexico",
           "results": {
-            "visa_requirements": "Electronic authorization system",
+            "visa_requirements": "Electronic authorization system. Visa-free access for diplomatic passports",
             "allowed_stay": "180 days",
             "notes": "180 days visa free if holding a valid visa for Canada, Japan, USA, United Kingdom or a Schengen Member State"
           }
@@ -231,16 +229,16 @@
           "destination_code": "af",
           "destination_name": "Afghanistan",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required. Visa-free access for diplomatic passports",
             "allowed_stay": "N/A",
-            "notes": "None."
+            "notes": "Passport must be valid for at least 6 months on arrival."
           }
         },
         {
           "destination_code": "ca",
           "destination_name": "Canada",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
             "notes": "Routinely  denies entry to non-citizens who have a criminal record."
           }
@@ -251,7 +249,7 @@
           "results": {
             "visa_requirements": "eVisa",
             "allowed_stay": "3 months",
-            "notes": "Requires all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis."
+            "notes": " Applications can be submitted up to 90 days prior to travel and must be submitted at least 3 days in advance. Proof of reservation at the hotel where you plan to stay is required (if staying with friends, an invitation letter is also acceptable). Yellow fever vaccination certificate is required if coming from endemic countries."
           }
         }
       ]
@@ -264,9 +262,9 @@
           "destination_code": "es",
           "destination_name": "Spain",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "none"
+            "notes": "N/A"
           }
         },
         {
@@ -275,14 +273,14 @@
           "results": {
             "visa_requirements": "Visa Required.",
             "allowed_stay": "N/A",
-            "notes": "None."
+            "notes": "N/A"
           }
         },
         {
           "destination_code": "ca",
           "destination_name": "Canada",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
             "notes": "Afghans who worked for the Canadian Government (military or development projects) may be eligible for Asylum under special programs for supporting Afghan nationals. Routinely  denies entry to non-citizens who have a criminal record."
           }
@@ -291,7 +289,7 @@
           "destination_code": "tr",
           "destination_name": "Turkey",
           "results": {
-            "visa_requirements": "Visa required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
             "notes": "Passport must be valid for at least 6 months from date of entry."
           }
@@ -300,9 +298,9 @@
           "destination_code": "ke",
           "destination_name": "Kenya",
           "results": {
-            "visa_requirements": "Visa required",
-            "allowed_stay": "None.",
-            "notes": "Applications are referred to the director general of Immigration Services in Nairobi for approval.  Require all incoming passengers older than nine months to one year to have a current International Certificate of Vaccination or Prophylaxis. Passport must be valid for at least 6 months from date of entry."
+            "visa_requirements": "Electronic authorization system",
+            "allowed_stay": "3 months.",
+            "notes": "eTA fee is 34.09 USD. Applications can be submitted up to 90 days prior to travel and must be submitted at least 3 days in advance. Proof of reservation at the hotel where you plan to stay is required (if staying with friends, an invitation letter is also acceptable). Yellow fever vaccination certificate is required if coming from endemic countries."
           }
         }
       ]
