@@ -4,7 +4,13 @@ import AllCountryInfoService from "../services/AllCountryInfoService";
 import { Card } from "@mui/material";
 import "./Results.css";
 import { Viewer, Entity, PolylineGraphics } from "resium";
-import { ArcType, Cartesian3, Ion, Color } from "cesium";
+import {
+  ArcType,
+  Cartesian3,
+  Ion,
+  Color,
+  PolylineGlowMaterialProperty,
+} from "cesium";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
 import CountryInfo from "../entities/CountryInfo";
@@ -122,7 +128,12 @@ function Results() {
                       destinationCapitalLat,
                     ])}
                     width={3}
-                    material={Color.RED}
+                    material={
+                      new PolylineGlowMaterialProperty({
+                        glowPower: 0.1,
+                        color: Color.YELLOW,
+                      })
+                    }
                     arcType={ArcType.RHUMB}
                   />
                 </Entity>

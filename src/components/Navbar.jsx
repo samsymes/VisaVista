@@ -1,3 +1,4 @@
+import IconButtons from "./buttons/IconButtons/SocialsRow";
 function Navbar() {
   return (
     <>
@@ -31,14 +32,7 @@ function Navbar() {
             </li>
           </ul>
           <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="text"
-              placeholder="Search"
-            />
-            <button className="btn btn-primary" type="button">
-              Search
-            </button>
+            <IconButtons />
           </form>
         </div>
       </nav>

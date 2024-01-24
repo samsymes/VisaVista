@@ -22,8 +22,8 @@
 
 }
 
-.card {
-
+#card {
+    min-width: fit-content;
     margin: 1rem auto;
     padding: 1rem;
     width: 55%;
