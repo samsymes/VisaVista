@@ -1,3 +1,4 @@
+import CountryInfo from "../entities/CountryInfo";
 class RestCountryService {
   constructor() {
     this.countryList = [];
@@ -8,8 +9,8 @@ class RestCountryService {
     );
     const countryData = await response.json();
     const restDestinationCountryList = countryData[0];
-    this.countryList = restDestinationCountryList;
-    return restDestinationCountryList;
+    const countryInfo = new CountryInfo(restDestinationCountryList);
+    return countryInfo;
   }
 }
 export default new RestCountryService();

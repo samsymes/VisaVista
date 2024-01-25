@@ -22,7 +22,6 @@ import {
 } from "cesium";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
-import CountryInfo from "../entities/CountryInfo";
 
 function Results() {
   Ion.defaultAccessToken =
@@ -51,8 +50,7 @@ function Results() {
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
-      (response) => {
-        const destinationCountryInfoInstance = new CountryInfo(response);
+      (destinationCountryInfoInstance) => {
         setDestinationCountryInfo(destinationCountryInfoInstance);
         console.log(
           "destinationCountryInfoInstance",
@@ -64,8 +62,7 @@ function Results() {
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(From).then(
-      (response) => {
-        const originCountryInfoInstance = new CountryInfo(response);
+      (originCountryInfoInstance) => {
         setOriginCountryInfo(originCountryInfoInstance);
         console.log("originCountryInfoInstance", originCountryInfoInstance);
       }
