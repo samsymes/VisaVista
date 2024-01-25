@@ -3,10 +3,11 @@ import { useSearchParams } from "react-router-dom";
 import AllCountryInfoService from "../services/AllCountryInfoService";
 import { Card } from "@mui/material";
 import "./Results.css";
-import { Viewer, Entity, PolylineGraphics } from "resium";
+import { Viewer, Entity, PolylineGraphics, LabelGraphics } from "resium";
 import {
   ArcType,
   Cartesian3,
+  LabelStyle,
   Ion,
   Color,
   PolylineGlowMaterialProperty,
@@ -76,7 +77,47 @@ function Results() {
     destinationCountryInfo?.getDestinationCapitalLng();
   const originCapitalLat = originCountryInfo?.getOriginCapitalLat();
   const originCapitalLng = originCountryInfo?.getOriginCapitalLng();
-
+  let originLableEntity;
+  if (originCapitalLat && originCapitalLat) {
+    originLableEntity = (
+      <Entity
+        name="LabelGrap"
+        description="LabelGraphics!!"
+        position={Cartesian3.fromDegrees(originCapitalLng, originCapitalLat)}
+      >
+        <LabelGraphics
+          text={originCountryName}
+          font="24px Helvetica"
+          fillColor={Color.WHITE}
+          outlineColor={Color.BLACK}
+          outlineWidth={2}
+          style={LabelStyle.FILL_AND_OUTLINE}
+        />
+      </Entity>
+    );
+  }
+  let destinationLableEntity;
+  if (destinationCapitalLat && destinationCapitalLat) {
+    destinationLableEntity = (
+      <Entity
+        name="LabelGrap"
+        description="LabelGraphics!!"
+        position={Cartesian3.fromDegrees(
+          destinationCapitalLng,
+          destinationCapitalLat
+        )}
+      >
+        <LabelGraphics
+          text={destinationCountryName}
+          font="24px Helvetica"
+          fillColor={Color.WHITE}
+          outlineColor={Color.BLACK}
+          outlineWidth={2}
+          style={LabelStyle.FILL_AND_OUTLINE}
+        />
+      </Entity>
+    );
+  }
   let lineEntity;
   if (
     originCapitalLat &&
@@ -142,7 +183,11 @@ function Results() {
           </Card>
         </div>
         <Card id="Map">
-          <Viewer>{lineEntity}</Viewer>
+          <Viewer>
+            {lineEntity}
+            {originLableEntity}
+            {destinationLableEntity}
+          </Viewer>
         </Card>
       </div>
     </>
