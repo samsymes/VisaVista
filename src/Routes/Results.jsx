@@ -3,7 +3,14 @@ import { useSearchParams } from "react-router-dom";
 import AllCountryInfoService from "../services/AllCountryInfoService";
 import { Card } from "@mui/material";
 import "./Results.css";
-import { Viewer, Entity, PolylineGraphics, LabelGraphics } from "resium";
+import {
+  Viewer,
+  Entity,
+  PolylineGraphics,
+  LabelGraphics,
+  CameraFlyToBoundingSphere,
+} from "resium";
+
 import {
   ArcType,
   Cartesian3,
@@ -11,6 +18,7 @@ import {
   Ion,
   Color,
   PolylineGlowMaterialProperty,
+  BoundingSphere,
 } from "cesium";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
@@ -87,13 +95,24 @@ function Results() {
       >
         <LabelGraphics
           text={originCountryName}
-          font="24px Helvetica"
+          font="16px Helvetica"
           fillColor={Color.WHITE}
           outlineColor={Color.BLACK}
           outlineWidth={2}
           style={LabelStyle.FILL_AND_OUTLINE}
         />
       </Entity>
+    );
+  }
+  let cameraFly;
+  if (originCapitalLng && originCapitalLat) {
+    cameraFly = (
+      <CameraFlyToBoundingSphere
+        boundingSphere={BoundingSphere.fromPoints([
+          Cartesian3.fromDegrees(originCapitalLng, originCapitalLat),
+          Cartesian3.fromDegrees(destinationCapitalLng, destinationCapitalLat),
+        ])}
+      />
     );
   }
   let destinationLableEntity;
@@ -109,7 +128,7 @@ function Results() {
       >
         <LabelGraphics
           text={destinationCountryName}
-          font="24px Helvetica"
+          font="16px Helvetica"
           fillColor={Color.WHITE}
           outlineColor={Color.BLACK}
           outlineWidth={2}
@@ -118,6 +137,7 @@ function Results() {
       </Entity>
     );
   }
+
   let lineEntity;
   if (
     originCapitalLat &&
@@ -184,6 +204,7 @@ function Results() {
         </div>
         <Card id="Map">
           <Viewer>
+            {cameraFly}
             {lineEntity}
             {originLableEntity}
             {destinationLableEntity}
