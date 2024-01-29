@@ -1,4 +1,9 @@
-import IconButtons from "./buttons/IconButtons";
+import SocialsButton from "./buttons/SocialsButton";
+import Stack from "@mui/material/Stack";
+import Github from "@mui/icons-material/GitHub";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import Email from "@mui/icons-material/Email";
+
 function Navbar() {
   return (
     <>
@@ -32,7 +37,26 @@ function Navbar() {
             </li>
           </ul>
           <form className="d-flex">
-            <IconButtons />
+            <Stack direction="row" spacing={1}>
+              <SocialsButton
+                href="https://github.com/samsymes"
+                color="default"
+                ariaLabel="GitHub"
+                iconElement={<Github />}
+              ></SocialsButton>
+              <SocialsButton
+                href="https://www.linkedin.com/in/samanthasymes/"
+                color="default"
+                ariaLabel="LinkedIn"
+                iconElement={<LinkedIn />}
+              ></SocialsButton>
+              <SocialsButton
+                href="mailto:samasymes@gmail.com"
+                color="default"
+                ariaLabel="Email"
+                iconElement={<Email />}
+              ></SocialsButton>
+            </Stack>
           </form>
         </div>
       </nav>
