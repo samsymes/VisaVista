@@ -1,4 +1,4 @@
-import IconButtons from "./buttons/IconButtons/SocialsRow";
+import IconButtons from "./buttons/IconButtons";
 function Navbar() {
   return (
     <>
