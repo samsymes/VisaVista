@@ -22,7 +22,7 @@ import {
 } from "cesium";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
-
+import FlightService from "../services/FlightService";
 function Results() {
   Ion.defaultAccessToken =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZDhiNmY0ZC1kZmU3LTQ2YjQtOTNhYi0xOGY4YTQyNDI3NzQiLCJpZCI6MTg1MzkwLCJpYXQiOjE3MDMwMjI1MTd9.NyKMKAqdzoRhgLLvDxOBOkvzOQTQTWaupOA_tdyj8RM";
@@ -47,6 +47,12 @@ function Results() {
 
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
   const [originCountryInfo, setOriginCountryInfo] = useState(null);
+
+  useEffect(() => {
+    FlightService.getFlights(From, To).then((flightInfoInstance) => {
+      console.log("flightInfoInstance", flightInfoInstance);
+    });
+  }, [From, To]);
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
