@@ -22,6 +22,7 @@ import {
 } from "cesium";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
+import CurrencyService from "../services/CurrencyService";
 
 function Results() {
   Ion.defaultAccessToken =
@@ -47,6 +48,12 @@ function Results() {
 
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
   const [originCountryInfo, setOriginCountryInfo] = useState(null);
+
+  useEffect(() => {
+    CurrencyService.getCurrencyInfo(From, To).then((exchangeRate) => {
+      console.log("exchangeRate", exchangeRate);
+    });
+  }, [From, To]);
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
@@ -163,7 +170,7 @@ function Results() {
               color: Color.YELLOW,
             })
           }
-          arcType={ArcType.RHUMB}
+          arcType={ArcType.GEODESIC}
         />
       </Entity>
     );
