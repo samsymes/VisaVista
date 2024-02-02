@@ -20,7 +20,7 @@ import {
   PolylineGlowMaterialProperty,
   BoundingSphere,
 } from "cesium";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
 import CurrencyService from "../services/CurrencyService";
 
@@ -48,28 +48,23 @@ function Results() {
   const [originCountryInfo, setOriginCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
-  const [currencyInfo, setCurrencyInfo] = useState(null);
+  const [currencyInfo, setCurrencyInfo] = useState();
 
-  const destinationCurrencyCodes = useMemo(
-    () => destinationCountryInfo?.getCurrencyCodes(To) ?? [],
-    [destinationCountryInfo, To]
-  );
-  const originCurrencyCodes = useMemo(
-    () => originCountryInfo?.getCurrencyCodes(From) ?? [],
-    [originCountryInfo, From]
-  );
+  const destinationCurrencyCodes =
+    destinationCountryInfo?.getCurrencyCodes(To) ?? null;
 
+  const originCurrencyCodes = originCountryInfo?.getCurrencyCodes(From) ?? null;
   console.log("originCurrencyCodes", originCurrencyCodes);
   console.log("destinationCurrencyCodes", destinationCurrencyCodes);
 
   useEffect(() => {
-    if (originCurrencyCodes && destinationCurrencyCodes) {
+    if ((originCurrencyCodes, destinationCurrencyCodes)) {
       CurrencyService.getCurrencyInfo(
         originCurrencyCodes,
         destinationCurrencyCodes
-      ).then((currencyInfoInstance) => {
-        console.log("currencyInfoInstance", currencyInfoInstance);
-        setCurrencyInfo(currencyInfoInstance);
+      ).then((response) => {
+        setCurrencyInfo(response);
+        console.log("currency response", response);
       });
     }
   }, [originCurrencyCodes, destinationCurrencyCodes]);
