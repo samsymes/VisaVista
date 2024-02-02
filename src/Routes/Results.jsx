@@ -54,8 +54,6 @@ function Results() {
     destinationCountryInfo?.getCurrencyCodes(To) ?? null;
 
   const originCurrencyCodes = originCountryInfo?.getCurrencyCodes(From) ?? null;
-  console.log("originCurrencyCodes", originCurrencyCodes);
-  console.log("destinationCurrencyCodes", destinationCurrencyCodes);
 
   useEffect(() => {
     if ((originCurrencyCodes, destinationCurrencyCodes)) {
@@ -64,11 +62,10 @@ function Results() {
         destinationCurrencyCodes
       ).then((response) => {
         setCurrencyInfo(response);
-        console.log("currency response", response);
       });
     }
   }, [originCurrencyCodes, destinationCurrencyCodes]);
-  console.log("currencyInfo", currencyInfo);
+  console.log("exchange Rate", currencyInfo);
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
