@@ -5,9 +5,10 @@ class CountryInfo {
 
   getCurrencyCodes() {
     if (this.countryInfo.currencies != null) {
-      return Object.keys(this.countryInfo.currencies);
+      const currencyCodes = Object.keys(this.countryInfo.currencies);
+      return currencyCodes[0] || "";
     }
-    return [];
+    return "";
   }
   getCountryName() {
     if (this.countryInfo.name.common != null) {

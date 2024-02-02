@@ -20,7 +20,7 @@ import {
   PolylineGlowMaterialProperty,
   BoundingSphere,
 } from "cesium";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import RestCountryService from "../services/RestCountryService";
 import CurrencyService from "../services/CurrencyService";
 
@@ -45,24 +45,40 @@ function Results() {
     resultsObject?.getVisaRequirementsFromSearchResultsClass();
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
-
-  const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
   const [originCountryInfo, setOriginCountryInfo] = useState(null);
+  const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
+
+  const [currencyInfo, setCurrencyInfo] = useState(null);
+
+  const destinationCurrencyCodes = useMemo(
+    () => destinationCountryInfo?.getCurrencyCodes(To) ?? [],
+    [destinationCountryInfo, To]
+  );
+  const originCurrencyCodes = useMemo(
+    () => originCountryInfo?.getCurrencyCodes(From) ?? [],
+    [originCountryInfo, From]
+  );
+
+  console.log("originCurrencyCodes", originCurrencyCodes);
+  console.log("destinationCurrencyCodes", destinationCurrencyCodes);
 
   useEffect(() => {
-    CurrencyService.getCurrencyInfo(From, To).then((exchangeRate) => {
-      console.log("exchangeRate", exchangeRate);
-    });
-  }, [From, To]);
+    if (originCurrencyCodes && destinationCurrencyCodes) {
+      CurrencyService.getCurrencyInfo(
+        originCurrencyCodes,
+        destinationCurrencyCodes
+      ).then((currencyInfoInstance) => {
+        console.log("currencyInfoInstance", currencyInfoInstance);
+        setCurrencyInfo(currencyInfoInstance);
+      });
+    }
+  }, [originCurrencyCodes, destinationCurrencyCodes]);
+  console.log("currencyInfo", currencyInfo);
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
       (destinationCountryInfoInstance) => {
         setDestinationCountryInfo(destinationCountryInfoInstance);
-        console.log(
-          "destinationCountryInfoInstance",
-          destinationCountryInfoInstance
-        );
       }
     );
   }, [To]);
@@ -71,14 +87,13 @@ function Results() {
     RestCountryService.getCountryInfoFromRestCountryService(From).then(
       (originCountryInfoInstance) => {
         setOriginCountryInfo(originCountryInfoInstance);
-        console.log("originCountryInfoInstance", originCountryInfoInstance);
       }
     );
   }, [From]);
 
-  const currencyCodes = destinationCountryInfo?.getCurrencyCodes() ?? [];
   const name = destinationCountryInfo?.getCountryName() ?? [];
-  const symbol = destinationCountryInfo?.getCurrencySymbol(currencyCodes) ?? [];
+  const symbol =
+    destinationCountryInfo?.getCurrencySymbol(destinationCurrencyCodes) ?? [];
   const capital = destinationCountryInfo?.getCapital() ?? [];
   const timeZones = destinationCountryInfo?.getTimezones() ?? [];
   const population = destinationCountryInfo?.getPopulation() ?? [];
@@ -197,7 +212,7 @@ function Results() {
             <h4>Destination Info</h4>
             <p className="cardBody">
               <b>Country:</b> {name} <br />
-              <b>Currency:</b> {currencyCodes} {symbol} <br />
+              <b>Currency:</b> {destinationCurrencyCodes} {symbol} <br />
               <b>Capital: </b> {capital} <br />
               <b>Time Zones: </b>
               {timeZones.join(", ")}
