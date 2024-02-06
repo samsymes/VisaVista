@@ -10,12 +10,11 @@ class CurrencyService {
       `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${fromCurrency}/${toCurrency}.json`
     );
     const currencyData = await response.json();
-    const currency = Object.entries(currencyData).map(([value, label]) => ({
-      value,
-      label,
-    }));
+    const currency = Object.keys(currencyData).find(
+      (currency) => currency === toCurrency
+    );
 
-    return currency;
+    return currencyData[currency];
   }
 }
 

@@ -10,6 +10,7 @@ import {
   LabelGraphics,
   CameraFlyToBoundingSphere,
 } from "resium";
+import Button from "../components/buttons/Button";
 
 import {
   ArcType,
@@ -61,8 +62,7 @@ function Results() {
         originCurrencyCodes,
         destinationCurrencyCodes
       ).then((response) => {
-        const rate = response[1].label;
-        setExchangeRate(rate);
+        setExchangeRate(response);
       });
     }
   }, [originCurrencyCodes, destinationCurrencyCodes]);
@@ -85,8 +85,10 @@ function Results() {
   }, [From]);
 
   const name = destinationCountryInfo?.getCountryName() ?? [];
-  const symbol =
+  const destinationSymbol =
     destinationCountryInfo?.getCurrencySymbol(destinationCurrencyCodes) ?? [];
+  const originSymbol =
+    originCountryInfo?.getCurrencySymbol(originCurrencyCodes) ?? [];
   const capital = destinationCountryInfo?.getCapital() ?? [];
   const timeZones = destinationCountryInfo?.getTimezones() ?? [];
   const population = destinationCountryInfo?.getPopulation() ?? [];
@@ -186,16 +188,13 @@ function Results() {
   const [amount, setAmount] = useState("");
   const [convertedAmount, setConvertedAmount] = useState("");
 
-  const currencyCode = destinationCurrencyCodes;
-
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
   };
 
   const handleConvertClick = () => {
-    if (exchangeRate) {
-      const rate = { exchangeRate };
-      setConvertedAmount(amount * rate);
+    if (exchangeRate && !isNaN(amount)) {
+      setConvertedAmount(amount * exchangeRate);
     }
   };
 
@@ -230,7 +229,8 @@ function Results() {
             <div className="cardContents">
               <h4>Destination Info</h4>
               <b>Country:</b> {name} <br />
-              <b>Currency:</b> {destinationCurrencyCodes} {symbol} <br />
+              <b>Currency:</b> {destinationCurrencyCodes} {destinationSymbol}{" "}
+              <br />
               <b>Capital: </b> {capital} <br />
               <b>Time Zones: </b>
               {timeZones.join(", ")}
@@ -250,13 +250,14 @@ function Results() {
                 type="number"
                 value={amount}
                 onChange={handleAmountChange}
-                placeholder="Amount"
+                placeholder={destinationSymbol}
               />
-              <p>{currencyCode}</p>
-              <button onClick={handleConvertClick}>Convert</button>
               <p>
-                = {convertedAmount} {originCurrencyCodes}
+                {destinationSymbol} {amount} {destinationCurrencyCodes} {"="}
+                {originSymbol} {convertedAmount.toLocaleString()}{" "}
+                {originCurrencyCodes}
               </p>
+              <Button onClick={handleConvertClick} text="Convert" />
             </div>
           </Card>
         </div>
