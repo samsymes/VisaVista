@@ -201,67 +201,54 @@ function Results() {
   return (
     <>
       <Navbar />
-      <div className="row">
-        <Card id="Map">
-          <Viewer>
-            {cameraFly}
-            {lineEntity}
-            {originLableEntity}
-            {destinationLableEntity}
-          </Viewer>
-        </Card>
-        <div className="col" id="infoCard">
-          <Card>
-            <div className="cardContents">
-              <h4>Visa Info</h4>
-              <b>Origin Country:</b> {originCountryName}
-              <br />
-              <b>Destination Country:</b> {destinationCountryName}
-              <br />
-              <b>Visa Requirements: </b>
-              {visaRequirements} <br />
-              <b>Allowed Stay: </b> {allowedStay} <br />
-              <b>Notes: </b> {notes}
-            </div>
-          </Card>
-          <br />
-          <Card>
-            <div className="cardContents">
-              <h4>Destination Info</h4>
-              <b>Country:</b> {name} <br />
-              <b>Currency:</b> {destinationCurrencyCodes} {destinationSymbol}{" "}
-              <br />
-              <b>Capital: </b> {capital} <br />
-              <b>Time Zones: </b>
-              {timeZones.join(", ")}
-              <b>Population: </b> {population.toLocaleString()} <br />
-              <b>Destination LngLat</b> {destinationCapitalLng},{" "}
-              {destinationCapitalLat}
-              <br />
-              <b>Origin LngLat</b> {originCapitalLng}, {originCapitalLat} <br />
-              <b>Languages: </b> {languages}
-            </div>
-          </Card>
-          <br />
-          <Card>
-            <div className="cardContents">
-              <h4>Currency Converter</h4>
-              <input
-                type="number"
-                value={amount}
-                onChange={handleAmountChange}
-                placeholder={destinationSymbol}
-              />
-              <p>
-                {destinationSymbol} {amount} {destinationCurrencyCodes} {"="}
-                {originSymbol} {convertedAmount.toLocaleString()}{" "}
-                {originCurrencyCodes}
-              </p>
-              <Button onClick={handleConvertClick} text="Convert" />
-            </div>
-          </Card>
+
+      <Card id="Map">
+        <Viewer>
+          {cameraFly}
+          {lineEntity}
+          {originLableEntity}
+          {destinationLableEntity}
+        </Viewer>
+      </Card>
+
+      <Card className="infoCard">
+        <div className="cardContents">
+          <h4>Visa Info</h4>
+          <b>Visa Requirements: </b>
+          {visaRequirements} <br />
+          <b>Allowed Stay: </b> {allowedStay} <br />
+          <b>Notes: </b> {notes}
         </div>
-      </div>
+      </Card>
+      <Card className="infoCard">
+        <div className="cardContents">
+          <h4>Destination Info</h4>
+          <b>Country:</b> {name} <br />
+          <b>Capital: </b> {capital} <br />
+          <b>Time Zones: </b>
+          {timeZones.join(", ")} <br />
+          <b>Population: </b> {population.toLocaleString()} <br />
+          <b>Languages: </b> {languages}
+        </div>
+      </Card>
+      <Card className="infoCard">
+        <div className="cardContents">
+          <p>
+            <h4>Currency Converter</h4>
+            <input
+              type="number"
+              value={amount}
+              onChange={handleAmountChange}
+              placeholder={"Enter amount"}
+            />
+            {destinationSymbol} {amount} {destinationCurrencyCodes} {"="}
+            {originSymbol} {convertedAmount.toLocaleString()}{" "}
+            {originCurrencyCodes}
+          </p>
+
+          <Button onClick={handleConvertClick} text="Convert" />
+        </div>
+      </Card>
     </>
   );
 }

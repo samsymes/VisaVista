@@ -1,19 +1,14 @@
-#infoCard {
-    width: 100%;
-    float: left;
-
-    text-align: left;
+.infoCard {
     margin: 1rem;
+    float: left;
+    padding: 1rem;
+    text-align: left;
+    width: fit-content;
 }
 
 .cardContents {
-    display: flex;
-    flex-direction: column;
     justify-content: left;
-    align-items: left;
-    margin: auto;
     padding: 1rem;
-    width: 100%;
 
 }
 
