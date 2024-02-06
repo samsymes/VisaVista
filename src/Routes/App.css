@@ -5,6 +5,15 @@
     box-shadow: 0 0 1em #00000033;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    overflow: hidden;
+}
+
 .form-select {
     max-width: fit-content;
     margin: 5px auto;
@@ -37,6 +46,7 @@
     width: 55%;
     box-shadow: 0 0 1em #00000033;
     border-radius: 1rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;

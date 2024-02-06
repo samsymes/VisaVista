@@ -3,14 +3,13 @@ import Stack from "@mui/material/Stack";
 import Github from "@mui/icons-material/GitHub";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import Email from "@mui/icons-material/Email";
-
+import Logo from "../assets/Logo";
 function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          Logo
-        </a>
+        <Logo />
+
         <button
           className="navbar-toggler"
           type="button"

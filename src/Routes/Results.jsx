@@ -186,6 +186,14 @@ function Results() {
     <>
       <Navbar />
       <div className="row">
+        <Card id="Map">
+          <Viewer>
+            {cameraFly}
+            {lineEntity}
+            {originLableEntity}
+            {destinationLableEntity}
+          </Viewer>
+        </Card>
         <div className="col">
           <Card id="VisaInfo">
             <h4>Visa Info</h4>
@@ -202,30 +210,28 @@ function Results() {
           </Card>
           <Card id="CountryInfo">
             <h4>Destination Info</h4>
-            <p className="cardBody">
-              <b>Country:</b> {name} <br />
-              <b>Currency:</b> {destinationCurrencyCodes} {symbol} <br />
-              <b>Capital: </b> {capital} <br />
-              <b>Time Zones: </b>
-              {timeZones.join(", ")}
-              <br />
-              <b>Population: </b> {population.toLocaleString()} <br />
-              <b>Destination LngLat</b> {destinationCapitalLng},{" "}
-              {destinationCapitalLat}
-              <br />
-              <b>Origin LngLat</b> {originCapitalLng}, {originCapitalLat} <br />
-              <b>Languages: </b> {languages}
-            </p>
+            <div className="row">
+              <p className="cardBody">
+                <b>Country:</b> {name} <br />
+                <b>Currency:</b> {destinationCurrencyCodes} {symbol} <br />
+                <b>Capital: </b> {capital} <br />
+                <b>Time Zones: </b>
+                {timeZones.join(", ")}
+              </p>
+            </div>
+            <div className="row">
+              <p>
+                <b>Population: </b> {population.toLocaleString()} <br />
+                <b>Destination LngLat</b> {destinationCapitalLng},{" "}
+                {destinationCapitalLat}
+                <br />
+                <b>Origin LngLat</b> {originCapitalLng}, {originCapitalLat}{" "}
+                <br />
+                <b>Languages: </b> {languages}
+              </p>
+            </div>
           </Card>
         </div>
-        <Card id="Map">
-          <Viewer>
-            {cameraFly}
-            {lineEntity}
-            {originLableEntity}
-            {destinationLableEntity}
-          </Viewer>
-        </Card>
       </div>
     </>
   );
