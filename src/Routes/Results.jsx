@@ -48,7 +48,7 @@ function Results() {
   const [originCountryInfo, setOriginCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
-  const [currencyInfo, setCurrencyInfo] = useState();
+  const [exchangeRate, setExchangeRate] = useState();
 
   const destinationCurrencyCodes =
     destinationCountryInfo?.getCurrencyCodes(To) ?? null;
@@ -61,11 +61,12 @@ function Results() {
         originCurrencyCodes,
         destinationCurrencyCodes
       ).then((response) => {
-        setCurrencyInfo(response);
+        const rate = response[1].label;
+        setExchangeRate(rate);
       });
     }
   }, [originCurrencyCodes, destinationCurrencyCodes]);
-  console.log("exchange Rate", currencyInfo);
+  console.log("exchange Rate", exchangeRate);
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
@@ -182,6 +183,22 @@ function Results() {
       </Entity>
     );
   }
+  const [amount, setAmount] = useState("");
+  const [convertedAmount, setConvertedAmount] = useState("");
+
+  const currencyCode = destinationCurrencyCodes;
+
+  const handleAmountChange = (event) => {
+    setAmount(event.target.value);
+  };
+
+  const handleConvertClick = () => {
+    if (exchangeRate) {
+      const rate = { exchangeRate };
+      setConvertedAmount(amount * rate);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -194,10 +211,10 @@ function Results() {
             {destinationLableEntity}
           </Viewer>
         </Card>
-        <div className="col">
-          <Card id="VisaInfo">
-            <h4>Visa Info</h4>
-            <p className="cardBody">
+        <div className="col" id="infoCard">
+          <Card>
+            <div className="cardContents">
+              <h4>Visa Info</h4>
               <b>Origin Country:</b> {originCountryName}
               <br />
               <b>Destination Country:</b> {destinationCountryName}
@@ -206,28 +223,39 @@ function Results() {
               {visaRequirements} <br />
               <b>Allowed Stay: </b> {allowedStay} <br />
               <b>Notes: </b> {notes}
-            </p>
-          </Card>
-          <Card id="CountryInfo">
-            <h4>Destination Info</h4>
-            <div className="row">
-              <p className="cardBody">
-                <b>Country:</b> {name} <br />
-                <b>Currency:</b> {destinationCurrencyCodes} {symbol} <br />
-                <b>Capital: </b> {capital} <br />
-                <b>Time Zones: </b>
-                {timeZones.join(", ")}
-              </p>
             </div>
-            <div className="row">
+          </Card>
+          <br />
+          <Card>
+            <div className="cardContents">
+              <h4>Destination Info</h4>
+              <b>Country:</b> {name} <br />
+              <b>Currency:</b> {destinationCurrencyCodes} {symbol} <br />
+              <b>Capital: </b> {capital} <br />
+              <b>Time Zones: </b>
+              {timeZones.join(", ")}
+              <b>Population: </b> {population.toLocaleString()} <br />
+              <b>Destination LngLat</b> {destinationCapitalLng},{" "}
+              {destinationCapitalLat}
+              <br />
+              <b>Origin LngLat</b> {originCapitalLng}, {originCapitalLat} <br />
+              <b>Languages: </b> {languages}
+            </div>
+          </Card>
+          <br />
+          <Card>
+            <div className="cardContents">
+              <h4>Currency Converter</h4>
+              <input
+                type="number"
+                value={amount}
+                onChange={handleAmountChange}
+                placeholder="Amount"
+              />
+              <p>{currencyCode}</p>
+              <button onClick={handleConvertClick}>Convert</button>
               <p>
-                <b>Population: </b> {population.toLocaleString()} <br />
-                <b>Destination LngLat</b> {destinationCapitalLng},{" "}
-                {destinationCapitalLat}
-                <br />
-                <b>Origin LngLat</b> {originCapitalLng}, {originCapitalLat}{" "}
-                <br />
-                <b>Languages: </b> {languages}
+                = {convertedAmount} {originCurrencyCodes}
               </p>
             </div>
           </Card>

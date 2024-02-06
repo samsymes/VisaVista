@@ -10,8 +10,8 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 0 1rem;
     overflow: hidden;
+    background-color: #8DBDFF;
 }
 
 .form-select {
@@ -46,7 +46,6 @@
     width: 55%;
     box-shadow: 0 0 1em #00000033;
     border-radius: 1rem;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,26 +79,12 @@
     transition: filter 300ms;
 }
 
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+img {
+    width: 10rem;
+    margin: 0 1rem;
+
 }
 
-.logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
-    }
+html {
+    background-color: #8DBDFF;
 }
