@@ -20,8 +20,14 @@ import {
   Color,
   PolylineGlowMaterialProperty,
   BoundingSphere,
+  JulianDate,
+  SampledPositionProperty,
+  LagrangePolynomialApproximation,
+  ClockRange,
+  TimeIntervalCollection,
+  TimeInterval,
 } from "cesium";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import RestCountryService from "../services/RestCountryService";
 import CurrencyService from "../services/CurrencyService";
 
@@ -84,6 +90,84 @@ function Results() {
     );
   }, [From]);
 
+  useEffect(() => {
+    if (
+      cesiumRef.current &&
+      cesiumRef.current.cesiumElement &&
+      originCountryInfo &&
+      destinationCountryInfo
+    ) {
+      const stop = JulianDate.fromDate(new Date());
+      const start = JulianDate.addSeconds(stop, -360, new JulianDate());
+
+      const sampledProp = new SampledPositionProperty();
+
+      // Define the number of points you want to create
+      const numPoints = 100;
+
+      // Calculate the total duration of the flight in seconds
+      const totalDuration = JulianDate.secondsDifference(stop, start);
+
+      // Calculate the duration of each segment of the flight
+      const segmentDuration = totalDuration / numPoints;
+
+      // Create an array to store the times of each point
+      const times = Array.from({ length: numPoints }, (_, i) =>
+        JulianDate.addSeconds(start, i * segmentDuration, new JulianDate())
+      );
+
+      // Create an array to store the positions of each point
+      const positions = times.map((time) => {
+        // Calculate the fraction of the total duration that has elapsed
+        const fraction =
+          JulianDate.secondsDifference(time, start) / totalDuration;
+
+        // Calculate the longitude and latitude of the point
+        const longitude =
+          originCountryInfo.getOriginCapitalLng() +
+          fraction *
+            (destinationCountryInfo.getDestinationCapitalLng() -
+              originCountryInfo.getOriginCapitalLng());
+        const latitude =
+          originCountryInfo.getOriginCapitalLat() +
+          fraction *
+            (destinationCountryInfo.getDestinationCapitalLat() -
+              originCountryInfo.getOriginCapitalLat());
+
+        // Return the position of the point
+        return Cartesian3.fromDegrees(longitude, latitude);
+      });
+
+      // Add each position to the SampledPositionProperty
+      positions.forEach((position, i) =>
+        sampledProp.addSample(times[i], position)
+      );
+
+      sampledProp.setInterpolationOptions({
+        interpolationDegree: 1,
+        interpolationAlgorithm: LagrangePolynomialApproximation,
+      });
+
+      const viewer = cesiumRef.current.cesiumElement;
+
+      viewer.clock.startTime = start.clone();
+      viewer.clock.stopTime = stop.clone();
+      viewer.clock.currentTime = start.clone();
+      viewer.clock.clockRange = ClockRange.LOOP_STOP;
+      viewer.clock.multiplier = 20;
+      viewer.entities.add({
+        availability: new TimeIntervalCollection([
+          new TimeInterval({ start, stop }),
+        ]),
+        position: sampledProp,
+        model: {
+          uri: "/millennium_falcon.glb",
+          minimumPixelSize: 128,
+          maximumScale: 200000,
+        },
+      });
+    }
+  }, [originCountryInfo, destinationCountryInfo]);
   const name = destinationCountryInfo?.getCountryName() ?? [];
   const destinationSymbol =
     destinationCountryInfo?.getCurrencySymbol(destinationCurrencyCodes) ?? [];
@@ -197,13 +281,13 @@ function Results() {
       setConvertedAmount(amount * exchangeRate);
     }
   };
-
+  const cesiumRef = useRef(null);
   return (
     <>
       <Navbar />
 
       <Card id="Map">
-        <Viewer>
+        <Viewer ref={cesiumRef} shouldAnimate={true}>
           {cameraFly}
           {lineEntity}
           {originLableEntity}
@@ -233,8 +317,8 @@ function Results() {
       </Card>
       <Card className="infoCard">
         <div className="cardContents">
+          <h4>Currency Converter</h4>
           <p>
-            <h4>Currency Converter</h4>
             <input
               type="number"
               value={amount}
