@@ -39,7 +39,7 @@
 
 }
 
-#card {
+.countryCard {
     min-width: fit-content;
     margin: 1rem auto;
     padding: 1rem;
@@ -54,14 +54,13 @@
 
 }
 
-.cardBody {
+.cardContents {
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: left;
     margin: 1rem auto;
     padding: 1rem;
-    width: 100%;
 
 }
 

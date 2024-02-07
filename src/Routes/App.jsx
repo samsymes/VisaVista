@@ -93,7 +93,7 @@ function App() {
   let makeDestinationAppear;
   if (isOriginCountrySelected) {
     makeDestinationAppear = (
-      <Card id="card">
+      <Card className="countryPicker">
         <ComboBox
           options={filteredDestinations}
           value={selectedDestinationCountry}
@@ -124,7 +124,7 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <Card id="card">
+          <Card className="countryPicker">
             <ComboBox
               options={filteredOrigins}
               value={selectedOriginCountry}
