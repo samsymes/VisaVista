@@ -12,6 +12,10 @@
 
 }
 
+body {
+    background-color: aliceblue;
+}
+
 #Map {
     width: 75%;
     float: right;
