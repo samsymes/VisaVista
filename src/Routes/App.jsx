@@ -74,6 +74,7 @@ function App() {
 
   const handleDestinationChange = (newCountry) => {
     if (newCountry) {
+      setIsOriginCountrySelected(false);
       setselectedDestinationCountry(newCountry);
     } else {
       setselectedDestinationCountry(null);
@@ -90,31 +91,6 @@ function App() {
       setButtonDisabled(true);
     }
   }, [selectedOriginCountry, selectedDestinationCountry]);
-  let makeDestinationAppear;
-  if (isOriginCountrySelected) {
-    makeDestinationAppear = (
-      <Card className="countryPicker">
-        <ComboBox
-          options={filteredDestinations}
-          value={selectedDestinationCountry}
-          onChange={handleDestinationChange}
-          tag="Destination Country"
-        />
-        <Flag
-          name={
-            selectedDestinationCountry
-              ? filteredDestinations.find(
-                  (country) =>
-                    country.value === selectedDestinationCountry.value
-                )?.label
-              : null
-          }
-          code={selectedDestinationCountry?.value}
-          onCountryChange={handleDestinationChange}
-        />
-      </Card>
-    );
-  }
 
   return (
     <>
@@ -124,7 +100,7 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <Card className="countryPicker">
+          <Card className="countryCard">
             <ComboBox
               options={filteredOrigins}
               value={selectedOriginCountry}
@@ -144,7 +120,29 @@ function App() {
             />
           </Card>
         </div>
-        <div className="col">{makeDestinationAppear}</div>
+        <div className="col">
+          <Card className="countryCard">
+            <ComboBox
+              options={filteredDestinations}
+              value={selectedDestinationCountry}
+              onChange={handleDestinationChange}
+              disabled={!isOriginCountrySelected ? true : false}
+              tag="Destination Country"
+            />
+            <Flag
+              name={
+                selectedDestinationCountry
+                  ? filteredDestinations.find(
+                      (country) =>
+                        country.value === selectedDestinationCountry.value
+                    )?.label
+                  : null
+              }
+              code={selectedDestinationCountry?.value}
+              onCountryChange={handleDestinationChange}
+            />
+          </Card>
+        </div>
       </div>
       <div className="row">
         <div className="col" id="searchButton">

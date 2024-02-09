@@ -10,6 +10,7 @@ function ComboBox(props) {
       options={props.options}
       autoHighlight
       value={props.value || null}
+      disabled={props.disabled}
       onChange={(event, country) => props.onChange(country)}
       renderOption={(props, option) => (
         <li {...props} key={`${option.label} (${option.value})`}>
@@ -34,6 +35,7 @@ ComboBox.propTypes = {
     label: PropTypes.string,
   }),
   onChange: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 export default ComboBox;
