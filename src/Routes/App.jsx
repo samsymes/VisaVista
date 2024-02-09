@@ -67,6 +67,7 @@ function App() {
     } else {
       setselectedOriginCountry(null);
       setselectedDestinationCountry(null);
+      setIsOriginCountrySelected(false);
 
       console.log("setisorigincountryselected to false");
     }
@@ -74,7 +75,6 @@ function App() {
 
   const handleDestinationChange = (newCountry) => {
     if (newCountry) {
-      setIsOriginCountrySelected(false);
       setselectedDestinationCountry(newCountry);
     } else {
       setselectedDestinationCountry(null);
@@ -98,64 +98,59 @@ function App() {
         <Navbar />
         <Header />
       </div>
-      <div className="row">
-        <div className="col">
-          <Card className="countryCard">
-            <ComboBox
-              options={filteredOrigins}
-              value={selectedOriginCountry}
-              onChange={handleOriginChange}
-              tag="Origin Country"
-            />
-            <Flag
-              name={
-                selectedOriginCountry
-                  ? filteredOrigins.find(
-                      (country) => country.value === selectedOriginCountry.value
-                    )?.label
-                  : null
-              }
-              code={selectedOriginCountry?.value}
-              onCountryChange={handleOriginChange}
-            />
-          </Card>
-        </div>
-        <div className="col">
-          <Card className="countryCard">
-            <ComboBox
-              options={filteredDestinations}
-              value={selectedDestinationCountry}
-              onChange={handleDestinationChange}
-              disabled={!isOriginCountrySelected ? true : false}
-              tag="Destination Country"
-            />
-            <Flag
-              name={
-                selectedDestinationCountry
-                  ? filteredDestinations.find(
-                      (country) =>
-                        country.value === selectedDestinationCountry.value
-                    )?.label
-                  : null
-              }
-              code={selectedDestinationCountry?.value}
-              onCountryChange={handleDestinationChange}
-            />
-          </Card>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col" id="searchButton">
-          <Button
-            disabled={buttonDisabled}
-            text="Search"
-            originCode={selectedOriginCountry?.value}
-            destinationCode={selectedDestinationCountry?.value}
-            onClick={() => {
-              window.location.href = `/results/?From=${selectedOriginCountry.value}&To=${selectedDestinationCountry.value}`;
-            }}
-          />
-        </div>
+
+      <Card className="countryCard">
+        <ComboBox
+          options={filteredOrigins}
+          value={selectedOriginCountry}
+          onChange={handleOriginChange}
+          tag="Origin Country"
+        />
+        <Flag
+          name={
+            selectedOriginCountry
+              ? filteredOrigins.find(
+                  (country) => country.value === selectedOriginCountry.value
+                )?.label
+              : null
+          }
+          code={selectedOriginCountry?.value}
+          onCountryChange={handleOriginChange}
+        />
+      </Card>
+
+      <Card className="countryCard">
+        <ComboBox
+          options={filteredDestinations}
+          value={selectedDestinationCountry}
+          onChange={handleDestinationChange}
+          disabled={!isOriginCountrySelected ? true : false}
+          tag="Destination Country"
+        />
+        <Flag
+          name={
+            selectedDestinationCountry
+              ? filteredDestinations.find(
+                  (country) =>
+                    country.value === selectedDestinationCountry.value
+                )?.label
+              : null
+          }
+          code={selectedDestinationCountry?.value}
+          onCountryChange={handleDestinationChange}
+        />
+      </Card>
+
+      <div id="searchButton">
+        <Button
+          disabled={buttonDisabled}
+          text="Search"
+          originCode={selectedOriginCountry?.value}
+          destinationCode={selectedDestinationCountry?.value}
+          onClick={() => {
+            window.location.href = `/results/?From=${selectedOriginCountry.value}&To=${selectedDestinationCountry.value}`;
+          }}
+        />
       </div>
     </>
   );

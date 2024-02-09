@@ -5,6 +5,13 @@
     box-shadow: 0 0 1em #00000033;
 }
 
+body {
+    background-image: url('../assets/earth_horizon.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -12,6 +19,17 @@
     text-align: center;
     overflow: hidden;
 
+    color: #ffffff;
+
+
+}
+
+.earth {
+    width: 100%;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+    z-index: 1;
 }
 
 .form-select {
@@ -36,6 +54,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    z-index: 1000;
 
 }
 
@@ -51,7 +70,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    z-index: 1000;
+    background-color: #8dbdff86;
 }
 
 .cardContents {
@@ -61,6 +81,7 @@
     align-items: left;
     margin: 1rem auto;
     padding: 1rem;
+    z-index: 1000;
 
 }
 
