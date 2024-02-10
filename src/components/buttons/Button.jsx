@@ -15,6 +15,7 @@ function Button(props) {
       variant="contained"
       size="large"
       onClick={handleClick}
+      id={props.id}
     >
       {props.text}
     </MuiButton>
@@ -30,5 +31,6 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   text: PropTypes.string,
   onClick: PropTypes.func,
+  id: PropTypes.string,
   link: PropTypes.string,
 };

@@ -5,32 +5,45 @@
     box-shadow: 0 0 1em #00000033;
 }
 
+.appContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+/* RS/CS/RE/CE ROW> COLV*/
+#originChoice {
+    grid-area: 2 / 2 / 2 / 2;
+    height: 100%;
+    width: 100%;
+}
+
+#destinationChoice {
+    grid-area: 2 / 4 / 2 / 4;
+    height: 100%;
+    width: 100%;
+
+}
+
+#searchButton {
+    grid-area: 3 / 3 / 3 / 3;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
 .landing-background {
     background-image: url('../assets/earth_horizon.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
+    overflow: hidden;
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
-    overflow: hidden;
-
     color: #ffffff;
-
-
-}
-
-.earth {
-    width: 100%;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-    z-index: 1;
 }
 
 .form-select {
@@ -45,67 +58,26 @@
 
 }
 
-#searchButton {
-    margin: 1rem auto;
-    padding: 1rem;
-    width: 55%;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1000;
-
-}
-
 .countryCard {
-    min-width: fit-content;
-    margin: 1rem auto;
-    padding: 1rem;
-    width: 55%;
-    box-shadow: 0 0 1em #00000033;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1000;
     background-color: #8dbdff86;
+    border-radius: 12px !important;
+    box-shadow: 1em 1em 1em #00000043 !important;
+    text-align: center;
 }
 
 .cardContents {
-    display: flex;
-    flex-direction: column;
     justify-content: left;
     align-items: left;
     margin: 1rem auto;
     padding: 1rem;
-    z-index: 1000;
-
 }
 
 #flag {
-
     height: auto;
     margin: auto;
-
 }
 
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
-
-img {
+#logo {
     width: 10rem;
     margin: 0 1rem;
-
-}
-
-html {
-    background-color: #8DBDFF;
 }

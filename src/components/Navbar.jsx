@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Logo />
+        <Logo id="logo" />
 
         <button
           className="navbar-toggler"
