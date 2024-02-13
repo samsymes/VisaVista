@@ -1,3 +1,12 @@
+body,
+html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 .navbar {
     background-color: #e3f2fd;
     padding: 1rem;
@@ -5,46 +14,44 @@
     box-shadow: 0 0 1em #00000033;
 }
 
+/* RS/CS/RE/CE ROW> COLV*/
 .appContainer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}
-
-/* RS/CS/RE/CE ROW> COLV*/
-#originChoice {
-    grid-area: 2 / 2 / 2 / 2;
-    height: 100%;
-    width: 100%;
-}
-
-#destinationChoice {
-    grid-area: 2 / 4 / 2 / 4;
-    height: 100%;
-    width: 100%;
-
-}
-
-#searchButton {
-    grid-area: 3 / 3 / 3 / 3;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
+    grid-template-rows: repeat(5, 1fr);
 }
 
 .landing-background {
-    background-image: url('../assets/earth_horizon.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 100%;
-    overflow: hidden;
+    grid-area: 1 / 1 / 5 / 5;
+
+}
+
+
+.originSelect {
+    grid-area: 2 / 2 / 4 / 3;
+
+}
+
+.destinationSelect {
+    grid-area: 2 / 4 / 4 / 5;
+}
+
+.searchButton {
+    grid-area: 5 / 3 / 5 / 4;
+    margin: auto;
+    border-radius: 12px;
 }
 
 #root {
     text-align: center;
     color: #ffffff;
+    background-image: url('../assets/earth_horizon.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 .form-select {
     max-width: fit-content;
@@ -59,7 +66,7 @@
 }
 
 .countryCard {
-    background-color: #8dbdff86;
+    background-color: #d8dfe6da;
     border-radius: 12px !important;
     box-shadow: 1em 1em 1em #00000043 !important;
     text-align: center;
@@ -70,6 +77,7 @@
     align-items: left;
     margin: 1rem auto;
     padding: 1rem;
+    min-height: 16rem;
 }
 
 #flag {

@@ -94,11 +94,11 @@ function App() {
 
   return (
     <>
-      <div className="landing-background ">
-        <Navbar />
-
+      <Navbar />
+      <div className="appContainer ">
         <Header />
-        <div className="appContainer">
+
+        <div className="originSelect">
           <Card className="countryCard" id="originChoice">
             <ComboBox
               options={filteredOrigins}
@@ -107,6 +107,7 @@ function App() {
               tag="Origin Country"
             />
             <br />
+
             <Flag
               name={
                 selectedOriginCountry
@@ -119,7 +120,8 @@ function App() {
               onCountryChange={handleOriginChange}
             />
           </Card>
-
+        </div>
+        <div className="destinationSelect">
           <Card className="countryCard" id="destinationChoice">
             <ComboBox
               options={filteredDestinations}
@@ -129,6 +131,7 @@ function App() {
               tag="Destination Country"
             />
             <br />
+
             <Flag
               name={
                 selectedDestinationCountry
@@ -142,7 +145,8 @@ function App() {
               onCountryChange={handleDestinationChange}
             />
           </Card>
-
+        </div>
+        <div className="searchButton">
           <Button
             id="searchButton"
             disabled={buttonDisabled}
