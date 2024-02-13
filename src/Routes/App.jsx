@@ -95,9 +95,8 @@ function App() {
   return (
     <>
       <Navbar />
+      <Header />
       <div className="appContainer ">
-        <Header />
-
         <div className="originSelect">
           <Card className="countryCard" id="originChoice">
             <ComboBox

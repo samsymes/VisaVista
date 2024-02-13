@@ -14,33 +14,56 @@ html {
     box-shadow: 0 0 1em #00000033;
 }
 
+@media only screen and (max-width: 600px) {
+    .appContainer {
+        display: grid;
+        margin: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 1rem;
+        row-gap: 1rem;
+        grid-auto-flow: column;
+    }
+
+    .originSelect {
+        grid-area: 1 / 2 / 1 / 3;
+    }
+
+    .destinationSelect {
+        grid-area: 2 / 2 / 2 / 3;
+    }
+
+    .searchButton {
+        grid-area: 3 / 2 / 3 / 3;
+        border-radius: 12px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .appContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .originSelect {
+        grid-area: 2 / 2 / 4 / 3;
+
+    }
+
+    .destinationSelect {
+        grid-area: 2 / 4 / 4 / 5;
+    }
+
+    .searchButton {
+        grid-area: 5 / 3 / 5 / 4;
+        margin: auto;
+        border-radius: 12px;
+    }
+}
+
 /* RS/CS/RE/CE ROW> COLV*/
-.appContainer {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-}
 
-.landing-background {
-    grid-area: 1 / 1 / 5 / 5;
-
-}
-
-
-.originSelect {
-    grid-area: 2 / 2 / 4 / 3;
-
-}
-
-.destinationSelect {
-    grid-area: 2 / 4 / 4 / 5;
-}
-
-.searchButton {
-    grid-area: 5 / 3 / 5 / 4;
-    margin: auto;
-    border-radius: 12px;
-}
 
 #root {
     text-align: center;
@@ -50,6 +73,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
 
@@ -89,3 +113,10 @@ html {
     width: 10rem;
     margin: 0 1rem;
 }
+
+
+
+
+
+/* full screen */
+/*  */
