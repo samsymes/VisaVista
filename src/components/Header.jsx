@@ -1,7 +1,10 @@
+import Navbar from "./Navbar";
+
 function Header() {
   return (
     <>
-      <div>
+      <div className="header">
+        <Navbar />
         <p>
           This app will help you find visa requirements for your travel
           destination. Please select your origin and destination countries to

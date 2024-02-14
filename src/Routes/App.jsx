@@ -9,7 +9,6 @@
 // Amadeus API - Tours and Activities, Hotels, Cars, Flights, etc.
 //https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
 
-import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Card from "../components/Cards/Card";
 import { useState, useEffect } from "react";
@@ -94,7 +93,6 @@ function App() {
 
   return (
     <>
-      <Navbar />
       <Header />
       <div className="appContainer ">
         <div className="originSelect">
