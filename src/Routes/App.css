@@ -102,11 +102,12 @@ html {
     background-image:
         linear-gradient(to bottom, rgba(0, 0, 0, 0.57), #1c427b),
         url('../assets/earth_horizon.jpg');
+
+    height: 400px;
     background-size: cover;
     color: white;
-    min-height: 500px;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    padding: 20px;
+    min-height: 540px;
 
 
 
