@@ -169,10 +169,6 @@ function Results() {
     }
   }, [originCountryInfo, destinationCountryInfo]);
   const name = destinationCountryInfo?.getCountryName() ?? [];
-  const destinationSymbol =
-    destinationCountryInfo?.getCurrencySymbol(destinationCurrencyCodes) ?? [];
-  const originSymbol =
-    originCountryInfo?.getCurrencySymbol(originCurrencyCodes) ?? [];
   const capital = destinationCountryInfo?.getCapital() ?? [];
   const timeZones = destinationCountryInfo?.getTimezones() ?? [];
   const population = destinationCountryInfo?.getPopulation() ?? [];
@@ -270,7 +266,13 @@ function Results() {
     );
   }
   const [amount, setAmount] = useState("1");
-  const [convertedAmount, setConvertedAmount] = useState("1");
+  const [convertedAmount, setConvertedAmount] = useState(0);
+
+  useEffect(() => {
+    if (exchangeRate != null) {
+      setConvertedAmount(Number(exchangeRate));
+    }
+  }, [exchangeRate]);
 
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
@@ -328,11 +330,18 @@ function Results() {
                   value={amount}
                   onChange={handleAmountChange}
                   placeholder={"1"}
+                  min="0"
                 />{" "}
-                <br />
-                {destinationSymbol} {amount} {destinationCurrencyCodes} {"="}
-                {originSymbol} {convertedAmount.toLocaleString()}{" "}
-                {originCurrencyCodes}
+                <br />{" "}
+                {Number(amount).toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "cad", //originCurrencyCodes
+                })}{" "}
+                {destinationCurrencyCodes} {"="}{" "}
+                {Number(convertedAmount).toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "eur", //destinationCurrencyCodes
+                })}{" "}
               </p>
 
               <Button onClick={handleConvertClick} text="Convert" />
