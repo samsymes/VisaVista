@@ -47,20 +47,20 @@ html {
     .appContainer {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
     }
 
     .originSelect {
-        grid-area: 2 / 2 / 4 / 3;
+        grid-area: 1 / 2 / 3 / 3;
 
     }
 
     .destinationSelect {
-        grid-area: 2 / 4 / 4 / 5;
+        grid-area: 1 / 4 / 3 / 5;
     }
 
     .searchButton {
-        grid-area: 5 / 3 / 5 / 4;
+        grid-area: 3 / 3 / 3 / 4;
         margin: auto;
         border-radius: 12px;
     }
@@ -76,11 +76,11 @@ html {
         linear-gradient(to bottom, rgba(0, 0, 0, 0.57), #1c427b),
         url('../assets/earth_horizon.jpg');
 
-    height: 400px;
+
     background-size: cover;
     color: white;
     padding: 20px;
-    min-height: 540px;
+    min-height: 500px;
 
 
 
