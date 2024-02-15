@@ -83,8 +83,17 @@ html {
     min-height: 540px;
 
 
+
 }
 
+.headerText {
+    margin-left: auto;
+    margin-right: auto;
+    font: lato;
+    font-size: xx-large;
+    font-weight: 300;
+    text-align: center;
+}
 
 .form-select {
     max-width: fit-content;
