@@ -30,6 +30,7 @@ import {
 import { useEffect, useState, useRef } from "react";
 import RestCountryService from "../services/RestCountryService";
 import CurrencyService from "../services/CurrencyService";
+import CustomNumberInput from "../components/CustomNumberInput";
 
 function Results() {
   Ion.defaultAccessToken =
@@ -284,6 +285,39 @@ function Results() {
     }
   };
   const cesiumRef = useRef(null);
+  let conversionCard;
+  if (originCurrencyCodes && destinationCurrencyCodes !== null) {
+    conversionCard = (
+      <Card className="infoCard" id="converter">
+        <div className="cardContents">
+          <h4>Currency Converter</h4>
+          <p>
+            <CustomNumberInput
+              aria-label="Demo number input"
+              placeholder="Type a number…"
+              min={0}
+              value={amount}
+              onChange={handleAmountChange}
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/-/g, "").slice(0, 5);
+              }}
+            />
+            <br />{" "}
+            {Number(amount).toLocaleString("en-US", {
+              style: "currency",
+              currency: originCurrencyCodes,
+            })}{" "}
+            {destinationCurrencyCodes} {"="}{" "}
+            {Number(convertedAmount).toLocaleString("en-US", {
+              style: "currency",
+              currency: destinationCurrencyCodes,
+            })}{" "}
+          </p>
+          <Button onClick={handleConvertClick} text="Convert" />
+        </div>
+      </Card>
+    );
+  }
   return (
     <>
       <Navbar />
@@ -320,34 +354,7 @@ function Results() {
             </div>
           </Card>
         </div>
-        <div className="converterCard">
-          <Card className="infoCard" id="converter">
-            <div className="cardContents">
-              <h4>Currency Converter</h4>
-              <p>
-                <input
-                  type="number"
-                  value={amount}
-                  onChange={handleAmountChange}
-                  placeholder={"1"}
-                  min="0"
-                />{" "}
-                <br />{" "}
-                {Number(amount).toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "cad", //originCurrencyCodes
-                })}{" "}
-                {destinationCurrencyCodes} {"="}{" "}
-                {Number(convertedAmount).toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "eur", //destinationCurrencyCodes
-                })}{" "}
-              </p>
-
-              <Button onClick={handleConvertClick} text="Convert" />
-            </div>
-          </Card>
-        </div>
+        <div className="converterCard">{conversionCard}</div>
       </div>
     </>
   );
