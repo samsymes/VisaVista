@@ -3,12 +3,10 @@ function Header() {
     <>
       <div className="header">
         <div className="headerText">
-          <p>BEST PLACE TO FIND</p>
+          BEST PLACE TO FIND
           <h2>Visa Requirements</h2>
-          <p>
-            Search our database, convert currency, and access everything you
-            need to know in one convienient place{" "}
-          </p>
+          Search our database, convert currency, and access everything you need
+          to know in one convienient place{" "}
         </div>
       </div>
     </>

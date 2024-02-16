@@ -23,18 +23,64 @@ html {
     font-size: 1rem;
     font-weight: 300;
     text-align: center;
-    padding: 1rem;
-
 }
 
 .header h2 {
     font-size: 3rem;
     font-weight: 400;
     text-align: center;
-    padding: 0;
+}
+
+.header {
+    background-size: cover;
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.57), #1c427b),
+        url('../assets/earth_horizon.jpg');
+    background-size: cover;
+    color: white;
 
 }
 
+.headerText {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+
+.countryCard {
+    background-color: #d8dfe6da;
+    border-radius: 16px !important;
+    box-shadow: 1em 1em 1em #00000043 !important;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+
+}
+
+.cardContents {
+    justify-content: left;
+    align-items: left;
+    padding: 1rem;
+    min-height: 18rem;
+
+}
+
+#flag {
+    height: auto;
+    margin: auto;
+    padding: 1rem;
+}
+
+#logo {
+    width: 4rem;
+}
+
+.socials:hover {
+    color: green;
+    cursor: pointer;
+    font-weight: 600;
+
+}
 
 @media only screen and (max-width: 600px) {
     .appContainer {
@@ -79,6 +125,8 @@ html {
 
     .header {
         grid-area: 2 / 2 / 5 / 7;
+        height: 100%;
+        width: 100%;
     }
 
     .navbar {
@@ -87,12 +135,17 @@ html {
     }
 
     .originSelect {
-        grid-area: 3 / 3 / 3 / 4;
+        grid-area: 3 / 3 / 4 / 4;
+        height: 100%;
+        width: 100%;
+        min-height: max-content;
 
     }
 
     .destinationSelect {
-        grid-area: 3 / 5 / 3 / 6;
+        grid-area: 3 / 5 / 4 / 6;
+
+        min-height: max-content;
     }
 
     .searchButton {
@@ -100,55 +153,5 @@ html {
         margin: auto;
         border-radius: 16px;
     }
-
-}
-
-.header {
-    background-size: cover;
-    background-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.57), #1c427b),
-        url('../assets/earth_horizon.jpg');
-    background-size: cover;
-    color: white;
-
-}
-
-.headerText {
-    margin-top: 5rem;
-    text-align: center;
-}
-
-
-.countryCard {
-    background-color: #d8dfe6da;
-    border-radius: 16px !important;
-    box-shadow: 1em 1em 1em #00000043 !important;
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem;
-}
-
-.cardContents {
-    justify-content: left;
-    align-items: left;
-
-    padding: 1rem;
-    min-height: 16rem;
-}
-
-#flag {
-    height: auto;
-    margin: auto;
-    padding: 1rem;
-}
-
-#logo {
-    width: 4rem;
-}
-
-.socials:hover {
-    color: green;
-    cursor: pointer;
-    font-weight: 600;
 
 }
