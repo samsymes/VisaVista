@@ -1,4 +1,4 @@
-## [DEMO](https://samsymes.github.io/visaVista/)
+## [DEMO](https://samsymes.github.io/VisaVista/)
 
 
 ## Project Description
