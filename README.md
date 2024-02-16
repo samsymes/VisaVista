@@ -21,8 +21,9 @@ The primary motivation behind the creation of VisaRequirements was to develop a 
 #### Contact Information:
 Your valuable feedback is welcomed! Feel free to share your thoughts and suggestions.
 
-- **GitHub:** [Visit my GitHub repository](https://github.com/samsymes/VisaRequirementsApp)
+- **GitHub:** [Visit my GitHub repository](https://github.com/samsymes/VisaVista)
 - **Email:** samantha.symes@outlook.com
+
 
 #### Preview:
 ![Screenshot 1](https://github.com/samsymes/VisaRequirementsApp/assets/119711298/da39b314-bc8e-4fc0-a229-0a45f86eba38)
