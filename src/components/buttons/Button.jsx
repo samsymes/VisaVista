@@ -12,6 +12,7 @@ function Button(props) {
   const button = (
     <MuiButton
       disabled={props.disabled}
+      color={props.color}
       variant="contained"
       size="large"
       onClick={handleClick}
@@ -33,4 +34,5 @@ Button.propTypes = {
   onClick: PropTypes.func,
   id: PropTypes.string,
   link: PropTypes.string,
+  color: PropTypes.string,
 };

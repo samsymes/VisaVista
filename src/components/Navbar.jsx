@@ -12,33 +12,34 @@ function Navbar() {
         <Logo id="logo" />
 
         <form className="d-flex">
-          <Stack direction="row" spacing={1}>
-            <a className="nav-link" href="#about">
-              About
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <a className="nav-link socials" id="about" href="#about">
+              ABOUT
             </a>
-            <a className="nav-link" href="#projects">
-              Projects
+            <a className="nav-link socials" id="projects" href="#projects">
+              PROJECTS
             </a>
-            <a className="nav-link" href="#contact">
-              Contact
+            <a className="nav-link socials" id="contact" href="#contact">
+              CONTACT
             </a>
             <SocialsButton
+              id="github-icon"
               href="https://github.com/samsymes"
-              color="default"
+              type="sucess"
               ariaLabel="GitHub"
-              iconElement={<Github />}
+              iconElement={<Github color="success" />}
             ></SocialsButton>
             <SocialsButton
+              id="linkedin-icon"
               href="https://www.linkedin.com/in/samanthasymes/"
-              color="default"
               ariaLabel="LinkedIn"
-              iconElement={<LinkedIn />}
+              iconElement={<LinkedIn color="success" />}
             ></SocialsButton>
             <SocialsButton
+              id="email-icon"
               href="mailto:samasymes@gmail.com"
-              color="default"
               ariaLabel="Email"
-              iconElement={<Email />}
+              iconElement={<Email color="success" />}
             ></SocialsButton>
           </Stack>
         </form>

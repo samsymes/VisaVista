@@ -8,6 +8,7 @@ class SocialsButton extends Component {
     color: this.props.color,
     ariaLabel: this.props.ariaLabel,
     iconElement: this.props.iconElement,
+    id: this.props.id,
   };
 
   componentDidMount() {
@@ -23,7 +24,7 @@ class SocialsButton extends Component {
     return (
       <IconButton
         href={this.props.href}
-        color={this.props.color}
+        sx={this.props.color}
         aria-label={this.props.ariaLabel}
       >
         {this.props.iconElement}
@@ -34,9 +35,10 @@ class SocialsButton extends Component {
 
 SocialsButton.propTypes = {
   href: PropTypes.string,
-  color: PropTypes.string,
+  color: PropTypes.color,
   ariaLabel: PropTypes.string,
   iconElement: PropTypes.element,
+  id: PropTypes.string,
 };
 
 // function SocialsButton(props) {

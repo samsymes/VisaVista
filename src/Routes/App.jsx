@@ -19,6 +19,7 @@ import Flag from "../components/Flag";
 import AllCountryInfoService from "../services/AllCountryInfoService";
 import CountryFlagService from "../services/CountryFlagService";
 import Navbar from "../components/Navbar";
+
 function App() {
   const [countryFlagList, setCountryFlagList] = useState([]);
 
@@ -95,6 +96,7 @@ function App() {
     <>
       <div className="appContainer ">
         <Header />
+
         <Navbar />
         <div className="originSelect">
           <Card className="countryCard" id="originChoice">
@@ -147,6 +149,7 @@ function App() {
         <div className="searchButton">
           <Button
             id="searchButton"
+            color="success"
             disabled={buttonDisabled}
             text="Search"
             originCode={selectedOriginCountry?.value}
