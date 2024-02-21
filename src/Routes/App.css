@@ -6,6 +6,10 @@ html {
 
 }
 
+#root {
+    background-color: #d8dfe6da;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -62,7 +66,6 @@ html {
     align-items: left;
     padding: 1rem;
     min-height: 18rem;
-
 }
 
 #flag {
@@ -144,7 +147,6 @@ html {
 
     .destinationSelect {
         grid-area: 3 / 5 / 4 / 6;
-
         min-height: max-content;
     }
 

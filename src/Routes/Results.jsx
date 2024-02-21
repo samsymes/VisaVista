@@ -289,7 +289,7 @@ function Results() {
   if (originCurrencyCodes && destinationCurrencyCodes !== null) {
     conversionCard = (
       <Card className="infoCard" id="converter">
-        <div className="cardContents">
+        <div className="infoCardContents">
           <h4>Currency Converter</h4>
           <p>
             <CustomNumberInput
@@ -320,8 +320,8 @@ function Results() {
   }
   return (
     <>
-      <Navbar />
       <div className="resultsContainer">
+        <Navbar />
         <div className="mapContainer">
           <Viewer ref={cesiumRef} shouldAnimate={true}>
             {cameraFly}
@@ -332,7 +332,7 @@ function Results() {
         </div>
         <div className="visaCard">
           <Card className="infoCard">
-            <div className="cardContents">
+            <div className="infoCardContents">
               <h4>Visa Info</h4>
               <b>Visa Requirements: </b>
               {visaRequirements} <br />
@@ -343,7 +343,7 @@ function Results() {
         </div>
         <div className="destinationCard">
           <Card className="infoCard" id="destinationInfo">
-            <div className="cardContents">
+            <div className="infoCardContents">
               <h4>Destination Info</h4>
               <b>Country:</b> {name} <br />
               <b>Capital: </b> {capital} <br />
