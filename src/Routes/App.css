@@ -14,7 +14,7 @@ html {
     box-sizing: border-box;
 }
 
-.navbar {
+#appNav {
     padding: .5rem;
     color: green;
     font-family: open-sans;
@@ -99,7 +99,7 @@ html {
         grid-area: 2 / 1 / 6 / 4;
     }
 
-    .navbar {
+    #appNav {
         grid-area: 1 / 2 / 1 / 2;
     }
 
@@ -132,8 +132,8 @@ html {
         width: 100%;
     }
 
-    .navbar {
-        grid-area: 1 / 2 / 1 / 6;
+    #appNav {
+        grid-area: 1 / 2 / 1 / 7;
         max-height: 9rem;
     }
 

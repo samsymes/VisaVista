@@ -321,7 +321,7 @@ function Results() {
   return (
     <>
       <div className="resultsContainer">
-        <Navbar />
+        <Navbar id="resultsNav" />
         <div className="mapContainer">
           <Viewer ref={cesiumRef} shouldAnimate={true}>
             {cameraFly}

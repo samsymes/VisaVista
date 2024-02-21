@@ -4,11 +4,12 @@ import Github from "@mui/icons-material/GitHub";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import Email from "@mui/icons-material/Email";
 import Logo from "../assets/Logo";
+import { PropTypes } from "prop-types";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar" id={props.id}>
         <Logo id="logo" />
 
         <form className="d-flex">
@@ -48,3 +49,7 @@ function Navbar() {
   );
 }
 export default Navbar;
+
+Navbar.propTypes = {
+  id: PropTypes.string,
+};

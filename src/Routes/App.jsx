@@ -97,7 +97,7 @@ function App() {
       <div className="appContainer ">
         <Header />
 
-        <Navbar />
+        <Navbar id="appNav" />
         <div className="originSelect">
           <Card className="countryCard" id="originChoice">
             <ComboBox
