@@ -10,7 +10,6 @@ import {
   LabelGraphics,
   CameraFlyToBoundingSphere,
 } from "resium";
-import Button from "../components/buttons/Button";
 
 import {
   ArcType,
@@ -29,8 +28,8 @@ import {
 } from "cesium";
 import { useEffect, useState, useRef } from "react";
 import RestCountryService from "../services/RestCountryService";
-import CurrencyService from "../services/CurrencyService";
-import CustomNumberInput from "../components/CustomNumberInput";
+
+import CurrencyConverter from "../components/CurrencyConverter";
 
 function Results() {
   Ion.defaultAccessToken =
@@ -56,24 +55,10 @@ function Results() {
   const [originCountryInfo, setOriginCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
-  const [exchangeRate, setExchangeRate] = useState();
-
   const destinationCurrencyCodes =
     destinationCountryInfo?.getCurrencyCodes(To) ?? null;
 
   const originCurrencyCodes = originCountryInfo?.getCurrencyCodes(From) ?? null;
-
-  useEffect(() => {
-    if ((originCurrencyCodes, destinationCurrencyCodes)) {
-      CurrencyService.getCurrencyInfo(
-        originCurrencyCodes,
-        destinationCurrencyCodes
-      ).then((response) => {
-        setExchangeRate(response);
-      });
-    }
-  }, [originCurrencyCodes, destinationCurrencyCodes]);
-  console.log("exchange Rate", exchangeRate);
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
@@ -266,58 +251,9 @@ function Results() {
       </Entity>
     );
   }
-  const [amount, setAmount] = useState("1");
-  const [convertedAmount, setConvertedAmount] = useState(0);
 
-  useEffect(() => {
-    if (exchangeRate != null) {
-      setConvertedAmount(Number(exchangeRate));
-    }
-  }, [exchangeRate]);
-
-  const handleAmountChange = (event) => {
-    setAmount(event.target.value);
-  };
-
-  const handleConvertClick = () => {
-    if (exchangeRate && !isNaN(amount)) {
-      setConvertedAmount(amount * exchangeRate);
-    }
-  };
   const cesiumRef = useRef(null);
-  let conversionCard;
-  if (originCurrencyCodes && destinationCurrencyCodes !== null) {
-    conversionCard = (
-      <Card className="infoCard" id="converter">
-        <div className="infoCardContents">
-          <h4>Currency Converter</h4>
-          <p>
-            <CustomNumberInput
-              aria-label="Demo number input"
-              placeholder="Type a number…"
-              min={0}
-              value={amount}
-              onChange={handleAmountChange}
-              onInput={(e) => {
-                e.target.value = e.target.value.replace(/-/g, "").slice(0, 5);
-              }}
-            />
-            <br />{" "}
-            {Number(amount).toLocaleString("en-US", {
-              style: "currency",
-              currency: originCurrencyCodes,
-            })}{" "}
-            {destinationCurrencyCodes} {"="}{" "}
-            {Number(convertedAmount).toLocaleString("en-US", {
-              style: "currency",
-              currency: destinationCurrencyCodes,
-            })}{" "}
-          </p>
-          <Button onClick={handleConvertClick} text="Convert" />
-        </div>
-      </Card>
-    );
-  }
+
   return (
     <>
       <div className="resultsContainer">
@@ -354,7 +290,10 @@ function Results() {
             </div>
           </Card>
         </div>
-        <div className="converterCard">{conversionCard}</div>
+        <CurrencyConverter
+          originCode={originCurrencyCodes}
+          destCode={destinationCurrencyCodes}
+        />
       </div>
     </>
   );

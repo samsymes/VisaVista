@@ -1,17 +1,17 @@
-import PropsType from "prop-types";
+import PropTypes from "prop-types";
 
 function Card(props) {
   return (
     <div className={props.className} id={props.id}>
-      <div className="cardContents">{props.children}</div>
+      {props.children}
     </div>
   );
 }
 
 Card.propTypes = {
-  className: PropsType.string,
-  id: PropsType.string,
-  children: PropsType.arrayOf(PropsType.node).isRequired,
+  className: PropTypes.string,
+  id: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Card;

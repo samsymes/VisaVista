@@ -5,7 +5,6 @@ import { PropTypes } from "prop-types";
 class SocialsButton extends Component {
   state = {
     href: this.props.href,
-    color: this.props.color,
     ariaLabel: this.props.ariaLabel,
     iconElement: this.props.iconElement,
     id: this.props.id,
@@ -22,11 +21,7 @@ class SocialsButton extends Component {
   }
   render() {
     return (
-      <IconButton
-        href={this.props.href}
-        sx={this.props.color}
-        aria-label={this.props.ariaLabel}
-      >
+      <IconButton href={this.props.href} aria-label={this.props.ariaLabel}>
         {this.props.iconElement}
       </IconButton>
     );
@@ -35,7 +30,6 @@ class SocialsButton extends Component {
 
 SocialsButton.propTypes = {
   href: PropTypes.string,
-  color: PropTypes.color,
   ariaLabel: PropTypes.string,
   iconElement: PropTypes.element,
   id: PropTypes.string,
