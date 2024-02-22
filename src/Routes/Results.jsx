@@ -2,38 +2,14 @@ import Navbar from "../components/Navbar";
 import { useSearchParams } from "react-router-dom";
 import AllCountryInfoService from "../services/AllCountryInfoService";
 import "./Results.css";
-import {
-  Viewer,
-  Entity,
-  PolylineGraphics,
-  LabelGraphics,
-  CameraFlyToBoundingSphere,
-} from "resium";
-
-import {
-  ArcType,
-  Cartesian3,
-  LabelStyle,
-  Ion,
-  Color,
-  PolylineGlowMaterialProperty,
-  BoundingSphere,
-  JulianDate,
-  SampledPositionProperty,
-  LagrangePolynomialApproximation,
-  ClockRange,
-  TimeIntervalCollection,
-  TimeInterval,
-} from "cesium";
-import { useEffect, useState, useRef } from "react";
+import Map from "../components/Map";
+import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
 import DestinationCard from "../components/DestinationCard";
 import CurrencyConverter from "../components/CurrencyConverter";
 import VisaInfoCard from "../components/VisaInfoCard";
 
 function Results() {
-  Ion.defaultAccessToken =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZDhiNmY0ZC1kZmU3LTQ2YjQtOTNhYi0xOGY4YTQyNDI3NzQiLCJpZCI6MTg1MzkwLCJpYXQiOjE3MDMwMjI1MTd9.NyKMKAqdzoRhgLLvDxOBOkvzOQTQTWaupOA_tdyj8RM";
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
   const To = searchParams.get("To");
@@ -76,84 +52,6 @@ function Results() {
     );
   }, [From]);
 
-  useEffect(() => {
-    if (
-      cesiumRef.current &&
-      cesiumRef.current.cesiumElement &&
-      originCountryInfo &&
-      destinationCountryInfo
-    ) {
-      const stop = JulianDate.fromDate(new Date());
-      const start = JulianDate.addSeconds(stop, -360, new JulianDate());
-
-      const sampledProp = new SampledPositionProperty();
-
-      // Define the number of points you want to create
-      const numPoints = 100;
-
-      // Calculate the total duration of the flight in seconds
-      const totalDuration = JulianDate.secondsDifference(stop, start);
-
-      // Calculate the duration of each segment of the flight
-      const segmentDuration = totalDuration / numPoints;
-
-      // Create an array to store the times of each point
-      const times = Array.from({ length: numPoints }, (_, i) =>
-        JulianDate.addSeconds(start, i * segmentDuration, new JulianDate())
-      );
-
-      // Create an array to store the positions of each point
-      const positions = times.map((time) => {
-        // Calculate the fraction of the total duration that has elapsed
-        const fraction =
-          JulianDate.secondsDifference(time, start) / totalDuration;
-
-        // Calculate the longitude and latitude of the point
-        const longitude =
-          originCountryInfo.getOriginCapitalLng() +
-          fraction *
-            (destinationCountryInfo.getDestinationCapitalLng() -
-              originCountryInfo.getOriginCapitalLng());
-        const latitude =
-          originCountryInfo.getOriginCapitalLat() +
-          fraction *
-            (destinationCountryInfo.getDestinationCapitalLat() -
-              originCountryInfo.getOriginCapitalLat());
-
-        // Return the position of the point
-        return Cartesian3.fromDegrees(longitude, latitude);
-      });
-
-      // Add each position to the SampledPositionProperty
-      positions.forEach((position, i) =>
-        sampledProp.addSample(times[i], position)
-      );
-
-      sampledProp.setInterpolationOptions({
-        interpolationDegree: 1,
-        interpolationAlgorithm: LagrangePolynomialApproximation,
-      });
-
-      const viewer = cesiumRef.current.cesiumElement;
-
-      viewer.clock.startTime = start.clone();
-      viewer.clock.stopTime = stop.clone();
-      viewer.clock.currentTime = start.clone();
-      viewer.clock.clockRange = ClockRange.LOOP_STOP;
-      viewer.clock.multiplier = 20;
-      viewer.entities.add({
-        availability: new TimeIntervalCollection([
-          new TimeInterval({ start, stop }),
-        ]),
-        position: sampledProp,
-        model: {
-          uri: "/millennium_falcon.glb",
-          minimumPixelSize: 128,
-          maximumScale: 200000,
-        },
-      });
-    }
-  }, [originCountryInfo, destinationCountryInfo]);
   const name = destinationCountryInfo?.getCountryName() ?? " ";
   const capital = destinationCountryInfo?.getCapital() ?? [];
   const timeZones = destinationCountryInfo?.getTimezones() ?? [];
@@ -165,106 +63,21 @@ function Results() {
     destinationCountryInfo?.getDestinationCapitalLng();
   const originCapitalLat = originCountryInfo?.getOriginCapitalLat();
   const originCapitalLng = originCountryInfo?.getOriginCapitalLng();
-  let originLableEntity;
-  if (originCapitalLat && originCapitalLat) {
-    originLableEntity = (
-      <Entity
-        name="LabelGrap"
-        description="LabelGraphics!!"
-        position={Cartesian3.fromDegrees(originCapitalLng, originCapitalLat)}
-      >
-        <LabelGraphics
-          text={originCountryName}
-          font="16px Helvetica"
-          fillColor={Color.WHITE}
-          outlineColor={Color.BLACK}
-          outlineWidth={2}
-          style={LabelStyle.FILL_AND_OUTLINE}
-        />
-      </Entity>
-    );
-  }
-  let cameraFly;
-  if (
-    originCapitalLat &&
-    originCapitalLng &&
-    destinationCapitalLat &&
-    destinationCapitalLng
-  ) {
-    cameraFly = (
-      <CameraFlyToBoundingSphere
-        boundingSphere={BoundingSphere.fromPoints([
-          Cartesian3.fromDegrees(originCapitalLng, originCapitalLat),
-          Cartesian3.fromDegrees(destinationCapitalLng, destinationCapitalLat),
-        ])}
-      />
-    );
-  }
-  let destinationLableEntity;
-  if (destinationCapitalLat && destinationCapitalLat) {
-    destinationLableEntity = (
-      <Entity
-        name="LabelGrap"
-        description="LabelGraphics!!"
-        position={Cartesian3.fromDegrees(
-          destinationCapitalLng,
-          destinationCapitalLat
-        )}
-      >
-        <LabelGraphics
-          text={destinationCountryName}
-          font="16px Helvetica"
-          fillColor={Color.WHITE}
-          outlineColor={Color.BLACK}
-          outlineWidth={2}
-          style={LabelStyle.FILL_AND_OUTLINE}
-        />
-      </Entity>
-    );
-  }
-
-  let lineEntity;
-  if (
-    originCapitalLat &&
-    originCapitalLng &&
-    destinationCapitalLat &&
-    destinationCapitalLng
-  ) {
-    lineEntity = (
-      <Entity>
-        <PolylineGraphics
-          positions={Cartesian3.fromDegreesArray([
-            originCapitalLng,
-            originCapitalLat,
-            destinationCapitalLng,
-            destinationCapitalLat,
-          ])}
-          width={3}
-          material={
-            new PolylineGlowMaterialProperty({
-              glowPower: 0.1,
-              color: Color.YELLOW,
-            })
-          }
-          arcType={ArcType.GEODESIC}
-        />
-      </Entity>
-    );
-  }
-
-  const cesiumRef = useRef(null);
 
   return (
     <>
       <div className="resultsContainer">
         <Navbar id="resultsNav" />
         <div className="mapContainer">
-          <Viewer ref={cesiumRef} shouldAnimate={true}>
-            {cameraFly}
-            {lineEntity}
-            {originLableEntity}
-            {destinationLableEntity}
-          </Viewer>
+          <Map
+            originCapitalLat={originCapitalLat}
+            originCapitalLng={originCapitalLng}
+            destinationCapitalLat={destinationCapitalLat}
+            destinationCapitalLng={destinationCapitalLng}
+            originCountryInfo={originCountryInfo}
+            originCountryName={originCountryName}
+            destinationCountryName={destinationCountryName}
+          />
         </div>
         <VisaInfoCard
           visaRequirements={visaRequirements}
