@@ -3,7 +3,7 @@ import Button from "../components/buttons/Button";
 import CurrencyService from "../services/CurrencyService";
 import CustomNumberInput from "../components/CustomNumberInput";
 import { PropTypes } from "prop-types";
-import Card from "../components/Cards/Card";
+import Card from "./Card";
 
 function CurrencyConverter(props) {
   const [exchangeRate, setExchangeRate] = useState();

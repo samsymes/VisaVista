@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar";
 import { useSearchParams } from "react-router-dom";
 import AllCountryInfoService from "../services/AllCountryInfoService";
-import { Card } from "@mui/material";
 import "./Results.css";
 import {
   Viewer,
@@ -28,8 +27,9 @@ import {
 } from "cesium";
 import { useEffect, useState, useRef } from "react";
 import RestCountryService from "../services/RestCountryService";
-
+import DestinationCard from "../components/DestinationCard";
 import CurrencyConverter from "../components/CurrencyConverter";
+import VisaInfoCard from "../components/VisaInfoCard";
 
 function Results() {
   Ion.defaultAccessToken =
@@ -154,11 +154,11 @@ function Results() {
       });
     }
   }, [originCountryInfo, destinationCountryInfo]);
-  const name = destinationCountryInfo?.getCountryName() ?? [];
+  const name = destinationCountryInfo?.getCountryName() ?? " ";
   const capital = destinationCountryInfo?.getCapital() ?? [];
   const timeZones = destinationCountryInfo?.getTimezones() ?? [];
   const population = destinationCountryInfo?.getPopulation() ?? [];
-  const languages = destinationCountryInfo?.getLanguages() ?? [];
+  const languages = destinationCountryInfo?.getLanguages() ?? " ";
   const destinationCapitalLat =
     destinationCountryInfo?.getDestinationCapitalLat();
   const destinationCapitalLng =
@@ -266,30 +266,18 @@ function Results() {
             {destinationLableEntity}
           </Viewer>
         </div>
-        <div className="visaCard">
-          <Card className="infoCard">
-            <div className="infoCardContents">
-              <h4>Visa Info</h4>
-              <b>Visa Requirements: </b>
-              {visaRequirements} <br />
-              <b>Allowed Stay: </b> {allowedStay} <br />
-              <b>Notes: </b> {notes}
-            </div>
-          </Card>
-        </div>
-        <div className="destinationCard">
-          <Card className="infoCard" id="destinationInfo">
-            <div className="infoCardContents">
-              <h4>Destination Info</h4>
-              <b>Country:</b> {name} <br />
-              <b>Capital: </b> {capital} <br />
-              <b>Time Zones: </b>
-              {timeZones.join(", ")} <br />
-              <b>Population: </b> {population.toLocaleString()} <br />
-              <b>Languages: </b> {languages}
-            </div>
-          </Card>
-        </div>
+        <VisaInfoCard
+          visaRequirements={visaRequirements}
+          allowedStay={allowedStay}
+          notes={notes}
+        />
+        <DestinationCard
+          name={name}
+          capital={capital}
+          languages={languages}
+          timeZones={timeZones.join(", ")}
+          population={population.toLocaleString()}
+        />
         <CurrencyConverter
           originCode={originCurrencyCodes}
           destCode={destinationCurrencyCodes}

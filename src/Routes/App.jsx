@@ -10,7 +10,7 @@
 //https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
 
 import Header from "../components/Header";
-import Card from "../components/Cards/Card";
+import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import ComboBox from "../components/selects/ComboBox";
 import "./App.css";
