@@ -98,8 +98,9 @@ function App() {
         <Header />
 
         <Navbar id="appNav" />
-        <div className="originSelect">
-          <Card className="countryCard" id="originChoice">
+
+        <Card className="countryCard" id="originSelect">
+          <div className="cardContent">
             <ComboBox
               options={filteredOrigins}
               value={selectedOriginCountry}
@@ -119,10 +120,11 @@ function App() {
               code={selectedOriginCountry?.value}
               onCountryChange={handleOriginChange}
             />
-          </Card>
-        </div>
-        <div className="destinationSelect">
-          <Card className="countryCard" id="destinationChoice">
+          </div>
+        </Card>
+
+        <Card className="countryCard" id="destinationSelect">
+          <div className="cardContent">
             <ComboBox
               options={filteredDestinations}
               value={selectedDestinationCountry}
@@ -144,8 +146,9 @@ function App() {
               code={selectedDestinationCountry?.value}
               onCountryChange={handleDestinationChange}
             />
-          </Card>
-        </div>
+          </div>
+        </Card>
+
         <div className="searchButton">
           <Button
             id="searchButton"
