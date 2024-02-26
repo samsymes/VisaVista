@@ -13,7 +13,7 @@ function Widget(props) {
     script.dataset.to = props.to;
 
     document.getElementById("widget-holder").appendChild(script);
-  }, []);
+  }, [props.from, props.to]);
 
   return <div id="widget-holder"></div>;
 }

@@ -2,19 +2,21 @@
   "origin": {
     "es": {
       "origin_name": "Spain",
-      "Henley_Passport_Index_Rank": "1",
+      "origin_airport_code": "MAD",
       "destinations": [
         {
           "destination_code": "ca",
+          "destination_airport_code": "YOW",
           "destination_name": "Canada",
           "results": {
             "visa_requirements": "eTA",
             "allowed_stay": "6 months",
-            "notes": "eTA required if arriving by air.Spanish citizens aged 18–35 can apply for a resident permit on the basis of a working holiday. Must have CAN$2,500 and medical insurance"
+            "notes": "eTA required if arriving by air.Spanish citizens aged 18 - 35 can apply for a resident permit on the basis of a working holiday. Must have CAN$2,500 and medical insurance"
           }
         },
         {
           "destination_code": "mx",
+          "destination_airport_code": "MEX",
           "destination_name": "Mexico",
           "results": {
             "visa_requirements": "Not Required",
@@ -24,6 +26,7 @@
         },
         {
           "destination_code": "af",
+          "destination_airport_code": "KBL",
           "destination_name": "Afghanistan",
           "results": {
             "visa_requirements": "Visa required",
@@ -33,6 +36,7 @@
         },
         {
           "destination_code": "tr",
+          "destination_airport_code": "IST",
           "destination_name": "Turkey",
           "results": {
             "visa_requirements": "Not Required",
@@ -42,6 +46,7 @@
         },
         {
           "destination_code": "ke",
+          "destination_airport_code": "NBO",
           "destination_name": "Kenya",
           "results": {
             "visa_requirements": "eVisa",
@@ -53,9 +58,11 @@
     },
     "ca": {
       "origin_name": "Canada",
+      "origin_airport_code": "YOW",
       "destinations": [
         {
           "destination_code": "es",
+          "destination_airport_code": "MAD",
           "destination_name": "Spain",
           "results": {
             "visa_requirements": "Not Required",
@@ -65,6 +72,7 @@
         },
         {
           "destination_code": "mx",
+          "destination_airport_code": "MEX",
           "destination_name": "Mexico",
           "results": {
             "visa_requirements": "Not Required",
@@ -74,6 +82,7 @@
         },
         {
           "destination_code": "af",
+          "destination_airport_code": "KBL",
           "destination_name": "Afghanistan",
           "results": {
             "visa_requirements": "Visa Required",
@@ -83,6 +92,7 @@
         },
         {
           "destination_code": "tr",
+          "destination_airport_code": "IST",
           "destination_name": "Turkey",
           "results": {
             "visa_requirements": "Not Required",
@@ -92,6 +102,7 @@
         },
         {
           "destination_code": "ke",
+          "destination_airport_code": "NBO",
           "destination_name": "Kenya",
           "results": {
             "visa_requirements": "eVisa",
@@ -103,10 +114,11 @@
     },
     "mx": {
       "origin_name": "Mexico",
-
+      "origin_airport_code": "MEX",
       "destinations": [
         {
           "destination_code": "es",
+          "destination_airport_code": "MAD",
           "destination_name": "Spain",
           "results": {
             "visa_requirements": "Not Required",
@@ -116,6 +128,7 @@
         },
         {
           "destination_code": "ca",
+          "destination_airport_code": "YOW",
           "destination_name": "Canada",
           "results": {
             "visa_requirements": "Not Required",
@@ -125,6 +138,7 @@
         },
         {
           "destination_code": "af",
+          "destination_airport_code": "KBL",
           "destination_name": "Afghanistan",
           "results": {
             "visa_requirements": "Not Required",
@@ -134,6 +148,7 @@
         },
         {
           "destination_code": "tr",
+          "destination_airport_code": "IST",
           "destination_name": "Turkey",
           "results": {
             "visa_requirements": "eVisa",
@@ -143,6 +158,7 @@
         },
         {
           "destination_code": "ke",
+          "destination_airport_code": "NBO",
           "destination_name": "Kenya",
           "results": {
             "visa_requirements": "eVisa",
@@ -154,10 +170,11 @@
     },
     "ke": {
       "origin_name": "Kenya",
-
+      "origin_airport_code": "NBO",
       "destinations": [
         {
           "destination_code": "es",
+          "destination_airport_code": "MAD",
           "destination_name": "Spain",
           "results": {
             "visa_requirements": "Visa Required.",
@@ -167,6 +184,7 @@
         },
         {
           "destination_code": "mx",
+          "destination_airport_code": "MEX",
           "destination_name": "Mexico",
           "results": {
             "visa_requirements": "Visa Required",
@@ -176,6 +194,7 @@
         },
         {
           "destination_code": "af",
+          "destination_airport_code": "KBL",
           "destination_name": "Afghanistan",
           "results": {
             "visa_requirements": "Visa Required",
@@ -185,6 +204,7 @@
         },
         {
           "destination_code": "tr",
+          "destination_airport_code": "IST",
           "destination_name": "Turkey",
           "results": {
             "visa_requirements": "Visa Required",
@@ -194,6 +214,7 @@
         },
         {
           "destination_code": "ca",
+          "destination_airport_code": "YOW",
           "destination_name": "Canada",
           "results": {
             "visa_requirements": "Visa Required",
@@ -205,10 +226,11 @@
     },
     "tr": {
       "origin_name": "Turkey",
-
+      "origin_airport_code": "IST",
       "destinations": [
         {
           "destination_code": "es",
+          "destination_airport_code": "MAD",
           "destination_name": "Spain",
           "results": {
             "visa_requirements": "Visa Required",
@@ -218,6 +240,7 @@
         },
         {
           "destination_code": "mx",
+          "destination_airport_code": "MEX",
           "destination_name": "Mexico",
           "results": {
             "visa_requirements": "Electronic authorization system.",
@@ -227,6 +250,7 @@
         },
         {
           "destination_code": "af",
+          "destination_airport_code": "KBL",
           "destination_name": "Afghanistan",
           "results": {
             "visa_requirements": "Visa Required. Visa-free access for diplomatic passports",
@@ -236,6 +260,7 @@
         },
         {
           "destination_code": "ca",
+          "destination_airport_code": "YOW",
           "destination_name": "Canada",
           "results": {
             "visa_requirements": "Visa Required",
@@ -245,6 +270,7 @@
         },
         {
           "destination_code": "ke",
+          "destination_airport_code": "NBO",
           "destination_name": "Kenya",
           "results": {
             "visa_requirements": "eVisa",
@@ -256,10 +282,11 @@
     },
     "af": {
       "origin_name": "Afganistan",
-
+      "origin_airport_code": "KBL",
       "destinations": [
         {
           "destination_code": "es",
+          "destination_airport_code": "MAD",
           "destination_name": "Spain",
           "results": {
             "visa_requirements": "Visa Required",
@@ -269,6 +296,7 @@
         },
         {
           "destination_code": "mx",
+          "destination_airport_code": "MEX",
           "destination_name": "Mexico",
           "results": {
             "visa_requirements": "Visa Required.",
@@ -278,6 +306,7 @@
         },
         {
           "destination_code": "ca",
+          "destination_airport_code": "YOW",
           "destination_name": "Canada",
           "results": {
             "visa_requirements": "Visa Required",
@@ -287,6 +316,7 @@
         },
         {
           "destination_code": "tr",
+          "destination_airport_code": "IST",
           "destination_name": "Turkey",
           "results": {
             "visa_requirements": "Visa Required",
@@ -296,6 +326,7 @@
         },
         {
           "destination_code": "ke",
+          "destination_airport_code": "NBO",
           "destination_name": "Kenya",
           "results": {
             "visa_requirements": "Electronic authorization system",
