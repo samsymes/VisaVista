@@ -10,6 +10,7 @@ class RestCountryService {
     const countryData = await response.json();
     const restDestinationCountryList = countryData[0];
     const countryInfo = new CountryInfo(restDestinationCountryList);
+    console.log(countryInfo);
     return countryInfo;
   }
 }

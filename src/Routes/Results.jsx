@@ -73,6 +73,7 @@ function Results() {
     <>
       <div className="resultsContainer">
         <Navbar id="resultsNav" />
+
         <div className="mapContainer">
           <Map
             originCapitalLat={originCapitalLat}
@@ -98,12 +99,13 @@ function Results() {
           population={population.toLocaleString()}
           link={link}
         />
-        <Widget />
+
         <CurrencyConverter
           originCode={originCurrencyCodes}
           destCode={destinationCurrencyCodes}
         />
       </div>
+      <Widget from="YOW" to="MEX" />
     </>
   );
 }
