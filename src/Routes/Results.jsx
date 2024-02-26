@@ -8,19 +8,23 @@ import RestCountryService from "../services/RestCountryService";
 import DestinationCard from "../components/DestinationCard";
 import CurrencyConverter from "../components/CurrencyConverter";
 import VisaInfoCard from "../components/VisaInfoCard";
-
+import Widget from "../components/TravelWidget";
 function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
   const To = searchParams.get("To");
-
-  const originCountryName =
-    AllCountryInfoService?.getOriginCountryNameFromAllCountryInfoService(From);
   const destinationCountryName =
     AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
       From,
       To
     );
+  const originCountryName =
+    AllCountryInfoService?.getOriginCountryNameFromAllCountryInfoService(From);
+
+  const link = AllCountryInfoService?.generateCanadaLinks(
+    From,
+    destinationCountryName
+  );
 
   const resultsObject =
     AllCountryInfoService?.getResultsObjectFromAllCountryInfoService(From, To);
@@ -28,6 +32,7 @@ function Results() {
     resultsObject?.getVisaRequirementsFromSearchResultsClass();
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
+
   const [originCountryInfo, setOriginCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
@@ -84,13 +89,16 @@ function Results() {
           allowedStay={allowedStay}
           notes={notes}
         />
+
         <DestinationCard
           name={name}
           capital={capital}
           languages={languages}
           timeZones={timeZones.join(", ")}
           population={population.toLocaleString()}
+          link={link}
         />
+        <Widget />
         <CurrencyConverter
           originCode={originCurrencyCodes}
           destCode={destinationCurrencyCodes}

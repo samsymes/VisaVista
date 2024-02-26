@@ -12,7 +12,8 @@ function DestinationCard(props) {
           <b>Time Zones: </b>
           {props.timeZones} <br />
           <b>Population: </b> {props.population} <br />
-          <b>Languages: </b> {props.languages}
+          <b>Languages: </b> {props.languages} <br />
+          <a href={props.link}>Travel Advice</a>
         </div>
       </Card>
     </div>
@@ -27,4 +28,5 @@ DestinationCard.propTypes = {
   timeZones: PropTypes.string,
   population: PropTypes.string,
   languages: PropTypes.string,
+  link: PropTypes.element,
 };

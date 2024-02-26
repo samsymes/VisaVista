@@ -10,7 +10,7 @@ function VisaInfoCard(props) {
           <b>Visa Requirements: </b>
           {props.visaRequirements} <br />
           <b>Allowed Stay: </b> {props.allowedStay} <br />
-          <b>Notes: </b> {props.notes}
+          <b>Notes: </b> {props.notes} <br />
         </div>
       </Card>
     </div>

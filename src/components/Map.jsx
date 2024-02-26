@@ -32,8 +32,7 @@ function Map(props) {
     if (
       cesiumRef.current &&
       cesiumRef.current.cesiumElement &&
-      props.originCountryInfo &&
-      props.destinationCountryInfo
+      props.originCountryInfo
     ) {
       const stop = JulianDate.fromDate(new Date());
       const start = JulianDate.addSeconds(stop, -360, new JulianDate());
@@ -103,7 +102,6 @@ function Map(props) {
     }
   }, [
     props.originCountryInfo,
-    props.destinationCountryInfo,
     props.originCountryName,
     props.destinationCountryName,
     props.originCapitalLat,
@@ -234,7 +232,6 @@ export default Map;
 
 Map.propTypes = {
   originCountryInfo: PropTypes.object,
-  destinationCountryInfo: PropTypes.object,
   originCountryName: PropTypes.string,
   destinationCountryName: PropTypes.string,
   originCapitalLat: PropTypes.number,

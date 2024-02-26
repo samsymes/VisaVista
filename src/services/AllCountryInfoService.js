@@ -26,12 +26,22 @@ class AllCountryInfoService {
       (d) => d.destination_code === destination
     );
     const destinationName = destinationObject?.destination_name;
+    console.log("destination name", destinationName);
+
     return destinationName;
   }
 
   getOriginCountryNameFromAllCountryInfoService(origin) {
     if (origin) {
       return this.countries[origin]?.origin_name;
+    }
+  }
+
+  generateCanadaLinks(origin, destinationName) {
+    if (origin === "ca") {
+      const link = `https://travel.gc.ca/destinations/${destinationName.toLowerCase()}`;
+      console.log(`Link for ${destinationName}: ${link}`);
+      return link;
     }
   }
 
@@ -44,5 +54,4 @@ class AllCountryInfoService {
     }
   }
 }
-
 export default new AllCountryInfoService();
