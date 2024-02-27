@@ -10,8 +10,8 @@ ReactDOM.createRoot(root).render(
   <>
     <Router>
       <Routes>
-        <Route index element={<App />} />
-        <Route path="/results" element={<Results />} />
+        <Route path="/VisaVista" index element={<App />} />
+        <Route path="/VisaVista/results" element={<Results />} />
       </Routes>
     </Router>
   </>
