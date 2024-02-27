@@ -113,7 +113,7 @@ body {
     .resultsContainer {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 5rem repeat(2, 1fr);
+        grid-template-rows: 6rem repeat(2, 1fr);
         column-gap: 2rem;
         row-gap: 2rem;
 

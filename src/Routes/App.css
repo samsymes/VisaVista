@@ -6,6 +6,7 @@ html {
 
 }
 
+
 .MuiAutocomplete-root {
     max-width: 15rem;
     margin: 1rem auto;
@@ -17,15 +18,6 @@ html {
     display: grid !important;
 }
 
-
-#appNav {
-    padding: .5rem;
-    color: green;
-    font-family: open-sans;
-    font-weight: 400;
-    font-size: large;
-
-}
 
 .header p {
     font-size: 1rem;
@@ -46,8 +38,6 @@ html {
         url('../assets/earth_horizon.jpg');
     background-size: cover;
     color: white;
-
-
 }
 
 .headerText {
@@ -136,35 +126,30 @@ html {
 @media only screen and (min-width: 600px) {
     .appContainer {
         display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: 5rem repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 1fr);
     }
 
     .header {
-        grid-area: 2 / 2 / 5 / 7;
+        grid-area: 1 / 1 / 4 / 6;
         height: 100%;
         width: 100%;
     }
 
-    #appNav {
-        grid-area: 1 / 2 / 1 / 7;
-        max-height: 9rem;
-    }
-
     #originSelect {
-        grid-area: 3 / 3 / 4 / 4;
+        grid-area: 2 / 2 / 3 / 3;
         height: 100%;
 
     }
 
     #destinationSelect {
-        grid-area: 3 / 5 / 4 / 6;
+        grid-area: 2 / 4 / 3 / 5;
         height: 100%;
 
     }
 
     .searchButton {
-        grid-area: 4 / 4 / 4 / 4;
+        grid-area: 3 / 3 / 3 / 3;
         margin: auto;
         border-radius: 16px;
         display: grid !important;

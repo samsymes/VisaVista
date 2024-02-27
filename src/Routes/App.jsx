@@ -1,14 +1,3 @@
-// **potential data**
-
-// passort power index data
-// https://www.kaggle.com/datasets/kometr/passport-power-visa-free-access-in-2023
-
-// CDC travelers health informatin page NOT API
-//https://wwwnc.cdc.gov/travel/destinations/traveler/none/bhutan?s_cid=ncezid-dgmq-travel-single-001
-
-// Amadeus API - Tours and Activities, Hotels, Cars, Flights, etc.
-//https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
-
 import Header from "../components/Header";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
@@ -18,7 +7,7 @@ import Button from "../components/buttons/Button";
 import Flag from "../components/Flag";
 import AllCountryInfoService from "../services/AllCountryInfoService";
 import CountryFlagService from "../services/CountryFlagService";
-import Navbar from "../components/Navbar";
+import ResponsiveDrawer from "../components/ResponsiveDrawer";
 
 function App() {
   const [countryFlagList, setCountryFlagList] = useState([]);
@@ -94,75 +83,84 @@ function App() {
 
   return (
     <>
-      <div className="appContainer ">
-        <Header />
+      <ResponsiveDrawer
+        homePath="./VisaVista"
+        flightPath="/VisaVista/flights"
+        resultsPath="disabled"
+        aboutPath="./VisaVista/About"
+        gitHubPath="https://github.com/samsymes"
+        linkedInPath="https://www.linkedin.com/in/samanthasymes/"
+        emailPath="mailto:samasymes@gmail.com"
+      >
+        <div className="appContainer ">
+          <Header />
 
-        <Navbar id="appNav" />
+          <Card className="countryCard" id="originSelect">
+            <div className="cardContent">
+              <ComboBox
+                options={filteredOrigins}
+                value={selectedOriginCountry}
+                onChange={handleOriginChange}
+                tag="Origin Country"
+              />
+              <br />
 
-        <Card className="countryCard" id="originSelect">
-          <div className="cardContent">
-            <ComboBox
-              options={filteredOrigins}
-              value={selectedOriginCountry}
-              onChange={handleOriginChange}
-              tag="Origin Country"
-            />
-            <br />
+              <Flag
+                name={
+                  selectedOriginCountry
+                    ? filteredOrigins.find(
+                        (country) =>
+                          country.value === selectedOriginCountry.value
+                      )?.label
+                    : null
+                }
+                code={selectedOriginCountry?.value}
+                onCountryChange={handleOriginChange}
+              />
+            </div>
+          </Card>
 
-            <Flag
-              name={
-                selectedOriginCountry
-                  ? filteredOrigins.find(
-                      (country) => country.value === selectedOriginCountry.value
-                    )?.label
-                  : null
-              }
-              code={selectedOriginCountry?.value}
-              onCountryChange={handleOriginChange}
+          <Card className="countryCard" id="destinationSelect">
+            <div className="cardContent">
+              <ComboBox
+                options={filteredDestinations}
+                value={selectedDestinationCountry}
+                onChange={handleDestinationChange}
+                disabled={!isOriginCountrySelected ? true : false}
+                tag="Destination Country"
+              />
+              <br />
+
+              <Flag
+                name={
+                  selectedDestinationCountry
+                    ? filteredDestinations.find(
+                        (country) =>
+                          country.value === selectedDestinationCountry.value
+                      )?.label
+                    : null
+                }
+                code={selectedDestinationCountry?.value}
+                onCountryChange={handleDestinationChange}
+              />
+            </div>
+          </Card>
+
+          <div className="searchButton">
+            <Button
+              id="searchButton"
+              color="success"
+              disabled={buttonDisabled}
+              text="Search"
+              originCode={selectedOriginCountry?.value}
+              destinationCode={selectedDestinationCountry?.value}
+              onClick={() => {
+                window.location.href = `/VisaVista/results/?From=${selectedOriginCountry.value}&To=${selectedDestinationCountry.value}`;
+              }}
             />
           </div>
-        </Card>
-
-        <Card className="countryCard" id="destinationSelect">
-          <div className="cardContent">
-            <ComboBox
-              options={filteredDestinations}
-              value={selectedDestinationCountry}
-              onChange={handleDestinationChange}
-              disabled={!isOriginCountrySelected ? true : false}
-              tag="Destination Country"
-            />
-            <br />
-
-            <Flag
-              name={
-                selectedDestinationCountry
-                  ? filteredDestinations.find(
-                      (country) =>
-                        country.value === selectedDestinationCountry.value
-                    )?.label
-                  : null
-              }
-              code={selectedDestinationCountry?.value}
-              onCountryChange={handleDestinationChange}
-            />
-          </div>
-        </Card>
-
-        <div className="searchButton">
-          <Button
-            id="searchButton"
-            color="success"
-            disabled={buttonDisabled}
-            text="Search"
-            originCode={selectedOriginCountry?.value}
-            destinationCode={selectedDestinationCountry?.value}
-            onClick={() => {
-              window.location.href = `/results/?From=${selectedOriginCountry.value}&To=${selectedDestinationCountry.value}`;
-            }}
-          />
         </div>
-      </div>
+      </ResponsiveDrawer>
     </>
   );
 }

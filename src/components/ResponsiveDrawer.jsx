@@ -12,19 +12,22 @@ import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import Logo from "../assets/Logo";
+import { Typography } from "@mui/material";
+import { Link, NavLink } from "react-router-dom";
 import {
-  AirplaneTicket,
+  FlightTakeoff,
   GitHub,
   Home,
   LinkedIn,
   Person,
+  ScreenSearchDesktop,
 } from "@mui/icons-material";
+import { PropTypes } from "prop-types";
 const drawerWidth = 240;
 
-function ResponsiveDrawer() {
+function ResponsiveDrawer(props) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -45,45 +48,72 @@ function ResponsiveDrawer() {
 
   const drawer = (
     <div>
-      <Toolbar />
       <Logo id="logo" />
       <Divider />
       <List>
-        {["Home", "Flights", "Send email"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <Home /> : <AirplaneTicket />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {[
+          { text: "Home", path: props.homePath },
+          { text: "Flights", path: props.flightPath },
+          { text: "Results", path: props.resultsPath },
+        ].map((item, index) => (
+          <ListItem key={item.text} disablePadding>
+            <Link to={item.path}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {(() => {
+                    switch (index % 3) {
+                      case 0:
+                        return <Home />;
+                      case 1:
+                        return <FlightTakeoff />;
+                      case 2:
+                        return <ScreenSearchDesktop />;
+
+                      default:
+                        return null;
+                    }
+                  })()}
+                </ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
-
       <Divider />
       <List>
-        {["About", "GitHub", "LinkedIn", "Email"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {(() => {
-                  switch (index % 4) {
-                    case 0:
-                      return <Person />;
-                    case 1:
-                      return <GitHub />;
-                    case 2:
-                      return <LinkedIn />;
-                    case 3:
-                      return <MailIcon />;
-                    default:
-                      return null;
-                  }
-                })()}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {[
+          { text: "About", path: props.aboutPath },
+          { text: "GitHub", path: props.gitHubPath },
+          {
+            text: "LinkedIn",
+            path: props.linkinInPath,
+          },
+          { text: "Email", path: props.emailPath },
+        ].map((item, index) => (
+          <ListItem key={item.text} disablePadding>
+            <NavLink to={item.path}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {(() => {
+                    switch (index % 4) {
+                      case 0:
+                        return <Person />;
+                      case 1:
+                        return <GitHub />;
+                      case 2:
+                        return <LinkedIn />;
+                      case 3:
+                        return <MailIcon />;
+
+                      default:
+                        return null;
+                    }
+                  })()}
+                </ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </NavLink>
           </ListItem>
         ))}
       </List>
@@ -111,7 +141,9 @@ function ResponsiveDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div"></Typography>
+          <Typography variant="h6" noWrap component="div">
+            VisaVista
+          </Typography>
         </Toolbar>
       </AppBar>
       <Box
@@ -150,6 +182,8 @@ function ResponsiveDrawer() {
         >
           {drawer}
         </Drawer>
+
+        <Toolbar />
       </Box>
       <Box
         component="main"
@@ -159,10 +193,20 @@ function ResponsiveDrawer() {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <Toolbar />
+        <Typography paragraph>{props.children}</Typography>
       </Box>
     </Box>
   );
 }
 
 export default ResponsiveDrawer;
+ResponsiveDrawer.propTypes = {
+  homePath: PropTypes.string,
+  flightPath: PropTypes.string,
+  resultsPath: PropTypes.string,
+  aboutPath: PropTypes.string,
+  gitHubPath: PropTypes.string,
+  linkinInPath: PropTypes.string,
+  emailPath: PropTypes.string,
+  children: PropTypes.node,
+};

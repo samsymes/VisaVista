@@ -7,8 +7,7 @@ import RestCountryService from "../services/RestCountryService";
 import DestinationCard from "../components/DestinationCard";
 import CurrencyConverter from "../components/CurrencyConverter";
 import VisaInfoCard from "../components/VisaInfoCard";
-import Widget from "../components/TravelWidget";
-import TemporaryDrawer from "../components/Drawer";
+import ResponsiveDrawer from "../components/ResponsiveDrawer";
 function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
@@ -71,40 +70,47 @@ function Results() {
 
   return (
     <>
-      <div className="resultsContainer">
-        <TemporaryDrawer />
-        <div className="mapContainer">
-          <Map
-            originCapitalLat={originCapitalLat}
-            originCapitalLng={originCapitalLng}
-            destinationCapitalLat={destinationCapitalLat}
-            destinationCapitalLng={destinationCapitalLng}
-            originCountryInfo={originCountryInfo}
-            originCountryName={originCountryName}
-            destinationCountryName={destinationCountryName}
+      <ResponsiveDrawer
+        homePath="./VisaVista"
+        flightPath="./VisaVista/flights"
+        aboutPath="./VisaVista/About"
+        gitHubPath="https://github.com/samsymes"
+        linkedInPath="https://www.linkedin.com/in/samanthasymes/"
+        emailPath="mailto:samasymes@gmail.com"
+      >
+        <div className="resultsContainer">
+          <div className="mapContainer">
+            <Map
+              originCapitalLat={originCapitalLat}
+              originCapitalLng={originCapitalLng}
+              destinationCapitalLat={destinationCapitalLat}
+              destinationCapitalLng={destinationCapitalLng}
+              originCountryInfo={originCountryInfo}
+              originCountryName={originCountryName}
+              destinationCountryName={destinationCountryName}
+            />
+          </div>
+          <VisaInfoCard
+            visaRequirements={visaRequirements}
+            allowedStay={allowedStay}
+            notes={notes}
+          />
+
+          <DestinationCard
+            name={name}
+            capital={capital}
+            languages={languages}
+            timeZones={timeZones.join(", ")}
+            population={population.toLocaleString()}
+            link={link}
+          />
+
+          <CurrencyConverter
+            originCode={originCurrencyCodes}
+            destCode={destinationCurrencyCodes}
           />
         </div>
-        <VisaInfoCard
-          visaRequirements={visaRequirements}
-          allowedStay={allowedStay}
-          notes={notes}
-        />
-
-        <DestinationCard
-          name={name}
-          capital={capital}
-          languages={languages}
-          timeZones={timeZones.join(", ")}
-          population={population.toLocaleString()}
-          link={link}
-        />
-
-        <CurrencyConverter
-          originCode={originCurrencyCodes}
-          destCode={destinationCurrencyCodes}
-        />
-      </div>
-      <Widget from="YOW" to="MEX" />
+      </ResponsiveDrawer>
     </>
   );
 }
