@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import { useSearchParams } from "react-router-dom";
 import AllCountryInfoService from "../services/AllCountryInfoService";
 import "./Results.css";
@@ -9,6 +8,7 @@ import DestinationCard from "../components/DestinationCard";
 import CurrencyConverter from "../components/CurrencyConverter";
 import VisaInfoCard from "../components/VisaInfoCard";
 import Widget from "../components/TravelWidget";
+import TemporaryDrawer from "../components/Drawer";
 function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
@@ -72,8 +72,7 @@ function Results() {
   return (
     <>
       <div className="resultsContainer">
-        <Navbar id="resultsNav" />
-
+        <TemporaryDrawer />
         <div className="mapContainer">
           <Map
             originCapitalLat={originCapitalLat}
