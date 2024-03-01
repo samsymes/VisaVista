@@ -17,7 +17,7 @@ function Button(props) {
       size="large"
       onClick={handleClick}
       id={props.id}
-      linkTo={props.link}
+      linkto={props.link}
     >
       {props.text}
     </MuiButton>

@@ -11,7 +11,7 @@ function CurrencyConverter(props) {
   const [convertedAmount, setConvertedAmount] = useState(0);
   useEffect(() => {
     if ((props.passportCode, props.destCode)) {
-      CurrencyService.getCurrencyInfo(props.passportCode, props.destCode).then(
+      CurrencyService.getExchangeRates(props.passportCode, props.destCode).then(
         (response) => {
           setExchangeRate(response);
         }
@@ -53,7 +53,7 @@ function CurrencyConverter(props) {
             style: "currency",
             currency: props.passportCode,
           })}{" "}
-          {props.destCode} {"="}{" "}
+          {props.passportCode} {"="}{" "}
           {Number(convertedAmount).toLocaleString("en-US", {
             style: "currency",
             currency: props.destCode,
