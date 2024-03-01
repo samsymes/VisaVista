@@ -37,7 +37,7 @@ DashboardCard.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   children: PropTypes.node,
 };
 

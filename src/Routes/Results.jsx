@@ -76,20 +76,21 @@ function Results() {
     <>
       <ResponsiveDrawer>
         <div className="resultsContainer">
-          <div className="mapContainer">
-            <Map
-              passportCapitalLat={passportCapitalLat}
-              passportCapitalLng={passportCapitalLng}
-              destinationCapitalLat={destinationCapitalLat}
-              destinationCapitalLng={destinationCapitalLng}
-              passportCountryInfo={passportCountryInfo}
-              passportCountryName={passportCountryName}
-              destinationCountryName={destinationCountryName}
-            />
-          </div>
+          <Map
+            className="infoCard"
+            id="mapCard"
+            passportCapitalLat={passportCapitalLat}
+            passportCapitalLng={passportCapitalLng}
+            destinationCapitalLat={destinationCapitalLat}
+            destinationCapitalLng={destinationCapitalLng}
+            passportCountryInfo={passportCountryInfo}
+            passportCountryName={passportCountryName}
+            destinationCountryName={destinationCountryName}
+          />
+
           <DashboardCard
             className="infoCard"
-            id="population"
+            id="populationCard"
             title="Population"
             text={population.toLocaleString()}
           >
@@ -97,7 +98,7 @@ function Results() {
           </DashboardCard>
           <DashboardCard
             className="infoCard"
-            id="timeZone"
+            id="timeZoneCard"
             title="Time Zones"
             text={timeZones}
           >
@@ -105,7 +106,7 @@ function Results() {
           </DashboardCard>
           <DashboardCard
             className="infoCard"
-            id="languages"
+            id="languagesCard"
             title="Languages"
             text={languages}
           >

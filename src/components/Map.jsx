@@ -209,6 +209,8 @@ function Map(props) {
   return (
     <>
       <Viewer
+        className={props.className}
+        id={props.id}
         ref={cesiumRef}
         shouldAnimate={true}
         homeButton={false}
@@ -231,6 +233,8 @@ function Map(props) {
 export default Map;
 
 Map.propTypes = {
+  className: PropTypes.string,
+  id: PropTypes.string,
   passportCountryInfo: PropTypes.object,
   passportCountryName: PropTypes.string,
   destinationCountryName: PropTypes.string,
