@@ -192,8 +192,6 @@ function ResponsiveDrawer(props) {
         >
           {drawer}
         </Drawer>
-
-        <Toolbar />
       </Box>
       <Box
         component="main"
@@ -203,6 +201,7 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
+        <Toolbar />
         <Typography paragraph>{props.children}</Typography>
       </Box>
     </Box>
