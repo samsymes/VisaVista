@@ -17,6 +17,7 @@ function Button(props) {
       size="large"
       onClick={handleClick}
       id={props.id}
+      linkTo={props.link}
     >
       {props.text}
     </MuiButton>
@@ -30,6 +31,7 @@ export default Button;
 
 Button.propTypes = {
   disabled: PropTypes.bool,
+  linkTo: PropTypes.string,
   text: PropTypes.string,
   onClick: PropTypes.func,
   id: PropTypes.string,

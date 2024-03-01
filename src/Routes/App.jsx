@@ -14,16 +14,16 @@ function App() {
 
   const countryInfo = AllCountryInfoService;
 
-  const originCountryCodes =
-    countryInfo.getOriginCountriesFromAllCountryInfoService();
+  const passportCountryCodes =
+    countryInfo.getPassportCountriesFromAllCountryInfoService();
 
-  const filteredOrigins = countryFlagList.filter((country) =>
-    originCountryCodes.includes(country.value)
+  const filteredPassports = countryFlagList.filter((country) =>
+    passportCountryCodes.includes(country.value)
   );
-  filteredOrigins.sort((a, b) => a.label.localeCompare(b.label));
+  filteredPassports.sort((a, b) => a.label.localeCompare(b.label));
 
-  const [selectedOriginCountry, setselectedOriginCountry] = useState(
-    filteredOrigins[0]
+  const [selectedPassportCountry, setselectedPassportCountry] = useState(
+    filteredPassports[0]
   );
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function App() {
 
   const destinationCountryCodes =
     countryInfo.getDestinationCountriesFromAllCountryInfoService(
-      selectedOriginCountry?.value
+      selectedPassportCountry?.value
     );
   const filteredDestinations = countryFlagList.filter((country) =>
     destinationCountryCodes.includes(country.value)
@@ -47,18 +47,18 @@ function App() {
   const [selectedDestinationCountry, setselectedDestinationCountry] = useState(
     filteredDestinations[0]
   );
-  const handleOriginChange = (newCountry) => {
+  const handlePassportChange = (newCountry) => {
     if (newCountry) {
       setselectedDestinationCountry(null);
-      setselectedOriginCountry(newCountry);
-      setIsOriginCountrySelected(true);
-      console.log("setisorigincountryselected to true");
+      setselectedPassportCountry(newCountry);
+      setPassportSelected(true);
+      console.log("setPassportSelected to true");
     } else {
-      setselectedOriginCountry(null);
+      setselectedPassportCountry(null);
       setselectedDestinationCountry(null);
-      setIsOriginCountrySelected(false);
+      setPassportSelected(false);
 
-      console.log("setisorigincountryselected to false");
+      console.log("setIsPassportSelected to false");
     }
   };
 
@@ -70,80 +70,70 @@ function App() {
     }
   };
 
-  const [isOriginCountrySelected, setIsOriginCountrySelected] = useState(false);
+  const [passportSelected, setPassportSelected] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   useEffect(() => {
-    if (selectedOriginCountry && selectedDestinationCountry) {
+    if (selectedPassportCountry && selectedDestinationCountry) {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
     }
-  }, [selectedOriginCountry, selectedDestinationCountry]);
+  }, [selectedPassportCountry, selectedDestinationCountry]);
 
   return (
     <>
       <ResponsiveDrawer
-        homePath="./VisaVista"
-        flightPath="/VisaVista/flights"
-        resultsPath="disabled"
-        aboutPath="./VisaVista/About"
-        gitHubPath="https://github.com/samsymes"
-        linkedInPath="https://www.linkedin.com/in/samanthasymes/"
-        emailPath="mailto:samasymes@gmail.com"
+        From={selectedPassportCountry?.value}
+        To={selectedDestinationCountry?.value}
       >
         <div className="appContainer ">
           <Header />
+          <Card className="countryCard" id="passportSelect">
+            <ComboBox
+              options={filteredPassports}
+              value={selectedPassportCountry}
+              onChange={handlePassportChange}
+              tag="Passport"
+            />
+            <br />
 
-          <Card className="countryCard" id="originSelect">
-            <div className="cardContent">
-              <ComboBox
-                options={filteredOrigins}
-                value={selectedOriginCountry}
-                onChange={handleOriginChange}
-                tag="Origin Country"
-              />
-              <br />
-
-              <Flag
-                name={
-                  selectedOriginCountry
-                    ? filteredOrigins.find(
-                        (country) =>
-                          country.value === selectedOriginCountry.value
-                      )?.label
-                    : null
-                }
-                code={selectedOriginCountry?.value}
-                onCountryChange={handleOriginChange}
-              />
-            </div>
+            <Flag
+              name={
+                selectedPassportCountry
+                  ? filteredPassports.find(
+                      (country) =>
+                        country.value === selectedPassportCountry.value
+                    )?.label
+                  : null
+              }
+              code={selectedPassportCountry?.value}
+              onCountryChange={handlePassportChange}
+            />
           </Card>
 
           <Card className="countryCard" id="destinationSelect">
-            <div className="cardContent">
-              <ComboBox
-                options={filteredDestinations}
-                value={selectedDestinationCountry}
-                onChange={handleDestinationChange}
-                disabled={!isOriginCountrySelected ? true : false}
-                tag="Destination Country"
-              />
-              <br />
+            <ComboBox
+              options={filteredDestinations}
+              value={selectedDestinationCountry}
+              onChange={handleDestinationChange}
+              disabled={!passportSelected ? true : false}
+              tag="Destination"
+            />
+            <br />
 
-              <Flag
-                name={
-                  selectedDestinationCountry
-                    ? filteredDestinations.find(
-                        (country) =>
-                          country.value === selectedDestinationCountry.value
-                      )?.label
-                    : null
-                }
-                code={selectedDestinationCountry?.value}
-                onCountryChange={handleDestinationChange}
-              />
-            </div>
+            <Flag
+              name={
+                selectedDestinationCountry
+                  ? filteredDestinations.find(
+                      (country) =>
+                        country.value === selectedDestinationCountry.value
+                    )?.label
+                  : null
+              }
+              code={selectedDestinationCountry?.value}
+              onCountryChange={handleDestinationChange}
+            />
           </Card>
 
           <div className="searchButton">
@@ -152,10 +142,10 @@ function App() {
               color="success"
               disabled={buttonDisabled}
               text="Search"
-              originCode={selectedOriginCountry?.value}
+              passportCode={selectedPassportCountry?.value}
               destinationCode={selectedDestinationCountry?.value}
               onClick={() => {
-                window.location.href = `/VisaVista/results/?From=${selectedOriginCountry.value}&To=${selectedDestinationCountry.value}`;
+                window.location.href = `/VisaVista/results/?From=${selectedPassportCountry.value}&To=${selectedDestinationCountry.value}`;
               }}
             />
           </div>

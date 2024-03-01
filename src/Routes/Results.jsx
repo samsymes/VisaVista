@@ -4,10 +4,12 @@ import "./Results.css";
 import Map from "../components/Map";
 import { useEffect, useState } from "react";
 import RestCountryService from "../services/RestCountryService";
-import DestinationCard from "../components/DestinationCard";
 import CurrencyConverter from "../components/CurrencyConverter";
-import VisaInfoCard from "../components/VisaInfoCard";
+import DashboardCard from "../components/Card";
 import ResponsiveDrawer from "../components/ResponsiveDrawer";
+
+import { Language, Note, Person, Timer } from "@mui/icons-material";
+
 function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
@@ -17,28 +19,30 @@ function Results() {
       From,
       To
     );
-  const originCountryName =
-    AllCountryInfoService?.getOriginCountryNameFromAllCountryInfoService(From);
-
+  const passportCountryName =
+    AllCountryInfoService?.getPassportCountryNameFromAllCountryInfoService(
+      From
+    );
   const link = AllCountryInfoService?.generateCanadaLinks(
     From,
     destinationCountryName
   );
-
+  console.log(AllCountryInfoService);
   const resultsObject =
     AllCountryInfoService?.getResultsObjectFromAllCountryInfoService(From, To);
+  console.log("resultsObject", resultsObject);
   const visaRequirements =
     resultsObject?.getVisaRequirementsFromSearchResultsClass();
   const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
   const notes = resultsObject?.getNotesFromSearchResultsClass();
-
-  const [originCountryInfo, setOriginCountryInfo] = useState(null);
+  const [passportCountryInfo, setPassportCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
   const destinationCurrencyCodes =
     destinationCountryInfo?.getCurrencyCodes(To) ?? null;
 
-  const originCurrencyCodes = originCountryInfo?.getCurrencyCodes(From) ?? null;
+  const passportCurrencyCodes =
+    passportCountryInfo?.getCurrencyCodes(From) ?? null;
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(To).then(
@@ -50,8 +54,8 @@ function Results() {
 
   useEffect(() => {
     RestCountryService.getCountryInfoFromRestCountryService(From).then(
-      (originCountryInfoInstance) => {
-        setOriginCountryInfo(originCountryInfoInstance);
+      (passportCountryInfoInstance) => {
+        setPassportCountryInfo(passportCountryInfoInstance);
       }
     );
   }, [From]);
@@ -65,49 +69,73 @@ function Results() {
     destinationCountryInfo?.getDestinationCapitalLat();
   const destinationCapitalLng =
     destinationCountryInfo?.getDestinationCapitalLng();
-  const originCapitalLat = originCountryInfo?.getOriginCapitalLat();
-  const originCapitalLng = originCountryInfo?.getOriginCapitalLng();
+  const passportCapitalLat = passportCountryInfo?.getPassportCapitalLat();
+  const passportCapitalLng = passportCountryInfo?.getPassportCapitalLng();
 
   return (
     <>
-      <ResponsiveDrawer
-        homePath="./VisaVista"
-        flightPath="./VisaVista/flights"
-        aboutPath="./VisaVista/About"
-        gitHubPath="https://github.com/samsymes"
-        linkedInPath="https://www.linkedin.com/in/samanthasymes/"
-        emailPath="mailto:samasymes@gmail.com"
-      >
+      <ResponsiveDrawer>
         <div className="resultsContainer">
           <div className="mapContainer">
             <Map
-              originCapitalLat={originCapitalLat}
-              originCapitalLng={originCapitalLng}
+              passportCapitalLat={passportCapitalLat}
+              passportCapitalLng={passportCapitalLng}
               destinationCapitalLat={destinationCapitalLat}
               destinationCapitalLng={destinationCapitalLng}
-              originCountryInfo={originCountryInfo}
-              originCountryName={originCountryName}
+              passportCountryInfo={passportCountryInfo}
+              passportCountryName={passportCountryName}
               destinationCountryName={destinationCountryName}
             />
           </div>
-          <VisaInfoCard
-            visaRequirements={visaRequirements}
-            allowedStay={allowedStay}
-            notes={notes}
-          />
-
-          <DestinationCard
-            name={name}
-            capital={capital}
-            languages={languages}
-            timeZones={timeZones.join(", ")}
-            population={population.toLocaleString()}
-            link={link}
-          />
+          <DashboardCard
+            className="infoCard"
+            id="population"
+            title="Population"
+            text={population.toLocaleString()}
+          >
+            <Person />
+          </DashboardCard>
+          <DashboardCard
+            className="infoCard"
+            id="timeZone"
+            title="Time Zones"
+            text={timeZones}
+          >
+            <Timer />
+          </DashboardCard>
+          <DashboardCard
+            className="infoCard"
+            id="languages"
+            title="Languages"
+            text={languages}
+          >
+            <Language />
+          </DashboardCard>
+          <DashboardCard
+            className="infoCard"
+            id="visaCard"
+            title="Visa Information"
+          >
+            <Note />
+            <b>Visa Requirements: </b>
+            {visaRequirements} <br />
+            <b>Allowed Stay: </b> {allowedStay} <br />
+            <b>Notes: </b> {notes} <br />
+          </DashboardCard>
+          <DashboardCard
+            className="infoCard"
+            id="destinationCard"
+            title="Destination Information"
+          >
+            <b>Country:</b> {name} <br />
+            <b>Capital: </b> {capital} <br />
+            <a href={link}>Travel Advice</a>
+          </DashboardCard>
 
           <CurrencyConverter
-            originCode={originCurrencyCodes}
+            passportCode={passportCurrencyCodes}
             destCode={destinationCurrencyCodes}
+            title="Currency Converter"
           />
         </div>
       </ResponsiveDrawer>

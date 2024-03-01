@@ -1,8 +1,8 @@
 {
-  "origin": {
+  "passport": {
     "es": {
-      "origin_name": "Spain",
-      "origin_airport_code": "MAD",
+      "passport_name": "Spain",
+      "passport_airport_code": "MAD",
       "destinations": [
         {
           "destination_code": "ca",
@@ -25,13 +25,13 @@
           }
         },
         {
-          "destination_code": "af",
-          "destination_airport_code": "KBL",
-          "destination_name": "Afghanistan",
+          "destination_code": "sy",
+          "destination_airport_code": "DAM",
+          "destination_name": "Syria",
           "results": {
             "visa_requirements": "Visa required",
-            "allowed_stay": "90 days",
-            "notes": "Passport must be valid for at least 6 months from date of entry."
+            "allowed_stay": "N/A",
+            "notes": "N/A"
           }
         },
         {
@@ -57,8 +57,8 @@
       ]
     },
     "ca": {
-      "origin_name": "Canada",
-      "origin_airport_code": "YOW",
+      "passport_name": "Canada",
+      "passport_airport_code": "YOW",
       "destinations": [
         {
           "destination_code": "es",
@@ -81,13 +81,13 @@
           }
         },
         {
-          "destination_code": "af",
-          "destination_airport_code": "KBL",
-          "destination_name": "Afghanistan",
+          "destination_code": "sy",
+          "destination_airport_code": "DAM",
+          "destination_name": "Syria",
           "results": {
             "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "Passport must be valid for at least 6 months from date of entry. The Canadian government advises its citizens not to visit Afghanistan due to the security situation, likely terrorist attacks, the ongoing armed conflict, the risk of kidnapping and the high crime rate. "
+            "notes": "The Canadian government advises its citizens not to visit Syria due to the ongoing armed conflict, terrorism, criminality, arbitrary detention, torture and forced disappearance"
           }
         },
         {
@@ -113,8 +113,8 @@
       ]
     },
     "mx": {
-      "origin_name": "Mexico",
-      "origin_airport_code": "MEX",
+      "passport_name": "Mexico",
+      "passport_airport_code": "MEX",
       "destinations": [
         {
           "destination_code": "es",
@@ -137,13 +137,13 @@
           }
         },
         {
-          "destination_code": "af",
-          "destination_airport_code": "KBL",
-          "destination_name": "Afghanistan",
+          "destination_code": "sy",
+          "destination_airport_code": "DAM",
+          "destination_name": "Syria",
           "results": {
-            "visa_requirements": "Not Required",
+            "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "N/A"
+            "notes": "Visa or entry may be refused if the passport contains an Israeli stamp"
           }
         },
         {
@@ -169,8 +169,8 @@
       ]
     },
     "ke": {
-      "origin_name": "Kenya",
-      "origin_airport_code": "NBO",
+      "passport_name": "Kenya",
+      "passport_airport_code": "NBO",
       "destinations": [
         {
           "destination_code": "es",
@@ -193,9 +193,9 @@
           }
         },
         {
-          "destination_code": "af",
-          "destination_airport_code": "KBL",
-          "destination_name": "Afghanistan",
+          "destination_code": "sy",
+          "destination_airport_code": "DAM",
+          "destination_name": "Syria",
           "results": {
             "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
@@ -225,8 +225,8 @@
       ]
     },
     "tr": {
-      "origin_name": "Turkey",
-      "origin_airport_code": "IST",
+      "passport_name": "Turkey",
+      "passport_airport_code": "IST",
       "destinations": [
         {
           "destination_code": "es",
@@ -249,13 +249,13 @@
           }
         },
         {
-          "destination_code": "af",
-          "destination_airport_code": "KBL",
-          "destination_name": "Afghanistan",
+          "destination_code": "sy",
+          "destination_airport_code": "DAM",
+          "destination_name": "Syria",
           "results": {
-            "visa_requirements": "Visa Required. Visa-free access for diplomatic passports",
-            "allowed_stay": "N/A",
-            "notes": "Afghan diplomatic passport holders are exempt from visa requirements. Passport must be valid for at least 6 months on arrival."
+            "visa_requirements": "Not Required",
+            "allowed_stay": "3 months",
+            "notes": "N/A"
           }
         },
         {
@@ -280,9 +280,9 @@
         }
       ]
     },
-    "af": {
-      "origin_name": "Afganistan",
-      "origin_airport_code": "KBL",
+    "sy": {
+      "passport_name": "Syria",
+      "passport_airport_code": "DAM",
       "destinations": [
         {
           "destination_code": "es",
@@ -311,7 +311,7 @@
           "results": {
             "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "Afghans who worked for the Canadian Government (military or development projects) may be eligible for Asylum under special programs for supporting Afghan nationals. Routinely  denies entry to non-citizens who have a criminal record."
+            "notes": "N/A"
           }
         },
         {
@@ -321,7 +321,7 @@
           "results": {
             "visa_requirements": "Visa Required",
             "allowed_stay": "N/A",
-            "notes": "Passport must be valid for at least 6 months from date of entry."
+            "notes": "N/A"
           }
         },
         {
@@ -330,7 +330,7 @@
           "destination_name": "Kenya",
           "results": {
             "visa_requirements": "Electronic authorization system",
-            "allowed_stay": "3 months.",
+            "allowed_stay": "90 days",
             "notes": "eTA fee is 34.09 USD. Applications can be submitted up to 90 days prior to travel and must be submitted at least 3 days in advance. Proof of reservation at the hotel where you plan to stay is required (if staying with friends, an invitation letter is also acceptable). Yellow fever vaccination certificate is required if coming from endemic countries."
           }
         }

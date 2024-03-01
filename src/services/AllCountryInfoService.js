@@ -1,19 +1,18 @@
-// used to be VisaService.js
 import data from "../entities/data.json";
 import SearchResultsClass from "../entities/SearchResultsClass";
 
 class AllCountryInfoService {
   constructor() {
-    this.countries = data.origin;
+    this.countries = data.passport;
   }
 
-  getOriginCountriesFromAllCountryInfoService() {
+  getPassportCountriesFromAllCountryInfoService() {
     return Object.keys(this.countries);
   }
 
-  getDestinationCountriesFromAllCountryInfoService(origin) {
-    if (origin || this.countries[origin]) {
-      const destinationCountries = this.countries[origin]?.destinations?.map(
+  getDestinationCountriesFromAllCountryInfoService(passport) {
+    if (passport || this.countries[passport]) {
+      const destinationCountries = this.countries[passport]?.destinations?.map(
         (destination) => destination.destination_code
       );
       console.log("destination countries", destinationCountries);
@@ -21,8 +20,8 @@ class AllCountryInfoService {
     }
     return [];
   }
-  getDestinationCountryNameFromAllCountryInfoService(origin, destination) {
-    const destinationObject = this.countries[origin]?.destinations?.find(
+  getDestinationCountryNameFromAllCountryInfoService(passport, destination) {
+    const destinationObject = this.countries[passport]?.destinations?.find(
       (d) => d.destination_code === destination
     );
     const destinationName = destinationObject?.destination_name;
@@ -31,27 +30,33 @@ class AllCountryInfoService {
     return destinationName;
   }
 
-  getOriginCountryNameFromAllCountryInfoService(origin) {
-    if (origin) {
-      return this.countries[origin]?.origin_name;
+  getPassportCountryNameFromAllCountryInfoService(passport) {
+    if (passport) {
+      return this.countries[passport]?.passport_name;
     }
   }
 
-  generateCanadaLinks(origin, destinationName) {
-    if (origin === "ca") {
+  generateCanadaLinks(passport, destinationName) {
+    if (passport === "ca") {
       const link = `https://travel.gc.ca/destinations/${destinationName.toLowerCase()}`;
       console.log(`Link for ${destinationName}: ${link}`);
       return link;
     }
   }
 
-  getResultsObjectFromAllCountryInfoService(origin, destination) {
-    if (origin) {
-      const req = this.countries[origin]?.destinations?.find(
+  getResultsObjectFromAllCountryInfoService(passport, destination) {
+    if (passport) {
+      const req = this.countries[passport]?.destinations?.find(
         (d) => d.destination_code === destination
       );
       return new SearchResultsClass(req.results);
     }
+  }
+  getStartAirportCode(passport) {
+    return this.countries[passport]?.passport_airport_code;
+  }
+  getEndAirportCode(destination) {
+    return this.countries[destination]?.destination_airport_code;
   }
 }
 export default new AllCountryInfoService();

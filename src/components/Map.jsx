@@ -32,7 +32,7 @@ function Map(props) {
     if (
       cesiumRef.current &&
       cesiumRef.current.cesiumElement &&
-      props.originCountryInfo
+      props.passportCountryInfo
     ) {
       const stop = JulianDate.fromDate(new Date());
       const start = JulianDate.addSeconds(stop, -360, new JulianDate());
@@ -61,11 +61,11 @@ function Map(props) {
 
         // Calculate the longitude and latitude of the point
         const longitude =
-          props.originCapitalLng +
-          fraction * (props.destinationCapitalLng - props.originCapitalLng);
+          props.passportCapitalLng +
+          fraction * (props.destinationCapitalLng - props.passportCapitalLng);
         const latitude =
-          props.originCapitalLat +
-          fraction * (props.destinationCapitalLat - props.originCapitalLat);
+          props.passportCapitalLat +
+          fraction * (props.destinationCapitalLat - props.passportCapitalLat);
 
         // Return the position of the point
         return Cartesian3.fromDegrees(longitude, latitude);
@@ -101,28 +101,28 @@ function Map(props) {
       });
     }
   }, [
-    props.originCountryInfo,
-    props.originCountryName,
+    props.passportCountryInfo,
+    props.passportCountryName,
     props.destinationCountryName,
-    props.originCapitalLat,
-    props.originCapitalLng,
+    props.passportCapitalLat,
+    props.passportCapitalLng,
     props.destinationCapitalLat,
     props.destinationCapitalLng,
   ]);
 
-  let originLableEntity;
-  if (props.originCapitalLat && props.originCapitalLat) {
-    originLableEntity = (
+  let passportLableEntity;
+  if (props.passportCapitalLat && props.passportCapitalLat) {
+    passportLableEntity = (
       <Entity
         name="LabelGrap"
         description="LabelGraphics!!"
         position={Cartesian3.fromDegrees(
-          props.originCapitalLng,
-          props.originCapitalLat
+          props.passportCapitalLng,
+          props.passportCapitalLat
         )}
       >
         <LabelGraphics
-          text={props.originCountryName}
+          text={props.passportCountryName}
           font="16px Helvetica"
           fillColor={Color.WHITE}
           outlineColor={Color.BLACK}
@@ -134,8 +134,8 @@ function Map(props) {
   }
   let cameraFly;
   if (
-    props.originCapitalLat &&
-    props.originCapitalLng &&
+    props.passportCapitalLat &&
+    props.passportCapitalLng &&
     props.destinationCapitalLat &&
     props.destinationCapitalLng
   ) {
@@ -143,8 +143,8 @@ function Map(props) {
       <CameraFlyToBoundingSphere
         boundingSphere={BoundingSphere.fromPoints([
           Cartesian3.fromDegrees(
-            props.originCapitalLng,
-            props.originCapitalLat
+            props.passportCapitalLng,
+            props.passportCapitalLat
           ),
           Cartesian3.fromDegrees(
             props.destinationCapitalLng,
@@ -179,8 +179,8 @@ function Map(props) {
 
   let lineEntity;
   if (
-    props.originCapitalLat &&
-    props.originCapitalLng &&
+    props.passportCapitalLat &&
+    props.passportCapitalLng &&
     props.destinationCapitalLat &&
     props.destinationCapitalLng
   ) {
@@ -188,8 +188,8 @@ function Map(props) {
       <Entity>
         <PolylineGraphics
           positions={Cartesian3.fromDegreesArray([
-            props.originCapitalLng,
-            props.originCapitalLat,
+            props.passportCapitalLng,
+            props.passportCapitalLat,
             props.destinationCapitalLng,
             props.destinationCapitalLat,
           ])}
@@ -221,7 +221,7 @@ function Map(props) {
       >
         {cameraFly}
         {lineEntity}
-        {originLableEntity}
+        {passportLableEntity}
         {destinationLableEntity}
       </Viewer>
     </>
@@ -231,11 +231,11 @@ function Map(props) {
 export default Map;
 
 Map.propTypes = {
-  originCountryInfo: PropTypes.object,
-  originCountryName: PropTypes.string,
+  passportCountryInfo: PropTypes.object,
+  passportCountryName: PropTypes.string,
   destinationCountryName: PropTypes.string,
-  originCapitalLat: PropTypes.number,
-  originCapitalLng: PropTypes.number,
+  passportCapitalLat: PropTypes.number,
+  passportCapitalLng: PropTypes.number,
   destinationCapitalLat: PropTypes.number,
   destinationCapitalLng: PropTypes.number,
 };

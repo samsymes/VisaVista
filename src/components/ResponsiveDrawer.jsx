@@ -25,9 +25,13 @@ import {
   ScreenSearchDesktop,
 } from "@mui/icons-material";
 import { PropTypes } from "prop-types";
+import { useSearchParams } from "react-router-dom";
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
+  const [searchParams] = useSearchParams();
+  const From = searchParams.get("From");
+  const To = searchParams.get("To");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -52,9 +56,12 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {[
-          { text: "Home", path: props.homePath },
-          { text: "Flights", path: props.flightPath },
-          { text: "Results", path: props.resultsPath },
+          { text: "Home", path: "/VisaVista/" },
+          { text: "Flights", path: "/VisaVista/Flights" },
+          {
+            text: "Results",
+            path: `/VisaVista/Results/?From=${From}&To=${To}`,
+          },
         ].map((item, index) => (
           <ListItem key={item.text} disablePadding>
             <Link to={item.path}>
@@ -83,13 +90,13 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {[
-          { text: "About", path: props.aboutPath },
-          { text: "GitHub", path: props.gitHubPath },
+          { text: "About", path: "/VisaVista/About" },
+          { text: "GitHub", path: "https://github.com/samsymes" },
           {
             text: "LinkedIn",
-            path: props.linkinInPath,
+            path: "https://www.linkedin.com/in/samanthasymes/",
           },
-          { text: "Email", path: props.emailPath },
+          { text: "Email", path: "mailto:samasymes@gmail.com" },
         ].map((item, index) => (
           <ListItem key={item.text} disablePadding>
             <NavLink to={item.path}>
@@ -123,29 +130,32 @@ function ResponsiveDrawer(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        color="default"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            VisaVista
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Box>
+        {" "}
+        <AppBar
+          position="fixed"
+          color="default"
+          sx={{
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
+            ml: { sm: `${drawerWidth}px` },
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              VisaVista
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -201,12 +211,5 @@ function ResponsiveDrawer(props) {
 
 export default ResponsiveDrawer;
 ResponsiveDrawer.propTypes = {
-  homePath: PropTypes.string,
-  flightPath: PropTypes.string,
-  resultsPath: PropTypes.string,
-  aboutPath: PropTypes.string,
-  gitHubPath: PropTypes.string,
-  linkinInPath: PropTypes.string,
-  emailPath: PropTypes.string,
   children: PropTypes.node,
 };

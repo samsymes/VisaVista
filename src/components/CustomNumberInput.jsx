@@ -7,13 +7,7 @@ const CustomNumberInput = React.forwardRef(function CustomNumberInput(
   props,
   ref
 ) {
-  const {
-    getRootProps,
-    getInputProps,
-    getIncrementButtonProps,
-    getDecrementButtonProps,
-    focused,
-  } = useNumberInput(props);
+  const { getRootProps, getInputProps, focused } = useNumberInput(props);
 
   const inputProps = getInputProps();
 
@@ -21,12 +15,6 @@ const CustomNumberInput = React.forwardRef(function CustomNumberInput(
 
   return (
     <StyledInputRoot {...getRootProps()} className={focused ? "focused" : null}>
-      <StyledStepperButton {...getIncrementButtonProps()} className="increment">
-        ▴
-      </StyledStepperButton>
-      <StyledStepperButton {...getDecrementButtonProps()} className="decrement">
-        ▾
-      </StyledStepperButton>
       <StyledInputElement {...inputProps} />
     </StyledInputRoot>
   );
@@ -106,63 +94,4 @@ const StyledInputElement = styled("input")(
 `
 );
 
-const StyledStepperButton = styled("button")(
-  ({ theme }) => `
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  appearance: none;
-  padding: 0;
-  width: 19px;
-  height: 19px;
-  font-family: system-ui, sans-serif;
-  font-size: 0.875rem;
-  line-height: 1;
-  box-sizing: border-box;
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 0;
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 120ms;
-
-    &.increment {
-      grid-column: 2/3;
-      grid-row: 1/2;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      border: 1px solid;
-      border-bottom: 0;
-      border-color: ${theme.palette.mode === "dark" ? grey[800] : grey[200]};
-      background: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
-      color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
-
-      &:hover {
-        cursor: pointer;
-        color: #FFF;
-        background: ${theme.palette.mode === "dark" ? blue[600] : blue[500]};
-        border-color: ${theme.palette.mode === "dark" ? blue[400] : blue[600]};
-      }
-    }
-
-    &.decrement {
-      grid-column: 2/3;
-      grid-row: 2/3;
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
-      border: 1px solid;
-      border-color: ${theme.palette.mode === "dark" ? grey[800] : grey[200]};
-      background: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
-      color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
-
-      &:hover {
-        cursor: pointer;
-        color: #FFF;
-        background: ${theme.palette.mode === "dark" ? blue[600] : blue[500]};
-        border-color: ${theme.palette.mode === "dark" ? blue[400] : blue[600]};
-      }
-  }
-  `
-);
 export default CustomNumberInput;

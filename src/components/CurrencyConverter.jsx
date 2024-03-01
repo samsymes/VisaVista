@@ -10,14 +10,14 @@ function CurrencyConverter(props) {
   const [amount, setAmount] = useState("1");
   const [convertedAmount, setConvertedAmount] = useState(0);
   useEffect(() => {
-    if ((props.originCode, props.destCode)) {
-      CurrencyService.getCurrencyInfo(props.originCode, props.destCode).then(
+    if ((props.passportCode, props.destCode)) {
+      CurrencyService.getCurrencyInfo(props.passportCode, props.destCode).then(
         (response) => {
           setExchangeRate(response);
         }
       );
     }
-  }, [props.originCode, props.destCode]);
+  }, [props.passportCode, props.destCode]);
 
   useEffect(() => {
     if (exchangeRate != null) {
@@ -34,44 +34,42 @@ function CurrencyConverter(props) {
   };
 
   let conversionCard;
-  if (props.originCode && props.destCode !== null) {
+  if (props.passportCode && props.destCode !== null) {
     conversionCard = (
-      <Card className="infoCard" id="converter">
-        <div className="infoCardContents">
-          <h4>Currency Converter</h4>
-          <div>
-            <CustomNumberInput
-              aria-label="Demo number input"
-              placeholder="Type a number…"
-              min={0}
-              value={amount}
-              onChange={handleAmountChange}
-              onInput={(e) => {
-                e.target.value = e.target.value.replace(/-/g, "").slice(0, 5);
-              }}
-            />
-            <br />{" "}
-            {Number(amount).toLocaleString("en-US", {
-              style: "currency",
-              currency: props.originCode,
-            })}{" "}
-            {props.destCode} {"="}{" "}
-            {Number(convertedAmount).toLocaleString("en-US", {
-              style: "currency",
-              currency: props.destCode,
-            })}{" "}
-          </div>
-          <br />
-          <Button onClick={handleConvertClick} text="Convert" />
+      <Card className="infoCard" id="converter" title={props.title}>
+        <div>
+          <CustomNumberInput
+            aria-label="Demo number input"
+            placeholder="Type a number…"
+            min={0}
+            value={amount}
+            onChange={handleAmountChange}
+            onInput={(e) => {
+              e.target.value = e.target.value.replace(/-/g, "").slice(0, 5);
+            }}
+          />
+          <br />{" "}
+          {Number(amount).toLocaleString("en-US", {
+            style: "currency",
+            currency: props.passportCode,
+          })}{" "}
+          {props.destCode} {"="}{" "}
+          {Number(convertedAmount).toLocaleString("en-US", {
+            style: "currency",
+            currency: props.destCode,
+          })}{" "}
         </div>
+        <br />
+        <Button onClick={handleConvertClick} text="Convert" />
       </Card>
     );
-    return <div className="converterCard">{conversionCard}</div>;
+    return <div id="converter">{conversionCard}</div>;
   }
 }
 
 CurrencyConverter.propTypes = {
-  originCode: PropTypes.string,
+  passportCode: PropTypes.string,
+  title: PropTypes.string,
   destCode: PropTypes.string,
 };
 

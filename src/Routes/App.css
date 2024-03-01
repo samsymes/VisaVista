@@ -61,23 +61,11 @@ main {
     width: 100%;
 }
 
-.cardContents {
-    justify-content: left;
-    align-items: left;
-    padding: 1rem;
-    min-height: 18rem;
-    height: 100%;
-    width: 100%;
-    padding: 1rem;
-
-
-}
-
-#flag {
+/* #flag {
     height: auto;
     margin: auto;
-    padding: 1rem;
-}
+     padding: 1rem; 
+}  */
 
 #logo {
     width: 4rem;
@@ -106,7 +94,7 @@ main {
         grid-area: 1 / 1 / 4 / 4;
     }
 
-    #originSelect {
+    #passportSelect {
         grid-area: 2 / 2 / 3 / 3;
         height: 100%;
         padding: 1rem;
@@ -138,7 +126,7 @@ main {
         width: 100%;
     }
 
-    #originSelect {
+    #passportSelect {
         grid-area: 2 / 2 / 3 / 3;
         height: 100%;
 

@@ -55,13 +55,13 @@ class CountryInfo {
     }
     return null;
   }
-  getOriginCapitalLat() {
+  getPassportCapitalLat() {
     if (this.countryInfo?.capitalInfo.latlng != null) {
       return this.countryInfo?.capitalInfo?.latlng[0];
     }
     return null;
   }
-  getOriginCapitalLng() {
+  getPassportCapitalLng() {
     if (this.countryInfo?.capitalInfo.latlng != null) {
       return this.countryInfo?.capitalInfo?.latlng[1];
     }

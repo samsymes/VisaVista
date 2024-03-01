@@ -1,22 +1,19 @@
 import Widget from "../components/TravelWidget";
 import ResponsiveDrawer from "../components/ResponsiveDrawer";
-// import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import AllCountryInfoService from "../services/AllCountryInfoService";
+
 function Flights() {
-  //   const [searchParams] = useSearchParams();
-  //   const From = searchParams.get("From");
-  //   const To = searchParams.get("To");
+  const [searchParams] = useSearchParams();
+  const From = searchParams.get("From");
+  const To = searchParams.get("To");
+
+  const passport = AllCountryInfoService.getStartAirportCode(From);
+  const destination = AllCountryInfoService.getEndAirportCode(To);
   return (
     <>
-      <ResponsiveDrawer
-        homePath="/VisaVista"
-        flightPath="/VisaVista/flights"
-        aboutPath="/VisaVista/About"
-        gitHubPath="https://github.com/samsymes"
-        linkedInPath="https://www.linkedin.com/in/samanthasymes/"
-        emailPath="mailto:samasymes@gmail.com"
-        // resultsPath={`/VisaVista/results/?From=${From}&To=${To}`}
-      >
-        <Widget from="YOW" to="MEX" />
+      <ResponsiveDrawer>
+        <Widget from={passport} to={destination} />
       </ResponsiveDrawer>
     </>
   );
