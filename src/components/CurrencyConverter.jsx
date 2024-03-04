@@ -21,15 +21,15 @@ function CurrencyConverter(props) {
 
   useEffect(() => {
     if (exchangeRate != null) {
-      setConvertedAmount(Number(exchangeRate));
+      setConvertedAmount(Number(amount / exchangeRate));
     }
-  }, [exchangeRate]);
+  }, [amount, exchangeRate]);
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
   };
   const handleConvertClick = () => {
     if (exchangeRate && !isNaN(amount)) {
-      setConvertedAmount(amount * exchangeRate);
+      setConvertedAmount(amount / exchangeRate);
     }
   };
 

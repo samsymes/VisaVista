@@ -8,7 +8,13 @@ import CurrencyConverter from "../components/CurrencyConverter";
 import DashboardCard from "../components/Card";
 import ResponsiveDrawer from "../components/ResponsiveDrawer";
 
-import { Language, Note, Person, Timer } from "@mui/icons-material";
+import {
+  AccessTime,
+  Language,
+  Newspaper,
+  People,
+  Place,
+} from "@mui/icons-material";
 
 function Results() {
   const [searchParams] = useSearchParams();
@@ -91,33 +97,42 @@ function Results() {
           <DashboardCard
             className="infoCard"
             id="populationCard"
-            title="Population"
+            title={
+              <>
+                <People /> Population
+              </>
+            }
             text={population.toLocaleString()}
-          >
-            <Person />
-          </DashboardCard>
+          ></DashboardCard>
           <DashboardCard
             className="infoCard"
             id="timeZoneCard"
-            title="Time Zones"
+            title={
+              <>
+                <AccessTime /> Time Zone
+              </>
+            }
             text={timeZones}
-          >
-            <Timer />
-          </DashboardCard>
+          ></DashboardCard>
           <DashboardCard
             className="infoCard"
             id="languagesCard"
-            title="Languages"
+            title={
+              <>
+                <Language /> Languages
+              </>
+            }
             text={languages}
-          >
-            <Language />
-          </DashboardCard>
+          ></DashboardCard>
           <DashboardCard
             className="infoCard"
             id="visaCard"
-            title="Visa Information"
+            title={
+              <>
+                <Newspaper /> Visa Information
+              </>
+            }
           >
-            <Note />
             <b>Visa Requirements: </b>
             {visaRequirements} <br />
             <b>Allowed Stay: </b> {allowedStay} <br />
@@ -126,7 +141,11 @@ function Results() {
           <DashboardCard
             className="infoCard"
             id="destinationCard"
-            title="Destination Information"
+            title={
+              <>
+                <Place /> Destination
+              </>
+            }
           >
             <b>Country:</b> {name} <br />
             <b>Capital: </b> {capital} <br />
