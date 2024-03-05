@@ -30,7 +30,6 @@ function App() {
     CountryFlagService.getCountryListFromCountryFlagService().then(
       (response) => {
         setCountryFlagList(response);
-        console.log("countryFlagList", response);
       }
     );
   }, []);
@@ -94,8 +93,9 @@ function App() {
               options={filteredPassports}
               value={selectedPassportCountry}
               onChange={handlePassportChange}
-              tag="Passport"
+              tag="Select Passport"
             />
+
             <br />
 
             <Flag
@@ -118,7 +118,7 @@ function App() {
               value={selectedDestinationCountry}
               onChange={handleDestinationChange}
               disabled={!passportSelected ? true : false}
-              tag="Destination"
+              tag="Select Destination"
             />
             <br />
 

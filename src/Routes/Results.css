@@ -2,6 +2,28 @@
     box-sizing: border-box;
 }
 
+#sidebar a.active {
+    color: rgb(15, 15, 224);
+    background-color: #ffffff !important;
+}
+
+#sidebar a {
+    color: #000000;
+    text-decoration: none;
+    width: 100%;
+
+}
+
+#sidebar a:hover {
+    color: rgb(15, 15, 224);
+}
+
+#sidebar {
+    width: 100%;
+    background-color: aliceblue;
+}
+
+
 @media only screen and (max-width: 600px) {
 
     .resultsContainer {

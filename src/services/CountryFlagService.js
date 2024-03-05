@@ -11,7 +11,7 @@ class CountryFlagService {
         label,
       })
     );
-    console.log(countryFlagList);
+
     return countryFlagList;
   }
 }

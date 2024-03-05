@@ -13,9 +13,10 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
+import BreadcrumbComponent from "./BreadcrumbComponent";
 import Logo from "../assets/Logo";
 import { Typography } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   FlightTakeoff,
   GitHub,
@@ -25,13 +26,13 @@ import {
   ScreenSearchDesktop,
 } from "@mui/icons-material";
 import { PropTypes } from "prop-types";
-import { useSearchParams } from "react-router-dom";
+// import { useSearchParams } from "react-router-dom";
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
-  const [searchParams] = useSearchParams();
-  const From = searchParams.get("From");
-  const To = searchParams.get("To");
+  // const [searchParams] = useSearchParams();
+  // const From = searchParams.get("From");
+  // const To = searchParams.get("To");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -52,44 +53,20 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Logo id="logo" />
+      {
+        <>
+          <Logo /> <h7>VisaVista</h7>
+        </>
+      }
       <Divider />
       <List>
         {[
-          { text: "Home", path: "/VisaVista/" },
+          { text: "Home", path: "/VisaVista" },
           { text: "Flights", path: "/VisaVista/Flights" },
-          {
-            text: "Results",
-            path: `/VisaVista/Results/?From=${From}&To=${To}`,
-          },
-        ].map((item, index) => (
-          <ListItem key={item.text} disablePadding>
-            <Link to={item.path}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {(() => {
-                    switch (index % 3) {
-                      case 0:
-                        return <Home />;
-                      case 1:
-                        return <FlightTakeoff />;
-                      case 2:
-                        return <ScreenSearchDesktop />;
-
-                      default:
-                        return null;
-                    }
-                  })()}
-                </ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {[
+          // {
+          //   text: "Results",
+          //   path: `/VisaVista/Results/?From=${From}&To=${To}`,
+          // },
           { text: "About", path: "/VisaVista/About" },
           { text: "GitHub", path: "https://github.com/samsymes" },
           {
@@ -98,21 +75,26 @@ function ResponsiveDrawer(props) {
           },
           { text: "Email", path: "mailto:samasymes@gmail.com" },
         ].map((item, index) => (
-          <ListItem key={item.text} disablePadding>
-            <NavLink to={item.path}>
+          <ListItem key={item.text} id="sidebar" disablePadding>
+            <NavLink to={item.path} activeClassName="activeLink">
               <ListItemButton>
                 <ListItemIcon>
                   {(() => {
-                    switch (index % 4) {
+                    switch (index % 7) {
                       case 0:
-                        return <Person />;
+                        return <Home />;
                       case 1:
-                        return <GitHub />;
+                        return <FlightTakeoff />;
                       case 2:
-                        return <LinkedIn />;
+                        return <ScreenSearchDesktop />;
                       case 3:
+                        return <Person />;
+                      case 4:
+                        return <GitHub />;
+                      case 5:
+                        return <LinkedIn />;
+                      case 6:
                         return <MailIcon />;
-
                       default:
                         return null;
                     }
@@ -120,6 +102,7 @@ function ResponsiveDrawer(props) {
                 </ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItemButton>
+              <Divider />
             </NavLink>
           </ListItem>
         ))}
@@ -151,7 +134,7 @@ function ResponsiveDrawer(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              VisaVista
+              <BreadcrumbComponent />
             </Typography>
           </Toolbar>
         </AppBar>
