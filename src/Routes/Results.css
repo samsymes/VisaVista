@@ -123,6 +123,7 @@
         column-gap: 2rem;
         row-gap: 2rem;
         grid-auto-flow: column;
+
     }
 
     #populationCard {
@@ -156,10 +157,6 @@
         margin-bottom: 1rem;
         max-height: 25rem;
     }
-}
-
-body {
-    background-color: #d8dfe6da;
 }
 
 @media only screen and (min-width: 1200px) {

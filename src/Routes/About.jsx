@@ -43,22 +43,6 @@ function About() {
               data through external APIs.
             </li>
           </ul>
-
-          <h5>Contact Information: </h5>
-          <p>
-            Your valuable feedback is welcomed! Feel free to share your thoughts
-            and suggestions.
-            <ul>
-              <a href="https://github.com/samsymes" target="blank">
-                GitHub:
-              </a>
-              Visit my GitHub
-            </ul>
-            <ul>
-              <a href="mailto:samantha.symes@outlook.com">Email</a>:
-              samantha.symes@outlook.com
-            </ul>
-          </p>
         </div>
       </ResponsiveDrawer>
     </>

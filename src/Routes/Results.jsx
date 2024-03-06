@@ -112,7 +112,7 @@ function Results() {
                 <AccessTime /> Time Zone
               </>
             }
-            text={timeZones}
+            text={timeZones.join(", ")}
           ></DashboardCard>
           <DashboardCard
             className="infoCard"
