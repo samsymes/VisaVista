@@ -144,7 +144,7 @@ function App() {
               text="Search"
               passportCode={selectedPassportCountry?.value}
               destinationCode={selectedDestinationCountry?.value}
-              link={`/VisaVista/results/?From=${selectedPassportCountry?.value}&To=${selectedDestinationCountry?.value}`}
+              link={`/VisaVista/Results/?From=${selectedPassportCountry?.value}&To=${selectedDestinationCountry?.value}`}
             />
           </div>
         </div>

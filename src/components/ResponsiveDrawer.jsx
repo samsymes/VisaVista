@@ -13,7 +13,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
-// import BreadcrumbComponent from "./BreadcrumbComponent";
+import BreadcrumbComponent from "./BreadcrumbComponent";
 import Logo from "../assets/Logo";
 import { Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
@@ -26,13 +26,9 @@ import {
   ScreenSearchDesktop,
 } from "@mui/icons-material";
 import { PropTypes } from "prop-types";
-// import { useSearchParams } from "react-router-dom";
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
-  // const [searchParams] = useSearchParams();
-  // const From = searchParams.get("From");
-  // const To = searchParams.get("To");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -63,10 +59,7 @@ function ResponsiveDrawer(props) {
         {[
           { text: "Home", path: "/VisaVista" },
           { text: "Flights", path: "/VisaVista/Flights" },
-          // {
-          //   text: "Results",
-          //   path: `/VisaVista/Results/?From=${From}&To=${To}`,
-          // },
+
           { text: "About", path: "/VisaVista/About" },
           { text: "GitHub", path: "https://github.com/samsymes" },
           {
@@ -134,7 +127,7 @@ function ResponsiveDrawer(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              {/* <BreadcrumbComponent /> */}
+              <BreadcrumbComponent />
             </Typography>
           </Toolbar>
         </AppBar>

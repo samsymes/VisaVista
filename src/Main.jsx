@@ -12,9 +12,9 @@ ReactDOM.createRoot(root).render(
     <Router>
       <Routes>
         <Route path="/VisaVista" index element={<App />} />
-        <Route path="/VisaVista/results" element={<Results />} />
-        <Route path="/VisaVista/flights" element={<Flights />} />
-        <Route path="VisaVista/about" element={<About />} />
+        <Route path="/VisaVista/Results" element={<Results />} />
+        <Route path="/VisaVista/Flights" element={<Flights />} />
+        <Route path="VisaVista/About" element={<About />} />
       </Routes>
     </Router>
   </>
