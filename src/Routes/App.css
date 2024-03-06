@@ -1,77 +1,9 @@
-body,
-html {
-    height: 100%;
-    font-size: 16px;
-    font: lato;
-
-}
-
-main {
-    padding: 0% !important;
-}
-
-
-.MuiAutocomplete-root {
-    max-width: 15rem;
-    margin: 1rem auto;
-
-}
-
-#root {
-    background-color: #d8dfe6da;
-    display: grid !important;
-}
-
-
-.header p {
-    font-size: 1rem;
-    font-weight: 300;
-    text-align: center;
-}
-
-.header h2 {
-    font-size: 3rem;
-    font-weight: 400;
-    text-align: center;
-}
-
 .header {
     background-size: cover;
     background-image:
         linear-gradient(to bottom, rgba(0, 0, 0, 0.57), #1c427b),
         url('../assets/earth_horizon.jpg');
-    background-size: cover;
     color: white;
-}
-
-.headerText {
-    margin-top: 5rem;
-    text-align: center;
-}
-
-
-.countryCard {
-    background-color: #d8dfe6da;
-    border-radius: 16px !important;
-    box-shadow: 1em 1em 1em #00000043 !important;
-    text-align: center;
-    min-height: 18rem;
-    min-width: 20rem;
-    height: 100%;
-    width: 100%;
-}
-
-#logo {
-    width: 4rem;
-    margin: 1rem;
-
-}
-
-.socials:hover {
-    color: green;
-    cursor: pointer;
-    font-weight: 600;
-
 }
 
 @media only screen and (max-width: 600px) {

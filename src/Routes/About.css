@@ -1,0 +1,35 @@
+.aboutContainer {
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.57), #1c427b),
+        url('../assets/earth_horizon.jpg');
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    padding: 5rem;
+}
+
+#about {
+    grid-area: 1 / 2 / 2 / 5;
+    width: 100%;
+
+}
+
+#aboutMe {
+    grid-area: 2 / 2 / 3 / 5;
+    width: 100%;
+}
+
+#aboutParagraph {
+    margin: 1rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+#profilePic {
+    margin: 1rem;
+    border-radius: 50%;
+    max-width: 35%;
+}

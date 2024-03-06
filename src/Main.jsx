@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Results from "./Routes/Results.jsx";
 import Flights from "./Routes/Flights.jsx";
 import About from "./Routes/About.jsx";
-
+import "./main.css";
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <>
