@@ -52,16 +52,16 @@ function About() {
             </div>
           </Card>
           <Card className="infoCard" id="aboutMe">
-            <ProfilePic />{" "}
-            <div id="bio">
-              I am a software developer living in St. John&apos;s, Newfoundland.
-              I have a passion for creating innovative and user-friendly
-              applications. I am skilled in HTML, CSS, and JavaScript and I have
-              experience working with a variety of databases and APIs. I am a
-              quick learner and a team player, and I am always looking for
-              opportunities to expand my skill set and take on new challenges. I
-              am excited to bring my creativity and technical expertise to a
-              dynamic and collaborative team.
+            <ProfilePic />
+            <div className="bio">
+              My name is Sam Symes. I am a software developer with a passion for
+              creating and designing web applications. I am a current student of
+              Get Coding's Full-Stack Development mentorship program. I am a
+              creative problem solver with a strong background in customer
+              service and a passion for learning new technologies. I am excited
+              to bring my skills to a team and help create innovative and
+              user-friendly applications. Please feel free to reach out if you
+              have any feedback or comments. I would love to hear from you!
             </div>
           </Card>
         </div>
