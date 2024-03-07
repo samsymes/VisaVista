@@ -85,6 +85,7 @@ function App() {
       <ResponsiveDrawer
         From={selectedPassportCountry?.value}
         To={selectedDestinationCountry?.value}
+        isactive={true}
       >
         <div className="appContainer ">
           <Header />
@@ -99,14 +100,6 @@ function App() {
             <br />
 
             <Flag
-              name={
-                selectedPassportCountry
-                  ? filteredPassports.find(
-                      (country) =>
-                        country.value === selectedPassportCountry.value
-                    )?.label
-                  : null
-              }
               code={selectedPassportCountry?.value}
               onCountryChange={handlePassportChange}
             />
@@ -123,14 +116,6 @@ function App() {
             <br />
 
             <Flag
-              name={
-                selectedDestinationCountry
-                  ? filteredDestinations.find(
-                      (country) =>
-                        country.value === selectedDestinationCountry.value
-                    )?.label
-                  : null
-              }
               code={selectedDestinationCountry?.value}
               onCountryChange={handleDestinationChange}
             />
@@ -141,7 +126,7 @@ function App() {
               id="searchButton"
               color="success"
               disabled={buttonDisabled}
-              text="Search"
+              text="Tell me what I need to know"
               passportCode={selectedPassportCountry?.value}
               destinationCode={selectedDestinationCountry?.value}
               link={`/VisaVista/Results/?From=${selectedPassportCountry?.value}&To=${selectedDestinationCountry?.value}`}

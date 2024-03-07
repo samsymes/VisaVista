@@ -1,8 +1,5 @@
 .aboutContainer {
-    background-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.57), #1c427b),
-        url('../assets/earth_horizon.jpg');
-    background-size: cover;
+    background-color: #F5F5F5;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);

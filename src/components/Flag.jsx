@@ -5,7 +5,6 @@ function Flag(props) {
 
     return (
       <>
-        <h5 className="card-title">{props.name}</h5>
         <img id="flag" src={flagURL} alt={props.code} />
       </>
     );
@@ -15,7 +14,6 @@ function Flag(props) {
 }
 
 Flag.propTypes = {
-  name: PropTypes.string,
   code: PropTypes.string,
   onCountryChange: PropTypes.func,
 };

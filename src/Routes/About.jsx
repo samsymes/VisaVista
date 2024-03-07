@@ -52,7 +52,7 @@ function About() {
             </div>
           </Card>
           <Card className="infoCard" id="aboutMe">
-            <ProfilePic />
+            <ProfilePic id="profilePic" />
             <div className="bio">
               My name is Sam Symes. I am a software developer with a passion for
               creating and designing web applications. I am a current student of

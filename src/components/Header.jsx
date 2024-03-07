@@ -3,10 +3,11 @@ function Header() {
     <>
       <div className="header">
         <div className="headerText">
-          BEST PLACE TO FIND
-          <h2>Visa Requirements</h2>
-          Search our database, convert currency, and access everything you need
-          to know in one convienient place{" "}
+          <h2 id="headerTitle">VisaVista: Travel Info Hub</h2>
+          <p id="headerText">
+            Choose your passport and where you are going, and we will tell you
+            everything you need to know to get to your destination safely.
+          </p>
         </div>
       </div>
     </>
