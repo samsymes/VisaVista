@@ -3,8 +3,7 @@ import Button from "../components/buttons/Button";
 import CurrencyService from "../services/CurrencyService";
 import CustomNumberInput from "../components/CustomNumberInput";
 import { PropTypes } from "prop-types";
-import Card from "./Card";
-
+import Box from "@mui/material/Box";
 function CurrencyConverter(props) {
   const [exchangeRate, setExchangeRate] = useState();
   const [amount, setAmount] = useState("1");
@@ -36,7 +35,7 @@ function CurrencyConverter(props) {
   let conversionCard;
   if (props.passportCode && props.destCode !== null) {
     conversionCard = (
-      <Card className="infoCard" id="converter" title={props.title}>
+      <Box>
         <div>
           <CustomNumberInput
             aria-label="Demo number input"
@@ -60,8 +59,8 @@ function CurrencyConverter(props) {
           })}{" "}
         </div>
         <br />
-        <Button onClick={handleConvertClick} text="Convert" />
-      </Card>
+        <Button onClick={handleConvertClick} color="success" text="Convert" />
+      </Box>
     );
     return <div id="converter">{conversionCard}</div>;
   }

@@ -108,11 +108,31 @@ main {
     padding: 2rem;
 }
 
-.sideFooter img {
-    width: 60px;
-    height: 60px;
-    margin: 0;
-    /* circle */
 
-    border-radius: 50%;
+#profilePicSideBar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    padding-right: .5rem;
+}
+
+.icons {
+    padding-right: 2rem;
+    padding-top: .5rem;
+}
+
+#github:hover {
+    transform: scale(1.1);
+
+}
+
+#linkedin:hover {
+    transform: scale(1.1);
+    background-color: #E9F2EA;
+
+}
+
+#email:hover {
+    transform: scale(1.1);
+
 }

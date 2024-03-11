@@ -9,23 +9,18 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
+import LinkedinIcon from "../assets/icons/LinkedinIcon";
+import GithubIcon from "../assets/icons/GithubIcon";
 import ProfilePic from "../assets/ProfilePic";
+import EmailIcon from "../assets/icons/EmailIcon";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
 import BreadcrumbComponent from "./BreadcrumbComponent";
 import Logo from "../assets/Logo";
-import { Divider, ThemeProvider, Typography, createTheme } from "@mui/material";
+import { ThemeProvider, Typography, createTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import {
-  FlightTakeoff,
-  GitHub,
-  Home,
-  LinkedIn,
-  Person,
-  ScreenSearchDesktop,
-} from "@mui/icons-material";
+import { FlightTakeoff, Home, ScreenSearchDesktop } from "@mui/icons-material";
 import { PropTypes } from "prop-types";
 const drawerWidth = 240;
 
@@ -60,7 +55,6 @@ function ResponsiveDrawer(props) {
         {[
           { text: "Home", path: "/VisaVista" },
           { text: "Flights", path: "/VisaVista/Flights" },
-
           { text: "About", path: "/VisaVista/About" },
         ].map((item, index) => (
           <ListItem key={item.text}>
@@ -90,25 +84,12 @@ function ResponsiveDrawer(props) {
       <div className="sideFooter">
         <Typography>
           Built by <br />
-          <ProfilePic id="iconPic" /> Sam Symes <br />
-          <IconButton>
-            <>
-              <GitHub />
-            </>
-            <IconButton />
-          </IconButton>
-          <IconButton>
-            <>
-              <LinkedIn />
-            </>
-            <IconButton />
-          </IconButton>
-          <IconButton>
-            <>
-              <Person />
-            </>
-            <IconButton />
-          </IconButton>
+          <ProfilePic id="profilePicSideBar" /> Sam Symes <br />
+          <div className="icons">
+            <GithubIcon />
+            <LinkedinIcon />
+            <EmailIcon />
+          </div>
         </Typography>
       </div>
     </div>

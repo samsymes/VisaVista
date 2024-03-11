@@ -7,9 +7,11 @@ import RestCountryService from "../services/RestCountryService";
 import CurrencyConverter from "../components/CurrencyConverter";
 import DashboardCard from "../components/Card";
 import ResponsiveDrawer from "../components/ResponsiveDrawer";
-
+import SingleFlightWidget from "../components/SingleFlightWidget";
 import {
   AccessTime,
+  CurrencyExchange,
+  Flight,
   Language,
   Newspaper,
   People,
@@ -20,6 +22,8 @@ function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
   const To = searchParams.get("To");
+  const FromAirport = AllCountryInfoService?.getStartAirportCode(From);
+  const ToAirport = AllCountryInfoService?.getEndAirportCode(To);
   const destinationCountryName =
     AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
       From,
@@ -82,18 +86,18 @@ function Results() {
     <>
       <ResponsiveDrawer>
         <div className="resultsContainer">
-          <Map
-            className="infoCard"
-            id="mapCard"
-            passportCapitalLat={passportCapitalLat}
-            passportCapitalLng={passportCapitalLng}
-            destinationCapitalLat={destinationCapitalLat}
-            destinationCapitalLng={destinationCapitalLng}
-            passportCountryInfo={passportCountryInfo}
-            passportCountryName={passportCountryName}
-            destinationCountryName={destinationCountryName}
-          />
-
+          <DashboardCard className="infoCard" id="mapCard" text={<></>}>
+            {" "}
+            <Map
+              passportCapitalLat={passportCapitalLat}
+              passportCapitalLng={passportCapitalLng}
+              destinationCapitalLat={destinationCapitalLat}
+              destinationCapitalLng={destinationCapitalLng}
+              passportCountryInfo={passportCountryInfo}
+              passportCountryName={passportCountryName}
+              destinationCountryName={destinationCountryName}
+            />
+          </DashboardCard>
           <DashboardCard
             className="infoCard"
             id="populationCard"
@@ -112,13 +116,7 @@ function Results() {
                 <AccessTime /> Time Zone
               </>
             }
-            text={
-              <ul>
-                {timeZones.map((timeZone, index) => (
-                  <li key={index}>{timeZone}</li>
-                ))}
-              </ul>
-            }
+            text={timeZones.join(", ")}
           ></DashboardCard>
           <DashboardCard
             className="infoCard"
@@ -155,14 +153,36 @@ function Results() {
           >
             <b>Country:</b> {name} <br />
             <b>Capital: </b> {capital} <br />
-            <a href={link}>Travel Advice</a>
+            <a href={link}></a>
           </DashboardCard>
-
-          <CurrencyConverter
-            passportCode={passportCurrencyCodes}
-            destCode={destinationCurrencyCodes}
-            title="Currency Converter"
-          />
+          <DashboardCard
+            className="infoCard"
+            id="converter"
+            title={
+              <>
+                <CurrencyExchange /> Currency Converter
+              </>
+            }
+            text={
+              <>
+                <CurrencyConverter
+                  passportCode={passportCurrencyCodes}
+                  destCode={destinationCurrencyCodes}
+                />
+              </>
+            }
+          ></DashboardCard>
+          <DashboardCard
+            className="infoCard"
+            id="flight-widget"
+            title={
+              <>
+                <Flight /> Flights
+              </>
+            }
+          >
+            <SingleFlightWidget from={FromAirport} to={ToAirport} />
+          </DashboardCard>
         </div>
       </ResponsiveDrawer>
     </>
