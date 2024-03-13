@@ -23,7 +23,8 @@ function Results() {
   const From = searchParams.get("From");
   const To = searchParams.get("To");
   const FromAirport = AllCountryInfoService?.getStartAirportCode(From);
-  const ToAirport = AllCountryInfoService?.getEndAirportCode(To);
+  const ToAirport = AllCountryInfoService?.getEndAirportCode(From, To);
+
   const destinationCountryName =
     AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
       From,

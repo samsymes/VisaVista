@@ -55,8 +55,18 @@ class AllCountryInfoService {
   getStartAirportCode(passport) {
     return this.countries[passport]?.passport_airport_code;
   }
-  getEndAirportCode(destination) {
-    return this.countries[destination]?.destination_airport_code;
+
+  getEndAirportCode(passport, destination) {
+    if (passport) {
+      const destinationObject = this.countries[passport]?.destinations?.find(
+        (d) => d.destination_code === destination
+      );
+      console.log(
+        "destinatin airport",
+        destinationObject?.destination_airport_code
+      );
+      return destinationObject?.destination_airport_code;
+    }
   }
 }
 export default new AllCountryInfoService();
