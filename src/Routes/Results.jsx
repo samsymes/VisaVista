@@ -34,10 +34,7 @@ function Results() {
     AllCountryInfoService?.getPassportCountryNameFromAllCountryInfoService(
       From
     );
-  const link = AllCountryInfoService?.generateCanadaLinks(
-    From,
-    destinationCountryName
-  );
+
   console.log(AllCountryInfoService);
   const resultsObject =
     AllCountryInfoService?.getResultsObjectFromAllCountryInfoService(From, To);
@@ -87,78 +84,98 @@ function Results() {
     <>
       <ResponsiveDrawer>
         <div className="resultsContainer">
-          <DashboardCard className="infoCard" id="mapCard" text={<></>}>
-            {" "}
-            <Map
-              passportCapitalLat={passportCapitalLat}
-              passportCapitalLng={passportCapitalLng}
-              destinationCapitalLat={destinationCapitalLat}
-              destinationCapitalLng={destinationCapitalLng}
-              passportCountryInfo={passportCountryInfo}
-              passportCountryName={passportCountryName}
-              destinationCountryName={destinationCountryName}
-            />
-          </DashboardCard>
+          <DashboardCard
+            className="infoCard"
+            id="mapCard"
+            text={
+              <>
+                <Map
+                  id="map"
+                  passportCapitalLat={passportCapitalLat}
+                  passportCapitalLng={passportCapitalLng}
+                  destinationCapitalLat={destinationCapitalLat}
+                  destinationCapitalLng={destinationCapitalLng}
+                  passportCountryInfo={passportCountryInfo}
+                  passportCountryName={passportCountryName}
+                  destinationCountryName={destinationCountryName}
+                />
+              </>
+            }
+          />
+
           <DashboardCard
             className="infoCard"
             id="populationCard"
+            cardType="rowCardContent"
             title={
               <>
                 <People /> Population
               </>
             }
             text={population.toLocaleString()}
-          ></DashboardCard>
+          />
           <DashboardCard
             className="infoCard"
             id="timeZoneCard"
+            cardType="rowCardContent"
             title={
               <>
                 <AccessTime /> Time Zone
               </>
             }
             text={timeZones.join(", ")}
-          ></DashboardCard>
+          />
           <DashboardCard
             className="infoCard"
             id="languagesCard"
+            cardType="rowCardContent"
             title={
               <>
                 <Language /> Languages
               </>
             }
             text={languages}
-          ></DashboardCard>
+          />
           <DashboardCard
             className="infoCard"
             id="visaCard"
+            cardType="columnCardContent"
             title={
               <>
                 <Newspaper /> Visa Information
               </>
             }
-          >
-            <b>Visa Requirements: </b>
-            {visaRequirements} <br />
-            <b>Allowed Stay: </b> {allowedStay} <br />
-            <b>Notes: </b> {notes} <br />
-          </DashboardCard>
+            text={
+              <>
+                <b>Visa Requirements: </b> {visaRequirements}
+                <b>Allowed Stay: </b> {allowedStay}
+                <b>Notes: </b> {notes}
+              </>
+            }
+          />
+
           <DashboardCard
             className="infoCard"
             id="destinationCard"
+            cardType="rowCardContent"
             title={
               <>
                 <Place /> Destination
               </>
             }
-          >
-            <b>Country:</b> {name} <br />
-            <b>Capital: </b> {capital} <br />
-            <a href={link}></a>
-          </DashboardCard>
+            text={
+              <>
+                <b>Country:</b> {name}
+                <br />
+                <b>Capital: </b> {capital}
+              </>
+            }
+          />
+
           <DashboardCard
             className="infoCard"
             id="converter"
+            cardType="rowCardContent"
             title={
               <>
                 <CurrencyExchange /> Currency Converter
@@ -172,18 +189,23 @@ function Results() {
                 />
               </>
             }
-          ></DashboardCard>
+          />
           <DashboardCard
             className="infoCard"
             id="flight-widget"
+            cardType="flightCardContent"
             title={
               <>
                 <Flight /> Flights
               </>
             }
-          >
-            <SingleFlightWidget from={FromAirport} to={ToAirport} />
-          </DashboardCard>
+            text={
+              <>
+                {" "}
+                <SingleFlightWidget from={FromAirport} to={ToAirport} />
+              </>
+            }
+          />
         </div>
       </ResponsiveDrawer>
     </>

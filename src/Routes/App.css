@@ -1,20 +1,21 @@
-.root {
-    background-color: #F5F5F5;
-    font-family: Lato;
-}
-
-#headerTitle {
+.headerTitle {
     color: #2E2E2E;
 }
 
-#headerText {
-    color: #656565
+.headerText {
+    text-align: center;
+    color: #656565;
+}
+
+.MuiAutocomplete-root {
+    max-width: 15rem;
+    margin: 1rem auto;
 }
 
 @media only screen and (max-width: 600px) {
     .appContainer {
         display: grid;
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: 10rem repeat(3, 1fr);
         grid-template-columns: repeat(3, 1fr);
         column-gap: 1rem;
         row-gap: 1rem;
@@ -22,19 +23,24 @@
     }
 
     .header {
-        grid-area: 1 / 1 / 5 / 4;
+        grid-area: 1 / 1 / 2 / 4;
         padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
     }
 
     #passportSelect {
         grid-area: 2 / 2 / 3 / 3;
         height: 100%;
         padding: 1rem;
+
     }
 
     #destinationSelect {
         grid-area: 3 / 2 / 4 / 3;
         height: 100%;
+        padding: 1rem;
     }
 
     .searchButton {
@@ -49,12 +55,12 @@
     .appContainer {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 350px repeat(3, 1fr);
+        grid-template-rows: 10rem repeat(3, 1fr);
         row-gap: 1rem;
     }
 
     .header {
-        grid-area: 1 / 1 / 6 / 5;
+        grid-area: 1 / 1 / 1 / 5;
         padding: 1rem;
         height: 100%;
         width: 100%;
@@ -63,12 +69,13 @@
     #passportSelect {
         grid-area: 2 / 2 / 2 / 2;
         height: 100%;
-
+        padding: 1rem;
     }
 
     #destinationSelect {
         grid-area: 3 / 2 / 3 / 2;
         height: 100%;
+        padding: 1rem;
 
     }
 
@@ -83,13 +90,13 @@
 @media only screen and (min-width: 1200px) {
     .appContainer {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: 350px repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr) 15rem repeat(2, 1fr);
+        grid-template-rows: 7rem repeat(2, 1fr);
         row-gap: 1rem;
     }
 
     .header {
-        grid-area: 1 / 1 / 6 / 6;
+        grid-area: 1 / 2 / 1 / 5;
         padding: 1rem;
         height: 100%;
         width: 100%;
@@ -98,12 +105,14 @@
     #passportSelect {
         grid-area: 2 / 2 / 2 / 2;
         height: 100%;
+        padding-top: 1rem;
 
     }
 
     #destinationSelect {
         grid-area: 2 / 4 / 2 / 4;
         height: 100%;
+        padding-top: 1rem;
 
     }
 

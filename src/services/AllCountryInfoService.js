@@ -36,14 +36,6 @@ class AllCountryInfoService {
     }
   }
 
-  generateCanadaLinks(passport, destinationName) {
-    if (passport === "ca") {
-      const link = `https://travel.gc.ca/destinations/${destinationName.toLowerCase()}`;
-      console.log(`Link for ${destinationName}: ${link}`);
-      return link;
-    }
-  }
-
   getResultsObjectFromAllCountryInfoService(passport, destination) {
     if (passport) {
       const req = this.countries[passport]?.destinations?.find(

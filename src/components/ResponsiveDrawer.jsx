@@ -11,12 +11,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import LinkedinIcon from "../assets/icons/LinkedinIcon";
 import GithubIcon from "../assets/icons/GithubIcon";
-import ProfilePic from "../assets/ProfilePic";
+import avatar from "../assets/avatar.gif";
+import ImageElement from "../assets/ImageElement";
 import EmailIcon from "../assets/icons/EmailIcon";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
-import BreadcrumbComponent from "./BreadcrumbComponent";
 import Logo from "../assets/Logo";
 import { ThemeProvider, Typography, createTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
@@ -53,7 +53,7 @@ function ResponsiveDrawer(props) {
 
       <List>
         {[
-          { text: "Home", path: "/VisaVista" },
+          { text: "Home", path: "/VisaVista/" },
           { text: "Flights", path: "/VisaVista/Flights" },
           { text: "About", path: "/VisaVista/About" },
         ].map((item, index) => (
@@ -84,7 +84,7 @@ function ResponsiveDrawer(props) {
       <div className="sideFooter">
         <Typography>
           Built by <br />
-          <ProfilePic id="profilePicSideBar" /> Sam Symes <br />
+          <ImageElement id="avatarSideBar" src={avatar} /> Sam Symes <br />
           <div className="icons">
             <GithubIcon />
             <LinkedinIcon />
@@ -129,9 +129,7 @@ function ResponsiveDrawer(props) {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" noWrap component="div">
-                <BreadcrumbComponent />
-              </Typography>
+              <Typography variant="h6" noWrap component="div"></Typography>
             </Toolbar>
           </AppBar>
         </Box>

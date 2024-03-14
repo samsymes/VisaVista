@@ -14,6 +14,25 @@ function About() {
         emailPath="mailto:samasymes@gmail.com"
       >
         <div className="aboutContainer">
+          <Card className="infoCard" id="aboutMe">
+            <ProfilePic id="profilePic" />
+            <div id="cardContent">
+              <h6>Hey there!</h6>
+              <p>
+                My name is Sam Symes. I am a software developer with a passion
+                for creating and designing web applications. I am a current
+                student of Get Coding's Full-Stack Development mentorship
+                program. I am a creative problem solver with a strong background
+                in customer service and a passion for learning new technologies.
+                I am excited to bring my skills to a team and help create
+                innovative and user-friendly applications.
+              </p>
+              <p>
+                Please feel free to reach out if you have any feedback or
+                comments. I would love to hear from you!
+              </p>
+            </div>
+          </Card>
           <Card className="infoCard" id="about">
             <div id="cardContent">
               <h5>Motivation:</h5>
@@ -29,7 +48,6 @@ function About() {
               <h5>Features:</h5>
               <h6> API Integrations and Technologies:</h6>
               <ul>
-                {" "}
                 <li>
                   APIs: Flagpedia API Utilized for obtaining country flag
                   images.
@@ -49,19 +67,6 @@ function About() {
                   real-time data through external APIs.
                 </li>
               </ul>
-            </div>
-          </Card>
-          <Card className="infoCard" id="aboutMe">
-            <ProfilePic id="profilePic" />
-            <div className="bio">
-              My name is Sam Symes. I am a software developer with a passion for
-              creating and designing web applications. I am a current student of
-              Get Coding's Full-Stack Development mentorship program. I am a
-              creative problem solver with a strong background in customer
-              service and a passion for learning new technologies. I am excited
-              to bring my skills to a team and help create innovative and
-              user-friendly applications. Please feel free to reach out if you
-              have any feedback or comments. I would love to hear from you!
             </div>
           </Card>
         </div>
