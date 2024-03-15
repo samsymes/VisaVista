@@ -70,7 +70,7 @@ class CountryInfo {
 
   getLanguages() {
     if (this.countryInfo?.languages != null) {
-      return Object.values(this.countryInfo.languages).join(", ");
+      return Object.values(this.countryInfo.languages);
     }
     return [];
   }

@@ -18,8 +18,7 @@ import ImageElement from "../assets/ImageElement";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
-import Logo from "../assets/Logo";
-import Stack from "@mui/material/Stack";
+import logo from "../assets/visavista-logo.png";
 import { ThemeProvider, Typography, createTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { FlightTakeoff, Home, ScreenSearchDesktop } from "@mui/icons-material";
@@ -49,7 +48,7 @@ function ResponsiveDrawer(props) {
     <div>
       {
         <>
-          <Logo /> <h7>VisaVista</h7>
+          <ImageElement src={logo} id="logo" /> VisaVista
         </>
       }
 
@@ -194,7 +193,7 @@ function ResponsiveDrawer(props) {
           }}
         >
           <Toolbar />
-          <Typography paragraph>{props.children}</Typography>
+          <Typography>{props.children}</Typography>
         </Box>
       </Box>
     </ThemeProvider>

@@ -1,7 +1,8 @@
 import { Card } from "@mui/material";
 import ResponsiveDrawer from "../components/ResponsiveDrawer";
 import "./About.css";
-import ProfilePic from "../assets/ProfilePic";
+import profilePic from "../assets/profilePic.jpg";
+import ImageElement from "../assets/ImageElement";
 function About() {
   return (
     <>
@@ -15,13 +16,13 @@ function About() {
       >
         <div className="aboutContainer">
           <Card className="infoCard" id="aboutMe">
-            <ProfilePic id="profilePic" />
+            <ImageElement id="profilePic" src={profilePic} />
             <div id="cardContent">
               <h6>Hey there!</h6>
               <p>
                 My name is Sam Symes. I am a software developer with a passion
                 for creating and designing web applications. I am a current
-                student of Get Coding's Full-Stack Development mentorship
+                student of Get Coding&apos;s Full-Stack Development mentorship
                 program. I am a creative problem solver with a strong background
                 in customer service and a passion for learning new technologies.
                 I am excited to bring my skills to a team and help create

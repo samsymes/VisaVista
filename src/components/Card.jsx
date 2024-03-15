@@ -38,9 +38,9 @@ export default DashboardCard;
 DashboardCard.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.any,
   cardType: PropTypes.string,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  text: PropTypes.any,
   children: PropTypes.node,
 };
 

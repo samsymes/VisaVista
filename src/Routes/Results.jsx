@@ -72,7 +72,7 @@ function Results() {
   const capital = destinationCountryInfo?.getCapital() ?? [];
   const timeZones = destinationCountryInfo?.getTimezones() ?? [];
   const population = destinationCountryInfo?.getPopulation() ?? [];
-  const languages = destinationCountryInfo?.getLanguages() ?? " ";
+  const languages = destinationCountryInfo?.getLanguages() ?? [];
   const destinationCapitalLat =
     destinationCountryInfo?.getDestinationCapitalLat();
   const destinationCapitalLng =
@@ -134,7 +134,7 @@ function Results() {
                 <Language /> Languages
               </>
             }
-            text={languages}
+            text={languages.join(", ")}
           />
           <DashboardCard
             className="infoCard"
