@@ -9,6 +9,8 @@ function SocialsButton(props) {
       href={props.href}
       color={props.color}
       aria-label={props.ariaLabel}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {props.iconElement}
     </IconButton>
