@@ -44,31 +44,32 @@ main {
     margin: 1rem;
 }
 
-#sidebar a.active {
+.navLinks a.active {
     background-color: #E9F2EA !important;
     border-radius: 20px !important;
 }
 
-#sidebar a {
+.navLinks a {
     color: #2E2E2E;
     width: 100%;
     border-radius: 20px;
     text-decoration: none;
 }
 
-#sidebar a:hover {
+.navLinks a:hover {
     background-color: #E9F2EA !important;
     border-radius: 20px !important;
 }
 
-#sidebar :hover {
+.navLinks :hover {
     background-color: unset !important;
 }
 
-#sidebar {
+.navLinks {
     width: 100%;
     height: 100%;
     border-radius: 20px;
+
 }
 
 .sideFooter {
@@ -79,29 +80,20 @@ main {
 
 
 #avatarSideBar {
-    width: 8rem;
+    width: 9rem;
     max-width: 20%;
 }
 
 .icons {
-    padding-right: 2rem;
-    padding-top: .5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    max-width: fit-content;
 }
 
-#github:hover {
-    transform: scale(1.1);
-
-}
-
-#linkedin:hover {
-    transform: scale(1.1);
-    background-color: #E9F2EA;
-
-}
-
-#email:hover {
-    transform: scale(1.1);
-
+#footerText {
+    padding: 0rem .5rem;
 }
 
 header {

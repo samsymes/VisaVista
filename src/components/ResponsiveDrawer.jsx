@@ -1,23 +1,25 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
+import SocialsButton from "./buttons/SocialsButton";
+
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import LinkedinIcon from "../assets/icons/LinkedinIcon";
-import GithubIcon from "../assets/icons/GithubIcon";
+import Github from "@mui/icons-material/GitHub";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import Email from "@mui/icons-material/Email";
 import avatar from "../assets/avatar.gif";
 import ImageElement from "../assets/ImageElement";
-import EmailIcon from "../assets/icons/EmailIcon";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
 import Logo from "../assets/Logo";
+import Stack from "@mui/material/Stack";
 import { ThemeProvider, Typography, createTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { FlightTakeoff, Home, ScreenSearchDesktop } from "@mui/icons-material";
@@ -44,17 +46,17 @@ function ResponsiveDrawer(props) {
   };
 
   const drawer = (
-    <div id="sidebar">
+    <div>
       {
         <>
           <Logo /> <h7>VisaVista</h7>
         </>
       }
 
-      <List>
+      <List className="navLinks">
         {[
           { text: "Home", path: "/VisaVista/" },
-          { text: "Flights", path: "/VisaVista/Flights" },
+          { text: "Flights", path: "/VisaVista/Flights/" },
           { text: "About", path: "/VisaVista/About" },
         ].map((item, index) => (
           <ListItem key={item.text}>
@@ -83,12 +85,24 @@ function ResponsiveDrawer(props) {
       </List>
       <div className="sideFooter">
         <Typography>
-          Built by <br />
+          <div id="footerText">Built by</div>
           <ImageElement id="avatarSideBar" src={avatar} /> Sam Symes <br />
           <div className="icons">
-            <GithubIcon />
-            <LinkedinIcon />
-            <EmailIcon />
+            <SocialsButton
+              href="https://github.com/samsymes"
+              ariaLabel="GitHub"
+              iconElement={<Github />}
+            />
+            <SocialsButton
+              href="https://www.linkedin.com/in/samanthasymes/"
+              ariaLabel="LinkedIn"
+              iconElement={<LinkedIn />}
+            />
+            <SocialsButton
+              href="mailto:samasymes@gmail.com"
+              ariaLabel="Email"
+              iconElement={<Email />}
+            />
           </div>
         </Typography>
       </div>

@@ -122,6 +122,9 @@
         border-radius: 20px !important;
         display: grid !important;
         box-shadow: 0px for X, Y, 10px blur rgba(0, 0, 0, 0.6);
+        max-width: 12rem;
+
+
     }
 
 }

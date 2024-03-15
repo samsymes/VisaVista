@@ -17,7 +17,12 @@ export default function SingleFlightWidget(props) {
     document.getElementById("widget-holder").appendChild(script);
 
     return () => {
-      document.getElementById("widget-holder").removeChild(script);
+      const scriptToRemove = document.querySelector(
+        `#widget-holder > script[src="${script.src}"]`
+      );
+      if (scriptToRemove) {
+        document.getElementById("widget-holder").removeChild(scriptToRemove);
+      }
     };
   }, [props.from, props.to]);
 
