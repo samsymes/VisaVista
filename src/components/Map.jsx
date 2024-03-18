@@ -22,6 +22,7 @@ import {
   TimeInterval,
 } from "cesium";
 import { PropTypes } from "prop-types";
+import MillenniumFalcon from "/public/millennium_falcon.glb";
 import { useEffect, useRef } from "react";
 function Map(props) {
   Ion.defaultAccessToken =
@@ -94,7 +95,7 @@ function Map(props) {
         ]),
         position: sampledProp,
         model: {
-          uri: "../../public/millennium_falcon.glb",
+          uri: MillenniumFalcon,
           minimumPixelSize: 128,
           maximumScale: 200000,
         },
