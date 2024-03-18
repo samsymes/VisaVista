@@ -40,7 +40,7 @@ main {
 }
 
 #logo {
-    width: 4rem;
+    width: 3rem;
     margin: 1rem;
 }
 
@@ -66,10 +66,17 @@ main {
 }
 
 .navLinks {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 4rem !important;
+}
 
+
+.sideBar {
+    padding: 1rem;
+    margin-top: 1rem;
 }
 
 .sideFooter {

@@ -23,12 +23,12 @@ import {
 } from "cesium";
 import { PropTypes } from "prop-types";
 import { useEffect, useRef } from "react";
-
+import Falcon from "../../public/falcon";
 function Map(props) {
   Ion.defaultAccessToken =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZDhiNmY0ZC1kZmU3LTQ2YjQtOTNhYi0xOGY4YTQyNDI3NzQiLCJpZCI6MTg1MzkwLCJpYXQiOjE3MDMwMjI1MTd9.NyKMKAqdzoRhgLLvDxOBOkvzOQTQTWaupOA_tdyj8RM";
   const cesiumRef = useRef(null);
-  const modelUrl = "./millennium_falcon.glb";
+
   useEffect(() => {
     if (
       cesiumRef.current &&
@@ -95,7 +95,7 @@ function Map(props) {
         ]),
         position: sampledProp,
         model: {
-          uri: modelUrl,
+          uri: { Falcon },
           minimumPixelSize: 128,
           maximumScale: 200000,
         },

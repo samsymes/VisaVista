@@ -45,7 +45,7 @@ function ResponsiveDrawer(props) {
   };
 
   const drawer = (
-    <div>
+    <div className="sideBar">
       {
         <>
           <ImageElement src={logo} id="logo" /> VisaVista
