@@ -94,7 +94,7 @@ function Map(props) {
         ]),
         position: sampledProp,
         model: {
-          uri: "../../millennium_falcon.glb",
+          uri: "../../public/millennium_falcon.glb",
           minimumPixelSize: 128,
           maximumScale: 200000,
         },
