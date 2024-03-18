@@ -2,13 +2,13 @@ class SearchResultsObjectClass {
   constructor(resultsObj) {
     this.resultsObj = resultsObj;
   }
-  getVisaRequirementsFromSearchResultsClass() {
+  getVisaRequirements() {
     return this.resultsObj.visa_requirements;
   }
-  getAllowedStayFromSearchResultsClass() {
+  getAllowedStay() {
     return this.resultsObj.allowed_stay;
   }
-  getNotesFromSearchResultsClass() {
+  getNotes() {
     return this.resultsObj.notes;
   }
 }

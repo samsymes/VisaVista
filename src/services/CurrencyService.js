@@ -11,7 +11,6 @@ class CurrencyService {
     );
     const currencyData = await response.json();
     const exchangeRate = currencyData[toCurrency][fromCurrency];
-    console.log(exchangeRate);
     return exchangeRate;
   }
 }

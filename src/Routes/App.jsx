@@ -14,8 +14,7 @@ function App() {
 
   const countryInfo = AllCountryInfoService;
 
-  const passportCountryCodes =
-    countryInfo.getPassportCountriesFromAllCountryInfoService();
+  const passportCountryCodes = countryInfo.getPassportCountries();
 
   const filteredPassports = countryFlagList.filter((country) =>
     passportCountryCodes.includes(country.value)
@@ -27,17 +26,14 @@ function App() {
   );
 
   useEffect(() => {
-    CountryFlagService.getCountryListFromCountryFlagService().then(
-      (response) => {
-        setCountryFlagList(response);
-      }
-    );
+    CountryFlagService.getCountryList().then((response) => {
+      setCountryFlagList(response);
+    });
   }, []);
 
-  const destinationCountryCodes =
-    countryInfo.getDestinationCountriesFromAllCountryInfoService(
-      selectedPassportCountry?.value
-    );
+  const destinationCountryCodes = countryInfo.getDestinationCountries(
+    selectedPassportCountry?.value
+  );
   const filteredDestinations = countryFlagList.filter((country) =>
     destinationCountryCodes.includes(country.value)
   );
@@ -51,13 +47,10 @@ function App() {
       setselectedDestinationCountry(null);
       setselectedPassportCountry(newCountry);
       setPassportSelected(true);
-      console.log("setPassportSelected to true");
     } else {
       setselectedPassportCountry(null);
       setselectedDestinationCountry(null);
       setPassportSelected(false);
-
-      console.log("setIsPassportSelected to false");
     }
   };
 

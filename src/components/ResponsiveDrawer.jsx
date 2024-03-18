@@ -19,7 +19,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
 import logo from "../assets/visavista-logo.png";
-import { ThemeProvider, Typography, createTheme } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { FlightTakeoff, Home, ScreenSearchDesktop } from "@mui/icons-material";
 import { PropTypes } from "prop-types";
@@ -83,27 +83,25 @@ function ResponsiveDrawer(props) {
         ))}
       </List>
       <div className="sideFooter">
-        <Typography>
-          <div id="footerText">Built by</div>
-          <ImageElement id="avatarSideBar" src={avatar} /> Sam Symes <br />
-          <div className="icons">
-            <SocialsButton
-              href="https://github.com/samsymes"
-              ariaLabel="GitHub"
-              iconElement={<Github />}
-            />
-            <SocialsButton
-              href="https://www.linkedin.com/in/samanthasymes/"
-              ariaLabel="LinkedIn"
-              iconElement={<LinkedIn />}
-            />
-            <SocialsButton
-              href="mailto:samasymes@gmail.com"
-              ariaLabel="Email"
-              iconElement={<Email />}
-            />
-          </div>
-        </Typography>
+        <div id="footerText">Built by</div>
+        <ImageElement id="avatarSideBar" src={avatar} /> Sam Symes <br />
+        <div className="icons">
+          <SocialsButton
+            href="https://github.com/samsymes"
+            ariaLabel="GitHub"
+            iconElement={<Github />}
+          />
+          <SocialsButton
+            href="https://www.linkedin.com/in/samanthasymes/"
+            ariaLabel="LinkedIn"
+            iconElement={<LinkedIn />}
+          />
+          <SocialsButton
+            href="mailto:samasymes@gmail.com"
+            ariaLabel="Email"
+            iconElement={<Email />}
+          />
+        </div>
       </div>
     </div>
   );
@@ -142,7 +140,6 @@ function ResponsiveDrawer(props) {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" noWrap component="div"></Typography>
             </Toolbar>
           </AppBar>
         </Box>
@@ -193,7 +190,7 @@ function ResponsiveDrawer(props) {
           }}
         >
           <Toolbar />
-          <Typography>{props.children}</Typography>
+          {props.children}
         </Box>
       </Box>
     </ThemeProvider>

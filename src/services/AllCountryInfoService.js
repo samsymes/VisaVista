@@ -6,37 +6,36 @@ class AllCountryInfoService {
     this.countries = data.passport;
   }
 
-  getPassportCountriesFromAllCountryInfoService() {
+  getPassportCountries() {
     return Object.keys(this.countries);
   }
 
-  getDestinationCountriesFromAllCountryInfoService(passport) {
+  getDestinationCountries(passport) {
     if (passport || this.countries[passport]) {
       const destinationCountries = this.countries[passport]?.destinations?.map(
         (destination) => destination.destination_code
       );
-      console.log("destination countries", destinationCountries);
+
       return destinationCountries;
     }
     return [];
   }
-  getDestinationCountryNameFromAllCountryInfoService(passport, destination) {
+  getDestinationCountryName(passport, destination) {
     const destinationObject = this.countries[passport]?.destinations?.find(
       (d) => d.destination_code === destination
     );
     const destinationName = destinationObject?.destination_name;
-    console.log("destination name", destinationName);
 
     return destinationName;
   }
 
-  getPassportCountryNameFromAllCountryInfoService(passport) {
+  getPassportCountryName(passport) {
     if (passport) {
       return this.countries[passport]?.passport_name;
     }
   }
 
-  getResultsObjectFromAllCountryInfoService(passport, destination) {
+  getResultsObject(passport, destination) {
     if (passport) {
       const req = this.countries[passport]?.destinations?.find(
         (d) => d.destination_code === destination
@@ -53,10 +52,7 @@ class AllCountryInfoService {
       const destinationObject = this.countries[passport]?.destinations?.find(
         (d) => d.destination_code === destination
       );
-      console.log(
-        "destinatin airport",
-        destinationObject?.destination_airport_code
-      );
+
       return destinationObject?.destination_airport_code;
     }
   }

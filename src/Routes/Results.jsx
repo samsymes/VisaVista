@@ -26,23 +26,14 @@ function Results() {
   const ToAirport = AllCountryInfoService?.getEndAirportCode(From, To);
 
   const destinationCountryName =
-    AllCountryInfoService?.getDestinationCountryNameFromAllCountryInfoService(
-      From,
-      To
-    );
+    AllCountryInfoService?.getDestinationCountryName(From, To);
   const passportCountryName =
-    AllCountryInfoService?.getPassportCountryNameFromAllCountryInfoService(
-      From
-    );
+    AllCountryInfoService?.getPassportCountryName(From);
 
-  console.log(AllCountryInfoService);
-  const resultsObject =
-    AllCountryInfoService?.getResultsObjectFromAllCountryInfoService(From, To);
-  console.log("resultsObject", resultsObject);
-  const visaRequirements =
-    resultsObject?.getVisaRequirementsFromSearchResultsClass();
-  const allowedStay = resultsObject?.getAllowedStayFromSearchResultsClass();
-  const notes = resultsObject?.getNotesFromSearchResultsClass();
+  const resultsObject = AllCountryInfoService?.getResultsObject(From, To);
+  const visaRequirements = resultsObject?.getVisaRequirements();
+  const allowedStay = resultsObject?.getAllowedStay();
+  const notes = resultsObject?.getNotes();
   const [passportCountryInfo, setPassportCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
@@ -53,7 +44,7 @@ function Results() {
     passportCountryInfo?.getCurrencyCodes(From) ?? null;
 
   useEffect(() => {
-    RestCountryService.getCountryInfoFromRestCountryService(To).then(
+    RestCountryService.getCountryInfo(To).then(
       (destinationCountryInfoInstance) => {
         setDestinationCountryInfo(destinationCountryInfoInstance);
       }
@@ -61,7 +52,7 @@ function Results() {
   }, [To]);
 
   useEffect(() => {
-    RestCountryService.getCountryInfoFromRestCountryService(From).then(
+    RestCountryService.getCountryInfo(From).then(
       (passportCountryInfoInstance) => {
         setPassportCountryInfo(passportCountryInfoInstance);
       }

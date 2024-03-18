@@ -2,7 +2,7 @@ class CountryFlagService {
   constructor() {
     this.countryList = [];
   }
-  async getCountryListFromCountryFlagService() {
+  async getCountryList() {
     const response = await fetch("https://flagcdn.com/en/codes.json");
     const countryData = await response.json();
     const countryFlagList = Object.entries(countryData).map(
