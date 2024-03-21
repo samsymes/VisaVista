@@ -122,7 +122,7 @@ function App() {
               text="Tell me what I need to know"
               passportCode={selectedPassportCountry?.value}
               destinationCode={selectedDestinationCountry?.value}
-              link={`/VisaVista/Results/?From=${selectedPassportCountry?.value}&To=${selectedDestinationCountry?.value}`}
+              link={`/Results/?From=${selectedPassportCountry?.value}&To=${selectedDestinationCountry?.value}`}
             />
           </div>
         </div>

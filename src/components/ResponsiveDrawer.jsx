@@ -54,9 +54,9 @@ function ResponsiveDrawer(props) {
 
       <List className="navLinks">
         {[
-          { text: "Home", path: "/VisaVista/" },
-          { text: "Flights", path: "/VisaVista/Flights/" },
-          { text: "About", path: "/VisaVista/About" },
+          { text: "Home", path: "/" },
+          { text: "Flights", path: "/Flights" },
+          { text: "About", path: "/About" },
         ].map((item, index) => (
           <ListItem key={item.text}>
             <NavLink to={item.path} end>
