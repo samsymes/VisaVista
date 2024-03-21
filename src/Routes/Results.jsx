@@ -108,7 +108,8 @@ function Results() {
           <DashboardCard
             className="infoCard"
             id="timeZoneCard"
-            cardType="rowCardContent"
+            bodyStyle="timeZoneCardBody"
+            cardType="columnCardContent"
             title={
               <>
                 <AccessTime /> Time Zone
@@ -131,6 +132,7 @@ function Results() {
             className="infoCard"
             id="visaCard"
             cardType="columnCardContent"
+            bodyStyle="visaCardBody"
             title={
               <>
                 <Newspaper /> Visa Information
@@ -156,9 +158,8 @@ function Results() {
             }
             text={
               <>
-                <b>Country:</b> {name}
-                <br />
-                <b>Capital: </b> {capital}
+                {capital}
+                {", "} {name}
               </>
             }
           />

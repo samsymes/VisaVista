@@ -27,7 +27,9 @@ class DashboardCard extends Component {
           <h6>
             <b>{this.props.title}</b>
           </h6>
-          <div id={this.props.cardType}>{this.props.text}</div>
+          <div className={this.props.cardType} id={this.props.bodyStyle}>
+            {this.props.text}
+          </div>
           {this.props.children}
         </div>
       </Card>
@@ -42,6 +44,7 @@ DashboardCard.propTypes = {
   cardType: PropTypes.string,
   text: PropTypes.any,
   children: PropTypes.node,
+  bodyStyle: PropTypes.string,
 };
 
 // function DashboardCard(props) {

@@ -3,7 +3,7 @@
     .resultsContainer {
         margin: 1rem;
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 150px) repeat(3, 300px);
         column-gap: 2rem;
         row-gap: 2rem;
@@ -19,17 +19,22 @@
         width: 100%;
     }
 
+    #timeZoneCardBody {
+        max-height: 6rem;
+    }
 
-
-    #columnCardContent {
+    .columnCardContent {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
         overflow: auto;
-        max-height: 15rem;
         height: 100%;
         width: 100%;
+    }
+
+    #visaCardBody {
+        max-height: 15rem;
     }
 
     .cesium-viewer canvas {
@@ -49,6 +54,8 @@
 
     #timeZoneCard {
         grid-area: 1 / 2 / 1 / 2;
+        max-height: 10rem;
+        overflow: auto;
     }
 
     #languagesCard {
@@ -99,7 +106,7 @@
         width: 100%;
     }
 
-    #columnCardContent {
+    .columnCardContent {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -183,7 +190,7 @@
         margin-top: 8rem;
     }
 
-    #columnCardContent {
+    .columnCardContent {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -261,7 +268,7 @@
         width: 100%;
     }
 
-    #columnCardContent {
+    .columnCardContent {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -319,12 +326,13 @@
 
 }
 
-#rowCardContent {
+.rowCardContent {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     padding: 1rem;
     flex-wrap: wrap;
+    overflow: auto;
     max-height: fit-content;
     height: 100%;
     align-items: center;
