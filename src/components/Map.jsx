@@ -22,7 +22,7 @@ import {
   TimeInterval,
 } from "cesium";
 import { PropTypes } from "prop-types";
-import MillenniumFalcon from "/public/millennium_falcon.glb";
+import MillenniumFalcon from "/src/millennium_falcon.glb";
 import { useEffect, useRef } from "react";
 function Map(props) {
   Ion.defaultAccessToken =
