@@ -44,6 +44,10 @@ function Results() {
     passportCountryInfo?.getCurrencyCodes(From) ?? null;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     RestCountryService.getCountryInfo(To).then(
       (destinationCountryInfoInstance) => {
         setDestinationCountryInfo(destinationCountryInfoInstance);
