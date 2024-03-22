@@ -7,18 +7,18 @@ import Flights from "./Routes/Flights.jsx";
 import About from "./Routes/About.jsx";
 import "./main.css";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <>
     <BrowserRouter basename={import.meta.env.DEV ? "/" : "/VisaVista/"}>
-      <ScrollToTop>
-        <Routes>
-          <Route path="/" index element={<App />} />
-          <Route path="/Results" element={<Results />} />
-          <Route path="/Flights" element={<Flights />} />
-          <Route path="/About" element={<About />} />
-        </Routes>
-      </ScrollToTop>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" index element={<App />} />
+        <Route path="/Results" element={<Results />} />
+        <Route path="/Flights" element={<Flights />} />
+        <Route path="/About" element={<About />} />
+      </Routes>
     </BrowserRouter>
   </>
 );

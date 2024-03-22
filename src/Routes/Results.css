@@ -23,6 +23,10 @@
         max-height: 6rem;
     }
 
+    #languagesCardBody {
+        max-height: 5rem;
+    }
+
     .columnCardContent {
         display: flex;
         flex-direction: column;
@@ -36,6 +40,7 @@
     #visaCardBody {
         max-height: 15rem;
     }
+
 
     .cesium-viewer canvas {
         width: 100% !important;
@@ -60,6 +65,7 @@
 
     #languagesCard {
         grid-area: 2 / 1 / 2 / 1;
+
     }
 
     #destinationCard {

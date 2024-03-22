@@ -120,7 +120,8 @@ function Results() {
           <DashboardCard
             className="infoCard"
             id="languagesCard"
-            cardType="rowCardContent"
+            cardType="columnCardContent"
+            bodyStyle="languagesCardBody"
             title={
               <>
                 <Language /> Languages
