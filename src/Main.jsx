@@ -10,7 +10,7 @@ import "./main.css";
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <>
-    <BrowserRouter baseName={import.meta.env.DEV ? "/" : "/VisaVista"}>
+    <BrowserRouter baseName={import.meta.env.DEV ? "/" : "/VisaVista/"}>
       <Routes>
         <Route path="/" index element={<App />} />
         <Route path="/Results" element={<Results />} />
