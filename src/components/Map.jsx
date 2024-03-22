@@ -43,6 +43,11 @@ function Map(props) {
       // Define the number of points you want to create
       const numPoints = 100;
 
+      if (!Number.isInteger(numPoints) || numPoints < 0) {
+        console.error("Invalid numPoints:", numPoints);
+        return;
+      }
+
       // Calculate the total duration of the flight in seconds
       const totalDuration = JulianDate.secondsDifference(stop, start);
 
