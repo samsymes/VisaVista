@@ -215,6 +215,7 @@ function Map(props) {
   return (
     <>
       <Viewer
+        containerProps={{ tabIndex: -1 }}
         id={props.id}
         ref={cesiumRef}
         shouldAnimate={true}

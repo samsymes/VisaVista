@@ -19,6 +19,9 @@ import {
 } from "@mui/icons-material";
 
 function Results() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
   const To = searchParams.get("To");
@@ -42,10 +45,6 @@ function Results() {
 
   const passportCurrencyCodes =
     passportCountryInfo?.getCurrencyCodes(From) ?? null;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   useEffect(() => {
     RestCountryService.getCountryInfo(To).then(
