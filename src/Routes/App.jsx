@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
-import ComboBox from "../components/selects/ComboBox";
+import ComboBox from "../components/ComboBox";
 import "./App.css";
 import Button from "../components/buttons/Button";
 import Flag from "../components/Flag";
