@@ -1,6 +1,6 @@
 import data from "../entities/data.json";
 import SearchResultsClass from "../entities/SearchResultsClass";
-
+// put data in a table
 class AllCountryInfoService {
   constructor() {
     this.countries = data.passport;
