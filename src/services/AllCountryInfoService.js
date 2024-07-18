@@ -20,6 +20,7 @@ class AllCountryInfoService {
     }
     return [];
   }
+
   getDestinationCountryName(passport, destination) {
     const destinationObject = this.countries[passport]?.destinations?.find(
       (d) => d.destination_code === destination
