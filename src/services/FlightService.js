@@ -1,4 +1,4 @@
-class flightService {
+class FlightService {
   constructor() {
     this.flightData = [];
   }
@@ -13,4 +13,4 @@ class flightService {
   }
 }
 
-export default new flightService();
+export default new FlightService();

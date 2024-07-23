@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.15.6",
     "@mui/material": "^5.16.4",
     "@mui/x-date-pickers": "^7.10.0",
+    "axios": "^1.7.2",
     "bootstrap": "^5.3.2",
     "cesium": "^1.113.0",
     "csv-parse": "^5.5.2",

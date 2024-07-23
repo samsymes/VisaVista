@@ -1,6 +1,4 @@
 import ResponsiveDrawer from "../components/ResponsiveDrawer";
-// import { useSearchParams } from "react-router-dom";
-// import AllCountryInfoService from "../services/AllCountryInfoService";
 import Map from "../components/Map";
 import ComboBox from "../components/ComboBox";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -8,18 +6,20 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import DatePicker from "../components/DatePicker";
 import { Grid } from "@mui/material";
 import Item from "@mui/material/Grid";
-function Flights() {
-  // const [searchParams] = useSearchParams();
-  // const From = searchParams.get("From");
-  // const To = searchParams.get("To");
+import { useState, useEffect } from "react";
 
-  // const passport = AllCountryInfoService.getStartAirportCode(From);
-  // const destination = AllCountryInfoService.getEndAirportCode(To);
+function Flights() {
+  // Bring in list of options for ComboBoxes
+  // const [selectedFromCountry, setSelectedFromCountry] = useState(null);
+  // const [selectedToCountry, setSelectedToCountry] = useState(null);
+
+  // const [selectedDate, setSelectedDate] = useState(null);
+  // const [selectedReturnDate, setSelectedReturnDate] = useState(null);
+
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <ResponsiveDrawer>
-          {/* <FlightData from={passport} to={destination} /> */}
           {"Flights"}
           <Grid
             container
@@ -32,15 +32,17 @@ function Flights() {
             <Grid item m={3}>
               <Item>
                 <ComboBox
-                  // options={options}
-                  tag="Where to?"
-                  // onChange={onChange}
+                  options={" "}
+                  tag="Where To?"
+
+                  // onChange={"onSelectionChange"}
                 />
               </Item>
             </Grid>
             <Grid item m={3}>
               <Item>
-                <ComboBox // options={options}
+                <ComboBox
+                  options={" "}
                   tag="From Where?"
                   // onChange={onChange}
                 />
