@@ -6,19 +6,18 @@
 // https://restcountries.com/v3.1/all?fields=name,capital,currencies
 
 class RestCountryService {
-  private baseUrl = "http://localhost:3002/countryInfo";
-
   async getCountryInfo() {
-    const url = `${this.baseUrl}`;
     try {
-      const response = await fetch(url);
+      const response = await fetch("http://localhost:3002/countryInfo", {
+        mode: "no-cors",
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
       console.log(data);
     } catch (error) {
-      console.error("Error fetching country data:", error);
+      console.error("Cannot connect to backend", error);
     }
   }
 }
