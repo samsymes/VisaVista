@@ -3,11 +3,11 @@ import AllCountryInfoService from "../services/AllCountryInfoService";
 import "./Results.css";
 import Map from "../components/Map";
 import { useEffect, useState } from "react";
-import RestCountryService from "../services/RestCountryService";
+import RestCountriesService from "../services/RestCountriesService";
 import CurrencyConverter from "../components/CurrencyConverter";
 import DashboardCard from "../components/Card";
 import ResponsiveDrawer from "../components/ResponsiveDrawer";
-import SingleFlightWidget from "../components/SingleFlightWidget";
+// import SingleFlightWidget from "../components/SingleFlightWidget";
 import {
   AccessTime,
   CurrencyExchange,
@@ -25,8 +25,8 @@ function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
   const To = searchParams.get("To");
-  const FromAirport = AllCountryInfoService?.getStartAirportCode(From);
-  const ToAirport = AllCountryInfoService?.getEndAirportCode(From, To);
+  // const FromAirport = AllCountryInfoService?.getStartAirportCode(From);
+  // const ToAirport = AllCountryInfoService?.getEndAirportCode(From, To);
 
   const destinationCountryName =
     AllCountryInfoService?.getDestinationCountryName(From, To);
@@ -47,7 +47,7 @@ function Results() {
     passportCountryInfo?.getCurrencyCodes(From) ?? null;
 
   useEffect(() => {
-    RestCountryService.getCountryInfo(To).then(
+    RestCountriesService.getCountryInfo(To).then(
       (destinationCountryInfoInstance) => {
         setDestinationCountryInfo(destinationCountryInfoInstance);
       }
@@ -55,7 +55,7 @@ function Results() {
   }, [To]);
 
   useEffect(() => {
-    RestCountryService.getCountryInfo(From).then(
+    RestCountriesService.getCountryInfo(From).then(
       (passportCountryInfoInstance) => {
         setPassportCountryInfo(passportCountryInfoInstance);
       }
@@ -198,7 +198,7 @@ function Results() {
             text={
               <>
                 {" "}
-                <SingleFlightWidget from={FromAirport} to={ToAirport} />
+                {/* <SingleFlightWidget from={FromAirport} to={ToAirport} /> */}
               </>
             }
           />
