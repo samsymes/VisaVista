@@ -17,6 +17,7 @@ class RestCountriesService {
       }
 
       const data = response.json();
+      console.log("Country data:", data);
       return data;
     } catch (error) {
       console.error("Error fetching country stats:", error);
