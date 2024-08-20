@@ -1,15 +1,14 @@
-import { useSearchParams } from "react-router-dom";
-
 class RestCountriesService {
   constructor() {}
 
-  async getCountryInfo() {
+  async getCountryInfo(from: string, to: string) {
     try {
-      const [searchParams] = useSearchParams();
-      const From = searchParams.get("From");
-      const To = searchParams.get("To");
       const response = await fetch(
-        `http://localhost:3002/rest-countries?From=${From}&To=${To}`
+        `http://localhost:3002/rest-countries?From=${from}&To=${to}`
+      );
+      console.log(
+        "FROM FRONTEND:",
+        `http://localhost:3002/rest-countries?From=${from}&To=${to}`
       );
       const countryInfo = await response.json();
       console.log("Country data:", countryInfo);

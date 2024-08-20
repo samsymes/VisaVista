@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import AllCountryInfoService from "../services/AllCountryInfoService";
+// import AllCountryInfoService from "../services/AllCountryInfoService";
 import "./Results.css";
 import Map from "../components/Map";
 import { useEffect, useState } from "react";
@@ -25,42 +25,52 @@ function Results() {
   const [searchParams] = useSearchParams();
   const From = searchParams.get("From");
   const To = searchParams.get("To");
+
+  console.log(
+    "search params:",
+    searchParams.toString(),
+    "To:",
+    To,
+    "From:",
+    From
+  );
+
   // const FromAirport = AllCountryInfoService?.getStartAirportCode(From);
   // const ToAirport = AllCountryInfoService?.getEndAirportCode(From, To);
 
-  const destinationCountryName =
-    AllCountryInfoService?.getDestinationCountryName(From, To);
-  const passportCountryName =
-    AllCountryInfoService?.getPassportCountryName(From);
+  // const destinationCountryName =
+  //   AllCountryInfoService?.getDestinationCountryName(From, To);
+  // const passportCountryName =
+  //   AllCountryInfoService?.getPassportCountryName(From);
 
-  const resultsObject = AllCountryInfoService?.getResultsObject(From, To);
-  const visaRequirements = resultsObject?.getVisaRequirements();
-  const allowedStay = resultsObject?.getAllowedStay();
-  const notes = resultsObject?.getNotes();
-  const [passportCountryInfo, setPassportCountryInfo] = useState(null);
+  // const resultsObject = AllCountryInfoService?.getResultsObject(From, To);
+  // const visaRequirements = resultsObject?.getVisaRequirements();
+  // const allowedStay = resultsObject?.getAllowedStay();
+  // const notes = resultsObject?.getNotes();
+  // const [passportCountryInfo, setPassportCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
-  const destinationCurrencyCodes =
-    destinationCountryInfo?.getCurrencyCodes(To) ?? null;
+  // const destinationCurrencyCodes =
+  //   destinationCountryInfo?.getCurrencyCodes(To) ?? null;
 
-  const passportCurrencyCodes =
-    passportCountryInfo?.getCurrencyCodes(From) ?? null;
+  // const passportCurrencyCodes =
+  //   passportCountryInfo?.getCurrencyCodes(From) ?? null;
 
   useEffect(() => {
-    RestCountriesService.getCountryInfo(To).then(
+    RestCountriesService.getCountryInfo(From, To).then(
       (destinationCountryInfoInstance) => {
         setDestinationCountryInfo(destinationCountryInfoInstance);
       }
     );
-  }, [To]);
+  }, [From, To]);
 
-  useEffect(() => {
-    RestCountriesService.getCountryInfo(From).then(
-      (passportCountryInfoInstance) => {
-        setPassportCountryInfo(passportCountryInfoInstance);
-      }
-    );
-  }, [From]);
+  // useEffect(() => {
+  //   RestCountriesService.getCountryInfo(From).then(
+  //     (passportCountryInfoInstance) => {
+  //       setPassportCountryInfo(passportCountryInfoInstance);
+  //     }
+  //   );
+  // }, [From]);
 
   const name = destinationCountryInfo?.getCountryName() ?? " ";
   const capital = destinationCountryInfo?.getCapital() ?? [];
@@ -71,8 +81,8 @@ function Results() {
     destinationCountryInfo?.getDestinationCapitalLat();
   const destinationCapitalLng =
     destinationCountryInfo?.getDestinationCapitalLng();
-  const passportCapitalLat = passportCountryInfo?.getPassportCapitalLat();
-  const passportCapitalLng = passportCountryInfo?.getPassportCapitalLng();
+  // const passportCapitalLat = passportCountryInfo?.getPassportCapitalLat();
+  // const passportCapitalLng = passportCountryInfo?.getPassportCapitalLng();
 
   return (
     <>
@@ -85,13 +95,13 @@ function Results() {
               <>
                 <Map
                   id="map"
-                  passportCapitalLat={passportCapitalLat}
-                  passportCapitalLng={passportCapitalLng}
+                  // passportCapitalLat={passportCapitalLat}
+                  // passportCapitalLng={passportCapitalLng}
                   destinationCapitalLat={destinationCapitalLat}
                   destinationCapitalLng={destinationCapitalLng}
-                  passportCountryInfo={passportCountryInfo}
-                  passportCountryName={passportCountryName}
-                  destinationCountryName={destinationCountryName}
+                  // passportCountryInfo={passportCountryInfo}
+                  // passportCountryName={passportCountryName}
+                  // destinationCountryName={destinationCountryName}
                 />
               </>
             }
@@ -142,13 +152,13 @@ function Results() {
                 <Newspaper /> Visa Information
               </>
             }
-            text={
-              <>
-                <b>Visa Requirements: </b> {visaRequirements}
-                <b>Allowed Stay: </b> {allowedStay}
-                <b>Notes: </b> {notes}
-              </>
-            }
+            // text={
+            //   <>
+            //     <b>Visa Requirements: </b> {visaRequirements}
+            //     <b>Allowed Stay: </b> {allowedStay}
+            //     <b>Notes: </b> {notes}
+            //   </>
+            // }
           />
 
           <DashboardCard
@@ -180,8 +190,8 @@ function Results() {
             text={
               <>
                 <CurrencyConverter
-                  passportCode={passportCurrencyCodes}
-                  destCode={destinationCurrencyCodes}
+                // passportCode={passportCurrencyCodes}
+                // destCode={destinationCurrencyCodes}
                 />
               </>
             }
