@@ -40,14 +40,12 @@ function Results() {
   // const notes = resultsObject?.getNotes();
   // const [passportCountryInfo, setPassportCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
-
   // const destinationCurrencyCodes =
   //   destinationCountryInfo?.getCurrencyCodes(To) ?? null;
 
   // const passportCurrencyCodes =
   //   passportCountryInfo?.getCurrencyCodes(From) ?? null;
 
-  // ** combined to and from useEffects for searchParams functionality
   useEffect(() => {
     RestCountriesService.getCountryInfo(From, To).then(
       (destinationCountryInfoInstance) => {
@@ -55,12 +53,16 @@ function Results() {
       }
     );
   }, [From, To]);
+  console.log("destinationCountryInfo", destinationCountryInfo);
 
-  const name = destinationCountryInfo?.name ?? " ";
+  // **refactor**
+  const name = destinationCountryInfo?.name ?? [];
   const capital = destinationCountryInfo?.capital ?? [];
   const timeZones = destinationCountryInfo?.timeZones ?? [];
   const population = destinationCountryInfo?.population ?? [];
-  const languages = destinationCountryInfo?.languages ?? [];
+  // **object not valid react child**
+  // const languages = destinationCountryInfo?.languages ?? {};
+
   // const destinationCapitalLat =
   //   destinationCountryInfo?.getDestinationCapitalLat();
   // const destinationCapitalLng =
@@ -124,7 +126,7 @@ function Results() {
                 <Language /> Languages
               </>
             }
-            text={languages.join(", ")}
+            // text={languages} // object not valid react child
           />
           <DashboardCard
             className="infoCard"
