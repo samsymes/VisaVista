@@ -11,10 +11,10 @@ class RestCountriesService {
         `http://localhost:3002/rest-countries?From=${from}&To=${to}`
       );
       const countryInfo = await response.json();
-      console.log("Country data:", countryInfo);
+      console.log("Country data received:", countryInfo);
       return countryInfo;
     } catch (error) {
-      console.error("Error fetching country stats:", error);
+      console.error("Error fetching country data:", error);
       throw error;
     }
   }
