@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-// import AllCountryInfoService from "../services/AllCountryInfoService";
+import AllCountryInfoService from "../services/AllCountryInfoService";
 import "./Results.css";
 import Map from "../components/Map";
 import { useEffect, useState } from "react";
@@ -34,14 +34,12 @@ function Results() {
   // const passportCountryName =
   //   AllCountryInfoService?.getPassportCountryName(From);
 
-  // const resultsObject = AllCountryInfoService?.getResultsObject(From, To);
-  // const visaRequirements = resultsObject?.getVisaRequirements();
-  // const allowedStay = resultsObject?.getAllowedStay();
-  // const notes = resultsObject?.getNotes();
+  const resultsObject = AllCountryInfoService?.getResultsObject(From, To);
+  const visaRequirements = resultsObject?.getVisaRequirements();
+  const allowedStay = resultsObject?.getAllowedStay();
+  const notes = resultsObject?.getNotes();
   // const [passportCountryInfo, setPassportCountryInfo] = useState(null);
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
-  // const destinationCurrencyCodes =
-  //   destinationCountryInfo?.getCurrencyCodes(To) ?? null;
 
   // const passportCurrencyCodes =
   //   passportCountryInfo?.getCurrencyCodes(From) ?? null;
@@ -60,13 +58,11 @@ function Results() {
   const capital = destinationCountryInfo?.capital ?? [];
   const timeZones = destinationCountryInfo?.timeZones ?? [];
   const population = destinationCountryInfo?.population ?? [];
-  // **object not valid react child**
-  // const languages = destinationCountryInfo?.languages ?? {};
+  const languages = destinationCountryInfo?.languages ?? [];
+  const lat = destinationCountryInfo?.lat ?? 0;
+  const lng = destinationCountryInfo?.lng ?? 0;
+  // const destinationCurrencyCodes = destinationCountryInfo?.currencies ?? null;
 
-  // const destinationCapitalLat =
-  //   destinationCountryInfo?.getDestinationCapitalLat();
-  // const destinationCapitalLng =
-  //   destinationCountryInfo?.getDestinationCapitalLng();
   // const passportCapitalLat = passportCountryInfo?.getPassportCapitalLat();
   // const passportCapitalLng = passportCountryInfo?.getPassportCapitalLng();
 
@@ -83,8 +79,8 @@ function Results() {
                   id="map"
                   // passportCapitalLat={passportCapitalLat}
                   // passportCapitalLng={passportCapitalLng}
-                  // destinationCapitalLat={destinationCapitalLat}
-                  // destinationCapitalLng={destinationCapitalLng}
+                  destinationCapitalLat={lat}
+                  destinationCapitalLng={lng}
                   // passportCountryInfo={passportCountryInfo}
                   // passportCountryName={passportCountryName}
                   // destinationCountryName={destinationCountryName}
@@ -102,7 +98,7 @@ function Results() {
                 <People /> Population
               </>
             }
-            text={population.toLocaleString()}
+            text={population}
           />
           <DashboardCard
             className="infoCard"
@@ -114,7 +110,7 @@ function Results() {
                 <AccessTime /> Time Zone
               </>
             }
-            text={timeZones.join(", ")}
+            text={timeZones}
           />
           <DashboardCard
             className="infoCard"
@@ -126,7 +122,7 @@ function Results() {
                 <Language /> Languages
               </>
             }
-            // text={languages} // object not valid react child
+            text={languages}
           />
           <DashboardCard
             className="infoCard"
@@ -138,13 +134,13 @@ function Results() {
                 <Newspaper /> Visa Information
               </>
             }
-            // text={
-            //   <>
-            //     <b>Visa Requirements: </b> {visaRequirements}
-            //     <b>Allowed Stay: </b> {allowedStay}
-            //     <b>Notes: </b> {notes}
-            //   </>
-            // }
+            text={
+              <>
+                <b>Visa Requirements: </b> {visaRequirements}
+                <b>Allowed Stay: </b> {allowedStay}
+                <b>Notes: </b> {notes}
+              </>
+            }
           />
 
           <DashboardCard
