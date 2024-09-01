@@ -28,21 +28,21 @@ function Results() {
 
   // const FromAirport = AllCountryInfoService?.getStartAirportCode(From);
   // const ToAirport = AllCountryInfoService?.getEndAirportCode(From, To);
-
-  // const destinationCountryName =
-  //   AllCountryInfoService?.getDestinationCountryName(From, To);
   // const passportCountryName =
   //   AllCountryInfoService?.getPassportCountryName(From);
+  // const [passportCountryInfo, setPassportCountryInfo] = useState(null);
+  // const passportCurrencyCodes =
+  //   passportCountryInfo?.getCurrencyCodes(From) ?? null;
+
+  const destinationCountryName =
+    AllCountryInfoService?.getDestinationCountryName(From, To);
 
   const resultsObject = AllCountryInfoService?.getResultsObject(From, To);
   const visaRequirements = resultsObject?.getVisaRequirements();
   const allowedStay = resultsObject?.getAllowedStay();
   const notes = resultsObject?.getNotes();
-  // const [passportCountryInfo, setPassportCountryInfo] = useState(null);
-  const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
-  // const passportCurrencyCodes =
-  //   passportCountryInfo?.getCurrencyCodes(From) ?? null;
+  const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
 
   useEffect(() => {
     RestCountriesService.getCountryInfo(From, To).then(
@@ -53,18 +53,17 @@ function Results() {
   }, [From, To]);
   console.log("destinationCountryInfo", destinationCountryInfo);
 
-  // **refactor**
-  const name = destinationCountryInfo?.name ?? [];
-  const capital = destinationCountryInfo?.capital ?? [];
-  const timeZones = destinationCountryInfo?.timeZones ?? [];
-  const population = destinationCountryInfo?.population ?? [];
-  const languages = destinationCountryInfo?.languages ?? [];
-  const lat = destinationCountryInfo?.lat ?? 0;
-  const lng = destinationCountryInfo?.lng ?? 0;
-  // const destinationCurrencyCodes = destinationCountryInfo?.currencies ?? null;
-
-  // const passportCapitalLat = passportCountryInfo?.getPassportCapitalLat();
-  // const passportCapitalLng = passportCountryInfo?.getPassportCapitalLng();
+  const {
+    name = [],
+    capital = [],
+    timeZones = [],
+    population = [],
+    languages = [],
+    lat = 0,
+    lng = 0,
+    // currencies = [],
+    // currencySymbol = [],
+  } = destinationCountryInfo ?? {};
 
   return (
     <>
@@ -83,7 +82,7 @@ function Results() {
                   destinationCapitalLng={lng}
                   // passportCountryInfo={passportCountryInfo}
                   // passportCountryName={passportCountryName}
-                  // destinationCountryName={destinationCountryName}
+                  destinationCountryName={destinationCountryName}
                 />
               </>
             }
@@ -172,6 +171,7 @@ function Results() {
             text={
               <>
                 <CurrencyConverter
+
                 // passportCode={passportCurrencyCodes}
                 // destCode={destinationCurrencyCodes}
                 />
