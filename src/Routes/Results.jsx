@@ -28,14 +28,6 @@ function Results() {
 
   // const FromAirport = AllCountryInfoService?.getStartAirportCode(From);
   // const ToAirport = AllCountryInfoService?.getEndAirportCode(From, To);
-  // const passportCountryName =
-  //   AllCountryInfoService?.getPassportCountryName(From);
-  // const [passportCountryInfo, setPassportCountryInfo] = useState(null);
-  // const passportCurrencyCodes =
-  //   passportCountryInfo?.getCurrencyCodes(From) ?? null;
-
-  const destinationCountryName =
-    AllCountryInfoService?.getDestinationCountryName(From, To);
 
   const resultsObject = AllCountryInfoService?.getResultsObject(From, To);
   const visaRequirements = resultsObject?.getVisaRequirements();
@@ -43,27 +35,41 @@ function Results() {
   const notes = resultsObject?.getNotes();
 
   const [destinationCountryInfo, setDestinationCountryInfo] = useState(null);
-
+  const [sourceCountryInfo, setSourceCountryInfo] = useState(null);
   useEffect(() => {
     RestCountriesService.getCountryInfo(From, To).then(
-      (destinationCountryInfoInstance) => {
-        setDestinationCountryInfo(destinationCountryInfoInstance);
+      ({ destinationCountryInfo, sourceCountryInfo }) => {
+        setDestinationCountryInfo(destinationCountryInfo);
+        setSourceCountryInfo(sourceCountryInfo);
       }
     );
   }, [From, To]);
-  console.log("destinationCountryInfo", destinationCountryInfo);
+  console.log(
+    "destinationCountryInfo",
+    destinationCountryInfo,
+    "sourceCountry",
+    sourceCountryInfo
+  );
 
   const {
-    name = [],
-    capital = [],
-    timeZones = [],
-    population = [],
-    languages = [],
-    lat = 0,
-    lng = 0,
-    // currencies = [],
-    // currencySymbol = [],
+    name: destinationCountryName = "",
+    capital: destinationCapital = [],
+    timeZones: destinationTimeZones = [],
+    population: destinationPopulation = [],
+    languages: destinationLanguages = [],
+    lat: destinationLat = 0,
+    lng: destinationLng = 0,
+    currencies: destinationCurrencyCode = [],
+    currencySymbol: destinationCurrencySymbol = [],
   } = destinationCountryInfo ?? {};
+
+  const {
+    name: sourceCountryName = "",
+    lat: sourceLat = 0,
+    lng: sourceLng = 0,
+    currencies: sourceCurrencyCode = [],
+    currencySymbol: sourceCurrencySymbol = [],
+  } = sourceCountryInfo ?? {};
 
   return (
     <>
@@ -76,12 +82,11 @@ function Results() {
               <>
                 <Map
                   id="map"
-                  // passportCapitalLat={passportCapitalLat}
-                  // passportCapitalLng={passportCapitalLng}
-                  destinationCapitalLat={lat}
-                  destinationCapitalLng={lng}
-                  // passportCountryInfo={passportCountryInfo}
-                  // passportCountryName={passportCountryName}
+                  passportCapitalLat={sourceLat}
+                  passportCapitalLng={sourceLng}
+                  destinationCapitalLat={destinationLat}
+                  destinationCapitalLng={destinationLng}
+                  passportCountryName={sourceCountryName}
                   destinationCountryName={destinationCountryName}
                 />
               </>
@@ -97,7 +102,7 @@ function Results() {
                 <People /> Population
               </>
             }
-            text={population}
+            text={destinationPopulation}
           />
           <DashboardCard
             className="infoCard"
@@ -109,7 +114,7 @@ function Results() {
                 <AccessTime /> Time Zone
               </>
             }
-            text={timeZones}
+            text={destinationTimeZones}
           />
           <DashboardCard
             className="infoCard"
@@ -121,7 +126,7 @@ function Results() {
                 <Language /> Languages
               </>
             }
-            text={languages}
+            text={destinationLanguages}
           />
           <DashboardCard
             className="infoCard"
@@ -153,8 +158,8 @@ function Results() {
             }
             text={
               <>
-                {capital}
-                {", "} {name}
+                {destinationCapital}
+                {", "} {destinationCountryName}
               </>
             }
           />
@@ -171,9 +176,8 @@ function Results() {
             text={
               <>
                 <CurrencyConverter
-
-                // passportCode={passportCurrencyCodes}
-                // destCode={destinationCurrencyCodes}
+                // passportCode={sourceCurrencyCode}
+                // destCode={destinationCurrencyCode}
                 />
               </>
             }

@@ -30,11 +30,7 @@ function Map(props) {
   const cesiumRef = useRef(null);
 
   useEffect(() => {
-    if (
-      cesiumRef.current &&
-      cesiumRef.current.cesiumElement &&
-      props.passportCountryInfo
-    ) {
+    if (cesiumRef.current && cesiumRef.current.cesiumElement) {
       const stop = JulianDate.fromDate(new Date());
       const start = JulianDate.addSeconds(stop, -360, new JulianDate());
 
@@ -107,7 +103,6 @@ function Map(props) {
       });
     }
   }, [
-    props.passportCountryInfo,
     props.passportCountryName,
     props.destinationCountryName,
     props.passportCapitalLat,
@@ -116,11 +111,11 @@ function Map(props) {
     props.destinationCapitalLng,
   ]);
 
-  let passportLableEntity;
+  let passportLabelEntity;
   if (props.passportCapitalLat && props.passportCapitalLat) {
-    passportLableEntity = (
+    passportLabelEntity = (
       <Entity
-        name="LabelGrap"
+        name="LabelGraphic"
         description="LabelGraphics!!"
         position={Cartesian3.fromDegrees(
           props.passportCapitalLng,
@@ -160,11 +155,11 @@ function Map(props) {
       />
     );
   }
-  let destinationLableEntity;
+  let destinationLabelEntity;
   if (props.destinationCapitalLat && props.destinationCapitalLat) {
-    destinationLableEntity = (
+    destinationLabelEntity = (
       <Entity
-        name="LabelGrap"
+        name="LabelGraphic"
         description="LabelGraphics!!"
         position={Cartesian3.fromDegrees(
           props.destinationCapitalLng,
@@ -229,8 +224,8 @@ function Map(props) {
       >
         {cameraFly}
         {lineEntity}
-        {passportLableEntity}
-        {destinationLableEntity}
+        {passportLabelEntity}
+        {destinationLabelEntity}
       </Viewer>
     </>
   );
@@ -240,7 +235,6 @@ export default Map;
 
 Map.propTypes = {
   id: PropTypes.string,
-  passportCountryInfo: PropTypes.object,
   passportCountryName: PropTypes.string,
   destinationCountryName: PropTypes.string,
   passportCapitalLat: PropTypes.number,
