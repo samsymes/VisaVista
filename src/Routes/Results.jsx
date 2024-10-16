@@ -38,9 +38,10 @@ function Results() {
   const [sourceCountryInfo, setSourceCountryInfo] = useState(null);
   useEffect(() => {
     RestCountriesService.getCountryInfo(From, To).then(
-      ({ destinationCountryInfo, sourceCountryInfo }) => {
-        setDestinationCountryInfo(destinationCountryInfo);
-        setSourceCountryInfo(sourceCountryInfo);
+      ({ destinationCountry, sourceCountry }) => {
+        // FIX IT: go up steam and get the first element of the array
+        setDestinationCountryInfo(destinationCountry[0]);
+        setSourceCountryInfo(sourceCountry[0]);
       }
     );
   }, [From, To]);
@@ -57,7 +58,9 @@ function Results() {
     timeZones: destinationTimeZones = [],
     population: destinationPopulation = [],
     languages: destinationLanguages = [],
+    // FIX IT: lat: destinationLatLng[0]
     lat: destinationLat = 0,
+    // FIX IT: lng: destinationLatLng[1]
     lng: destinationLng = 0,
     currencies: destinationCurrencyCode = [],
     currencySymbol: destinationCurrencySymbol = [],
@@ -65,7 +68,9 @@ function Results() {
 
   const {
     name: sourceCountryName = "",
+    // FIX IT: lat: sourceLatLng[0]
     lat: sourceLat = 0,
+    // FIX IT: lng: sourceLatLng[1]
     lng: sourceLng = 0,
     currencies: sourceCurrencyCode = [],
     currencySymbol: sourceCurrencySymbol = [],
